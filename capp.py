@@ -1,6 +1,7 @@
 import os
 import streamlit as st
 from include.tree import build_tree, render_tree
+from include.search_bar import render_search_bar
 
 # --- Main App ---
 st.set_page_config(page_title="Directory Tree (wxTree style)", layout="wide")
@@ -11,19 +12,62 @@ if "selected" not in st.session_state:
 
 root_path = os.getcwd()
 
-# --- Filter input and search button (label left of input) ---
-label_col, input_col, btn_col, _ = st.columns([0.03, 0.22, 0.11, 0.58])
-with label_col:
-    st.markdown(
-        "<div style='display:flex;align-items:center;height:32px;text-align:left;font-size:1rem;'>Filter:</div>",
-        unsafe_allow_html=True
-    )
-with input_col:
-    filter_value = st.text_input("", key="filter", label_visibility="collapsed")
-with btn_col:
-    search_clicked = st.button("Search", key="search-btn")
+# --- Persistent search mode using session state ---
+if "search_active" not in st.session_state:
+    st.session_state["search_active"] = False
+if "search_filter" not in st.session_state:
+    st.session_state["search_filter"] = ""
+if "filter" not in st.session_state:
+    st.session_state["filter"] = "comm"
 
-tree = build_tree(root_path)
+# --- Render search bar ---
+filter_value, search_clicked, reset_clicked = render_search_bar()
+
+# Handle reset button click
+if reset_clicked:
+    st.session_state["search_active"] = False
+    st.session_state["search_filter"] = ""
+def build_filtered_tree(path, filter_text):
+    filter_text = filter_text.lower()
+    tree = []
+    try:
+        entries = sorted(os.listdir(path), key=lambda x: (not os.path.isdir(os.path.join(path, x)), x.lower()))
+    except PermissionError:
+        return tree
+    for entry in entries:
+        full_path = os.path.join(path, entry)
+        if os.path.isdir(full_path):
+            children = build_filtered_tree(full_path, filter_text)
+            if children:
+                tree.append({
+                    "type": "dir",
+                    "name": entry,
+                    "path": full_path,
+                    "children": children
+                })
+        else:
+            if filter_text in entry.lower():
+                tree.append({
+                    "type": "file",
+                    "name": entry,
+                    "path": full_path
+                })
+    return tree
+
+# Persistent search mode using session state
+if "search_active" not in st.session_state:
+    st.session_state["search_active"] = False
+if "search_filter" not in st.session_state:
+    st.session_state["search_filter"] = ""
+
+elif search_clicked and filter_value.strip():
+    st.session_state["search_active"] = True
+    st.session_state["search_filter"] = filter_value.strip()
+
+if st.session_state["search_active"] and st.session_state["search_filter"]:
+    tree = build_filtered_tree(root_path, st.session_state["search_filter"])
+else:
+    tree = build_tree(root_path)
 
 st.markdown(
     """

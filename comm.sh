@@ -7,3 +7,5 @@ if [ -n "$1" ]; then
 else
     python3 git_push.py
 fi
+
+python3 print_last_commit_url.py
