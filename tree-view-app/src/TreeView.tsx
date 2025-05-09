@@ -130,7 +130,11 @@ const TreeView: React.FC<TreeViewProps> = ({
                 ? "bold"
                 : (isDir && /\/public\/MENU\//.test(node.path))
                   ? "bold"
-                  : "normal"
+                  : "normal",
+            color:
+              isDir && /\/public\/MENU\/PAGE_\d+\//.test(node.path)
+                ? "#333"
+                : undefined
           }}>
             {node.name}
           </span>
