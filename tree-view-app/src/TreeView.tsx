@@ -10,9 +10,10 @@ type TreeNode = {
 type TreeViewProps = {
   dataUrl: string;
   filter?: string;
+  onFileDoubleClick?: (node: TreeNode) => void;
 };
 
-const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter }) => {
+const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter, onFileDoubleClick }) => {
   const [tree, setTree] = useState<TreeNode | null>(null);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [selected, setSelected] = useState<string | null>(null);
@@ -75,6 +76,16 @@ const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter }) => {
           onClick={() => {
             handleSelect(node.path);
             if (isDir) toggleExpand(node.path);
+          }}
+          onDoubleClick={() => {
+            if (selected === node.path) {
+              setSelected(null);
+            } else {
+              setSelected(node.path);
+            }
+            if (!isDir && onFileDoubleClick) {
+              onFileDoubleClick(node);
+            }
           }}
         >
           {isDir ? (

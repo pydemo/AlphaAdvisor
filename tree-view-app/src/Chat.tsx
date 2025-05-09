@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 
-const Chat: React.FC = () => {
-  const [messages, setMessages] = useState<{ text: string; from: "user" | "bot" }[]>([]);
+type ChatMessage = { text: string; from: "user" | "bot" | "log" };
+
+type ChatProps = {
+  messages: ChatMessage[];
+  onSendMessage: (text: string) => void;
+};
+
+const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
   const [input, setInput] = useState("");
 
   const handleSend = () => {
     if (input.trim() === "") return;
-    setMessages([...messages, { text: input, from: "user" }]);
+    onSendMessage(input);
     setInput("");
-    // Placeholder: echo back the message
-    setTimeout(() => {
-      setMessages((msgs) => [...msgs, { text: "Echo: " + input, from: "bot" }]);
-    }, 500);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -47,12 +49,18 @@ const Chat: React.FC = () => {
             <span
               style={{
                 display: "inline-block",
-                background: msg.from === "user" ? "#cce5ff" : "#e2e3e5",
+                background:
+                  msg.from === "user"
+                    ? "#cce5ff"
+                    : msg.from === "log"
+                    ? "#ffeeba"
+                    : "#e2e3e5",
                 color: "#222",
                 borderRadius: 8,
                 padding: "6px 12px",
                 maxWidth: "70%",
                 wordBreak: "break-word",
+                fontStyle: msg.from === "log" ? "italic" : undefined,
               }}
             >
               {msg.text}
