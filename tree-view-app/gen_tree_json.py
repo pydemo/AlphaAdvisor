@@ -6,7 +6,10 @@ EXCLUDE = [
     ".git",           # Example: exclude .git directory
     "node_modules",   # Example: exclude node_modules
     # Add more names to exclude as needed
-    "tree-view-app"
+    "tree-view-app",
+    ".claude",
+    'include'
+
 ]
 
 def build_tree(path):

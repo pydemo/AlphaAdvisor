@@ -20,6 +20,21 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
     if (e.key === "Enter") handleSend();
   };
 
+  // Handler for textarea keydown
+  const handleTextareaKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (
+      e.key === "Enter" &&
+      !e.shiftKey &&
+      !e.ctrlKey &&
+      !e.altKey &&
+      !e.metaKey
+    ) {
+      e.preventDefault();
+      handleSend();
+    }
+    // If any modifier is pressed, allow default (insert newline)
+  };
+
   return (
     <div
       style={{
@@ -61,6 +76,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                 maxWidth: "70%",
                 wordBreak: "break-word",
                 fontStyle: msg.from === "log" ? "italic" : undefined,
+                whiteSpace: "pre-line",
               }}
             >
               {msg.text}
@@ -69,11 +85,10 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
         ))}
       </div>
       <div style={{ display: "flex" }}>
-        <input
-          type="text"
+        <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
+          onKeyDown={handleTextareaKeyDown}
           placeholder="Type a message..."
           style={{
             flex: 1,
@@ -82,6 +97,10 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
             borderRadius: 4,
             border: "1px solid #bbb",
             marginRight: 8,
+            resize: "vertical",
+            minHeight: 36,
+            maxHeight: 120,
+            lineHeight: 1.4,
           }}
         />
         <button

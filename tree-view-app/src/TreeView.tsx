@@ -11,12 +11,13 @@ type TreeViewProps = {
   dataUrl: string;
   filter?: string;
   onFileDoubleClick?: (node: TreeNode) => void;
+  selectedPaths?: string[];
 };
 
-const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter, onFileDoubleClick }) => {
+const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter, onFileDoubleClick, selectedPaths = [] }) => {
   const [tree, setTree] = useState<TreeNode | null>(null);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
-  const [selected, setSelected] = useState<string | null>(null);
+  // Removed internal selected state; selection is managed by parent
 
   useEffect(() => {
     fetch(dataUrl)
@@ -36,9 +37,6 @@ const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter, onFileDoubleClick 
     });
   };
 
-  const handleSelect = (path: string) => {
-    setSelected(path);
-  };
 
   // Recursively filter the tree to only include nodes matching the filter or with matching descendants
   function filterTree(node: TreeNode, filterStr: string): TreeNode | null {
@@ -66,7 +64,7 @@ const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter, onFileDoubleClick 
         <div
           style={{
             cursor: "pointer",
-            background: selected === node.path ? "#cce5ff" : undefined,
+            background: selectedPaths.includes(node.path) ? "#cce5ff" : undefined,
             borderRadius: 4,
             padding: "2px 4px",
             display: "flex",
@@ -74,15 +72,9 @@ const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter, onFileDoubleClick 
             userSelect: "none",
           }}
           onClick={() => {
-            handleSelect(node.path);
             if (isDir) toggleExpand(node.path);
           }}
           onDoubleClick={() => {
-            if (selected === node.path) {
-              setSelected(null);
-            } else {
-              setSelected(node.path);
-            }
             if (!isDir && onFileDoubleClick) {
               onFileDoubleClick(node);
             }
@@ -95,7 +87,7 @@ const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter, onFileDoubleClick 
           ) : (
             <span style={{ width: 16, display: "inline-block" }} />
           )}
-          <span>{node.name}</span>
+          <span style={{ fontWeight: selectedPaths.includes(node.path) ? "bold" : "normal" }}>{node.name}</span>
         </div>
         {isDir && isOpen && node.children && (
           <div>

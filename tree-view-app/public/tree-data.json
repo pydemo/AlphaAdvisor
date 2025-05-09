@@ -4,18 +4,6 @@
   "type": "directory",
   "children": [
     {
-      "name": ".claude",
-      "path": "/home/alexb/myg/cla_2/.claude",
-      "type": "directory",
-      "children": [
-        {
-          "name": "settings.local.json",
-          "path": "/home/alexb/myg/cla_2/.claude/settings.local.json",
-          "type": "file"
-        }
-      ]
-    },
-    {
       "name": ".gitignore",
       "path": "/home/alexb/myg/cla_2/.gitignore",
       "type": "file"
@@ -403,55 +391,6 @@
       "name": "image.png",
       "path": "/home/alexb/myg/cla_2/image.png",
       "type": "file"
-    },
-    {
-      "name": "include",
-      "path": "/home/alexb/myg/cla_2/include",
-      "type": "directory",
-      "children": [
-        {
-          "name": "__pycache__",
-          "path": "/home/alexb/myg/cla_2/include/__pycache__",
-          "type": "directory",
-          "children": [
-            {
-              "name": "chat.cpython-312.pyc",
-              "path": "/home/alexb/myg/cla_2/include/__pycache__/chat.cpython-312.pyc",
-              "type": "file"
-            },
-            {
-              "name": "search_bar.cpython-312.pyc",
-              "path": "/home/alexb/myg/cla_2/include/__pycache__/search_bar.cpython-312.pyc",
-              "type": "file"
-            },
-            {
-              "name": "tree.cpython-312.pyc",
-              "path": "/home/alexb/myg/cla_2/include/__pycache__/tree.cpython-312.pyc",
-              "type": "file"
-            }
-          ]
-        },
-        {
-          "name": "chat.py",
-          "path": "/home/alexb/myg/cla_2/include/chat.py",
-          "type": "file"
-        },
-        {
-          "name": "search_bar.py",
-          "path": "/home/alexb/myg/cla_2/include/search_bar.py",
-          "type": "file"
-        },
-        {
-          "name": "tree copy.py",
-          "path": "/home/alexb/myg/cla_2/include/tree copy.py",
-          "type": "file"
-        },
-        {
-          "name": "tree.py",
-          "path": "/home/alexb/myg/cla_2/include/tree.py",
-          "type": "file"
-        }
-      ]
     },
     {
       "name": "print_last_commit_url.py",

@@ -54,9 +54,19 @@ function App() {
   // Called when user sends a chat message
   const handleSendMessage = (text: string) => {
     setChatMessages((prev) => [...prev, { text, from: "user" }]);
-    // Placeholder: echo back
+    // Capture selected files/dirs at the time of sending
+    const selectedList = selectedObjects.map(obj => obj.name).join("\n");
     setTimeout(() => {
-      setChatMessages((prev) => [...prev, { text: "Echo: " + text, from: "bot" }]);
+      setChatMessages((prev) => [
+        ...prev,
+        {
+          text:
+            selectedList
+              ? `Echo:\n${selectedList}\n${text}`
+              : `Echo:\n${text}`,
+          from: "bot"
+        }
+      ]);
     }, 500);
   };
 
@@ -104,6 +114,7 @@ function App() {
             dataUrl="/tree-data.json"
             filter={search}
             onFileDoubleClick={handleFileDoubleClick}
+            selectedPaths={selectedObjects.map((obj) => obj.path)}
           />
         </div>
         {/* Optionally, show selected objects */}
