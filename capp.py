@@ -37,27 +37,30 @@ def render_tree(tree, level=0, key_prefix=""):
                 st.session_state[exp_key] = False
             cols = st.columns([spacer, 0.93 - spacer])
             with cols[1]:
-                toggle = st.checkbox(
-                    "",
-                    value=st.session_state[exp_key],
-                    key=f"chk-{exp_key}",
-                    label_visibility="collapsed"
-                )
-                label = f"{'➖' if toggle else '➕'} 📁 {node['name']}"
-                if st.button(
-                    label,
-                    key=f"select-dir-{node_key}",
-                    help=node['path']
-                ):
-                    if st.session_state.get('selected') == node['path']:
-                        st.session_state['selected'] = None
-                    else:
-                        st.session_state['selected'] = node['path']
-                if st.session_state.get('selected') == node['path']:
-                    st.markdown(
-                        f"<span class='tree-highlight-dir'>[DIR] {node['name']} (selected)</span>",
-                        unsafe_allow_html=True
+                inner_cols = st.columns([0.025, 0.975])
+                with inner_cols[0]:
+                    toggle = st.checkbox(
+                        "",
+                        value=st.session_state[exp_key],
+                        key=f"chk-{exp_key}",
+                        label_visibility="collapsed"
                     )
+                with inner_cols[1]:
+                    label = f"{'➖' if toggle else '➕'} 📁 {node['name']}"
+                    if st.button(
+                        label,
+                        key=f"select-dir-{node_key}",
+                        help=node['path']
+                    ):
+                        if st.session_state.get('selected') == node['path']:
+                            st.session_state['selected'] = None
+                        else:
+                            st.session_state['selected'] = node['path']
+                    if st.session_state.get('selected') == node['path']:
+                        st.markdown(
+                            f"<span class='tree-highlight-dir'>[DIR] {node['name']} (selected)</span>",
+                            unsafe_allow_html=True
+                        )
             if toggle:
                 render_tree(node["children"], level=level+1, key_prefix=node_key)
         else:
