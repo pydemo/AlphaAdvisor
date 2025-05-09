@@ -8,6 +8,18 @@ def render_chat():
             {"role": "user", "content": "Hello!"},
             {"role": "assistant", "content": "Hi, how can I help you?"}
         ]
+    # Show selection in chat if changed
+    selected = st.session_state.get("selected")
+    if "last_chat_selection" not in st.session_state:
+        st.session_state["last_chat_selection"] = None
+    if selected and selected != st.session_state["last_chat_selection"]:
+        st.session_state["chat_messages"].append(
+            {"role": "assistant", "content": f"Selected: {selected}"}
+        )
+        st.session_state["last_chat_selection"] = selected
+    elif not selected and st.session_state["last_chat_selection"]:
+        st.session_state["last_chat_selection"] = None
+
     # Scrollable chat area with fixed width and height
     chat_container_style = """
         <div style="
