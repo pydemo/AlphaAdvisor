@@ -9,9 +9,10 @@ type TreeNode = {
 
 type TreeViewProps = {
   dataUrl: string;
+  filter?: string;
 };
 
-const TreeView: React.FC<TreeViewProps> = ({ dataUrl }) => {
+const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter }) => {
   const [tree, setTree] = useState<TreeNode | null>(null);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [selected, setSelected] = useState<string | null>(null);
@@ -38,9 +39,26 @@ const TreeView: React.FC<TreeViewProps> = ({ dataUrl }) => {
     setSelected(path);
   };
 
+  // Recursively filter the tree to only include nodes matching the filter or with matching descendants
+  function filterTree(node: TreeNode, filterStr: string): TreeNode | null {
+    if (!filterStr) return node;
+    const match = node.name.toLowerCase().includes(filterStr.toLowerCase());
+    if (node.type === "file") {
+      return match ? node : null;
+    }
+    // Directory: filter children
+    const filteredChildren = (node.children || [])
+      .map((child) => filterTree(child, filterStr))
+      .filter(Boolean) as TreeNode[];
+    if (match || filteredChildren.length > 0) {
+      return { ...node, children: filteredChildren };
+    }
+    return null;
+  }
+
   const renderTree = (node: TreeNode) => {
     const isDir = node.type === "directory";
-    const isOpen = expanded.has(node.path);
+    const isOpen = expanded.has(node.path) || (filter && filter.length > 0); // auto-expand on filter
 
     return (
       <div key={node.path} style={{ marginLeft: 16 }}>
@@ -79,9 +97,13 @@ const TreeView: React.FC<TreeViewProps> = ({ dataUrl }) => {
 
   if (!tree) return <div>Loading...</div>;
 
+  // Apply filter if present
+  const filteredTree = filter && filter.length > 0 ? filterTree(tree, filter) : tree;
+  if (!filteredTree) return <div>No results found.</div>;
+
   return (
     <div>
-      {renderTree(tree)}
+      {renderTree(filteredTree)}
     </div>
   );
 };
