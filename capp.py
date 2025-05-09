@@ -134,6 +134,17 @@ if st.session_state.get("selected"):
 render_tree(tree)
 
 if st.session_state.get("selected"):
+    # Queue selection for chat if changed
+    if "chat_selection_queue" not in st.session_state:
+        st.session_state["chat_selection_queue"] = []
+    if "chat_selection_last" not in st.session_state:
+        st.session_state["chat_selection_last"] = None
+    if (
+        st.session_state["selected"]
+        and st.session_state["selected"] != st.session_state["chat_selection_last"]
+    ):
+        st.session_state["chat_selection_queue"].append(st.session_state["selected"])
+        st.session_state["chat_selection_last"] = st.session_state["selected"]
     st.success(f"Selected: {st.session_state['selected']}")
 else:
     st.info("Select a file or directory from the tree.")
