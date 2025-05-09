@@ -26,6 +26,9 @@ const TreeView: React.FC<TreeViewProps> = ({
 }) => {
   const [tree, setTree] = useState<TreeNode | null>(null);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  // Popup state for creating a new dir under MENU
+  const [createMenuDir, setCreateMenuDir] = useState<{ parentPath: string; open: boolean }>({ parentPath: "", open: false });
+  const [newDirName, setNewDirName] = useState("");
   // Removed internal selected state; selection is managed by parent
 
   useEffect(() => {
@@ -131,20 +134,46 @@ const TreeView: React.FC<TreeViewProps> = ({
                 : (isDir && /\/public\/MENU\//.test(node.path))
                   ? "bold"
                   : "normal",
-  
-color:
-  isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\/[^/]+\//.test(node.path)
-    ? "#5b88c4"
-    : isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\//.test(node.path)
-    ? "#6c9c6a"
-    : isDir && /\/MENU\/.*\/PAGE_\d+\//.test(node.path)
-    ? "blue"
-    : isDir && /\/MENU\/.*\//.test(node.path)
-    ? "orange" // faded green
-    : undefined
+            color:
+              isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\/[^/]+\//.test(node.path)
+                ? "#5b88c4"
+                : isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\//.test(node.path)
+                ? "#6c9c6a"
+                : isDir && /\/MENU\/.*\/PAGE_\d+\//.test(node.path)
+                ? "blue"
+                : isDir && /\/MENU\/.*\//.test(node.path)
+                ? "orange"
+                : undefined
           }}>
             {node.name}
           </span>
+          {/* "+" button for MENU section dirs */}
+          {isDir && /\/public\/MENU\/[^/]+$/.test(node.path) && (
+            <button
+              style={{
+                marginLeft: 6,
+                fontSize: 13,
+                padding: "0 6px",
+                borderRadius: "50%",
+                border: "1px solid #aaa",
+                background: "#f5f5f5",
+                color: "#333",
+                cursor: "pointer",
+                height: 22,
+                width: 22,
+                lineHeight: "18px",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+              title="Add subdirectory"
+              onClick={e => {
+                e.stopPropagation();
+                setCreateMenuDir({ parentPath: node.path, open: true });
+                setNewDirName("");
+              }}
+            >+</button>
+          )}
         </div>
         {isDir && isOpen && node.children && (
           <div>
@@ -164,6 +193,74 @@ color:
   return (
     <div>
       {renderTree(filteredTree)}
+      {/* Popup for creating new dir under MENU section */}
+      {createMenuDir.open && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0, left: 0, width: "100vw", height: "100vh",
+            background: "rgba(0,0,0,0.15)",
+            zIndex: 1000,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+          onClick={() => setCreateMenuDir({ parentPath: "", open: false })}
+        >
+          <div
+            style={{
+              background: "#fff",
+              borderRadius: 8,
+              boxShadow: "0 2px 16px rgba(0,0,0,0.18)",
+              padding: 24,
+              minWidth: 320,
+              display: "flex",
+              flexDirection: "column",
+              gap: 12,
+              position: "relative"
+            }}
+            onClick={e => e.stopPropagation()}
+          >
+            <div style={{ fontWeight: "bold", marginBottom: 8 }}>Create new directory under <span style={{ color: "#0074d9" }}>{createMenuDir.parentPath.replace(/^.*\/public\/MENU\//, "MENU/")}</span></div>
+            <input
+              type="text"
+              value={newDirName}
+              onChange={e => setNewDirName(e.target.value)}
+              placeholder="Directory name"
+              style={{ fontSize: 16, padding: "6px 10px", borderRadius: 4, border: "1px solid #bbb" }}
+              autoFocus
+              onKeyDown={e => {
+                if (e.key === "Enter" && newDirName.trim()) {
+                  // TODO: Replace with backend call to create dir
+                  alert(`Would create directory "${newDirName.trim()}" under "${createMenuDir.parentPath}"`);
+                  setCreateMenuDir({ parentPath: "", open: false });
+                }
+              }}
+            />
+            <div style={{ display: "flex", gap: 10, marginTop: 8 }}>
+              <button
+                onClick={() => {
+                  // TODO: Replace with backend call to create dir
+                  if (newDirName.trim()) {
+                    alert(`Would create directory "${newDirName.trim()}" under "${createMenuDir.parentPath}"`);
+                    setCreateMenuDir({ parentPath: "", open: false });
+                  }
+                }}
+                style={{ fontSize: 15, padding: "4px 18px", borderRadius: 4, background: "#0074d9", color: "#fff", border: "none" }}
+                disabled={!newDirName.trim()}
+              >
+                Create
+              </button>
+              <button
+                onClick={() => setCreateMenuDir({ parentPath: "", open: false })}
+                style={{ fontSize: 15, padding: "4px 18px", borderRadius: 4, background: "#eee", color: "#333", border: "1px solid #bbb" }}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
