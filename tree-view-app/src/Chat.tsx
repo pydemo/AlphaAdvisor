@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 type ChatMessage = { text: string; from: "user" | "bot" | "log" };
 
@@ -35,6 +35,46 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
     // If any modifier is pressed, allow default (insert newline)
   };
 
+  // Ref for chat feed container
+  const chatFeedRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to bottom when messages change, including after images load
+  useEffect(() => {
+    const feed = chatFeedRef.current;
+    if (!feed) return;
+
+    // Helper to scroll to bottom
+    const scrollToBottom = () => {
+      feed.scrollTop = feed.scrollHeight;
+    };
+
+    // Scroll immediately (for text or already loaded images)
+    scrollToBottom();
+
+    // For images that may not be loaded yet, scroll after they load
+    const imgs = feed.querySelectorAll("img");
+    let loadedCount = 0;
+    imgs.forEach((img) => {
+      if (img.complete) {
+        loadedCount++;
+      } else {
+        img.addEventListener("load", scrollToBottom);
+        img.addEventListener("error", scrollToBottom);
+      }
+    });
+
+    // If all images are already loaded, no need to do anything else
+    if (imgs.length === loadedCount) return;
+
+    // Cleanup listeners on unmount or messages change
+    return () => {
+      imgs.forEach((img) => {
+        img.removeEventListener("load", scrollToBottom);
+        img.removeEventListener("error", scrollToBottom);
+      });
+    };
+  }, [messages]);
+
   return (
     <div
       style={{
@@ -47,7 +87,10 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
         background: "#fafbfc",
       }}
     >
-      <div style={{ flex: 1, overflowY: "auto", marginBottom: 12 }}>
+      <div
+        ref={chatFeedRef}
+        style={{ flex: 1, overflowY: "auto", marginBottom: 12 }}
+      >
         {messages.length === 0 && (
           <div style={{ color: "#888", textAlign: "center", marginTop: 32 }}>
             Start the conversation...
@@ -64,7 +107,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
             {(msg.from === "log" || msg.from === "bot") && /<img\s/i.test(msg.text) ? (
               <span
                 style={{
-                  display: "inline-block",
+                  display: "block",
                   background:
                     msg.from === "log"
                       ? "#ffeeba"
@@ -72,12 +115,18 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                   color: "#222",
                   borderRadius: 8,
                   padding: "6px 12px",
-                  maxWidth: "70%",
+                  maxWidth: "100%",
                   wordBreak: "break-word",
                   fontStyle: msg.from === "log" ? "italic" : undefined,
                   whiteSpace: "pre-line",
+                  overflowX: "auto"
                 }}
-                dangerouslySetInnerHTML={{ __html: msg.text }}
+                dangerouslySetInnerHTML={{
+                  __html: msg.text.replace(
+                    /<img\s/gi,
+                    '<img style="display:block;width:384px;max-width:100%;height:auto;margin:0;" '
+                  )
+                }}
               />
             ) : (
               <span
