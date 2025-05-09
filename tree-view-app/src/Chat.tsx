@@ -98,8 +98,8 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
             border: "1px solid #bbb",
             marginRight: 8,
             resize: "vertical",
-            minHeight: 36,
-            maxHeight: 120,
+            minHeight: 64,
+            maxHeight: 200,
             lineHeight: 1.4,
           }}
         />

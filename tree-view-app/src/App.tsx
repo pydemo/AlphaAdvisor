@@ -55,7 +55,7 @@ function App() {
   const handleSendMessage = (text: string) => {
     setChatMessages((prev) => [...prev, { text, from: "user" }]);
     // Capture selected files/dirs at the time of sending
-    const selectedList = selectedObjects.map(obj => obj.name).join("\n");
+    const selectedList = selectedObjects.map(obj => obj.path).join("\n");
     setTimeout(() => {
       setChatMessages((prev) => [
         ...prev,
