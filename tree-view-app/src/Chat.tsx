@@ -18,7 +18,8 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
   const handleSend = () => {
     if (input.trim() === "") return;
     onSendMessage(input);
-    setInput("");
+    // Do not clear input after sending
+    // setInput("");
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -165,18 +166,18 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
           </div>
         )}
         {messages.map((msg, i) => (
-          <div
-            key={i}
-            style={{
-              margin: "8px 0",
-              textAlign: msg.from === "user" ? "right" : "left",
-              position: "relative",
-              display: "flex",
-              flexDirection: msg.from === "user" ? "row-reverse" : "row",
-              alignItems: "center",
-            }}
-          >
-            {(msg.from === "log" || msg.from === "bot") && /<img\s/i.test(msg.text) ? (
+          <div key={i} style={{ marginBottom: 0 }}>
+            <div
+              style={{
+                margin: "8px 0",
+                textAlign: msg.from === "user" ? "right" : "left",
+                position: "relative",
+                display: "flex",
+                flexDirection: msg.from === "user" ? "row-reverse" : "row",
+                alignItems: "center",
+              }}
+            >
+              {(msg.from === "log" || msg.from === "bot") && /<img\s/i.test(msg.text) ? (
               <span
                 style={{
                   display: "block",
@@ -313,6 +314,58 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                   </>
                 )}
               </>
+            )}
+            </div>
+            {/* Ask ChatGPT button under echo message */}
+            {msg.from === "bot" && /^Echo:/i.test(msg.text) && (
+              <div
+                style={{
+                  textAlign: "left",
+                  margin: "0 0 8px 0",
+                  paddingLeft: 24,
+                  display: "flex",
+                  alignItems: "center"
+                }}
+              >
+                <button
+                  onClick={async () => {
+                    // Extract text and file paths from echo message
+                    // Echo:\n[file paths]\n[user text]
+                    const lines = msg.text.split("\n").map(l => l.trim()).filter(Boolean);
+                    let files: string[] = [];
+                    let userText = "";
+                    if (lines.length > 1 && lines[0].toLowerCase().startsWith("echo:")) {
+                      // If there are file paths, they are between Echo: and the last line
+                      files = lines.slice(1, -1);
+                      userText = lines[lines.length - 1];
+                    } else if (lines.length === 2 && lines[0].toLowerCase().startsWith("echo:")) {
+                      userText = lines[1];
+                    } else {
+                      userText = msg.text.replace(/^Echo:\s*/i, "");
+                    }
+                    // Placeholder: simulate API call and response
+                    // TODO: Replace with real multimodal OpenAI API call
+                    const reply = `ChatGPT multimodal (simulated):\nText: ${userText}\nFiles: ${files.join(", ") || "none"}`;
+                    // Add response to chat
+                    if (typeof onSendMessage === "function") {
+                      onSendMessage(reply);
+                    }
+                  }}
+                  style={{
+                    fontSize: 15,
+                    padding: "4px 14px",
+                    borderRadius: 4,
+                    background: "#10a37f",
+                    color: "#fff",
+                    border: "none",
+                    cursor: "pointer",
+                    marginTop: 2,
+                    marginBottom: 2,
+                  }}
+                >
+                  Ask ChatGPT
+                </button>
+              </div>
             )}
           </div>
         ))}
