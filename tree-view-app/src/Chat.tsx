@@ -78,6 +78,10 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
   // State to track which message was just copied
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
 
+  // State for preview modal
+  const [previewContent, setPreviewContent] = useState<string | null>(null);
+  const [previewTitle, setPreviewTitle] = useState<string>("");
+
   // Copy handler
   const handleCopy = async (text: string, idx: number) => {
     // Remove "Echo:", "Selected file:", or "Deselected file:" prefix if present (case-insensitive, optional whitespace)
@@ -88,6 +92,39 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
       setTimeout(() => setCopiedIdx(null), 1200);
     } catch (e) {
       // fallback or error handling could go here
+    }
+  };
+
+  // Preview handler for JSON files
+  const handlePreview = async (msgText: string) => {
+    // Extract file path from "Selected file: ..." message
+    const match = msgText.match(/^Selected file:\s*(.+\.json)$/i);
+    if (match) {
+      let filePath = match[1].trim();
+      // Always use /MENU/... as fetch path if present
+      const menuIdx = filePath.indexOf("MENU/");
+      if (menuIdx !== -1) {
+        filePath = "/" + filePath.slice(menuIdx);
+      } else if (!filePath.startsWith("/")) {
+        filePath = "/" + filePath;
+      }
+      try {
+        const res = await fetch(filePath, { headers: { Accept: "application/json" } });
+        if (!res.ok) throw new Error("Failed to fetch file");
+        const text = await res.text();
+        // Try to pretty-print JSON, fallback to raw text if not valid JSON
+        let displayText = text;
+        try {
+          displayText = JSON.stringify(JSON.parse(text), null, 2);
+        } catch {
+          // Not valid JSON, show as-is
+        }
+        setPreviewTitle(filePath.split("/").pop() || filePath);
+        setPreviewContent(displayText);
+      } catch (e) {
+        setPreviewTitle("Error");
+        setPreviewContent("Could not load file.");
+      }
     }
   };
 
@@ -171,28 +208,119 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                   {msg.text}
                 </span>
                 {(msg.from === "bot" || msg.from === "log") && (
-                  <button
-                    onClick={() => handleCopy(msg.text, i)}
-                    style={{
-                      marginLeft: 8,
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      fontSize: 18,
-                      color: "#007bff",
-                      padding: 2,
-                      position: "relative",
-                    }}
-                    title="Copy to clipboard"
-                  >
-                    {copiedIdx === i ? "✔️" : "📋"}
-                  </button>
+                  <>
+                    <button
+                      onClick={() => handleCopy(msg.text, i)}
+                      style={{
+                        marginLeft: 8,
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        fontSize: 18,
+                        color: "#007bff",
+                        padding: 2,
+                        position: "relative",
+                      }}
+                      title="Copy to clipboard"
+                    >
+                      {copiedIdx === i ? "✔️" : "📋"}
+                    </button>
+                    {/* Preview button for JSON file selection */}
+                    {/^Selected file:\s*.+\.json$/i.test(msg.text) && (
+                      <button
+                        onClick={() => handlePreview(msg.text)}
+                        style={{
+                          marginLeft: 4,
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          fontSize: 16,
+                          color: "#28a745",
+                          padding: 2,
+                          position: "relative",
+                        }}
+                        title="Preview JSON"
+                      >
+                        Preview
+                      </button>
+                    )}
+                  </>
                 )}
               </>
             )}
           </div>
         ))}
       </div>
+      {/* Preview Modal */}
+      {previewContent !== null && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(0,0,0,0.35)",
+            zIndex: 1000,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onClick={() => setPreviewContent(null)}
+        >
+          <div
+            style={{
+              background: "#fff",
+              borderRadius: 8,
+              boxShadow: "0 2px 16px rgba(0,0,0,0.2)",
+              padding: 24,
+              minWidth: 320,
+              maxWidth: "80vw",
+              maxHeight: "80vh",
+              overflow: "auto",
+              position: "relative",
+            }}
+            onClick={e => e.stopPropagation()}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+              <b>{previewTitle}</b>
+              <button
+                onClick={() => setPreviewContent(null)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "#c00",
+                  fontWeight: "bold",
+                  fontSize: 20,
+                  cursor: "pointer",
+                  marginLeft: 12,
+                }}
+                title="Close"
+                aria-label="Close preview"
+              >
+                ×
+              </button>
+            </div>
+            <pre
+              style={{
+                background: "#f6f8fa",
+                borderRadius: 4,
+                padding: 12,
+                fontSize: 14,
+                maxHeight: "60vh",
+                overflow: "auto",
+                whiteSpace: "pre-wrap",
+                wordBreak: "break-all",
+                textAlign: "left",
+                fontFamily: "monospace",
+                margin: 0,
+              }}
+            >
+              {previewContent}
+            </pre>
+          </div>
+        </div>
+      )}
       <div style={{ display: "flex" }}>
         <textarea
           value={input}
