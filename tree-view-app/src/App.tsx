@@ -44,10 +44,24 @@ function App() {
         ];
       }
       // Select message
-      return [
+      const newMessages: ChatMessage[] = [
         ...prev,
-        { text: `Selected file: ${node.path}`, from: "log" },
+        { text: `Selected file: ${node.path}`, from: "log" as const },
       ];
+      if (/\.(png|jpe?g)$/i.test(node.path)) {
+        // Use the actual file path for the image source
+        let imgSrc;
+        if (node.path.includes('/MENU')) {
+          imgSrc = `/MENU${node.path.split('/MENU')[1]}`;
+        } else {
+          imgSrc = `/${node.path.replace(/^(\.\/|\/)/, '')}`;
+        }
+        newMessages.push({
+          text: `<img src="${imgSrc}" alt="${node.name}" style="width:64px;max-width:100%;border-radius:4px;border:1px solid #ccc;margin-top:4px;" />`,
+          from: "bot" as const
+        });
+      }
+      return newMessages;
     });
   };
 

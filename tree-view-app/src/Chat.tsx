@@ -61,26 +61,46 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
               textAlign: msg.from === "user" ? "right" : "left",
             }}
           >
-            <span
-              style={{
-                display: "inline-block",
-                background:
-                  msg.from === "user"
-                    ? "#cce5ff"
-                    : msg.from === "log"
-                    ? "#ffeeba"
-                    : "#e2e3e5",
-                color: "#222",
-                borderRadius: 8,
-                padding: "6px 12px",
-                maxWidth: "70%",
-                wordBreak: "break-word",
-                fontStyle: msg.from === "log" ? "italic" : undefined,
-                whiteSpace: "pre-line",
-              }}
-            >
-              {msg.text}
-            </span>
+            {(msg.from === "log" || msg.from === "bot") && /<img\s/i.test(msg.text) ? (
+              <span
+                style={{
+                  display: "inline-block",
+                  background:
+                    msg.from === "log"
+                      ? "#ffeeba"
+                      : "#e2e3e5",
+                  color: "#222",
+                  borderRadius: 8,
+                  padding: "6px 12px",
+                  maxWidth: "70%",
+                  wordBreak: "break-word",
+                  fontStyle: msg.from === "log" ? "italic" : undefined,
+                  whiteSpace: "pre-line",
+                }}
+                dangerouslySetInnerHTML={{ __html: msg.text }}
+              />
+            ) : (
+              <span
+                style={{
+                  display: "inline-block",
+                  background:
+                    msg.from === "user"
+                      ? "#cce5ff"
+                      : msg.from === "log"
+                      ? "#ffeeba"
+                      : "#e2e3e5",
+                  color: "#222",
+                  borderRadius: 8,
+                  padding: "6px 12px",
+                  maxWidth: "70%",
+                  wordBreak: "break-word",
+                  fontStyle: msg.from === "log" ? "italic" : undefined,
+                  whiteSpace: "pre-line",
+                }}
+              >
+                {msg.text}
+              </span>
+            )}
           </div>
         ))}
       </div>
@@ -98,7 +118,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
             border: "1px solid #bbb",
             marginRight: 8,
             resize: "vertical",
-            minHeight: 64,
+            minHeight: 164,
             maxHeight: 200,
             lineHeight: 1.4,
           }}
