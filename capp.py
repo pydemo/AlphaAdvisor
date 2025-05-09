@@ -1,86 +1,6 @@
 import os
 import streamlit as st
-
-# --- Utility to build the directory tree as a nested dict ---
-def build_tree(path):
-    tree = []
-    try:
-        entries = sorted(os.listdir(path), key=lambda x: (not os.path.isdir(os.path.join(path, x)), x.lower()))
-    except PermissionError:
-        return tree
-    for entry in entries:
-        full_path = os.path.join(path, entry)
-        if os.path.isdir(full_path):
-            tree.append({
-                "type": "dir",
-                "name": entry,
-                "path": full_path,
-                "children": build_tree(full_path)
-            })
-        else:
-            tree.append({
-                "type": "file",
-                "name": entry,
-                "path": full_path
-            })
-    return tree
-
-# --- Recursive rendering of the tree using toggles and indentation ---
-def render_tree(tree, level=0, key_prefix=""):
-    for idx, node in enumerate(tree):
-        node_key = f"{key_prefix}-{node['name']}-{idx}"
-        indent_px = 16 * level  # 16px per level
-        spacer = max(0.01, indent_px / 200.0)
-        if node["type"] == "dir":
-            exp_key = f"exp-{node_key}"
-            if exp_key not in st.session_state:
-                st.session_state[exp_key] = False
-            cols = st.columns([spacer, 0.93 - spacer])
-            with cols[1]:
-                inner_cols = st.columns([0.025, 0.975])
-                with inner_cols[0]:
-                    toggle = st.checkbox(
-                        "",
-                        value=st.session_state[exp_key],
-                        key=f"chk-{exp_key}",
-                        label_visibility="collapsed"
-                    )
-                with inner_cols[1]:
-                    label = f"{'➖' if toggle else '➕'} 📁 {node['name']}"
-                    if st.button(
-                        label,
-                        key=f"select-dir-{node_key}",
-                        help=node['path']
-                    ):
-                        if st.session_state.get('selected') == node['path']:
-                            st.session_state['selected'] = None
-                        else:
-                            st.session_state['selected'] = node['path']
-                    if st.session_state.get('selected') == node['path']:
-                        st.markdown(
-                            f"<span class='tree-highlight-dir'>[DIR] {node['name']} (selected)</span>",
-                            unsafe_allow_html=True
-                        )
-            if toggle:
-                render_tree(node["children"], level=level+1, key_prefix=node_key)
-        else:
-            cols = st.columns([spacer, 0.99 - spacer])
-            with cols[1]:
-                label = f"📄 {node['name']}"
-                if st.button(
-                    label,
-                    key=f"select-file-{node_key}",
-                    help=node['path']
-                ):
-                    if st.session_state.get('selected') == node['path']:
-                        st.session_state['selected'] = None
-                    else:
-                        st.session_state['selected'] = node['path']
-                if st.session_state.get('selected') == node['path']:
-                    st.markdown(
-                        f"<span class='tree-highlight-file'>[FILE] {node['name']} (selected)</span>",
-                        unsafe_allow_html=True
-                    )
+from include.tree import build_tree, render_tree
 
 # --- Main App ---
 st.set_page_config(page_title="Directory Tree (wxTree style)", layout="wide")
@@ -90,6 +10,19 @@ if "selected" not in st.session_state:
     st.session_state["selected"] = None
 
 root_path = os.getcwd()
+
+# --- Filter input and search button (label left of input) ---
+label_col, input_col, btn_col, _ = st.columns([0.03, 0.22, 0.11, 0.58])
+with label_col:
+    st.markdown(
+        "<div style='display:flex;align-items:center;height:32px;text-align:left;font-size:1rem;'>Filter:</div>",
+        unsafe_allow_html=True
+    )
+with input_col:
+    filter_value = st.text_input("", key="filter", label_visibility="collapsed")
+with btn_col:
+    search_clicked = st.button("Search", key="search-btn")
+
 tree = build_tree(root_path)
 
 st.markdown(
@@ -100,10 +33,11 @@ st.markdown(
         width: 100%;
         border-radius: 2px;
         margin-bottom: 1px;
-        font-size: 0.85rem !important;
+        font-size: 0.95rem !important;
         padding: 2px 6px !important;
-        min-height: 22px !important;
-        height: 22px !important;
+        min-height: 36px !important;
+        height: 36px !important;
+        width: 136px !important;
     }
     .stButton>button:hover {
         background: #e3f2fd;
