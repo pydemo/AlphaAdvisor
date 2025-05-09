@@ -12,19 +12,24 @@ def run_git_command(command):
         return False
 
 def main():
+    # Get commit message from command-line argument if provided
+    if len(sys.argv) > 1:
+        commit_message = sys.argv[1]
+    else:
+        commit_message = "new"
+
     # Git add
     if not run_git_command(["git", "add", "."]):
         sys.exit(1)
-    
+
     # Git commit
-    commit_message = "new"
     if not run_git_command(["git", "commit", "-m", commit_message]):
         sys.exit(1)
-    
+
     # Git push
     if not run_git_command(["git", "push"]):
         sys.exit(1)
-    
+
     print("Git add, commit, and push completed successfully.")
 
 if __name__ == "__main__":
