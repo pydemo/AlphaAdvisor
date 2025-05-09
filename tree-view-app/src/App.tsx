@@ -165,8 +165,30 @@ function App() {
             <b>Selected files:</b>
             <ul style={{ paddingLeft: 18, margin: 0 }}>
               {selectedObjects.map((obj) => (
-                <li key={obj.path} style={{ wordBreak: "break-all" }}>
+                <li key={obj.path} style={{ wordBreak: "break-all", display: "flex", alignItems: "center" }}>
                   {obj.name}
+                  <button
+                    onClick={() =>
+                      setSelectedObjects((prev) =>
+                        prev.filter((o) => o.path !== obj.path)
+                      )
+                    }
+                    style={{
+                      marginLeft: 8,
+                      background: "none",
+                      border: "none",
+                      color: "#c00",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                      fontSize: 15,
+                      lineHeight: 1,
+                      padding: "0 4px",
+                    }}
+                    title="Remove from selected"
+                    aria-label={`Remove ${obj.name}`}
+                  >
+                    ×
+                  </button>
                 </li>
               ))}
             </ul>
