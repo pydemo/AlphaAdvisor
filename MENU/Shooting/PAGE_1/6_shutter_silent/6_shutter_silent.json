@@ -1,0 +1,86 @@
+{
+  "id": 6,
+  "name": "Shutter/Silent",
+  "description": "Settings for shutter operation and silent shooting",
+  "type": "submenu",
+  "submenu": {
+    "settings": [
+      {
+        "name": "Silent Mode Settings",
+        "type": "submenu",
+        "description": "Settings for silent shooting mode",
+        "submenu": {
+          "settings": [
+            {
+              "name": "Silent Mode",
+              "options": ["On", "Off"],
+              "description": "Sets whether to shoot without shutter sounds"
+            },
+            {
+              "name": "Target Function Settings",
+              "type": "submenu",
+              "description": "Sets which functions are available during silent mode",
+              "submenu": {
+                "settings": [
+                  {
+                    "name": "AF w/ shutter",
+                    "options": ["ON", "OFF"],
+                    "description": "Sets whether to perform auto focus when the shutter button is half-pressed in silent mode"
+                  },
+                  {
+                    "name": "Shutter when Pwr OFF",
+                    "options": ["ON", "OFF"],
+                    "description": "Sets whether the shutter remains open when the camera is turned off in silent mode"
+                  },
+                  {
+                    "name": "Auto Pixel Mapping",
+                    "options": ["ON", "OFF"],
+                    "description": "Sets whether to automatically perform pixel mapping in silent mode"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "Shutter Type",
+        "options": ["Auto", "Mechanical Shut.", "Electronic Shut."],
+        "description": "Sets whether to use a mechanical or electronic shutter"
+      },
+      {
+        "name": "Release w/o Lens",
+        "options": ["Enable", "Disable"],
+        "description": "Sets whether to release the shutter when no lens is attached"
+      },
+      {
+        "name": "Release w/o Card",
+        "options": ["Enable", "Disable"],
+        "description": "Sets whether to release the shutter when no memory card is inserted"
+      },
+      {
+        "name": "Anti-flicker Set.",
+        "type": "submenu",
+        "description": "Settings to reduce impact of flickering",
+        "submenu": {
+          "settings": [
+            {
+              "name": "Anti-flicker Shoot.",
+              "options": ["On", "Off"],
+              "description": "Reduces impact of flickering from artificial light sources"
+            },
+            {
+              "name": "Var. Shutter",
+              "options": ["On", "Off"],
+              "description": "Allows shutter speed fine adjustments to reduce flicker impact"
+            },
+            {
+              "name": "Var. Shutter Set.",
+              "description": "Sets the shutter speed when [Var. Shutter] is set to [On]"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

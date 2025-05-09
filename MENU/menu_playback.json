@@ -1,0 +1,293 @@
+{
+  "camera": "Sony A7R V",
+  "menu_section": "Playback",
+  "tab_color": "Blue",
+  "tab_icon": "PLAYBACK",
+  "pages": [
+    {
+      "page_id": "1/15",
+      "page_name": "Playback Menu - Page 1/15",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Protect",
+          "description": "Protects images against accidental erasure",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Multiple Images",
+                "description": "Protects multiple selected images",
+                "type": "execute"
+              },
+              {
+                "name": "All Images in Folder",
+                "description": "Protects all images in the current folder",
+                "type": "execute"
+              },
+              {
+                "name": "Cancel All in Folder",
+                "description": "Cancels protection for all images in the current folder",
+                "type": "execute"
+              },
+              {
+                "name": "All with this date",
+                "description": "Protects all images with the selected date",
+                "type": "execute"
+              },
+              {
+                "name": "Cancel All with this date",
+                "description": "Cancels protection for all images with the selected date",
+                "type": "execute"
+              }
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "name": "Rating",
+          "description": "Assigns ratings to recorded images",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Multiple Images",
+                "description": "Assigns ratings to multiple selected images",
+                "type": "execute"
+              },
+              {
+                "name": "Cancel All in Folder",
+                "description": "Cancels all ratings for images in the current folder",
+                "type": "execute"
+              }
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "name": "Rating Set (Custom Key)",
+          "options": ["1", "2", "3", "4", "5", "None"],
+          "description": "Sets the rating value available when rating images with the key assigned using Custom Key Setting",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "Delete",
+          "description": "Deletes images",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Multiple Images",
+                "description": "Deletes multiple selected images",
+                "type": "execute"
+              },
+              {
+                "name": "All in Folder",
+                "description": "Deletes all images in the current folder",
+                "type": "execute"
+              },
+              {
+                "name": "All with this date",
+                "description": "Deletes all images with the selected date",
+                "type": "execute"
+              }
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "name": "Delete confirm.",
+          "options": ["\"Delete\" first", "\"Cancel\" first"],
+          "description": "Sets whether Delete or Cancel is preselected in the delete confirmation screen",
+          "type": "option"
+        },
+        {
+          "id": 6,
+          "name": "Rotate",
+          "description": "Rotates the selected image",
+          "type": "execute"
+        }
+      ]
+    },
+    {
+      "page_id": "2/15",
+      "page_name": "Playback Menu - Page 2/15",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Copy",
+          "description": "Copies images from one memory card to another",
+          "type": "execute"
+        },
+        {
+          "id": 2,
+          "name": "Photo Capture",
+          "description": "Captures a still image from a movie",
+          "type": "execute"
+        },
+        {
+          "id": 3,
+          "name": "Enlarge Image",
+          "description": "Enlarges the image being played back",
+          "type": "execute"
+        },
+        {
+          "id": 4,
+          "name": "Enlarge Initial Mag.",
+          "options": ["Standard Mag.", "Previous Mag."],
+          "description": "Sets the initial magnification scale when playing back enlarged images",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "Enlarge Initial Pos.",
+          "options": ["Focused Position", "Center"],
+          "description": "Sets the initial position when enlarging an image during playback",
+          "type": "option"
+        },
+        {
+          "id": 6,
+          "name": "JPEG/HEIF Switch",
+          "options": ["JPEG", "HEIF"],
+          "description": "Switches the file format between JPEG and HEIF for images displayed during playback",
+          "type": "option"
+        }
+      ]
+    },
+    {
+      "page_id": "3/15",
+      "page_name": "Playback Menu - Page 3/15",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Continuous Play for Interval",
+          "description": "Continuously plays back images shot using interval shooting",
+          "type": "execute"
+        },
+        {
+          "id": 2,
+          "name": "Play Speed for Interval",
+          "options": ["Fast", "Normal", "Slow"],
+          "description": "Sets the playback speed when playing back images with Continuous Play for Interval",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "Slide Show",
+          "description": "Plays a slideshow of stored images",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Repeat",
+                "options": ["On", "Off"],
+                "description": "Sets whether the slideshow plays repeatedly",
+                "type": "option"
+              },
+              {
+                "name": "Interval",
+                "options": ["1 Sec", "3 Sec", "5 Sec", "10 Sec", "30 Sec"],
+                "description": "Sets the display interval for slideshow",
+                "type": "option"
+              }
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "name": "Image Index",
+          "options": ["9 Images", "25 Images"],
+          "description": "Sets the number of images displayed on the index screen",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "Display as Group",
+          "options": ["On", "Off"],
+          "description": "Sets whether to display images shot in burst mode as a group",
+          "type": "option"
+        },
+        {
+          "id": 6,
+          "name": "Display Rotation",
+          "options": ["Auto", "Manual", "Off"],
+          "description": "Sets whether to rotate vertically oriented images during playback",
+          "type": "option"
+        }
+      ]
+    },
+    {
+      "page_id": "4/15",
+      "page_name": "Playback Menu - Page 4/15",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Focus Frame Display",
+          "options": ["On", "Off"],
+          "description": "Sets whether to display the focus frame when reviewing images",
+          "type": "option"
+        },
+        {
+          "id": 2,
+          "name": "Image Jump Setting",
+          "options": ["One by one", "By 10 images", "By 100 images", "Protect Only", "Rating Only", "Still/movie Select", "JPEG/HEIF Select"],
+          "description": "Sets the method for jumping between images during playback",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "Playback Target Select",
+          "options": ["Normal Media", "Transfer Media"],
+          "description": "Sets which card slot to use for playing back images",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "View Mode",
+          "options": ["Date View", "Folder View (Still)", "Folder View (MP4)", "XAVC HS", "XAVC S HD", "XAVC S", "XAVC S-I"],
+          "description": "Sets how images are grouped for playback",
+          "type": "option"
+        }
+      ]
+    }
+  ],
+  "protect_submenu": {
+    "name": "Protect Settings",
+    "description": "Settings for protecting images from deletion",
+    "settings": [
+      {
+        "name": "Multiple Images",
+        "description": "Protects multiple selected images",
+        "type": "execute"
+      },
+      {
+        "name": "All Images in Folder",
+        "description": "Protects all images in the current folder",
+        "type": "execute"
+      },
+      {
+        "name": "Cancel All in Folder",
+        "description": "Cancels protection for all images in the current folder",
+        "type": "execute"
+      },
+      {
+        "name": "All with this date",
+        "description": "Protects all images with the selected date",
+        "type": "execute"
+      },
+      {
+        "name": "Cancel All with this date",
+        "description": "Cancels protection for all images with the selected date",
+        "type": "execute"
+      },
+      {
+        "name": "Protected Files",
+        "options": ["View Only", "Allow Editing"],
+        "description": "Sets whether protected files can be edited",
+        "default": "View Only",
+        "type": "option"
+      }
+    ]
+  }
+}

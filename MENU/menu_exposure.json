@@ -1,0 +1,253 @@
+{
+  "camera": "Sony A7R V",
+  "menu_section": "Exposure/Color",
+  "tab_color": "Red",
+  "tab_icon": "EXPOSURE",
+  "pages": [
+    {
+      "page_id": "1/25",
+      "page_name": "Exposure/Color Menu - Page 1/25",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Auto/Manual Swt. Set.",
+          "description": "Access to auto/manual switching settings",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Av Auto/Manual Switch",
+                "options": ["Auto", "Manual"],
+                "description": "Sets the method for switching aperture between auto and manual modes",
+                "type": "option"
+              },
+              {
+                "name": "Tv Auto/Manual Switch",
+                "options": ["Auto", "Manual"],
+                "description": "Sets the method for switching shutter speed between auto and manual modes",
+                "type": "option"
+              },
+              {
+                "name": "ISO Auto/Manual Swit.",
+                "options": ["Auto", "Manual"],
+                "description": "Sets the method for switching ISO between auto and manual modes",
+                "type": "option"
+              }
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "name": "Exposure Comp.",
+          "options": ["-5.0EV" to "+5.0EV", "in 0.3EV/0.5EV steps"],
+          "description": "Compensates for the entire image brightness",
+          "type": "scale"
+        },
+        {
+          "id": 3,
+          "name": "Reset EV Comp.",
+          "options": ["Reset", "Maintain"],
+          "description": "Sets whether to maintain the exposure value when turning off the power",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "ISO",
+          "options": ["ISO AUTO", "ISO 100-32000", "Extended ISO 50-102400"],
+          "description": "Sets ISO sensitivity",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "ISO AUTO Min. SS",
+          "options": ["Faster", "Fast", "Standard", "Slow", "Slower"],
+          "description": "Sets the shutter speed at which ISO sensitivity starts changing in ISO AUTO mode",
+          "type": "option"
+        },
+        {
+          "id": 6,
+          "name": "Metering Mode",
+          "options": ["Multi", "Center", "Spot", "Spot Std", "Entire Scrn Avg", "Highlight"],
+          "description": "Selects the method for measuring brightness",
+          "type": "option"
+        }
+      ]
+    },
+    {
+      "page_id": "2/25",
+      "page_name": "Exposure/Color Menu - Page 2/25",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Face Priority in Multi",
+          "options": ["On", "Off"],
+          "description": "Sets whether the camera measures brightness based on detected faces in Multi metering mode",
+          "type": "option"
+        },
+        {
+          "id": 2,
+          "name": "Spot Metering Point",
+          "options": ["Center", "Focus Point Link"],
+          "description": "Sets whether to coordinate the spot metering position with the focus area",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "Exposure step",
+          "options": ["0.5EV", "0.3EV"],
+          "description": "Sets the increment step for shutter speed, aperture, and exposure",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "AEL w/ shutter",
+          "options": ["Auto", "On", "Off"],
+          "description": "Sets whether to perform AE lock when pressing the shutter button halfway",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "Exposure Std. Adjust",
+          "options": ["-1.0EV" to "+1.0EV", "in 0.1EV steps"],
+          "description": "Adjusts the camera's standard for correct exposure value",
+          "type": "scale"
+        },
+        {
+          "id": 6,
+          "name": "Flash Mode",
+          "options": ["Autoflash", "Fill-flash", "Slow Sync.", "Rear Sync.", "Off"],
+          "description": "Sets the flash mode",
+          "type": "option"
+        }
+      ]
+    },
+    {
+      "page_id": "3/25",
+      "page_name": "Exposure/Color Menu - Page 3/25",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Flash Comp.",
+          "options": ["-3.0EV" to "+3.0EV", "in 0.3EV steps"],
+          "description": "Adjusts the flash output",
+          "type": "scale"
+        },
+        {
+          "id": 2,
+          "name": "Exp.comp.set",
+          "options": ["Ambient&flash", "Ambient only"],
+          "description": "Sets whether exposure compensation value applies to both flash and ambient light or only ambient",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "Wireless Flash",
+          "options": ["Off", "On"],
+          "description": "Sets whether to use wireless flash",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "Red Eye Reduction",
+          "options": ["On", "Off"],
+          "description": "Reduces red-eye phenomenon with flash",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "External Flash Set.",
+          "description": "Access to external flash settings",
+          "type": "submenu"
+        },
+        {
+          "id": 6,
+          "name": "White Balance",
+          "options": ["Auto", "Daylight", "Shade", "Cloudy", "Incandescent", "Fluor.", "Flash", "Underwater Auto", "C.Temp./Filter", "Custom 1-3"],
+          "description": "Adjusts the color tones according to the light source",
+          "type": "option"
+        }
+      ]
+    },
+    {
+      "page_id": "4/25",
+      "page_name": "Exposure/Color Menu - Page 4/25",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Priority Set in AWB",
+          "options": ["Standard", "Ambience", "White"],
+          "description": "Sets which tone to prioritize in auto white balance under light sources like incandescent light",
+          "type": "option"
+        },
+        {
+          "id": 2,
+          "name": "DRO/Auto HDR",
+          "description": "Access to dynamic range optimization and auto HDR settings",
+          "type": "submenu"
+        },
+        {
+          "id": 3,
+          "name": "Creative Look",
+          "options": ["ST", "PT", "NT", "VV", "VV2", "FL", "IN", "SH", "BW", "SE", "Custom 1-6"],
+          "description": "Selects the desired image processing with rich gradation and colors",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "Picture Profile",
+          "options": ["PP1-PP11"],
+          "description": "Changes settings such as color and gradation for movie recording",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "Soft Skin Effect",
+          "options": ["Off", "Low", "Mid", "High"],
+          "description": "Sets the Soft Skin Effect and the effect level",
+          "type": "option"
+        }
+      ]
+    }
+  ],
+  "white_balance_submenu": {
+    "name": "White Balance Settings",
+    "description": "Detailed white balance settings",
+    "settings": [
+      {
+        "name": "White Balance",
+        "options": ["Auto", "Daylight", "Shade", "Cloudy", "Incandescent", "Fluor.", "Flash", "Underwater Auto", "C.Temp./Filter", "Custom 1-3"],
+        "description": "Adjusts the color tones according to the light source",
+        "default": "Auto",
+        "type": "option"
+      },
+      {
+        "name": "Priority Set in AWB",
+        "options": ["Standard", "Ambience", "White"],
+        "description": "Sets which tone to prioritize in auto white balance under light sources like incandescent light",
+        "default": "Standard",
+        "type": "option"
+      },
+      {
+        "name": "Shutter AWB Lock",
+        "options": ["Off", "Shoot. Only", "Cont. Shooting", "On"],
+        "description": "Sets whether to lock white balance during shutter press in auto white balance mode",
+        "default": "Off",
+        "type": "option"
+      },
+      {
+        "name": "Shockless WB",
+        "options": ["Off", "1 (Fast)", "2", "3 (Slow)"],
+        "description": "Sets the transition speed when the white balance setting is changed",
+        "default": "Off",
+        "type": "option"
+      },
+      {
+        "name": "White Balance Bracketing",
+        "options": ["Off", "Low", "High"],
+        "description": "Sets white balance bracketing for multiple shots with different color temperatures",
+        "default": "Off",
+        "type": "option"
+      }
+    ]
+  }
+}

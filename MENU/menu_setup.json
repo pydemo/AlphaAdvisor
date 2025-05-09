@@ -1,0 +1,282 @@
+{
+  "camera": "Sony A7R V",
+  "menu_section": "Setup",
+  "tab_color": "Yellow",
+  "tab_icon": "SETUP",
+  "pages": [
+    {
+      "page_id": "1/45",
+      "page_name": "Setup Menu - Page 1/45",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Language",
+          "options": ["English", "Japanese", "German", "French", "Spanish", "Italian", "Portuguese", "Dutch", "Russian", "Korean", "Chinese (Simplified)", "Chinese (Traditional)"],
+          "description": "Selects the language to be used in menu items and messages",
+          "type": "option"
+        },
+        {
+          "id": 2,
+          "name": "Area/Date/Time Setting",
+          "description": "Access to region, date and time settings",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Area Setting",
+                "description": "Sets the region where the camera is being used",
+                "type": "option"
+              },
+              {
+                "name": "Daylight Savings",
+                "options": ["On", "Off"],
+                "description": "Sets whether to use daylight saving time",
+                "type": "option"
+              },
+              {
+                "name": "Date/Time",
+                "description": "Sets the date and time",
+                "type": "setting"
+              },
+              {
+                "name": "Date Format",
+                "options": ["YYYY-MM-DD", "MM-DD-YYYY", "DD-MM-YYYY"],
+                "description": "Sets the date display format",
+                "type": "option"
+              }
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "name": "Monitor Brightness",
+          "options": ["Auto", "Manual", "Sunny Weather"],
+          "description": "Adjusts the screen brightness",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "Viewfinder Bright.",
+          "options": ["Auto", "Manual"],
+          "description": "Sets the brightness of the viewfinder",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "Display Quality",
+          "options": ["High", "Standard"],
+          "description": "Sets the display quality",
+          "type": "option"
+        },
+        {
+          "id": 6,
+          "name": "Operation Sound",
+          "options": ["On", "Off"],
+          "description": "Sets whether to produce a beep sound during operation",
+          "type": "option"
+        }
+      ]
+    },
+    {
+      "page_id": "2/45",
+      "page_name": "Setup Menu - Page 2/45",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Power Save Start Time",
+          "options": ["30 Min", "5 Min", "2 Min", "1 Min", "10 Sec"],
+          "description": "Sets the time before the camera automatically powers off",
+          "type": "option"
+        },
+        {
+          "id": 2,
+          "name": "Auto Power OFF Temp.",
+          "options": ["Standard", "High"],
+          "description": "Sets the temperature at which the camera turns off automatically during shooting",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "Volume Settings",
+          "description": "Access to volume settings for various camera functions",
+          "type": "submenu"
+        },
+        {
+          "id": 4,
+          "name": "Record Media Settings",
+          "description": "Settings for memory cards and recording media",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Recording Media",
+                "options": ["Slot 1", "Slot 2", "Simult. Record"],
+                "description": "Selects which memory card slot to use for recording",
+                "type": "option"
+              },
+              {
+                "name": "Recording Mode",
+                "options": ["Standard", "Simult. Record", "Sort (JPEG/RAW)", "Sort (Still/Movie)"],
+                "description": "Sets how images are recorded to the two memory card slots",
+                "type": "option"
+              },
+              {
+                "name": "Auto Switch Media",
+                "options": ["On", "Off"],
+                "description": "Sets whether to switch to the other memory card when a memory card becomes full",
+                "type": "option"
+              }
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "name": "File/Folder Settings",
+          "description": "Access to file and folder settings",
+          "type": "submenu"
+        },
+        {
+          "id": 6,
+          "name": "Format",
+          "description": "Formats (initializes) the memory card",
+          "type": "execute"
+        }
+      ]
+    },
+    {
+      "page_id": "3/45",
+      "page_name": "Setup Menu - Page 3/45",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Operation Customize",
+          "description": "Access to customization settings for operation",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Custom Key Setting",
+                "description": "Customizes button functions",
+                "type": "submenu"
+              },
+              {
+                "name": "Custom Key/Dial Set.",
+                "description": "Assigns functions to buttons and dials",
+                "type": "submenu"
+              },
+              {
+                "name": "Fn Menu Settings",
+                "description": "Customizes the functions displayed in the Function menu",
+                "type": "submenu"
+              }
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "name": "Touch Operation",
+          "options": ["On", "Off"],
+          "description": "Sets whether to activate touch operations on the monitor",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "Touch Panel/Pad",
+          "options": ["Touch Panel Only", "Touch Panel+Pad", "Touch Pad Only"],
+          "description": "Sets the touch operation mode",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "Touch Sensitivity",
+          "options": ["Standard", "Sensitive"],
+          "description": "Sets the sensitivity of the touch panel",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "Touch Pad Settings",
+          "description": "Access to touch pad settings",
+          "type": "submenu"
+        },
+        {
+          "id": 6,
+          "name": "HDMI Resolution",
+          "options": ["Auto", "2160p", "1080p", "1080i", "720p"],
+          "description": "Sets the resolution when connecting to an HDMI TV",
+          "type": "option"
+        }
+      ]
+    },
+    {
+      "page_id": "4/45",
+      "page_name": "Setup Menu - Page 4/45",
+      "settings": [
+        {
+          "id": 1,
+          "name": "HDMI Output Settings",
+          "description": "Access to HDMI output settings",
+          "type": "submenu"
+        },
+        {
+          "id": 2,
+          "name": "USB Connection",
+          "options": ["Auto", "MTP", "Mass Storage"],
+          "description": "Sets the USB connection method",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "USB LUN Setting",
+          "options": ["Multi", "Single"],
+          "description": "Sets whether to limit USB connection functions",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "USB Power Supply",
+          "options": ["On", "Off"],
+          "description": "Sets whether to supply power via USB cable",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "Network",
+          "description": "Access to network settings",
+          "type": "submenu"
+        },
+        {
+          "id": 6,
+          "name": "Version",
+          "description": "Displays the camera software version",
+          "type": "info"
+        }
+      ]
+    }
+  ],
+  "format_submenu": {
+    "name": "Format",
+    "description": "Memory card formatting options",
+    "settings": [
+      {
+        "name": "Format",
+        "description": "Formats (initializes) the selected memory card",
+        "type": "execute"
+      },
+      {
+        "name": "Select Memory Card",
+        "options": ["Slot 1", "Slot 2"],
+        "description": "Selects which memory card to format",
+        "default": "Slot 1",
+        "type": "option"
+      },
+      {
+        "name": "Format Type",
+        "options": ["Quick Format", "Full Format"],
+        "description": "Sets the type of formatting to perform",
+        "default": "Quick Format",
+        "type": "option"
+      }
+    ]
+  }
+}

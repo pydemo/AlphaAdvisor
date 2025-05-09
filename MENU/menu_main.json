@@ -1,0 +1,212 @@
+{
+  "camera": "Sony A7R V",
+  "menu_section": "Main",
+  "tab_color": "White",
+  "tab_icon": "HOME",
+  "description": "Quick access to essential settings (borrowed from Sony's cinema line)",
+  "pages": [
+    {
+      "page_id": "1/1",
+      "page_name": "Main Menu",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Camera Settings",
+          "description": "Quick access to frequently used camera settings",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Exposure Mode",
+                "options": ["Program Auto", "Aperture Priority", "Shutter Priority", "Manual Exposure", "Memory Recall"],
+                "description": "Sets the camera's exposure mode",
+                "type": "option"
+              },
+              {
+                "name": "Exposure Comp.",
+                "options": ["-5.0EV" to "+5.0EV", "in 0.3EV/0.5EV steps"],
+                "description": "Compensates for the entire image brightness",
+                "type": "scale"
+              },
+              {
+                "name": "Drive Mode",
+                "options": ["Single Shooting", "Cont. Shooting", "Self-timer"],
+                "description": "Sets the drive mode for shooting",
+                "type": "option"
+              },
+              {
+                "name": "Focus Mode",
+                "options": ["Single-shot AF (AF-S)", "Automatic AF (AF-A)", "Continuous AF (AF-C)", "DMF", "Manual Focus"],
+                "description": "Selects the focus method",
+                "type": "option"
+              }
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "name": "Movie Settings",
+          "description": "Quick access to frequently used movie settings",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Movie File Format",
+                "options": ["XAVC HS 8K", "XAVC HS 4K", "XAVC S 4K", "XAVC S HD", "XAVC S-I 4K", "XAVC S-I HD"],
+                "description": "Sets the file format for movie recording",
+                "type": "option"
+              },
+              {
+                "name": "Record Setting",
+                "options": ["4K 60p", "4K 30p", "4K 24p", "HD 120p", "HD 60p"],
+                "description": "Sets the frame rate and bit rate for movie recording",
+                "type": "option"
+              },
+              {
+                "name": "S&Q Settings",
+                "description": "Settings for Slow & Quick motion recording",
+                "type": "submenu"
+              }
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "name": "Image Quality",
+          "description": "Quick access to image quality settings",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "File Format",
+                "options": ["RAW", "RAW+J/H", "JPEG", "HEIF"],
+                "description": "Sets the file format for still images",
+                "type": "option"
+              },
+              {
+                "name": "JPEG/HEIF Quality",
+                "options": ["Extra fine", "Fine", "Standard"],
+                "description": "Sets the image quality for JPEG/HEIF",
+                "type": "option"
+              },
+              {
+                "name": "Aspect Ratio",
+                "options": ["3:2", "4:3", "16:9", "1:1"],
+                "description": "Sets the aspect ratio of still images",
+                "type": "option"
+              },
+              {
+                "name": "Creative Look",
+                "options": ["Standard", "Vivid", "Portrait", "Landscape", "Sunset", "Black & White"],
+                "description": "Selects the desired image processing style",
+                "type": "option"
+              }
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "name": "Display",
+          "description": "Quick access to display settings",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Monitor Brightness",
+                "options": ["Auto", "Manual", "Sunny Weather"],
+                "description": "Adjusts the screen brightness",
+                "type": "option"
+              },
+              {
+                "name": "Viewfinder Brightness",
+                "options": ["Auto", "Manual"],
+                "description": "Adjusts the viewfinder brightness",
+                "type": "option"
+              },
+              {
+                "name": "Finder Frame Rate",
+                "options": ["Standard", "High"],
+                "description": "Sets the frame rate for the viewfinder",
+                "type": "option"
+              },
+              {
+                "name": "Grid Line",
+                "options": ["Off", "Rule of 3rds Grid", "Square Grid", "Diag. + Square Grid"],
+                "description": "Sets a grid display to help composition",
+                "type": "option"
+              }
+            ]
+          }
+        },
+        {
+          "id": 5,
+          "name": "Focus",
+          "description": "Quick access to focus settings",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Face/Eye Prior. in AF",
+                "options": ["On", "Off"],
+                "description": "Sets whether to detect faces or eyes inside the focus area and focus on them",
+                "type": "option"
+              },
+              {
+                "name": "Focus Area",
+                "options": ["Wide", "Zone", "Center Fix", "Spot", "Expand Spot", "Tracking"],
+                "description": "Selects the area of focus",
+                "type": "option"
+              },
+              {
+                "name": "Focus Map",
+                "options": ["On", "Off"],
+                "description": "Provides a visual indicator of depth that highlights in-focus areas",
+                "type": "option"
+              },
+              {
+                "name": "Subject Recognition",
+                "options": ["Human", "Animal", "Bird", "Insect", "Car/Train", "Airplane"],
+                "description": "Sets the subjects to be detected",
+                "type": "option"
+              }
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "name": "Connectivity",
+          "description": "Quick access to connectivity settings",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Smartphone Connection",
+                "options": ["On", "Off"],
+                "description": "Sets whether to connect the camera to a smartphone",
+                "type": "option"
+              },
+              {
+                "name": "PC Remote Function",
+                "options": ["On", "Off"],
+                "description": "Sets whether to use the PC Remote function",
+                "type": "option"
+              },
+              {
+                "name": "Bluetooth Function",
+                "options": ["On", "Off"],
+                "description": "Sets whether to activate the Bluetooth function",
+                "type": "option"
+              },
+              {
+                "name": "Airplane Mode",
+                "options": ["On", "Off"],
+                "description": "Disables all wireless communications from the device",
+                "type": "option"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

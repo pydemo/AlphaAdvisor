@@ -1,0 +1,237 @@
+{
+  "camera": "Sony A7R V",
+  "menu_section": "Focus",
+  "tab_color": "Purple",
+  "tab_icon": "FOCUS",
+  "pages": [
+    {
+      "page_id": "1/22",
+      "page_name": "Focus Menu - Page 1/22",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Focus Mode",
+          "options": ["Single-shot AF (AF-S)", "Automatic AF (AF-A)", "Continuous AF (AF-C)", "DMF", "Manual Focus"],
+          "description": "Selects the focus method to suit the movement of the subject",
+          "type": "option"
+        },
+        {
+          "id": 2,
+          "name": "Focus Area",
+          "options": ["Wide", "Zone", "Center Fix", "Spot S/M/L", "Expand Spot", "Tracking"],
+          "description": "Selects the area of focus",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "AF Tracking Sensitivity",
+          "options": ["1(Locked on)", "2", "3(Standard)", "4", "5(Responsive)"],
+          "description": "Sets the AF tracking sensitivity for still image mode",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "AF-C Setup",
+          "description": "Access to detailed settings for Continuous AF",
+          "type": "submenu"
+        },
+        {
+          "id": 5,
+          "name": "Focus Area Limit",
+          "options": ["Wide", "Zone", "Center Fix", "Spot", "Expand Spot", "Tracking", "Off"],
+          "description": "Limits the types of focus area settings available for selection",
+          "type": "option"
+        },
+        {
+          "id": 6,
+          "name": "Switch V/H AF Area",
+          "options": ["Off", "AF Point Only", "AF Point + AF Area"],
+          "description": "Sets whether to adjust focus area position based on camera orientation",
+          "type": "option"
+        }
+      ]
+    },
+    {
+      "page_id": "2/22",
+      "page_name": "Focus Menu - Page 2/22",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Focus Area Color",
+          "options": ["White", "Red", "Yellow"],
+          "description": "Sets the color of the frame indicating the focusing area",
+          "type": "option"
+        },
+        {
+          "id": 2,
+          "name": "AF Area Registration",
+          "options": ["On", "Off"],
+          "description": "Sets whether to register the focus area to a custom button for quick recall",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "Del. Regist. AF Area",
+          "description": "Deletes the registered focus area position",
+          "type": "execute"
+        },
+        {
+          "id": 4,
+          "name": "AF Area Auto Clear",
+          "options": ["On", "Off"],
+          "description": "Sets whether the focus area is displayed all the time or disappears after focus is achieved",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "AF-C Area Display",
+          "options": ["On", "Off"],
+          "description": "Sets whether to display the focus area in continuous AF mode",
+          "type": "option"
+        },
+        {
+          "id": 6,
+          "name": "Disp. AF Area during Trck",
+          "options": ["On", "Off"],
+          "description": "Sets whether to display the focusing area in tracking mode",
+          "type": "option"
+        }
+      ]
+    },
+    {
+      "page_id": "3/22",
+      "page_name": "Focus Menu - Page 3/22",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Phase Detect. Area",
+          "options": ["On", "Off"],
+          "description": "Sets whether to display phase detection AF area",
+          "type": "option"
+        },
+        {
+          "id": 2,
+          "name": "Circ. of Focus Point",
+          "options": ["Does Not Circulate", "Circulate"],
+          "description": "Sets whether to allow the focus point to move from one end to the other when moving the focus area",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "AF Frame Move Amt",
+          "options": ["Standard", "Large"],
+          "description": "Sets the distance to move the focus area frame",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "Face/Eye Prior. in AF",
+          "options": ["On", "Off"],
+          "description": "Sets whether to detect faces or eyes inside the focus area and focus on them",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "Face/Eye Subject",
+          "options": ["Human", "Animal", "Bird", "Insect", "Car/Train", "Airplane"],
+          "description": "Selects the type of subject to detect for face/eye priority",
+          "type": "option"
+        },
+        {
+          "id": 6,
+          "name": "Right/Left Eye Select",
+          "options": ["Auto", "Right Eye", "Left Eye"],
+          "description": "Sets whether to focus on the right or left eye when face/eye priority is active",
+          "type": "option"
+        }
+      ]
+    },
+    {
+      "page_id": "4/22",
+      "page_name": "Focus Menu - Page 4/22",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Face/Eye Frame Disp.",
+          "options": ["On", "Off"],
+          "description": "Sets whether to display the face/eye detection frame",
+          "type": "option"
+        },
+        {
+          "id": 2,
+          "name": "Subject Recognition",
+          "options": ["Human", "Animal", "Bird", "Insect", "Car/Train", "Airplane"],
+          "description": "Sets the subjects to be detected",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "Focus Map",
+          "options": ["On", "Off"],
+          "description": "Provides a visual indicator of depth that highlights in-focus areas for precise focus",
+          "type": "option"
+        },
+        {
+          "id": 4,
+          "name": "Auto Focus",
+          "description": "Access to detailed auto focus settings",
+          "type": "submenu"
+        },
+        {
+          "id": 5,
+          "name": "Focus Assist",
+          "description": "Access to focus assistance settings",
+          "type": "submenu"
+        }
+      ]
+    }
+  ],
+  "focus_assist_submenu": {
+    "name": "Focus Assist Settings",
+    "description": "Detailed settings for focus assistance",
+    "settings": [
+      {
+        "name": "Focus Magnifier",
+        "options": ["On", "Off"],
+        "description": "Enlarges the image to check focus",
+        "default": "Off"
+      },
+      {
+        "name": "Focus Magnif. Time",
+        "options": ["No Limit", "2 Sec", "5 Sec", "10 Sec"],
+        "description": "Sets the length of time the image will be shown magnified",
+        "default": "5 Sec"
+      },
+      {
+        "name": "Initial Focus Mag.",
+        "options": ["x1.0", "x2.1", "x4.0", "x8.3"],
+        "description": "Sets the initial magnification scale when using the focus magnifier",
+        "default": "x2.1"
+      },
+      {
+        "name": "Peaking Display",
+        "options": ["On", "Off"],
+        "description": "Sets the peaking function which enhances the outline of in-focus areas during manual focus",
+        "default": "Off"
+      },
+      {
+        "name": "Peaking Level",
+        "options": ["High", "Mid", "Low"],
+        "description": "Sets the level of peaking enhancement",
+        "default": "Mid"
+      },
+      {
+        "name": "Peaking Color",
+        "options": ["Red", "Yellow", "Blue", "White"],
+        "description": "Sets the color used for the peaking enhancement",
+        "default": "White"
+      },
+      {
+        "name": "Focus Bracket",
+        "options": ["On", "Off"],
+        "description": "Takes multiple images with different focus positions, useful for focus stacking",
+        "default": "Off"
+      }
+    ]
+  }
+}

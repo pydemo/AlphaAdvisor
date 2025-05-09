@@ -1,0 +1,131 @@
+{
+  "camera": "Sony A7R V",
+  "menu_section": "Shooting",
+  "tab_color": "Red",
+  "tab_icon": "CAMERA",
+  "pages": [
+    {
+      "page_id": "3/58",
+      "page_name": "Shooting Menu - Page 3/58",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Image Quality/Rec",
+          "description": "Access to image quality and recording settings",
+          "type": "submenu"
+        },
+        {
+          "id": 2,
+          "name": "JPEG/HEIF Switch",
+          "options": ["JPEG", "HEIF"],
+          "description": "Selects JPEG or HEIF as the file format when not shooting RAW",
+          "type": "option"
+        },
+        {
+          "id": 3,
+          "name": "Image Quality Settings",
+          "description": "Access to quality settings for JPEG/HEIF images",
+          "type": "submenu"
+        },
+        {
+          "id": 4,
+          "name": "Aspect Ratio",
+          "options": ["3:2", "4:3", "16:9", "1:1"],
+          "description": "Sets the aspect ratio of still images",
+          "type": "option"
+        },
+        {
+          "id": 5,
+          "name": "File Format",
+          "options": ["RAW", "RAW+J/H", "JPEG", "HEIF"],
+          "description": "Sets the file format for still images",
+          "type": "option"
+        },
+        {
+          "id": 6,
+          "name": "Movie Settings",
+          "description": "Access to settings for movie recording",
+          "type": "submenu"
+        },
+        {
+          "id": 7,
+          "name": "APS-C S35 Shooting",
+          "options": ["Auto", "Manual", "Off"],
+          "description": "Determines whether to shoot with an APS-C equivalent field of view",
+          "type": "option"
+        },
+        {
+          "id": 8,
+          "name": "Long Exposure NR",
+          "options": ["On", "Off"],
+          "description": "Sets noise reduction processing for shots with a 1-second or longer exposure",
+          "type": "option"
+        }
+      ]
+    },
+    {
+      "page_id": "11/58",
+      "page_name": "Shooting Menu - Page 11/58",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Zoom",
+          "description": "Access to zoom settings",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Zoom Range",
+                "options": ["Optical zoom only", "On: Clear Image Zoom", "On: Digital Zoom"],
+                "description": "Sets the zoom range for functions other than optical zoom"
+              },
+              {
+                "name": "Zoom Speed",
+                "options": ["Fast", "Normal", "Slow"],
+                "description": "Sets the zoom speed when using custom key for zoom operation"
+              }
+            ]
+          }
+        },
+        {
+          "id": 2,
+          "name": "Shooting Display",
+          "description": "Access to display settings during shooting",
+          "type": "submenu",
+          "submenu": {
+            "settings": [
+              {
+                "name": "Live View Display",
+                "options": ["Setting Effect ON", "Setting Effect OFF"],
+                "description": "Sets whether to show images with effects like exposure compensation on screen"
+              },
+              {
+                "name": "Emph disp dur shoot",
+                "options": ["Off", "On"],
+                "description": "Whether to display a frame around the edge of the screen during shooting"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "aspect_ratio_submenu": {
+    "name": "Aspect Ratio Settings",
+    "description": "Detailed settings for aspect ratio",
+    "settings": [
+      {
+        "name": "Aspect Ratio",
+        "options": ["3:2", "4:3", "16:9", "1:1"],
+        "description": "Sets the aspect ratio of still images",
+        "default": "3:2"
+      },
+      {
+        "name": "Apply Aspect Ratio",
+        "options": ["Still Images", "Still & Movie", "Off During Movie"],
+        "description": "Sets whether to apply the selected aspect ratio to both still images and movies",
+        "default": "Still Images"
+      }
+    ]
+  }
+}

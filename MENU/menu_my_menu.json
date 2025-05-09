@@ -1,0 +1,114 @@
+{
+  "camera": "Sony A7R V",
+  "menu_section": "My Menu",
+  "tab_color": "Green",
+  "tab_icon": "STAR",
+  "description": "A customizable menu tab where users can add frequently accessed settings from other menus",
+  "pages": [
+    {
+      "page_id": "1/1",
+      "page_name": "My Menu - Page 1/1",
+      "settings": [
+        {
+          "id": 1,
+          "name": "Add Item",
+          "description": "Adds a menu item to My Menu",
+          "type": "execute"
+        },
+        {
+          "id": 2,
+          "name": "Sort Item",
+          "description": "Rearranges menu items added to My Menu",
+          "type": "execute"
+        },
+        {
+          "id": 3,
+          "name": "Delete Item",
+          "description": "Deletes menu items added to My Menu",
+          "type": "execute"
+        },
+        {
+          "id": 4,
+          "name": "Delete Page",
+          "description": "Deletes all the menu items on a page in My Menu",
+          "type": "execute"
+        },
+        {
+          "id": 5,
+          "name": "Delete All",
+          "description": "Deletes all the menu items added to My Menu",
+          "type": "execute"
+        },
+        {
+          "id": 6,
+          "name": "Display From My Menu",
+          "options": ["On", "Off"],
+          "description": "Sets whether to display My Menu first when the MENU button is pressed",
+          "type": "option"
+        }
+      ]
+    }
+  ],
+  "popular_my_menu_items": [
+    {
+      "name": "Format",
+      "description": "Formats the memory card",
+      "menu_location": "Setup > File / Media"
+    },
+    {
+      "name": "File Format",
+      "description": "Sets the file format for still images",
+      "menu_location": "Shooting > Image Quality/Rec"
+    },
+    {
+      "name": "Aspect Ratio",
+      "description": "Sets the aspect ratio of still images",
+      "menu_location": "Shooting > Image Quality/Rec"
+    },
+    {
+      "name": "ISO",
+      "description": "Sets ISO sensitivity",
+      "menu_location": "Exposure/Color > Exposure"
+    },
+    {
+      "name": "Focus Mode",
+      "description": "Selects the focus method",
+      "menu_location": "Focus > AF/MF"
+    },
+    {
+      "name": "Focus Area",
+      "description": "Selects the area of focus",
+      "menu_location": "Focus > AF/MF"
+    },
+    {
+      "name": "White Balance",
+      "description": "Adjusts the color tones according to the light source",
+      "menu_location": "Exposure/Color > White Balance"
+    },
+    {
+      "name": "Drive Mode",
+      "description": "Sets the drive mode such as continuous shooting or self-timer",
+      "menu_location": "Shooting > Drive Mode"
+    },
+    {
+      "name": "Flash Mode",
+      "description": "Sets the flash mode",
+      "menu_location": "Exposure/Color > External Flash Set."
+    },
+    {
+      "name": "Wireless Flash",
+      "description": "Sets whether to use wireless flash",
+      "menu_location": "Exposure/Color > External Flash Set."
+    },
+    {
+      "name": "Monitor Brightness",
+      "description": "Adjusts the screen brightness",
+      "menu_location": "Setup > Display"
+    },
+    {
+      "name": "Bluetooth Function",
+      "description": "Sets whether to activate the Bluetooth function",
+      "menu_location": "Network > Connection"
+    }
+  ]
+}
