@@ -73,7 +73,12 @@ const TreeView: React.FC<TreeViewProps> = ({
   // Recursively filter the tree to only include nodes matching the filter or with matching descendants
   function filterTree(node: TreeNode, filterStr: string): TreeNode | null {
     if (!filterStr) return node;
-    const match = node.name.toLowerCase().includes(filterStr.toLowerCase());
+    // Support "OR" filtering: e.g., "jpg|png" matches if any term matches
+    const terms = filterStr
+      .split("|")
+      .map((t) => t.trim().toLowerCase())
+      .filter(Boolean);
+    const match = terms.some((term) => node.name.toLowerCase().includes(term));
     if (node.type === "file") {
       return match ? node : null;
     }

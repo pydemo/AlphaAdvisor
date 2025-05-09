@@ -125,13 +125,22 @@ function App() {
             Search
           </button>
         </div>
-        {/* Expand/Collapse All buttons */}
+        {/* Expand/Collapse All buttons and PNG|JPG filter */}
         <div style={{ marginBottom: 8 }}>
           <button
             onClick={() => setExpandAllSignal((n) => n + 1)}
             style={{ fontSize: 15, padding: "3px 10px", marginRight: 8 }}
           >
             Expand All
+          </button>
+          <button
+            onClick={() => {
+              setFilter("jpg|png");
+              setSearch("jpg|png");
+            }}
+            style={{ fontSize: 15, padding: "3px 10px", marginRight: 8 }}
+          >
+            png|jpg
           </button>
           <button
             onClick={() => setCollapseAllSignal((n) => n + 1)}
