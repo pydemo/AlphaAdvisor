@@ -190,7 +190,26 @@ function App() {
         {/* Optionally, show selected objects */}
         {selectedObjects.length > 0 && (
           <div style={{ marginTop: 16, fontSize: 14 }}>
-            <b>Selected files:</b>
+            <span style={{ display: "flex", alignItems: "center" }}>
+              <b>Selected files:</b>
+              <button
+                onClick={() => setSelectedObjects([])}
+                style={{
+                  marginLeft: 10,
+                  fontSize: 13,
+                  padding: "2px 10px",
+                  background: "#f5f5f5",
+                  border: "1px solid #ccc",
+                  borderRadius: 4,
+                  cursor: "pointer",
+                  color: "#333"
+                }}
+                title="Clear all selected files"
+                aria-label="Clear all selected files"
+              >
+                Clear All
+              </button>
+            </span>
             <ul style={{ paddingLeft: 18, margin: 0 }}>
               {selectedObjects.map((obj) => (
                 <li key={obj.path} style={{ wordBreak: "break-all", display: "flex", alignItems: "center" }}>

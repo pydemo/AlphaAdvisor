@@ -124,7 +124,16 @@ const TreeView: React.FC<TreeViewProps> = ({
           ) : (
             <span style={{ width: 16, display: "inline-block" }} />
           )}
-          <span style={{ fontWeight: selectedPaths.includes(node.path) ? "bold" : "normal" }}>{node.name}</span>
+          <span style={{
+            fontWeight:
+              selectedPaths.includes(node.path)
+                ? "bold"
+                : (isDir && /\/public\/MENU\//.test(node.path))
+                  ? "bold"
+                  : "normal"
+          }}>
+            {node.name}
+          </span>
         </div>
         {isDir && isOpen && node.children && (
           <div>
