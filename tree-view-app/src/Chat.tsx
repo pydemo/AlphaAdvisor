@@ -75,6 +75,22 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
     };
   }, [messages]);
 
+  // State to track which message was just copied
+  const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
+
+  // Copy handler
+  const handleCopy = async (text: string, idx: number) => {
+    // Remove "Echo:" or "Selected file:" prefix if present (case-insensitive, optional whitespace)
+    let cleanText = text.replace(/^(Echo:|Selected file:)\s*/i, "");
+    try {
+      await navigator.clipboard.writeText(cleanText);
+      setCopiedIdx(idx);
+      setTimeout(() => setCopiedIdx(null), 1200);
+    } catch (e) {
+      // fallback or error handling could go here
+    }
+  };
+
   return (
     <div
       style={{
@@ -102,6 +118,10 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
             style={{
               margin: "8px 0",
               textAlign: msg.from === "user" ? "right" : "left",
+              position: "relative",
+              display: "flex",
+              flexDirection: msg.from === "user" ? "row-reverse" : "row",
+              alignItems: "center",
             }}
           >
             {(msg.from === "log" || msg.from === "bot") && /<img\s/i.test(msg.text) ? (
@@ -129,26 +149,46 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                 }}
               />
             ) : (
-              <span
-                style={{
-                  display: "inline-block",
-                  background:
-                    msg.from === "user"
-                      ? "#cce5ff"
-                      : msg.from === "log"
-                      ? "#ffeeba"
-                      : "#e2e3e5",
-                  color: "#222",
-                  borderRadius: 8,
-                  padding: "6px 12px",
-                  maxWidth: "70%",
-                  wordBreak: "break-word",
-                  fontStyle: msg.from === "log" ? "italic" : undefined,
-                  whiteSpace: "pre-line",
-                }}
-              >
-                {msg.text}
-              </span>
+              <>
+                <span
+                  style={{
+                    display: "inline-block",
+                    background:
+                      msg.from === "user"
+                        ? "#cce5ff"
+                        : msg.from === "log"
+                        ? "#ffeeba"
+                        : "#e2e3e5",
+                    color: "#222",
+                    borderRadius: 8,
+                    padding: "6px 12px",
+                    maxWidth: "70%",
+                    wordBreak: "break-word",
+                    fontStyle: msg.from === "log" ? "italic" : undefined,
+                    whiteSpace: "pre-line",
+                  }}
+                >
+                  {msg.text}
+                </span>
+                {(msg.from === "bot" || msg.from === "log") && (
+                  <button
+                    onClick={() => handleCopy(msg.text, i)}
+                    style={{
+                      marginLeft: 8,
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      fontSize: 18,
+                      color: "#007bff",
+                      padding: 2,
+                      position: "relative",
+                    }}
+                    title="Copy to clipboard"
+                  >
+                    {copiedIdx === i ? "✔️" : "📋"}
+                  </button>
+                )}
+              </>
             )}
           </div>
         ))}
