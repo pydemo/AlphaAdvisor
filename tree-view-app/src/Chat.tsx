@@ -82,6 +82,16 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
   const [previewContent, setPreviewContent] = useState<string | null>(null);
   const [previewTitle, setPreviewTitle] = useState<string>("");
 
+  // Close preview on Esc key
+  useEffect(() => {
+    if (previewContent === null) return;
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setPreviewContent(null);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [previewContent]);
+
   // Copy handler
   const handleCopy = async (text: string, idx: number) => {
     // Remove "Echo:", "Selected file:", or "Deselected file:" prefix if present (case-insensitive, optional whitespace)
