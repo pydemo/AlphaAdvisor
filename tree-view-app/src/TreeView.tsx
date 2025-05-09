@@ -12,9 +12,18 @@ type TreeViewProps = {
   filter?: string;
   onFileDoubleClick?: (node: TreeNode) => void;
   selectedPaths?: string[];
+  expandAllSignal?: number;
+  collapseAllSignal?: number;
 };
 
-const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter, onFileDoubleClick, selectedPaths = [] }) => {
+const TreeView: React.FC<TreeViewProps> = ({
+  dataUrl,
+  filter,
+  onFileDoubleClick,
+  selectedPaths = [],
+  expandAllSignal,
+  collapseAllSignal,
+}) => {
   const [tree, setTree] = useState<TreeNode | null>(null);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   // Removed internal selected state; selection is managed by parent
@@ -24,6 +33,29 @@ const TreeView: React.FC<TreeViewProps> = ({ dataUrl, filter, onFileDoubleClick,
       .then((res) => res.json())
       .then(setTree);
   }, [dataUrl]);
+
+  // Expand all directories
+  useEffect(() => {
+    if (expandAllSignal && tree) {
+      const allDirs = new Set<string>();
+      const collectDirs = (node: TreeNode) => {
+        if (node.type === "directory") {
+          allDirs.add(node.path);
+          (node.children || []).forEach(collectDirs);
+        }
+      };
+      collectDirs(tree);
+      setExpanded(allDirs);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [expandAllSignal]);
+
+  // Collapse all directories
+  useEffect(() => {
+    if (collapseAllSignal) {
+      setExpanded(new Set());
+    }
+  }, [collapseAllSignal]);
 
   const toggleExpand = (path: string) => {
     setExpanded((prev) => {

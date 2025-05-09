@@ -10,6 +10,8 @@ function App() {
   const [search, setSearch] = useState("");
   const [selectedObjects, setSelectedObjects] = useState<{ name: string; path: string }[]>([]);
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+  const [expandAllSignal, setExpandAllSignal] = useState(0);
+  const [collapseAllSignal, setCollapseAllSignal] = useState(0);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(e.target.value);
@@ -123,12 +125,29 @@ function App() {
             Search
           </button>
         </div>
+        {/* Expand/Collapse All buttons */}
+        <div style={{ marginBottom: 8 }}>
+          <button
+            onClick={() => setExpandAllSignal((n) => n + 1)}
+            style={{ fontSize: 15, padding: "3px 10px", marginRight: 8 }}
+          >
+            Expand All
+          </button>
+          <button
+            onClick={() => setCollapseAllSignal((n) => n + 1)}
+            style={{ fontSize: 15, padding: "3px 10px" }}
+          >
+            Collapse All
+          </button>
+        </div>
         <div style={{ flex: 1, minHeight: 0, overflowY: "auto" }}>
           <TreeView
             dataUrl="/tree-data.json"
             filter={search}
             onFileDoubleClick={handleFileDoubleClick}
             selectedPaths={selectedObjects.map((obj) => obj.path)}
+            expandAllSignal={expandAllSignal}
+            collapseAllSignal={collapseAllSignal}
           />
         </div>
         {/* Optionally, show selected objects */}
