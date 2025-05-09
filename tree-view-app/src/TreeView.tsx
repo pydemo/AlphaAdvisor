@@ -231,19 +231,54 @@ const TreeView: React.FC<TreeViewProps> = ({
               autoFocus
               onKeyDown={e => {
                 if (e.key === "Enter" && newDirName.trim()) {
-                  // TODO: Replace with backend call to create dir
-                  alert(`Would create directory "${newDirName.trim()}" under "${createMenuDir.parentPath}"`);
-                  setCreateMenuDir({ parentPath: "", open: false });
+                  // Call backend to create dir
+                  fetch("/api/create-dir", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      parentPath: createMenuDir.parentPath,
+                      newDirName: newDirName.trim()
+                    })
+                  })
+                  .then(res => res.json())
+                  .then(data => {
+                    if (data.success) {
+                      setCreateMenuDir({ parentPath: "", open: false });
+                      setNewDirName("");
+                      // Optionally, refresh tree
+                      window.location.reload();
+                    } else {
+                      alert("Error: " + (data.error || "Failed to create directory"));
+                    }
+                  })
+                  .catch(err => alert("Error: " + err));
                 }
               }}
             />
             <div style={{ display: "flex", gap: 10, marginTop: 8 }}>
               <button
                 onClick={() => {
-                  // TODO: Replace with backend call to create dir
                   if (newDirName.trim()) {
-                    alert(`Would create directory "${newDirName.trim()}" under "${createMenuDir.parentPath}"`);
-                    setCreateMenuDir({ parentPath: "", open: false });
+                    fetch("/api/create-dir", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        parentPath: createMenuDir.parentPath,
+                        newDirName: newDirName.trim()
+                      })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                      if (data.success) {
+                        setCreateMenuDir({ parentPath: "", open: false });
+                        setNewDirName("");
+                        // Optionally, refresh tree
+                        window.location.reload();
+                      } else {
+                        alert("Error: " + (data.error || "Failed to create directory"));
+                      }
+                    })
+                    .catch(err => alert("Error: " + err));
                   }
                 }}
                 style={{ fontSize: 15, padding: "4px 18px", borderRadius: 4, background: "#0074d9", color: "#fff", border: "none" }}
