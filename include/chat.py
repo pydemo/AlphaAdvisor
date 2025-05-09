@@ -9,12 +9,19 @@ def render_chat():
             {"role": "assistant", "content": "Hi, how can I help you?"}
         ]
     # Show all queued selections in chat (from capp.py)
-    if "chat_selection_queue" in st.session_state:
+    if "chat_selection_queue" in st.session_state and st.session_state["chat_selection_queue"]:
+        # Process all queued selections
         for sel in st.session_state["chat_selection_queue"]:
+            # Add the selection to chat messages
             st.session_state["chat_messages"].append(
-                {"role": "assistant", "content": f"Selected: {sel}"}
+                {"role": "system", "content": f"📄 File selected: {sel}"}
             )
-        st.session_state["chat_selection_queue"].clear()
+
+        # Debug information (comment out in production)
+        # st.write(f"Added {len(st.session_state['chat_selection_queue'])} selections to chat")
+
+        # Clear the queue after processing all items
+        st.session_state["chat_selection_queue"] = []
 
     # Scrollable chat area with fixed width and height
     chat_container_style = """
@@ -33,6 +40,8 @@ def render_chat():
     for msg in st.session_state["chat_messages"]:
         if msg["role"] == "user":
             chat_html += f'<div style="background:#e3f2fd;padding:8px 12px;border-radius:8px;margin-bottom:4px;text-align:left;"><b>User:</b> {msg["content"]}</div>'
+        elif msg["role"] == "system":
+            chat_html += f'<div style="background:#fff3e0;padding:8px 12px;border-radius:8px;margin-bottom:4px;text-align:left;font-style:italic;">{msg["content"]}</div>'
         else:
             chat_html += f'<div style="background:#f1f8e9;padding:8px 12px;border-radius:8px;margin-bottom:4px;text-align:left;"><b>Assistant:</b> {msg["content"]}</div>'
     chat_container_style += chat_html + "</div>"

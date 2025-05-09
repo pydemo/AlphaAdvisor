@@ -129,22 +129,32 @@ st.markdown(
 # --- Unselect button ---
 if st.session_state.get("selected"):
     if st.button("Unselect", key="unselect-btn"):
+        # When unselecting, clear both the selection and tracking variables
         st.session_state["selected"] = None
+        # Reset render selection tracking
+        if "last_render_selection" in st.session_state:
+            st.session_state["last_render_selection"] = None
 
 render_tree(tree)
 
 if st.session_state.get("selected"):
-    # Queue selection for chat if changed
+    # Initialize selection tracking if needed
     if "chat_selection_queue" not in st.session_state:
         st.session_state["chat_selection_queue"] = []
-    if "chat_selection_last" not in st.session_state:
-        st.session_state["chat_selection_last"] = None
-    if (
-        st.session_state["selected"]
-        and st.session_state["selected"] != st.session_state["chat_selection_last"]
-    ):
-        st.session_state["chat_selection_queue"].append(st.session_state["selected"])
-        st.session_state["chat_selection_last"] = st.session_state["selected"]
+
+    # Track if there's a new selection this render cycle
+    if "last_render_selection" not in st.session_state:
+        st.session_state["last_render_selection"] = None
+
+    # The key insight: Only add to chat queue on first render after selection changes
+    if st.session_state["selected"] != st.session_state["last_render_selection"]:
+        selected_path = st.session_state["selected"]
+        selected_name = os.path.basename(selected_path)
+        # Add to chat queue
+        st.session_state["chat_selection_queue"].append(selected_name)
+        # Mark that we've processed this selection
+        st.session_state["last_render_selection"] = st.session_state["selected"]
+
     st.success(f"Selected: {st.session_state['selected']}")
 else:
     st.info("Select a file or directory from the tree.")

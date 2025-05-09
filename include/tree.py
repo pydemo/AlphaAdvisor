@@ -50,10 +50,14 @@ def render_tree(tree, level=0, key_prefix=""):
                         key=f"select-dir-{node_key}",
                         help=node['path']
                     ):
-                        if st.session_state.get('selected') == node['path']:
-                            st.session_state['selected'] = None
-                        else:
-                            st.session_state['selected'] = node['path']
+                        # Select this directory
+                        # We need to trick Streamlit into registering a change
+                        # even when selecting the same directory multiple times
+                        current_selection = st.session_state.get('selected')
+                        # First clear selection to force a change
+                        st.session_state['selected'] = None
+                        # Then set to the actual path
+                        st.session_state['selected'] = node['path']
                     if st.session_state.get('selected') == node['path']:
                         st.markdown(
                             f"<span class='tree-highlight-dir'>[DIR] {node['name']} (selected)</span>",
@@ -70,10 +74,14 @@ def render_tree(tree, level=0, key_prefix=""):
                     key=f"select-file-{node_key}",
                     help=node['path']
                 ):
-                    if st.session_state.get('selected') == node['path']:
-                        st.session_state['selected'] = None
-                    else:
-                        st.session_state['selected'] = node['path']
+                    # Select this file
+                    # We need to trick Streamlit into registering a change
+                    # even when selecting the same file multiple times
+                    current_selection = st.session_state.get('selected')
+                    # First clear selection to force a change
+                    st.session_state['selected'] = None
+                    # Then set to the actual path
+                    st.session_state['selected'] = node['path']
                 if st.session_state.get('selected') == node['path']:
                     st.markdown(
                         f"<span class='tree-highlight-file'>[FILE] {node['name']} (selected)</span>",
