@@ -72,7 +72,7 @@ def build_tree(path, rel_path="", in_included_subtree=False):
 
             if os.path.isdir(full_path):
                 subtree = build_tree(full_path, entry_rel_path, in_this_included_subtree)
-                if subtree is not None and subtree["children"]:
+                if subtree is not None:
                     tree["children"].append(subtree)
             else:
                 if not INCLUDE or in_this_included_subtree or should_include_path(entry_rel_path):
@@ -83,11 +83,8 @@ def build_tree(path, rel_path="", in_included_subtree=False):
                     })
     except PermissionError:
         pass
-    # Only return tree if it has children (except for root)
-    if rel_path == "" or tree["children"]:
-        return tree
-    else:
-        return None
+    # Always return the tree, even if it has no children (to show empty dirs)
+    return tree
 
 if __name__ == "__main__":
     root_path = os.path.abspath(os.path.dirname(__file__)).replace('/tree-view-app', '')

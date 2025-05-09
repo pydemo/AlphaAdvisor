@@ -24,6 +24,12 @@
                   "type": "directory",
                   "children": [
                     {
+                      "name": "777",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/777",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
                       "name": "PAGE_1",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1",
                       "type": "directory",
@@ -49,6 +55,12 @@
                                   "type": "file"
                                 }
                               ]
+                            },
+                            {
+                              "name": "PAGE_2",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_2",
+                              "type": "directory",
+                              "children": []
                             },
                             {
                               "name": "image_quality_rec_page_1.png",
@@ -168,6 +180,30 @@
                       ]
                     },
                     {
+                      "name": "TestSubdir",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/TestSubdir",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "TestSubdir2",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/TestSubdir2",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "efwefwef",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/efwefwef",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "ewfewfewf",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/ewfewfewf",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
                       "name": "menu_shooting.json",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/menu_shooting.json",
                       "type": "file"
@@ -181,6 +217,18 @@
                       "name": "shooting_subitems_page_2.jpg",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/shooting_subitems_page_2.jpg",
                       "type": "file"
+                    },
+                    {
+                      "name": "test123",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/test123",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "www",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/www",
+                      "type": "directory",
+                      "children": []
                     }
                   ]
                 },

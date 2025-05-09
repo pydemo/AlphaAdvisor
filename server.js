@@ -28,6 +28,19 @@ app.post('/api/create-dir', (req, res) => {
 
   try {
     fs.mkdirSync(safePath, { recursive: true });
+    // Refresh tree-data.json
+    const { exec } = require('child_process');
+    exec('python3 tree-view-app/gen_tree_json.py', (error, stdout, stderr) => {
+      if (error) {
+        console.error('Error regenerating tree-data.json:', error);
+      }
+      if (stderr) {
+        console.error('stderr:', stderr);
+      }
+      if (stdout) {
+        console.log('stdout:', stdout);
+      }
+    });
     res.status(200).json({ success: true, path: safePath });
   } catch (err) {
     console.error("DIR CREATE ERROR", err);
