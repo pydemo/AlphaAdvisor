@@ -80,8 +80,8 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
 
   // Copy handler
   const handleCopy = async (text: string, idx: number) => {
-    // Remove "Echo:" or "Selected file:" prefix if present (case-insensitive, optional whitespace)
-    let cleanText = text.replace(/^(Echo:|Selected file:)\s*/i, "");
+    // Remove "Echo:", "Selected file:", or "Deselected file:" prefix if present (case-insensitive, optional whitespace)
+    let cleanText = text.replace(/^(Echo:|Selected file:|Deselected file:)\s*/i, "");
     try {
       await navigator.clipboard.writeText(cleanText);
       setCopiedIdx(idx);

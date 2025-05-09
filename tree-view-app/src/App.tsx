@@ -112,17 +112,45 @@ function App() {
         }}
       >
         <h2 style={{ marginTop: 0 }}>Directory Tree Viewer</h2>
-        <div style={{ marginBottom: 12 }}>
+        <div style={{ marginBottom: 12, display: "flex", alignItems: "center", flexWrap: "nowrap" }}>
           <input
             type="text"
             value={filter}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             placeholder="Filter..."
-            style={{ fontSize: 16, padding: "4px 8px", marginRight: 8 }}
+            style={{
+              fontSize: 16,
+              padding: "4px 8px",
+              marginRight: 8,
+              width: 120,
+              maxWidth: 160,
+              flex: "0 0 auto"
+            }}
           />
-          <button onClick={handleSearch} style={{ fontSize: 16, padding: "4px 12px" }}>
+          <button
+            onClick={handleSearch}
+            style={{
+              fontSize: 16,
+              padding: "4px 12px",
+              marginRight: 6,
+              flex: "0 0 auto"
+            }}
+          >
             Search
+          </button>
+          <button
+            onClick={() => {
+              setFilter("");
+              setSearch("");
+            }}
+            style={{
+              fontSize: 16,
+              padding: "4px 12px",
+              flex: "0 0 auto"
+            }}
+          >
+            Reset
           </button>
         </div>
         {/* Expand/Collapse All buttons and PNG|JPG filter */}
