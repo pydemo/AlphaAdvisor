@@ -30,12 +30,15 @@ def render_tree(tree, level=0, key_prefix=""):
     for idx, node in enumerate(tree):
         node_key = f"{key_prefix}-{node['name']}-{idx}"
         indent = "&nbsp;" * 3 * level  # slightly less indent for compactness
+        # Indentation: use a left spacer column proportional to level
+        spacer = 0.04 + 0.04 * level  # 0.04 for root, +0.04 per level
+        label_col = 0.89 - 0.04 * level  # keep total ~0.97, rest for toggle
         if node["type"] == "dir":
             exp_key = f"exp-{node_key}"
             if exp_key not in st.session_state:
                 st.session_state[exp_key] = False
-            cols = st.columns([0.07, 0.83, 0.1])
-            with cols[0]:
+            cols = st.columns([spacer, 0.07, label_col, 0.1])
+            with cols[1]:
                 # Use checkbox for expand/collapse, label is empty for compactness
                 st.checkbox(
                     "",
@@ -43,37 +46,43 @@ def render_tree(tree, level=0, key_prefix=""):
                     key=f"chk-{exp_key}",
                     label_visibility="collapsed"
                 )
-            with cols[1]:
+            with cols[2]:
                 # Directory selectable
                 exp_state = st.session_state.get(f"chk-{exp_key}", False)
-                label = f"{indent}{'➖' if exp_state else '➕'} 📁 {node['name']}"
+                label = f"{'➖' if exp_state else '➕'} 📁 {node['name']}"
                 if st.button(
                     label,
                     key=f"select-dir-{node_key}",
                     help=node['path'],
                 ):
-                    st.session_state['selected'] = node['path']
+                    if st.session_state.get('selected') == node['path']:
+                        st.session_state['selected'] = None
+                    else:
+                        st.session_state['selected'] = node['path']
                 # Highlight if selected
                 if st.session_state.get('selected') == node['path']:
                     st.markdown(
-                        f"{indent}<span class='tree-highlight-dir'>[DIR] {node['name']} (selected)</span>",
+                        f"<span class='tree-highlight-dir'>[DIR] {node['name']} (selected)</span>",
                         unsafe_allow_html=True
                     )
             if st.session_state.get(f"chk-{exp_key}", False):
                 render_tree(node["children"], level=level+1, key_prefix=node_key)
         else:
             # File selectable
-            cols = st.columns([0.09, 0.91])
+            cols = st.columns([spacer, 0.93 - spacer])
             with cols[1]:
                 if st.button(
-                    f"{'&nbsp;' * 3 * level}📄 {node['name']}",
+                    f"📄 {node['name']}",
                     key=f"select-file-{node_key}",
                     help=node['path'],
                 ):
-                    st.session_state['selected'] = node['path']
+                    if st.session_state.get('selected') == node['path']:
+                        st.session_state['selected'] = None
+                    else:
+                        st.session_state['selected'] = node['path']
                 if st.session_state.get('selected') == node['path']:
                     st.markdown(
-                        f"{'&nbsp;' * 3 * level}<span class='tree-highlight-file'>[FILE] {node['name']} (selected)</span>",
+                        f"<span class='tree-highlight-file'>[FILE] {node['name']} (selected)</span>",
                         unsafe_allow_html=True
                     )
 
@@ -137,6 +146,11 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+# --- Unselect button ---
+if st.session_state.get("selected"):
+    if st.button("Unselect", key="unselect-btn"):
+        st.session_state["selected"] = None
 
 render_tree(tree)
 
