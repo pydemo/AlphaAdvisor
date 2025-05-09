@@ -7,6 +7,11 @@ type ChatProps = {
   onSendMessage: (text: string) => void;
 };
 
+type PreviewContent =
+  | string
+  | { type: "image"; src: string; alt: string }
+  | null;
+
 const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
   const [input, setInput] = useState("");
 
@@ -79,7 +84,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
 
   // State for preview modal
-  const [previewContent, setPreviewContent] = useState<string | null>(null);
+  const [previewContent, setPreviewContent] = useState<PreviewContent>(null);
   const [previewTitle, setPreviewTitle] = useState<string>("");
 
   // Close preview on Esc key
@@ -186,15 +191,66 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                   wordBreak: "break-word",
                   fontStyle: msg.from === "log" ? "italic" : undefined,
                   whiteSpace: "pre-line",
-                  overflowX: "auto"
+                  overflowX: "auto",
+                  position: "relative",
                 }}
-                dangerouslySetInnerHTML={{
-                  __html: msg.text.replace(
-                    /<img\s/gi,
-                    '<img style="display:block;width:384px;max-width:100%;height:auto;margin:0;" '
-                  )
-                }}
-              />
+              >
+                {/* Extract image src and alt from the img tag in msg.text */}
+                {(() => {
+                  const imgMatch = msg.text.match(/<img[^>]*src=["']([^"']+)["'][^>]*alt=["']([^"']*)["'][^>]*>/i);
+                  if (imgMatch) {
+                    const imgSrc = imgMatch[1];
+                    const imgAlt = imgMatch[2];
+                    return (
+                      <span style={{ display: "flex", alignItems: "center" }}>
+                        <img
+                          src={imgSrc}
+                          alt={imgAlt}
+                          style={{
+                            display: "block",
+                            width: 128,
+                            maxWidth: "100%",
+                            height: "auto",
+                            margin: 0,
+                            borderRadius: 4,
+                            border: "1px solid #ccc",
+                            cursor: "pointer"
+                          }}
+                          onClick={() => setPreviewContent({ type: "image", src: imgSrc, alt: imgAlt })}
+                          title="Click to preview"
+                        />
+                        <button
+                          onClick={() => setPreviewContent({ type: "image", src: imgSrc, alt: imgAlt })}
+                          style={{
+                            marginLeft: 8,
+                            background: "none",
+                            border: "none",
+                            cursor: "pointer",
+                            fontSize: 16,
+                            color: "#28a745",
+                            padding: 2,
+                            position: "relative",
+                          }}
+                          title="Preview image"
+                        >
+                          Preview
+                        </button>
+                      </span>
+                    );
+                  }
+                  // fallback: render as HTML if parsing fails
+                  return (
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: msg.text.replace(
+                          /<img\s/gi,
+                          '<img style="display:block;width:384px;max-width:100%;height:auto;margin:0;" '
+                        )
+                      }}
+                    />
+                  );
+                })()}
+              </span>
             ) : (
               <>
                 <span
@@ -289,10 +345,13 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
               maxHeight: "80vh",
               overflow: "auto",
               position: "relative",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center"
             }}
             onClick={e => e.stopPropagation()}
           >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", marginBottom: 12 }}>
               <b>{previewTitle}</b>
               <button
                 onClick={() => setPreviewContent(null)}
@@ -311,23 +370,40 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                 ×
               </button>
             </div>
-            <pre
-              style={{
-                background: "#f6f8fa",
-                borderRadius: 4,
-                padding: 12,
-                fontSize: 14,
-                maxHeight: "60vh",
-                overflow: "auto",
-                whiteSpace: "pre-wrap",
-                wordBreak: "break-all",
-                textAlign: "left",
-                fontFamily: "monospace",
-                margin: 0,
-              }}
-            >
-              {previewContent}
-            </pre>
+            {/* Show image or JSON/text based on previewContent type */}
+            {previewContent && typeof previewContent === "object" && "type" in previewContent && previewContent.type === "image" ? (
+              <img
+                src={previewContent.src}
+                alt={previewContent.alt}
+                style={{
+                  maxWidth: "70vw",
+                  maxHeight: "65vh",
+                  borderRadius: 8,
+                  border: "1px solid #ccc",
+                  background: "#f6f8fa",
+                  margin: "0 auto",
+                  display: "block"
+                }}
+              />
+            ) : typeof previewContent === "string" ? (
+              <pre
+                style={{
+                  background: "#f6f8fa",
+                  borderRadius: 4,
+                  padding: 12,
+                  fontSize: 14,
+                  maxHeight: "60vh",
+                  overflow: "auto",
+                  whiteSpace: "pre-wrap",
+                  wordBreak: "break-all",
+                  textAlign: "left",
+                  fontFamily: "monospace",
+                  margin: 0,
+                }}
+              >
+                {previewContent}
+              </pre>
+            ) : null}
           </div>
         </div>
       )}
