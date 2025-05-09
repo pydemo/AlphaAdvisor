@@ -57,7 +57,7 @@ function App() {
           imgSrc = `/${node.path.replace(/^(\.\/|\/)/, '')}`;
         }
         newMessages.push({
-          text: `<img src="${imgSrc}" alt="${node.name}" style="width:64px;max-width:100%;border-radius:4px;border:1px solid #ccc;margin-top:4px;" />`,
+          text: `<img src="${imgSrc}" alt="${node.name}" style="width:256px;max-width:100%;border-radius:4px;border:1px solid #ccc;margin-top:4px;" />`,
           from: "bot" as const
         });
       }

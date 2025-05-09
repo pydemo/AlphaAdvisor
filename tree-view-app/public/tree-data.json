@@ -4,408 +4,271 @@
   "type": "directory",
   "children": [
     {
-      "name": ".gitignore",
-      "path": "/home/alexb/myg/cla_2/.gitignore",
-      "type": "file"
-    },
-    {
-      "name": "MENU",
-      "path": "/home/alexb/myg/cla_2/MENU",
+      "name": "tree-view-app",
+      "path": "/home/alexb/myg/cla_2/tree-view-app",
       "type": "directory",
       "children": [
         {
-          "name": "Shooting",
-          "path": "/home/alexb/myg/cla_2/MENU/Shooting",
+          "name": "public",
+          "path": "/home/alexb/myg/cla_2/tree-view-app/public",
           "type": "directory",
           "children": [
             {
-              "name": "PAGE_1",
-              "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1",
+              "name": "MENU",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU",
               "type": "directory",
               "children": [
                 {
-                  "name": "1_image_quality_rec",
-                  "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/1_image_quality_rec",
+                  "name": "Shooting",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting",
                   "type": "directory",
                   "children": [
                     {
-                      "name": "1_image_quality_rec.json",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/1_image_quality_rec/1_image_quality_rec.json",
-                      "type": "file"
-                    },
-                    {
-                      "name": "1_image_quality_rec.json:Zone.Identifier",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/1_image_quality_rec/1_image_quality_rec.json:Zone.Identifier",
-                      "type": "file"
-                    },
-                    {
                       "name": "PAGE_1",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1",
                       "type": "directory",
                       "children": [
                         {
-                          "name": "JPEG_HREF_Switch.png",
-                          "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch.png",
-                          "type": "file"
+                          "name": "1_image_quality_rec",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_image_quality_rec.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/1_image_quality_rec.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "PAGE_1",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "JPEG_HREF_Switch.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "image_quality_rec_page_1.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/image_quality_rec_page_1.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "image_quality_rec_page_2.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/image_quality_rec_page_2.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
-                          "name": "JPEG_HREF_Switch.png:Zone.Identifier",
-                          "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch.png:Zone.Identifier",
-                          "type": "file"
+                          "name": "2_media",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/2_media",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "2_media.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/2_media/2_media.json",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "3_file",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/3_file",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "3_file.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/3_file/3_file.json",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "4_shooting_mode",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/4_shooting_mode",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "4_shooting_mode.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/4_shooting_mode/4_shooting_mode.json",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "5_drive_mode",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/5_drive_mode",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "5_drive_mode.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/5_drive_mode/5_drive_mode.json",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "6_shutter_silent",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/6_shutter_silent",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "6_shutter_silent.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/6_shutter_silent/6_shutter_silent.json",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "7_image_stabilization",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/7_image_stabilization",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "7_image_stabilization.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/7_image_stabilization/7_image_stabilization.json",
+                              "type": "file"
+                            }
+                          ]
                         }
                       ]
                     },
                     {
                       "name": "PAGE_2",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_2",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_2",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "8_zoom",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_2/8_zoom",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "8_zoom.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_2/8_zoom/8_zoom.json",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "9_shooting_display",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_2/9_shooting_display",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "9_shooting_display.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_2/9_shooting_display/9_shooting_display.json",
+                              "type": "file"
+                            }
+                          ]
+                        }
+                      ]
                     },
                     {
-                      "name": "image_quality_rec_page_1.png",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/1_image_quality_rec/image_quality_rec_page_1.png",
+                      "name": "menu_shooting.json",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/menu_shooting.json",
                       "type": "file"
                     },
                     {
-                      "name": "image_quality_rec_page_1.png:Zone.Identifier",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/1_image_quality_rec/image_quality_rec_page_1.png:Zone.Identifier",
+                      "name": "shooting_subitems_page_1.jpg",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/shooting_subitems_page_1.jpg",
                       "type": "file"
                     },
                     {
-                      "name": "image_quality_rec_page_2.png",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/1_image_quality_rec/image_quality_rec_page_2.png",
-                      "type": "file"
-                    },
-                    {
-                      "name": "image_quality_rec_page_2.png:Zone.Identifier",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/1_image_quality_rec/image_quality_rec_page_2.png:Zone.Identifier",
+                      "name": "shooting_subitems_page_2.jpg",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/shooting_subitems_page_2.jpg",
                       "type": "file"
                     }
                   ]
                 },
                 {
-                  "name": "2_media",
-                  "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/2_media",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "2_media.json",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/2_media/2_media.json",
-                      "type": "file"
-                    },
-                    {
-                      "name": "2_media.json:Zone.Identifier",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/2_media/2_media.json:Zone.Identifier",
-                      "type": "file"
-                    }
-                  ]
+                  "name": "menu.txt",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/menu.txt",
+                  "type": "file"
                 },
                 {
-                  "name": "3_file",
-                  "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/3_file",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "3_file.json",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/3_file/3_file.json",
-                      "type": "file"
-                    },
-                    {
-                      "name": "3_file.json:Zone.Identifier",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/3_file/3_file.json:Zone.Identifier",
-                      "type": "file"
-                    }
-                  ]
+                  "name": "menu_exposure.json",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/menu_exposure.json",
+                  "type": "file"
                 },
                 {
-                  "name": "4_shooting_mode",
-                  "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/4_shooting_mode",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "4_shooting_mode.json",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/4_shooting_mode/4_shooting_mode.json",
-                      "type": "file"
-                    },
-                    {
-                      "name": "4_shooting_mode.json:Zone.Identifier",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/4_shooting_mode/4_shooting_mode.json:Zone.Identifier",
-                      "type": "file"
-                    }
-                  ]
+                  "name": "menu_focus.json",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/menu_focus.json",
+                  "type": "file"
                 },
                 {
-                  "name": "5_drive_mode",
-                  "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/5_drive_mode",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "5_drive_mode.json",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/5_drive_mode/5_drive_mode.json",
-                      "type": "file"
-                    },
-                    {
-                      "name": "5_drive_mode.json:Zone.Identifier",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/5_drive_mode/5_drive_mode.json:Zone.Identifier",
-                      "type": "file"
-                    }
-                  ]
+                  "name": "menu_main.json",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/menu_main.json",
+                  "type": "file"
                 },
                 {
-                  "name": "6_shutter_silent",
-                  "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/6_shutter_silent",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "6_shutter_silent.json",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/6_shutter_silent/6_shutter_silent.json",
-                      "type": "file"
-                    },
-                    {
-                      "name": "6_shutter_silent.json:Zone.Identifier",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/6_shutter_silent/6_shutter_silent.json:Zone.Identifier",
-                      "type": "file"
-                    }
-                  ]
+                  "name": "menu_my_menu.json",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/menu_my_menu.json",
+                  "type": "file"
                 },
                 {
-                  "name": "7_image_stabilization",
-                  "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/7_image_stabilization",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "7_image_stabilization.json",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/7_image_stabilization/7_image_stabilization.json",
-                      "type": "file"
-                    },
-                    {
-                      "name": "7_image_stabilization.json:Zone.Identifier",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_1/7_image_stabilization/7_image_stabilization.json:Zone.Identifier",
-                      "type": "file"
-                    }
-                  ]
+                  "name": "menu_network.json",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/menu_network.json",
+                  "type": "file"
+                },
+                {
+                  "name": "menu_playback.json",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/menu_playback.json",
+                  "type": "file"
+                },
+                {
+                  "name": "menu_setup.json",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/menu_setup.json",
+                  "type": "file"
+                },
+                {
+                  "name": "sony_a7r5_user_manual.pdf",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/sony_a7r5_user_manual.pdf",
+                  "type": "file"
                 }
               ]
             },
             {
-              "name": "PAGE_2",
-              "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_2",
-              "type": "directory",
-              "children": [
-                {
-                  "name": "8_zoom",
-                  "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_2/8_zoom",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "8_zoom.json",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_2/8_zoom/8_zoom.json",
-                      "type": "file"
-                    },
-                    {
-                      "name": "8_zoom.json:Zone.Identifier",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_2/8_zoom/8_zoom.json:Zone.Identifier",
-                      "type": "file"
-                    }
-                  ]
-                },
-                {
-                  "name": "9_shooting_display",
-                  "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_2/9_shooting_display",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "9_shooting_display.json",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_2/9_shooting_display/9_shooting_display.json",
-                      "type": "file"
-                    },
-                    {
-                      "name": "9_shooting_display.json:Zone.Identifier",
-                      "path": "/home/alexb/myg/cla_2/MENU/Shooting/PAGE_2/9_shooting_display/9_shooting_display.json:Zone.Identifier",
-                      "type": "file"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "menu_shooting.json",
-              "path": "/home/alexb/myg/cla_2/MENU/Shooting/menu_shooting.json",
+              "name": "favicon.ico",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/favicon.ico",
               "type": "file"
             },
             {
-              "name": "menu_shooting.json:Zone.Identifier",
-              "path": "/home/alexb/myg/cla_2/MENU/Shooting/menu_shooting.json:Zone.Identifier",
+              "name": "index.html",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/index.html",
               "type": "file"
             },
             {
-              "name": "shooting_subitems_page_1.jpg",
-              "path": "/home/alexb/myg/cla_2/MENU/Shooting/shooting_subitems_page_1.jpg",
+              "name": "logo192.png",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/logo192.png",
               "type": "file"
             },
             {
-              "name": "shooting_subitems_page_1.jpg:Zone.Identifier",
-              "path": "/home/alexb/myg/cla_2/MENU/Shooting/shooting_subitems_page_1.jpg:Zone.Identifier",
+              "name": "logo512.png",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/logo512.png",
               "type": "file"
             },
             {
-              "name": "shooting_subitems_page_2.jpg",
-              "path": "/home/alexb/myg/cla_2/MENU/Shooting/shooting_subitems_page_2.jpg",
+              "name": "manifest.json",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/manifest.json",
               "type": "file"
             },
             {
-              "name": "shooting_subitems_page_2.jpg:Zone.Identifier",
-              "path": "/home/alexb/myg/cla_2/MENU/Shooting/shooting_subitems_page_2.jpg:Zone.Identifier",
+              "name": "robots.txt",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/robots.txt",
+              "type": "file"
+            },
+            {
+              "name": "tree-data.json",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/tree-data.json",
               "type": "file"
             }
           ]
-        },
-        {
-          "name": "menu.txt",
-          "path": "/home/alexb/myg/cla_2/MENU/menu.txt",
-          "type": "file"
-        },
-        {
-          "name": "menu.txt:Zone.Identifier",
-          "path": "/home/alexb/myg/cla_2/MENU/menu.txt:Zone.Identifier",
-          "type": "file"
-        },
-        {
-          "name": "menu_exposure.json",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_exposure.json",
-          "type": "file"
-        },
-        {
-          "name": "menu_exposure.json:Zone.Identifier",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_exposure.json:Zone.Identifier",
-          "type": "file"
-        },
-        {
-          "name": "menu_focus.json",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_focus.json",
-          "type": "file"
-        },
-        {
-          "name": "menu_focus.json:Zone.Identifier",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_focus.json:Zone.Identifier",
-          "type": "file"
-        },
-        {
-          "name": "menu_main.json",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_main.json",
-          "type": "file"
-        },
-        {
-          "name": "menu_main.json:Zone.Identifier",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_main.json:Zone.Identifier",
-          "type": "file"
-        },
-        {
-          "name": "menu_my_menu.json",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_my_menu.json",
-          "type": "file"
-        },
-        {
-          "name": "menu_my_menu.json:Zone.Identifier",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_my_menu.json:Zone.Identifier",
-          "type": "file"
-        },
-        {
-          "name": "menu_network.json",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_network.json",
-          "type": "file"
-        },
-        {
-          "name": "menu_network.json:Zone.Identifier",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_network.json:Zone.Identifier",
-          "type": "file"
-        },
-        {
-          "name": "menu_playback.json",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_playback.json",
-          "type": "file"
-        },
-        {
-          "name": "menu_playback.json:Zone.Identifier",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_playback.json:Zone.Identifier",
-          "type": "file"
-        },
-        {
-          "name": "menu_setup.json",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_setup.json",
-          "type": "file"
-        },
-        {
-          "name": "menu_setup.json:Zone.Identifier",
-          "path": "/home/alexb/myg/cla_2/MENU/menu_setup.json:Zone.Identifier",
-          "type": "file"
-        },
-        {
-          "name": "sony_a7r5_user_manual.pdf",
-          "path": "/home/alexb/myg/cla_2/MENU/sony_a7r5_user_manual.pdf",
-          "type": "file"
-        },
-        {
-          "name": "sony_a7r5_user_manual.pdf:Zone.Identifier",
-          "path": "/home/alexb/myg/cla_2/MENU/sony_a7r5_user_manual.pdf:Zone.Identifier",
-          "type": "file"
         }
       ]
-    },
-    {
-      "name": "README.md",
-      "path": "/home/alexb/myg/cla_2/README.md",
-      "type": "file"
-    },
-    {
-      "name": "README_dev_app.md",
-      "path": "/home/alexb/myg/cla_2/README_dev_app.md",
-      "type": "file"
-    },
-    {
-      "name": "app.py",
-      "path": "/home/alexb/myg/cla_2/app.py",
-      "type": "file"
-    },
-    {
-      "name": "capp.py",
-      "path": "/home/alexb/myg/cla_2/capp.py",
-      "type": "file"
-    },
-    {
-      "name": "comm.sh",
-      "path": "/home/alexb/myg/cla_2/comm.sh",
-      "type": "file"
-    },
-    {
-      "name": "dev_app.py",
-      "path": "/home/alexb/myg/cla_2/dev_app.py",
-      "type": "file"
-    },
-    {
-      "name": "git_push.py",
-      "path": "/home/alexb/myg/cla_2/git_push.py",
-      "type": "file"
-    },
-    {
-      "name": "image.png",
-      "path": "/home/alexb/myg/cla_2/image.png",
-      "type": "file"
-    },
-    {
-      "name": "print_last_commit_url.py",
-      "path": "/home/alexb/myg/cla_2/print_last_commit_url.py",
-      "type": "file"
-    },
-    {
-      "name": "prnt.sh",
-      "path": "/home/alexb/myg/cla_2/prnt.sh",
-      "type": "file"
-    },
-    {
-      "name": "tree_app.py",
-      "path": "/home/alexb/myg/cla_2/tree_app.py",
-      "type": "file"
     }
   ]
 }
