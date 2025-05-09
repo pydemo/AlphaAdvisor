@@ -2,6 +2,7 @@ import os
 import streamlit as st
 from include.tree import build_tree, render_tree
 from include.search_bar import render_search_bar
+from include.chat import render_chat
 
 # --- Main App ---
 st.set_page_config(page_title="Directory Tree (wxTree style)", layout="wide")
@@ -11,6 +12,10 @@ if "selected" not in st.session_state:
     st.session_state["selected"] = None
 
 root_path = os.getcwd()
+
+# --- Render chat in sidebar ---
+with st.sidebar:
+    render_chat()
 
 # --- Persistent search mode using session state ---
 if "search_active" not in st.session_state:
