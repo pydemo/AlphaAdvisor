@@ -100,9 +100,9 @@ function App() {
       {/* Left: Tree panel */}
       <div
         style={{
-          flex: "0 0 420px",
-          minWidth: 320,
-          maxWidth: 600,
+          flex: "0 0 600px",
+          minWidth: 400,
+          maxWidth: 900,
           borderRight: "1px solid #ccc",
           display: "flex",
           flexDirection: "column",

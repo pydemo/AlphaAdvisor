@@ -128,22 +128,20 @@ const TreeView: React.FC<TreeViewProps> = ({
             fontWeight:
               selectedPaths.includes(node.path)
                 ? "bold"
-                : "normal",
+                : (isDir && /\/public\/MENU\//.test(node.path))
+                  ? "bold"
+                  : "normal",
+  
 color:
   isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\/[^/]+\//.test(node.path)
-    ? "#a8d5a2" // green - deepest dir level
+    ? "#5b88c4"
     : isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\//.test(node.path)
-    ? "#7daeea" // blue - PAGE_* dir directly under MENU section
-    : isDir && /\/MENU\/[^/]+\/PAGE_\d+\//.test(node.path)
-    ? "orange" // fallback orange
-    : isDir && /\/MENU\/[^/]+\/$/.test(node.path)
-    ? "rgba(255, 100, 100, 0.4)" // faded red for 1st-level dirs under MENU
+    ? "#6c9c6a"
+    : isDir && /\/MENU\/.*\/PAGE_\d+\//.test(node.path)
+    ? "blue"
+    : isDir && /\/MENU\/.*\//.test(node.path)
+    ? "orange" // faded green
     : undefined
-
-
-
-
-
           }}>
             {node.name}
           </span>
