@@ -5,6 +5,7 @@ type ChatMessage = { text: string; from: "user" | "bot" | "log" };
 type ChatProps = {
   messages: ChatMessage[];
   onSendMessage: (text: string) => void;
+  onReplaceLastBotMessage?: (text: string) => void;
 };
 
 type PreviewContent =
@@ -13,7 +14,7 @@ type PreviewContent =
   | { type: "json+image"; json: string; imageSrc: string; imageAlt: string }
   | null;
 
-const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
+const Chat: React.FC<ChatProps> = ({ messages, onSendMessage, onReplaceLastBotMessage }) => {
   const [input, setInput] = useState("Convert this menu screenshot of Sony 'a7rV' to json including brief description of each menu option.");
   const [generalInput, setGeneralInput] = useState("");
   const [tab, setTab] = useState<"Conversion" | "General">("Conversion");
@@ -336,26 +337,76 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
               </span>
             ) : (
               <>
-                <span
-                  style={{
-                    display: "inline-block",
-                    background:
-                      msg.from === "user"
-                        ? "#cce5ff"
-                        : msg.from === "log"
-                        ? "#ffeeba"
-                        : "#e2e3e5",
-                    color: "#222",
-                    borderRadius: 8,
-                    padding: "6px 12px",
-                    maxWidth: "70%",
-                    wordBreak: "break-word",
-                    fontStyle: msg.from === "log" ? "italic" : undefined,
-                    whiteSpace: "pre-line",
-                  }}
-                >
-                  {msg.text}
-                </span>
+                {msg.from === "bot" && (() => {
+                  // Try to pretty-print JSON if possible
+                  let parsed: any = null;
+                  try {
+                    parsed = JSON.parse(msg.text);
+                  } catch {}
+                  if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
+                    return (
+                      <pre
+                        style={{
+                          background: "#f6f8fa",
+                          borderRadius: 4,
+                          padding: "12px 16px",
+                          fontSize: 14,
+                          maxWidth: "70%",
+                          overflow: "auto",
+                          whiteSpace: "pre-wrap",
+                          wordBreak: "break-all",
+                          textAlign: "left",
+                          fontFamily: "monospace",
+                          margin: "8px 0 8px 24px",
+                          color: "#222",
+                          border: "1px solid #e1e4e8",
+                          boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
+                        }}
+                      >
+                        {JSON.stringify(parsed, null, 2)}
+                      </pre>
+                    );
+                  }
+                  // fallback to plain text
+                  return (
+                    <span
+                      style={{
+                        display: "inline-block",
+                        background: "#e2e3e5",
+                        color: "#222",
+                        borderRadius: 8,
+                        padding: "6px 12px",
+                        maxWidth: "70%",
+                        wordBreak: "break-word",
+                        whiteSpace: "pre-line",
+                      }}
+                    >
+                      {msg.text}
+                    </span>
+                  );
+                })()}
+                {msg.from !== "bot" && (
+                  <span
+                    style={{
+                      display: "inline-block",
+                      background:
+                        msg.from === "user"
+                          ? "#cce5ff"
+                          : msg.from === "log"
+                          ? "#ffeeba"
+                          : "#e2e3e5",
+                      color: "#222",
+                      borderRadius: 8,
+                      padding: "6px 12px",
+                      maxWidth: "70%",
+                      wordBreak: "break-word",
+                      fontStyle: msg.from === "log" ? "italic" : undefined,
+                      whiteSpace: "pre-line",
+                    }}
+                  >
+                    {msg.text}
+                  </span>
+                )}
                 {(msg.from === "bot" || msg.from === "log") && (
                   <>
                     <button
@@ -452,18 +503,42 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                       }
                       const data = await res.json();
                       setAskLoadingIdx(null);
-                      if (typeof onSendMessage === "function") {
+                      // Ensure the user's question is preserved before replacing Echo
+                      if (
+                        onReplaceLastBotMessage &&
+                        (!messages[i - 1] || messages[i - 1].from !== "user" || messages[i - 1].text !== userText)
+                      ) {
+                        if (typeof onSendMessage === "function") {
+                          onSendMessage(userText);
+                        }
+                        setTimeout(() => {
+                          onReplaceLastBotMessage!(data.content || "No response from ChatGPT.");
+                        }, 0);
+                      } else if (onReplaceLastBotMessage) {
+                        onReplaceLastBotMessage(data.content || "No response from ChatGPT.");
+                      } else if (typeof onSendMessage === "function") {
                         onSendMessage(data.content || "No response from ChatGPT.");
-                        const elapsed = ((Date.now() - start) / 1000).toFixed(2);
-                        onSendMessage(`Elapsed: ${elapsed}s`);
                       }
+                      // No elapsed time message
                     } catch (err) {
                       setAskLoadingIdx(null);
-                      if (typeof onSendMessage === "function") {
+                      // Ensure the user's question is preserved before replacing Echo
+                      if (
+                        onReplaceLastBotMessage &&
+                        (!messages[i - 1] || messages[i - 1].from !== "user" || messages[i - 1].text !== userText)
+                      ) {
+                        if (typeof onSendMessage === "function") {
+                          onSendMessage(userText);
+                        }
+                        setTimeout(() => {
+                          onReplaceLastBotMessage!("Network error calling ChatGPT API: " + err);
+                        }, 0);
+                      } else if (onReplaceLastBotMessage) {
+                        onReplaceLastBotMessage("Network error calling ChatGPT API: " + err);
+                      } else if (typeof onSendMessage === "function") {
                         onSendMessage("Network error calling ChatGPT API: " + err);
-                        const elapsed = ((Date.now() - start) / 1000).toFixed(2);
-                        onSendMessage(`Elapsed: ${elapsed}s`);
                       }
+                      // No elapsed time message
                     }
                   }}
                   style={{
@@ -543,9 +618,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                       }
                       // Add a new bot message and stream into it
                       let streamed = "";
-                      if (typeof onSendMessage === "function") {
-                        onSendMessage("...");
-                      }
+                      // Do not add a user message, only show streamed content
                       const reader = res.body.getReader();
                       let done = false;
                       while (!done) {
@@ -554,26 +627,46 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                         if (value) {
                           const chunk = new TextDecoder().decode(value);
                           streamed += chunk;
-                          // Replace the last bot message with the current streamed content
-                          // (Assumes onSendMessage appends, so you may need to adjust this logic for your chat state)
-                          // For now, just append as new message for each chunk
-                          if (typeof onSendMessage === "function") {
-                            onSendMessage(streamed);
-                          }
+                      // Only show streamed content as bot message
+                      // Ensure the user's question is preserved before replacing Echo
+                      if (
+                        onReplaceLastBotMessage &&
+                        (!messages[i - 1] || messages[i - 1].from !== "user" || messages[i - 1].text !== userText)
+                      ) {
+                        if (typeof onSendMessage === "function") {
+                          onSendMessage(userText);
+                        }
+                        setTimeout(() => {
+                          onReplaceLastBotMessage!(streamed);
+                        }, 0);
+                      } else if (onReplaceLastBotMessage) {
+                        onReplaceLastBotMessage(streamed);
+                      } else if (typeof onSendMessage === "function") {
+                        onSendMessage(streamed);
+                      }
                         }
                       }
                       setStreamedLoadingIdx(null);
-                      if (typeof onSendMessage === "function") {
-                        const elapsed = ((Date.now() - start) / 1000).toFixed(2);
-                        onSendMessage(`Elapsed: ${elapsed}s`);
-                      }
+                      // No elapsed time message
                     } catch (err) {
                       setStreamedLoadingIdx(null);
-                      if (typeof onSendMessage === "function") {
+                      // Ensure the user's question is preserved before replacing Echo
+                      if (
+                        onReplaceLastBotMessage &&
+                        (!messages[i - 1] || messages[i - 1].from !== "user" || messages[i - 1].text !== userText)
+                      ) {
+                        if (typeof onSendMessage === "function") {
+                          onSendMessage(userText);
+                        }
+                        setTimeout(() => {
+                          onReplaceLastBotMessage!("Network error calling ChatGPT API (streamed): " + err);
+                        }, 0);
+                      } else if (onReplaceLastBotMessage) {
+                        onReplaceLastBotMessage("Network error calling ChatGPT API (streamed): " + err);
+                      } else if (typeof onSendMessage === "function") {
                         onSendMessage("Network error calling ChatGPT API (streamed): " + err);
-                        const elapsed = ((Date.now() - start) / 1000).toFixed(2);
-                        onSendMessage(`Elapsed: ${elapsed}s`);
                       }
+                      // No elapsed time message
                     }
                   }}
                   style={{
