@@ -138,10 +138,10 @@ function App() {
           </button>
         </div>
         {/* Expand/Collapse All buttons and PNG|JPG filter */}
-        <div style={{ marginBottom: 8 }}>
+        <div style={{ marginBottom: 8, display: "flex", alignItems: "center", gap: 8 }}>
           <button
             onClick={() => setExpandAllSignal((n) => n + 1)}
-            style={{ fontSize: 15, padding: "3px 10px", marginRight: 8 }}
+            style={{ fontSize: 15, padding: "3px 10px" }}
           >
             Expand All
           </button>
@@ -150,7 +150,7 @@ function App() {
               setFilter("jpg|png");
               setSearch("jpg|png");
             }}
-            style={{ fontSize: 15, padding: "3px 10px", marginRight: 8 }}
+            style={{ fontSize: 15, padding: "3px 10px" }}
           >
             png|jpg
           </button>
@@ -159,6 +159,17 @@ function App() {
             style={{ fontSize: 15, padding: "3px 10px" }}
           >
             Collapse All
+          </button>
+          <button
+            onClick={async () => {
+              await fetch("/api/refresh-tree", { method: "POST" });
+              // Re-fetch tree data by updating search (triggers TreeView to reload)
+              setSearch(s => s); // force update
+            }}
+            style={{ fontSize: 15, padding: "3px 10px", marginLeft: 8, background: "#e6f2fb", color: "#0074d9", border: "1px solid #0074d9", borderRadius: 4 }}
+            title="Refresh tree data"
+          >
+            Refresh
           </button>
         </div>
         <div style={{ flex: 1, minHeight: 0, overflowY: "auto" }}>

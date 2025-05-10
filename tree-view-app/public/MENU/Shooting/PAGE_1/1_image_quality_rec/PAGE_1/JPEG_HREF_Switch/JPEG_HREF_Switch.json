@@ -1,0 +1,139 @@
+{
+  "id": 1,
+  "name": "Image Quality/Rec",
+  "description": "Access to image quality and recording settings",
+  "type": "submenu",
+  "submenu": {
+    "settings": [
+      {
+        "name": "File Format",
+        "options": [
+          "RAW",
+          "RAW+J/H",
+          "JPEG",
+          "HEIF"
+        ],
+        "description": "Sets the file format for still images. RAW for professional editing, RAW+J/H for both editing and immediate use, or JPEG/HEIF for compatibility"
+      },
+      {
+        "name": "RAW File Type",
+        "options": [
+          "Uncompressed",
+          "Lossless Comp (L)",
+          "Lossless Comp (M)",
+          "Lossless Comp (S)",
+          "Compressed"
+        ],
+        "description": "Sets the file type for RAW images. Uncompressed offers highest quality, Lossless compression preserves quality with smaller size, Compressed reduces file size further"
+      },
+      {
+        "name": "JPEG/HEIF Switch",
+        "options": [
+          "JPEG",
+          "HEIF(4:2:0)",
+          "HEIF(4:2:2)"
+        ],
+        "description": "Selects between JPEG (wider compatibility) or HEIF (smaller file size with better quality). HEIF(4:2:2) offers improved color sampling"
+      },
+      {
+        "name": "Image Quality Settings",
+        "type": "submenu",
+        "description": "Access to quality settings for JPEG/HEIF images",
+        "submenu": {
+          "settings": [
+            {
+              "name": "JPEG Quality",
+              "options": [
+                "Extra Fine",
+                "Fine",
+                "Standard",
+                "Light"
+              ],
+              "description": "Sets the image quality for JPEG images. Higher quality means larger file size"
+            },
+            {
+              "name": "HEIF Quality",
+              "options": [
+                "Extra Fine",
+                "Fine",
+                "Standard",
+                "Light"
+              ],
+              "description": "Sets the image quality for HEIF images. Higher quality means larger file size"
+            },
+            {
+              "name": "JPEG Image Size",
+              "options": [
+                "L: 60M (9504×6336)",
+                "M: 26M (6240×4160)",
+                "S: 15M (4752×3168)"
+              ],
+              "description": "Sets the size of JPEG images. L uses full resolution (60MP)"
+            },
+            {
+              "name": "HEIF Image Size",
+              "options": [
+                "L: 60M (9504×6336)",
+                "M: 26M (6240×4160)",
+                "S: 15M (4752×3168)"
+              ],
+              "description": "Sets the size of HEIF images. L uses full resolution (60MP)"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Aspect Ratio",
+        "options": [
+          "3:2",
+          "4:3",
+          "16:9",
+          "1:1"
+        ],
+        "description": "Sets the aspect ratio of still images"
+      },
+      {
+        "name": "HLG Still Image",
+        "options": [
+          "On",
+          "Off"
+        ],
+        "description": "Enables HDR still image capture using Hybrid Log-Gamma (HLG) with wide dynamic range and BT.2020 color gamut"
+      },
+      {
+        "name": "Color Space",
+        "options": [
+          "sRGB",
+          "AdobeRGB"
+        ],
+        "description": "Sets the color reproduction range. sRGB is standard for general use, AdobeRGB offers wider color range for professional editing"
+      },
+      {
+        "name": "Long Exposure NR",
+        "options": [
+          "On",
+          "Off"
+        ],
+        "description": "Sets noise reduction processing for shots with a 1-second or longer exposure"
+      },
+      {
+        "name": "High ISO NR",
+        "options": [
+          "Normal",
+          "Low",
+          "Off"
+        ],
+        "description": "Sets the noise reduction processing level for high-sensitivity shooting"
+      },
+      {
+        "name": "Apply Custom Setting",
+        "options": [
+          "Still/Movie/S&Q",
+          "Still Only",
+          "Movie/S&Q Only"
+        ],
+        "description": "Sets whether to apply the same custom white balance, creative look, and other settings to both still images and movies"
+      }
+    ]
+  }
+}

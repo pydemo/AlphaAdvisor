@@ -129,6 +129,60 @@ app.post('/api/delete-file', (req, res) => {
 const OpenAI = require('openai');
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
+app.post('/api/refresh-tree', (req, res) => {
+  const { exec } = require('child_process');
+  exec('python3 tree-view-app/gen_tree_json.py', (error, stdout, stderr) => {
+    if (error) {
+      console.error('Error regenerating tree-data.json:', error);
+      return res.status(500).json({ success: false, error: error.message });
+    }
+    if (stderr) {
+      console.error('stderr:', stderr);
+    }
+    if (stdout) {
+      console.log('stdout:', stdout);
+    }
+    res.status(200).json({ success: true });
+  });
+});
+
+app.post('/api/save-json-file', (req, res) => {
+  const { dir_path, file_name, json_text } = req.body;
+  if (!dir_path || !file_name || typeof json_text !== "string") {
+    return res.status(400).json({ error: "Missing dir_path, file_name, or json_text" });
+  }
+  const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+  const resolvedDir = path.resolve(dir_path);
+  if (!resolvedDir.startsWith(menuRoot)) {
+    return res.status(400).json({ error: "Invalid directory path" });
+  }
+  // Prevent path traversal in file_name
+  if (file_name.includes("..") || file_name.includes("/") || file_name.includes("\\")) {
+    return res.status(400).json({ error: "Invalid file name" });
+  }
+  const targetFile = path.join(resolvedDir, file_name);
+  try {
+    fs.writeFileSync(targetFile, json_text, "utf8");
+    // Refresh tree-data.json
+    const { exec } = require('child_process');
+    exec('python3 tree-view-app/gen_tree_json.py', (error, stdout, stderr) => {
+      if (error) {
+        console.error('Error regenerating tree-data.json:', error);
+      }
+      if (stderr) {
+        console.error('stderr:', stderr);
+      }
+      if (stdout) {
+        console.log('stdout:', stdout);
+      }
+    });
+    res.status(200).json({ success: true, file: targetFile });
+  } catch (err) {
+    console.error("SAVE JSON FILE ERROR", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.post('/api/ask-chatgpt', async (req, res) => {
   const { target_path } = req.body;
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');

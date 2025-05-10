@@ -714,8 +714,21 @@ const TreeView: React.FC<TreeViewProps> = ({
                   border: "none"
                 }}
                 disabled={!jsonPopup.text.trim()}
-                onClick={() => {
-                  // TODO: Implement save logic (e.g., send to backend)
+                onClick={async () => {
+                  if (!jsonPopup.node || !jsonPopup.fileName.trim()) return;
+                  try {
+                    await fetch("/api/save-json-file", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        dir_path: jsonPopup.node.path,
+                        file_name: jsonPopup.fileName.trim(),
+                        json_text: jsonPopup.text
+                      })
+                    });
+                  } catch (err) {
+                    alert("Failed to save JSON file: " + err);
+                  }
                   setJsonPopup({ open: false, node: null, text: "", fileName: "" });
                 }}
               >
