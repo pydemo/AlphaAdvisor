@@ -150,7 +150,14 @@ const TreeView: React.FC<TreeViewProps> = ({
             {node.name}
           </span>
           {/* "+" button for MENU section dirs */}
-          {isDir && (/\/public\/MENU\/[^/]+$/.test(node.path) || /\/public\/MENU\/?$/.test(node.path)) && (
+          {isDir && 
+          (
+    /\/public\/MENU\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Shooting
+    /\/public\/MENU\/?$/.test(node.path) ||     // e.g., /public/MENU
+    /\/public\/MENU\/[^/]+\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Shooting/PAGE_1
+    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Shooting/PAGE_1
+  )
+          && (
             <button
               style={{
                 marginLeft: 6,
