@@ -15,6 +15,8 @@ type TreeViewProps = {
   expandAllSignal?: number;
   collapseAllSignal?: number;
   onRequestFilter?: (filter: string) => void;
+  initialExpandedPaths?: string[];
+  onExpandedChange?: (expandedPaths: string[]) => void;
 };
 
 const TreeView: React.FC<TreeViewProps> = ({
@@ -25,9 +27,13 @@ const TreeView: React.FC<TreeViewProps> = ({
   expandAllSignal,
   collapseAllSignal,
   onRequestFilter,
+  initialExpandedPaths,
+  onExpandedChange,
 }) => {
   const [tree, setTree] = useState<TreeNode | null>(null);
-  const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [expanded, setExpanded] = useState<Set<string>>(
+    () => new Set(initialExpandedPaths || [])
+  );
   // Popup state for creating a new dir under MENU
   const [createMenuDir, setCreateMenuDir] = useState<{ parentPath: string; open: boolean }>({ parentPath: "", open: false });
   const [newDirName, setNewDirName] = useState("");
@@ -59,7 +65,7 @@ const TreeView: React.FC<TreeViewProps> = ({
       setExpanded(allDirs);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [expandAllSignal]);
+  }, [expandAllSignal, tree]);
 
   // Collapse all directories
   useEffect(() => {
@@ -67,6 +73,14 @@ const TreeView: React.FC<TreeViewProps> = ({
       setExpanded(new Set());
     }
   }, [collapseAllSignal]);
+
+  // Notify parent when expanded changes
+  useEffect(() => {
+    if (onExpandedChange) {
+      onExpandedChange(Array.from(expanded));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [expanded]);
 
   const toggleExpand = (path: string) => {
     setExpanded((prev) => {

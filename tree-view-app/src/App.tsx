@@ -13,6 +13,7 @@ function App() {
   const [expandAllSignal, setExpandAllSignal] = useState(0);
   const [collapseAllSignal, setCollapseAllSignal] = useState(0);
   const [tab, setTab] = useState<"Conversion" | "General">("Conversion");
+  const [expandedPaths, setExpandedPaths] = useState<string[]>([]);
 
   // Save state to localStorage
   const saveAppState = () => {
@@ -24,6 +25,7 @@ function App() {
       expandAllSignal,
       collapseAllSignal,
       tab,
+      expandedPaths,
     };
     try {
       localStorage.setItem("treeChatAppState", JSON.stringify(state));
@@ -45,6 +47,7 @@ function App() {
         if (typeof state.expandAllSignal === "number") setExpandAllSignal(state.expandAllSignal);
         if (typeof state.collapseAllSignal === "number") setCollapseAllSignal(state.collapseAllSignal);
         if (state.tab === "Conversion" || state.tab === "General") setTab(state.tab);
+        if (Array.isArray(state.expandedPaths)) setExpandedPaths(state.expandedPaths);
         // Optionally clear after restoring
         localStorage.removeItem("treeChatAppState");
       }
@@ -221,6 +224,8 @@ function App() {
             expandAllSignal={expandAllSignal}
             collapseAllSignal={collapseAllSignal}
             onRequestFilter={setSearch}
+            initialExpandedPaths={expandedPaths}
+            onExpandedChange={setExpandedPaths}
           />
         </div>
         {/* Optionally, show selected objects */}

@@ -74,15 +74,35 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
   // Ref for chat feed container
   const chatFeedRef = useRef<HTMLDivElement>(null);
 
+  // State to track which message was just copied
+  const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
+
+  // State for preview modal
+  const [previewContent, setPreviewContent] = useState<PreviewContent>(null);
+  const [previewTitle, setPreviewTitle] = useState<string>("");
+  const [previewFullPath, setPreviewFullPath] = useState<string>("");
+  // State for copy feedback in preview modal
+  const [previewCopied, setPreviewCopied] = useState(false);
+
+  // State for Ask ChatGPT progress indicator and loading state
+  const [askLoadingIdx, setAskLoadingIdx] = useState<number | null>(null);
+  const [askLoading, setAskLoading] = useState(false);
+  // State for Streamed button progress indicator and content
+  const [streamedLoadingIdx, setStreamedLoadingIdx] = useState<number | null>(null);
+  const [streamedContent, setStreamedContent] = useState<string>("");
+
+  // Helper function to scroll to bottom
+  const scrollToBottom = () => {
+    const feed = chatFeedRef.current;
+    if (feed) {
+      feed.scrollTop = feed.scrollHeight;
+    }
+  };
+
   // Auto-scroll to bottom when messages change, including after images load
   useEffect(() => {
     const feed = chatFeedRef.current;
     if (!feed) return;
-
-    // Helper to scroll to bottom
-    const scrollToBottom = () => {
-      feed.scrollTop = feed.scrollHeight;
-    };
 
     // Scroll immediately (for text or already loaded images)
     scrollToBottom();
@@ -111,20 +131,12 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
     };
   }, [messages]);
 
-  // State to track which message was just copied
-  const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
-
-  // State for preview modal
-  const [previewContent, setPreviewContent] = useState<PreviewContent>(null);
-  const [previewTitle, setPreviewTitle] = useState<string>("");
-  const [previewFullPath, setPreviewFullPath] = useState<string>("");
-  // State for copy feedback in preview modal
-  const [previewCopied, setPreviewCopied] = useState(false);
-
-  // State for Ask ChatGPT progress indicator
-  const [askLoadingIdx, setAskLoadingIdx] = useState<number | null>(null);
-  // State for Streamed button progress indicator
-  const [streamedLoadingIdx, setStreamedLoadingIdx] = useState<number | null>(null);
+  // Auto-scroll when streaming content updates
+  useEffect(() => {
+    if (streamedContent) {
+      scrollToBottom();
+    }
+  }, [streamedContent]);
 
   // Close preview on Esc key
   useEffect(() => {
@@ -170,6 +182,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
         }
         // Show dual preview
         setPreviewTitle(`Selected file: ${imgAlt}.png + ${imgAlt}.json`);
+        setPreviewFullPath(jsonPath.startsWith("/") ? jsonPath : "/" + jsonPath);
         setPreviewContent({
           type: "json+image",
           json: displayText,
@@ -413,6 +426,54 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                 ) : (
                   <>
                     {msg.from === "bot" && (() => {
+                      // Check if this is JSON from the streamed endpoint (marked with __JSON_FROM_STREAM__)
+                      if (msg.text.startsWith("__JSON_FROM_STREAM__")) {
+                        const jsonContent = msg.text.replace("__JSON_FROM_STREAM__", "");
+                        try {
+                          const parsed = JSON.parse(jsonContent);
+                          return (
+                            <pre
+                              style={{
+                                background: "#f0fff4",
+                                borderRadius: 4,
+                                padding: "12px 16px",
+                                fontSize: 14,
+                                maxWidth: "70%",
+                                overflow: "auto",
+                                whiteSpace: "pre-wrap",
+                                wordBreak: "break-all",
+                                textAlign: "left",
+                                fontFamily: "monospace",
+                                margin: "8px 0 8px 24px",
+                                color: "#1e7e34",
+                                border: "1px solid #c3e6cb",
+                                boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
+                              }}
+                            >
+                              {JSON.stringify(parsed, null, 2)}
+                            </pre>
+                          );
+                        } catch {
+                          // If parsing fails, remove the marker and display as normal text
+                          return (
+                            <span
+                              style={{
+                                display: "inline-block",
+                                background: "#e2e3e5",
+                                color: "#222",
+                                borderRadius: 8,
+                                padding: "6px 12px",
+                                maxWidth: "70%",
+                                wordBreak: "break-word",
+                                whiteSpace: "pre-line",
+                              }}
+                            >
+                              {msg.text.replace("__JSON_FROM_STREAM__", "")}
+                            </span>
+                          );
+                        }
+                      }
+                      
                       // Try to pretty-print JSON if possible
                       let parsed: any = null;
                       try {
@@ -442,6 +503,67 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                           </pre>
                         );
                       }
+                      
+                      // Check if the message contains JSON data from the backend
+                      // This handles the case where the backend returns JSON inside a content field
+                      if (msg.text.includes('"success":true') && msg.text.includes('"content":')) {
+                        try {
+                          const responseObj = JSON.parse(msg.text);
+                          if (responseObj.success && responseObj.content) {
+                            try {
+                              // Try to parse the content field as JSON
+                              const contentObj = JSON.parse(responseObj.content);
+                              return (
+                                <pre
+                                  style={{
+                                    background: "#f6f8fa",
+                                    borderRadius: 4,
+                                    padding: "12px 16px",
+                                    fontSize: 14,
+                                    maxWidth: "70%",
+                                    overflow: "auto",
+                                    whiteSpace: "pre-wrap",
+                                    wordBreak: "break-all",
+                                    textAlign: "left",
+                                    fontFamily: "monospace",
+                                    margin: "8px 0 8px 24px",
+                                    color: "#222",
+                                    border: "1px solid #e1e4e8",
+                                    boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
+                                  }}
+                                >
+                                  {JSON.stringify(contentObj, null, 2)}
+                                </pre>
+                              );
+                            } catch {
+                              // If content is not valid JSON, display it as is
+                              return (
+                                <pre
+                                  style={{
+                                    background: "#f6f8fa",
+                                    borderRadius: 4,
+                                    padding: "12px 16px",
+                                    fontSize: 14,
+                                    maxWidth: "70%",
+                                    overflow: "auto",
+                                    whiteSpace: "pre-wrap",
+                                    wordBreak: "break-all",
+                                    textAlign: "left",
+                                    fontFamily: "monospace",
+                                    margin: "8px 0 8px 24px",
+                                    color: "#222",
+                                    border: "1px solid #e1e4e8",
+                                    boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
+                                  }}
+                                >
+                                  {responseObj.content}
+                                </pre>
+                              );
+                            }
+                          }
+                        } catch {}
+                      }
+                      
                       // fallback to plain text
                       return (
                         <span
@@ -548,6 +670,41 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                   </>
                 )}
               </div>
+              {/* Streaming content display */}
+              {streamedLoadingIdx === i && streamedContent && (
+                <div style={{ marginLeft: 24, marginTop: 8, marginBottom: 8 }}>
+                  <pre
+                    style={{
+                      background: "#f0fff4",
+                      borderRadius: 4,
+                      padding: "12px 16px",
+                      fontSize: 14,
+                      maxWidth: "70%",
+                      overflow: "auto",
+                      whiteSpace: "pre-wrap",
+                      wordBreak: "break-all",
+                      textAlign: "left",
+                      fontFamily: "monospace",
+                      margin: 0,
+                      color: "#1e7e34",
+                      border: "1px solid #c3e6cb",
+                      boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
+                    }}
+                  >
+                    {(() => {
+                      // Try to pretty-print JSON if possible
+                      try {
+                        const parsed = JSON.parse(streamedContent);
+                        if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
+                          return JSON.stringify(parsed, null, 2);
+                        }
+                      } catch {}
+                      // If not valid JSON or parsing fails, return as is
+                      return streamedContent;
+                    })()}
+                  </pre>
+                </div>
+              )}
               {/* Ask ChatGPT button under echo message */}
               {msg.from === "bot" && /^Echo:/i.test(msg.text) && (
                 <div
@@ -562,15 +719,20 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                 >
                   <button
                     style={{
-                      background: "#007bff",
+                      background: askLoadingIdx === i ? "#0056b3" : "#007bff",
                       color: "#fff",
                       border: "none",
                       borderRadius: 4,
                       padding: "6px 16px",
                       fontSize: 15,
-                      cursor: "pointer",
-                      marginRight: 8
+                      cursor: askLoadingIdx === i ? "wait" : "pointer",
+                      marginRight: 8,
+                      position: "relative",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
                     }}
+                    disabled={askLoadingIdx !== null}
                     onClick={async () => {
                       // Extract image path from Echo message
                       const match = msg.text.match(/(?:^Echo:\s*)?((?:.*\.(?:png|jpg|jpeg))(?:\n|$))/im);
@@ -579,9 +741,14 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                         alert("No image path found in Echo message.");
                         return;
                       }
+                      
+                      // Set loading state
+                      setAskLoadingIdx(i);
+                      setAskLoading(true);
+                      
                       // POST to /api/ask-chatgpt
                       try {
-                        const res = await fetch("/api/ask-chatgpt", {
+                        const res = await fetch("http://localhost:3002/api/ask-chatgpt", {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
                           body: JSON.stringify({ target_path: imagePath })
@@ -590,34 +757,178 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                         if (data && data.success && data.content) {
                           // Add response as a new bot message
                           if (typeof onReplaceLastBotMessage === "function") {
-                            onReplaceLastBotMessage(data.content);
+                            // Try to parse and format the content as JSON before replacing
+                            try {
+                              // Check if the content is wrapped in code block
+                              let contentToFormat = data.content;
+                              const codeBlockMatch = contentToFormat.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
+                              if (codeBlockMatch) {
+                                contentToFormat = codeBlockMatch[1];
+                              }
+                              
+                              // Try to parse as JSON
+                              const parsed = JSON.parse(contentToFormat);
+                              if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
+                                // If it's valid JSON, replace with the pretty-printed version and add a special marker
+                                // to identify it as JSON from the streamed endpoint
+                                onReplaceLastBotMessage("__JSON_FROM_STREAM__" + JSON.stringify(parsed, null, 2));
+                              } else {
+                                // If it's not an object or array, just use the original content
+                                onReplaceLastBotMessage(data.content);
+                              }
+                            } catch (err) {
+                              // If parsing fails, use the original content
+                              onReplaceLastBotMessage(data.content);
+                            }
                           }
                         } else {
                           alert("API error: " + (data.error || "Unknown error"));
                         }
                       } catch (err) {
                         alert("Request failed: " + err);
+                      } finally {
+                        // Clear loading state
+                        setAskLoadingIdx(null);
+                        setAskLoading(false);
                       }
                     }}
                   >
-                    Ask ChatGPT
+                    {askLoadingIdx === i ? (
+                      <>
+                        <span 
+                          style={{
+                            display: "inline-block",
+                            width: "16px",
+                            height: "16px",
+                            border: "2px solid rgba(255,255,255,0.3)",
+                            borderRadius: "50%",
+                            borderTopColor: "#fff",
+                            animation: "spin-ask-cgpt 1s linear infinite",
+                            marginRight: "8px"
+                          }}
+                        />
+                        Loading...
+                      </>
+                    ) : "Ask ChatGPT"}
                   </button>
                   <button
                     style={{
-                      background: "#28a745",
+                      background: streamedLoadingIdx === i ? "#1e7e34" : "#28a745",
                       color: "#fff",
                       border: "none",
                       borderRadius: 4,
                       padding: "6px 16px",
                       fontSize: 15,
-                      cursor: "pointer"
+                      cursor: streamedLoadingIdx === i ? "wait" : "pointer",
+                      position: "relative",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
                     }}
-                    onClick={() => {
-                      // Placeholder for Streamed logic
-                      alert("Streamed clicked!");
+                    disabled={streamedLoadingIdx !== null}
+                    onClick={async () => {
+                      // Extract image path from Echo message
+                      const match = msg.text.match(/(?:^Echo:\s*)?((?:.*\.(?:png|jpg|jpeg))(?:\n|$))/im);
+                      const imagePath = match ? match[1].trim() : null;
+                      if (!imagePath) {
+                        alert("No image path found in Echo message.");
+                        return;
+                      }
+                      
+                      // Set loading state
+                      setStreamedLoadingIdx(i);
+                      setStreamedContent("");
+                      
+                      try {
+                        // Create a new AbortController to allow cancelling the fetch
+                        const controller = new AbortController();
+                        const signal = controller.signal;
+                        
+                        // Start the fetch with streaming
+                        const response = await fetch("http://localhost:3002/api/ask-chatgpt_streamed", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ target_path: imagePath }),
+                          signal
+                        });
+                        
+                        if (!response.ok) {
+                          const errorData = await response.json();
+                          throw new Error(errorData.error || "Unknown error");
+                        }
+                        
+                        // Process the stream
+                        const reader = response.body?.getReader();
+                        if (!reader) {
+                          throw new Error("Failed to get stream reader");
+                        }
+                        
+                        // Read the stream
+                        let accumulatedContent = "";
+                        while (true) {
+                          const { done, value } = await reader.read();
+                          if (done) break;
+                          
+                          // Convert the chunk to text
+                          const chunk = new TextDecoder().decode(value);
+                          accumulatedContent += chunk;
+                          
+                          // Update the UI with the accumulated content
+                          setStreamedContent(accumulatedContent);
+                        }
+                        
+                        // When stream is complete, replace the last bot message
+                        if (typeof onReplaceLastBotMessage === "function") {
+                          // Try to parse and format the content as JSON before replacing
+                          try {
+                            // Check if the content is wrapped in code block
+                            let contentToFormat = accumulatedContent;
+                            const codeBlockMatch = contentToFormat.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
+                            if (codeBlockMatch) {
+                              contentToFormat = codeBlockMatch[1];
+                            }
+                            
+                            // Try to parse as JSON
+                            const parsed = JSON.parse(contentToFormat);
+                            if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
+                              // If it's valid JSON, replace with the pretty-printed version and add the special marker
+                              onReplaceLastBotMessage("__JSON_FROM_STREAM__" + JSON.stringify(parsed, null, 2));
+                            } else {
+                              // If it's not an object or array, just use the original content
+                              onReplaceLastBotMessage(accumulatedContent);
+                            }
+                          } catch (err) {
+                            // If parsing fails, use the original content
+                            onReplaceLastBotMessage(accumulatedContent);
+                          }
+                        }
+                      } catch (err) {
+                        console.error("Streaming error:", err);
+                        alert("Streaming failed: " + err);
+                      } finally {
+                        // Clear loading state
+                        setStreamedLoadingIdx(null);
+                        setStreamedContent("");
+                      }
                     }}
                   >
-                    Streamed
+                    {streamedLoadingIdx === i ? (
+                      <>
+                        <span 
+                          style={{
+                            display: "inline-block",
+                            width: "16px",
+                            height: "16px",
+                            border: "2px solid rgba(255,255,255,0.3)",
+                            borderRadius: "50%",
+                            borderTopColor: "#fff",
+                            animation: "spin-streamed 1s linear infinite",
+                            marginRight: "8px"
+                          }}
+                        />
+                        Streaming...
+                      </>
+                    ) : "Streamed"}
                   </button>
                 </div>
               )}
@@ -724,13 +1035,13 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                 </button>
               </>
             ) : previewContent && typeof previewContent === "object" && "type" in previewContent && previewContent.type === "json+image" ? (
-              <div style={{ display: "flex", flexDirection: "row", gap: 24, alignItems: "flex-start", maxWidth: "75vw" }}>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ display: "flex", flexDirection: "row", gap: 24, alignItems: "flex-start", maxWidth: "90vw", minHeight: "70vh" }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flex: 1 }}>
                   <img
                     src={previewContent.imageSrc}
                     alt={previewContent.imageAlt}
                     style={{
-                      maxWidth: "32vw",
+                      maxWidth: "20vw",
                       maxHeight: "60vh",
                       borderRadius: 8,
                       border: "1px solid #ccc",
@@ -767,54 +1078,134 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                     {previewCopied ? "✔ Copied" : "Copy"}
                   </button>
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
-                  <pre
+                <div style={{ display: "flex", flexDirection: "column", flex: 3 }}>
+                  <textarea
+                    value={typeof previewContent.json === "string" ? previewContent.json : ""}
+                    onChange={e => {
+                      if (typeof previewContent.json === "string") {
+                        setPreviewContent({
+                          ...previewContent,
+                          json: e.target.value
+                        });
+                      }
+                    }}
                     style={{
                       background: "#f6f8fa",
                       borderRadius: 4,
-                      padding: 12,
-                      fontSize: 14,
-                      maxHeight: "60vh",
+                      padding: 18,
+                      fontSize: 16,
+                      height: "75vh",
+                      minHeight: "500px",
+                      maxHeight: "85vh",
+                      width: "100%",
+                      minWidth: "600px",
+                      maxWidth: "100%",
+                      flex: 3,
                       overflow: "auto",
                       whiteSpace: "pre-wrap",
                       wordBreak: "break-all",
                       textAlign: "left",
                       fontFamily: "monospace",
                       margin: 0,
+                      border: "1px solid #bbb",
+                      resize: "vertical"
                     }}
-                  >
-                    {previewContent.json}
-                  </pre>
-                  <button
-                    style={{
-                      marginTop: 12,
-                      fontSize: 15,
-                      padding: "4px 18px",
-                      borderRadius: 4,
-                      background: previewCopied ? "#d4edda" : "#eee",
-                      color: previewCopied ? "#388e3c" : "#333",
-                      border: previewCopied ? "1.5px solid #388e3c" : "1px solid #bbb",
-                      alignSelf: "flex-end",
-                      transition: "all 0.15s"
-                    }}
-                    onClick={() => {
-                      if (navigator.clipboard) {
-                        navigator.clipboard.writeText(previewContent.json);
-                      } else {
-                        // fallback for older browsers
-                        const textarea = document.createElement("textarea");
-                        textarea.value = previewContent.json;
-                        document.body.appendChild(textarea);
-                        textarea.select();
-                        document.execCommand("copy");
-                        document.body.removeChild(textarea);
-                      }
-                      setPreviewContent(null);
-                    }}
-                    title="Copy JSON to clipboard"
-                  >
-                    {previewCopied ? "✔ Copied" : "Copy"}
-                  </button>
+                  />
+                  <div style={{ display: "flex", gap: 12, marginTop: 12, justifyContent: "flex-end" }}>
+                    <button
+                      style={{
+                        fontSize: 15,
+                        padding: "4px 18px",
+                        borderRadius: 4,
+                        background: previewCopied ? "#d4edda" : "#eee",
+                        color: previewCopied ? "#388e3c" : "#333",
+                        border: previewCopied ? "1.5px solid #388e3c" : "1px solid #bbb",
+                        alignSelf: "flex-end",
+                        transition: "all 0.15s"
+                      }}
+                      onClick={() => {
+                        if (navigator.clipboard) {
+                          navigator.clipboard.writeText(
+                            typeof previewContent.json === "string" ? previewContent.json : ""
+                          );
+                        } else {
+                          // fallback for older browsers
+                          const textarea = document.createElement("textarea");
+                          textarea.value = typeof previewContent.json === "string" ? previewContent.json : "";
+                          document.body.appendChild(textarea);
+                          textarea.select();
+                          document.execCommand("copy");
+                          document.body.removeChild(textarea);
+                        }
+                        setPreviewContent(null);
+                      }}
+                      title="Copy JSON to clipboard"
+                    >
+                      {previewCopied ? "✔ Copied" : "Copy"}
+                    </button>
+                    <button
+                      style={{
+                        fontSize: 15,
+                        padding: "4px 18px",
+                        borderRadius: 4,
+                        background: "#007bff",
+                        color: "#fff",
+                        border: "1.5px solid #007bff",
+                        alignSelf: "flex-end",
+                        transition: "all 0.15s"
+                      }}
+                      disabled={!previewContent.json || (typeof previewContent.json === "string" && !previewContent.json.trim())}
+                      onClick={async (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        if (typeof saveAppState === "function") {
+                          saveAppState();
+                        }
+
+                        // Use previewFullPath for full path to file
+                        const filePath = previewFullPath;
+
+                        // Map web path to full filesystem path
+                        const PUBLIC_ROOT = "/home/alexb/myg/cla_2/tree-view-app/public";
+                        let relPath = filePath;
+                        if (relPath.startsWith("/MENU/")) {
+                          relPath = "/MENU/" + relPath.split("/MENU/")[1];
+                        } else if (relPath.startsWith("/public/")) {
+                          relPath = relPath.replace(/^\/public/, "");
+                        }
+                        const fullPath = PUBLIC_ROOT + relPath;
+                        const lastSlash = fullPath.lastIndexOf("/");
+                        const file_name = lastSlash !== -1 ? fullPath.slice(lastSlash + 1) : fullPath;
+                        const dir_path = lastSlash !== -1 ? fullPath.slice(0, lastSlash) : PUBLIC_ROOT;
+
+                        try {
+                          const res = await fetch("http://localhost:3002/api/save-json-file", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                              dir_path,
+                              file_name,
+                              full_path: fullPath,
+                              json_text: typeof previewContent.json === "string" ? previewContent.json : ""
+                            })
+                          });
+                          const data = await res.json();
+                          if (data && data.success) {
+                            setPreviewContent(null);
+                          } else {
+                            alert("Save failed: " + (data.error || "Unknown error"));
+                          }
+                        } catch (err) {
+                          alert("Save request failed: " + err);
+                        }
+                        return false;
+                      }}
+                      title="Save JSON"
+                    >
+                      Save
+                    </button>
+                  </div>
                 </div>
               </div>
             ) : typeof previewContent === "string" ? (
@@ -825,11 +1216,14 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                   style={{
                     background: "#f6f8fa",
                     borderRadius: 4,
-                    padding: 12,
-                    fontSize: 14,
-                    maxHeight: "60vh",
-                    minHeight: 180,
+                    padding: 16,
+                    fontSize: 15,
+                    height: "60vh",
+                    minHeight: "350px",
+                    maxHeight: "80vh",
                     width: "100%",
+                    minWidth: "340px",
+                    maxWidth: "100%",
                     overflow: "auto",
                     whiteSpace: "pre-wrap",
                     wordBreak: "break-all",
@@ -900,7 +1294,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                         const dir_path = lastSlash !== -1 ? filePath.slice(0, lastSlash) : "";
                         const file_name = lastSlash !== -1 ? filePath.slice(lastSlash + 1) : filePath;
                         try {
-                          const res = await fetch("/api/save-json-file", {
+                          const res = await fetch("http://localhost:3002/api/save-json-file", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({
@@ -957,6 +1351,11 @@ export default Chat;
 const style = document.createElement("style");
 style.innerHTML = `
 @keyframes spin-ask-cgpt {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+@keyframes spin-streamed {
   0% { transform: rotate(0deg);}
   100% { transform: rotate(360deg);}
 }
