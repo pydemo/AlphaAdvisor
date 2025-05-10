@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import TreeView from "./TreeView";
 import Chat from "./Chat";
@@ -13,6 +13,45 @@ function App() {
   const [expandAllSignal, setExpandAllSignal] = useState(0);
   const [collapseAllSignal, setCollapseAllSignal] = useState(0);
   const [tab, setTab] = useState<"Conversion" | "General">("Conversion");
+
+  // Save state to localStorage
+  const saveAppState = () => {
+    const state = {
+      filter,
+      search,
+      selectedObjects,
+      chatMessages,
+      expandAllSignal,
+      collapseAllSignal,
+      tab,
+    };
+    try {
+      localStorage.setItem("treeChatAppState", JSON.stringify(state));
+    } catch (e) {
+      // ignore
+    }
+  };
+
+  // Restore state from localStorage on mount
+  useEffect(() => {
+    try {
+      const stateStr = localStorage.getItem("treeChatAppState");
+      if (stateStr) {
+        const state = JSON.parse(stateStr);
+        if (typeof state.filter === "string") setFilter(state.filter);
+        if (typeof state.search === "string") setSearch(state.search);
+        if (Array.isArray(state.selectedObjects)) setSelectedObjects(state.selectedObjects);
+        if (Array.isArray(state.chatMessages)) setChatMessages(state.chatMessages);
+        if (typeof state.expandAllSignal === "number") setExpandAllSignal(state.expandAllSignal);
+        if (typeof state.collapseAllSignal === "number") setCollapseAllSignal(state.collapseAllSignal);
+        if (state.tab === "Conversion" || state.tab === "General") setTab(state.tab);
+        // Optionally clear after restoring
+        localStorage.removeItem("treeChatAppState");
+      }
+    } catch (e) {
+      // ignore
+    }
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(e.target.value);
@@ -266,6 +305,7 @@ function App() {
           tab={tab}
           setTab={setTab}
           setTabExternal={setTab}
+          saveAppState={saveAppState}
         />
       </div>
     </div>

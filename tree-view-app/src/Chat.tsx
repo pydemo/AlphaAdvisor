@@ -21,6 +21,7 @@ interface ChatPropsWithSetTab extends ChatProps {
   tab: "Conversion" | "General";
   setTab: SetTab;
   setTabExternal?: SetTab;
+  saveAppState?: () => void;
 }
 
 const Chat: React.FC<ChatPropsWithSetTab> = ({
@@ -29,7 +30,8 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
   onReplaceLastBotMessage,
   tab,
   setTab,
-  setTabExternal
+  setTabExternal,
+  saveAppState
 }) => {
   // Map of message index to { json: string, show: boolean }
   const [jsonResults, setJsonResults] = useState<{ [idx: number]: { json: string; show: boolean } }>({});
@@ -115,6 +117,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
   // State for preview modal
   const [previewContent, setPreviewContent] = useState<PreviewContent>(null);
   const [previewTitle, setPreviewTitle] = useState<string>("");
+  const [previewFullPath, setPreviewFullPath] = useState<string>("");
   // State for copy feedback in preview modal
   const [previewCopied, setPreviewCopied] = useState(false);
 
@@ -189,7 +192,9 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
     // Extract file path from "Selected file: ..." message
     const match = msgText.match(/^Selected file:\s*(.+\.json)$/i);
     if (match) {
-      let filePath = match[1].trim();
+      const originalFullPath = match[1].trim();
+      setPreviewFullPath(originalFullPath);
+      let filePath = originalFullPath;
       // Always use /MENU/... as fetch path if present
       const menuIdx = filePath.indexOf("MENU/");
       if (menuIdx !== -1) {
@@ -234,7 +239,8 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
             imageAlt: baseName
           });
         } else {
-          setPreviewTitle(`Selected file: ${jsonFileName}`);
+          // Show full absolute path as title
+          setPreviewTitle(originalFullPath);
           setPreviewContent(displayText);
         }
       } catch (e) {
@@ -835,7 +841,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                   }}
                 />
                 {/* Copy and Save buttons for JSON file preview */}
-                {/^Selected file: .+\.json$/i.test(previewTitle) && (
+                {previewTitle.endsWith('.json') && (
                   <div style={{ display: "flex", gap: 12, marginTop: 12, justifyContent: "flex-end" }}>
                     <button
                       style={{
@@ -877,10 +883,46 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                         alignSelf: "flex-end",
                         transition: "all 0.15s"
                       }}
-                      onClick={() => {
-                        // Save action: for now, just close the modal
-                        setPreviewContent(null);
-                        // In a real app, you would POST the content here
+                      onClick={async (e) => {
+                        // Prevent any default behavior that might cause page refresh
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        // Call saveAppState before saving, if provided
+                        if (typeof saveAppState === "function") {
+                          saveAppState();
+                        }
+
+                        // Parse file path from previewTitle
+                        // Use previewFullPath for full path to file
+                        const filePath = previewFullPath;
+                        const lastSlash = filePath.lastIndexOf("/");
+                        const dir_path = lastSlash !== -1 ? filePath.slice(0, lastSlash) : "";
+                        const file_name = lastSlash !== -1 ? filePath.slice(lastSlash + 1) : filePath;
+                        try {
+                          const res = await fetch("/api/save-json-file", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                              dir_path,
+                              file_name,
+                              full_path: filePath,
+                              json_text: typeof previewContent === "string" ? previewContent : ""
+                            })
+                          });
+                          const data = await res.json();
+                          if (data && data.success) {
+                            // Only close the modal, do not reload or reset app state
+                            setPreviewContent(null);
+                          } else {
+                            alert("Save failed: " + (data.error || "Unknown error"));
+                          }
+                        } catch (err) {
+                          alert("Save request failed: " + err);
+                        }
+
+                        // Return false to prevent any form submission
+                        return false;
                       }}
                       title="Save JSON"
                     >

@@ -128,7 +128,16 @@ app.post('/api/delete-file', (req, res) => {
 });
 
 const OpenAI = require('openai');
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+let openai = null;
+try {
+  if (process.env.OPENAI_API_KEY) {
+    openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  } else {
+    console.log("Warning: OPENAI_API_KEY not set. ChatGPT features will be disabled.");
+  }
+} catch (error) {
+  console.error("Error initializing OpenAI:", error);
+}
 
 app.post('/api/refresh-tree', (req, res) => {
   const { exec } = require('child_process');
@@ -195,6 +204,9 @@ app.post('/api/save-image-file', (req, res) => {
 
 app.post('/api/save-json-file', (req, res) => {
   const { dir_path, file_name, json_text } = req.body;
+  console.log(req.body); 
+  console.log(`[SAVE JSON ${dir_path}] ${file_name} `);
+
   if (!dir_path || !file_name || typeof json_text !== "string") {
     return res.status(400).json({ error: "Missing dir_path, file_name, or json_text" });
   }
@@ -210,19 +222,7 @@ app.post('/api/save-json-file', (req, res) => {
   const targetFile = path.join(resolvedDir, file_name);
   try {
     fs.writeFileSync(targetFile, json_text, "utf8");
-    // Refresh tree-data.json
-    const { exec } = require('child_process');
-    exec('python3 tree-view-app/gen_tree_json.py', (error, stdout, stderr) => {
-      if (error) {
-        console.error('Error regenerating tree-data.json:', error);
-      }
-      if (stderr) {
-        console.error('stderr:', stderr);
-      }
-      if (stdout) {
-        console.log('stdout:', stdout);
-      }
-    });
+    // Do not regenerate tree-data.json here
     res.status(200).json({ success: true, file: targetFile });
   } catch (err) {
     console.error("SAVE JSON FILE ERROR", err);
@@ -231,6 +231,10 @@ app.post('/api/save-json-file', (req, res) => {
 });
 
 app.post('/api/ask-chatgpt', async (req, res) => {
+  if (!openai) {
+    return res.status(503).json({ error: "OpenAI API is not configured. Set OPENAI_API_KEY environment variable." });
+  }
+
   const { target_path } = req.body;
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
   if (!target_path) {
@@ -306,6 +310,10 @@ Respond with only valid JSON, no extra text.`
 });
 
 app.post('/api/ask-chatgpt_streamed', async (req, res) => {
+  if (!openai) {
+    return res.status(503).json({ error: "OpenAI API is not configured. Set OPENAI_API_KEY environment variable." });
+  }
+
   const { target_path } = req.body;
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
 
