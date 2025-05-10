@@ -31,6 +31,8 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
   setTab,
   setTabExternal
 }) => {
+  // Map of message index to { json: string, show: boolean }
+  const [jsonResults, setJsonResults] = useState<{ [idx: number]: { json: string; show: boolean } }>({});
   const [input, setInput] = useState("Convert this menu screenshot of Sony 'a7rV' to json including brief description of each menu option.");
   const [generalInput, setGeneralInput] = useState("");
 
@@ -286,6 +288,37 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
           })
           .map((msg, i) => (
             <div key={i} style={{ marginBottom: 0 }}>
+              {/* Echo tab simulation button above Echo message */}
+              {msg.from === "bot" && /^Echo:/i.test(msg.text) && (
+                <div
+                  style={{
+                    textAlign: "left",
+                    margin: "0 0 2px 0",
+                    paddingLeft: 24,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 12
+                  }}
+                >
+                  <button
+                    style={{
+                      background: "#e6f0ff",
+                      color: "#003366",
+                      border: "1.5px solid #007bff",
+                      borderRadius: 4,
+                      padding: "4px 18px",
+                      fontSize: 15,
+                      fontWeight: 600,
+                      cursor: "default",
+                      marginRight: 8
+                    }}
+                    disabled
+                    title="Echo context"
+                  >
+                    Echo
+                  </button>
+                </div>
+              )}
               <div
                 style={{
                   margin: "8px 0",
@@ -421,6 +454,30 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                         </span>
                       );
                     })()}
+                    {/* Show JSON result under Echo message if toggled on */}
+                    {msg.from === "bot" && /^Echo:/i.test(msg.text) && jsonResults && jsonResults[i] && jsonResults[i].show && (
+                      <pre
+                        style={{
+                          background: "#e6f0ff",
+                          borderRadius: 4,
+                          padding: "12px 16px",
+                          fontSize: 14,
+                          maxWidth: "70%",
+                          overflow: "auto",
+                          whiteSpace: "pre-wrap",
+                          wordBreak: "break-all",
+                          textAlign: "left",
+                          fontFamily: "monospace",
+                          margin: "8px 0 8px 24px",
+                          color: "#003366",
+                          border: "1.5px solid #007bff",
+                          boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
+                          fontWeight: 500
+                        }}
+                      >
+                        {jsonResults[i].json}
+                      </pre>
+                    )}
                     {msg.from !== "bot" && (
                       <span
                         style={{
