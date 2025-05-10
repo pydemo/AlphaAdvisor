@@ -278,4 +278,70 @@ Respond with only valid JSON, no extra text.`
   }
 });
 
+app.post('/api/ask-chatgpt_streamed', async (req, res) => {
+  const { target_path } = req.body;
+  const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+
+  if (!target_path) {
+    return res.status(400).json({ error: "Missing target_path" });
+  }
+
+  const resolvedTarget = path.resolve(target_path);
+  if (!resolvedTarget.startsWith(menuRoot)) {
+    return res.status(400).json({ error: "Invalid path" });
+  }
+
+  try {
+    const imageBase64 = fs.readFileSync(resolvedTarget, { encoding: 'base64' });
+
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+    res.flushHeaders();
+
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o",
+      stream: true,
+      messages: [
+        {
+          role: "user",
+          content: [
+            {
+              type: "text",
+              text: `Extract structured JSON from this Sony camera menu screenshot. Format:
+{
+  "menu": "<menu name>",
+  "items": [
+    { "label": "<item label>", "value": "<selected value>" },
+    ...
+  ]
+}
+Respond with only valid JSON, no extra text.`
+            },
+            {
+              type: "image_url",
+              image_url: {
+                url: `data:image/png;base64,${imageBase64}`
+              }
+            }
+          ]
+        }
+      ],
+      max_tokens: 1000,
+    });
+
+    for await (const chunk of completion) {
+      const content = chunk.choices?.[0]?.delta?.content;
+      if (content) {
+        res.write(content);
+      }
+    }
+
+    res.end();
+  } catch (err) {
+    console.error("ASK CHATGPT ERROR", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.listen(3001, () => console.log('Server running on http://localhost:3001'));

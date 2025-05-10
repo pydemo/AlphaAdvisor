@@ -461,9 +461,86 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                     cursor: "pointer",
                     marginTop: 2,
                     marginBottom: 2,
+                    marginRight: 8
                   }}
                 >
                   Ask ChatGPT
+                </button>
+                <button
+                  onClick={async () => {
+                    // Extract text and file paths from echo message
+                    const lines = msg.text.split("\n").map(l => l.trim()).filter(Boolean);
+                    let files: string[] = [];
+                    let userText = "";
+                    if (lines.length > 1 && lines[0].toLowerCase().startsWith("echo:")) {
+                      files = lines.slice(1, -1);
+                      userText = lines[lines.length - 1];
+                    } else if (lines.length === 2 && lines[0].toLowerCase().startsWith("echo:")) {
+                      userText = lines[1];
+                    } else {
+                      userText = msg.text.replace(/^Echo:\s*/i, "");
+                    }
+                    const imagePath = files.find(f => /\.png$/i.test(f));
+                    if (!imagePath) {
+                      if (typeof onSendMessage === "function") {
+                        onSendMessage("Error: No image file found to send to ChatGPT.");
+                      }
+                      return;
+                    }
+                    // Streaming fetch using ReadableStream
+                    try {
+                      const res = await fetch("/api/ask-chatgpt_streamed", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ target_path: imagePath })
+                      });
+                      if (!res.ok || !res.body) {
+                        const err = await res.json();
+                        if (typeof onSendMessage === "function") {
+                          onSendMessage("Error from ChatGPT API (streamed): " + (err.error || "Unknown error"));
+                        }
+                        return;
+                      }
+                      // Add a new bot message and stream into it
+                      let streamed = "";
+                      if (typeof onSendMessage === "function") {
+                        onSendMessage("...");
+                      }
+                      const reader = res.body.getReader();
+                      let done = false;
+                      while (!done) {
+                        const { value, done: doneReading } = await reader.read();
+                        done = doneReading;
+                        if (value) {
+                          const chunk = new TextDecoder().decode(value);
+                          streamed += chunk;
+                          // Replace the last bot message with the current streamed content
+                          // (Assumes onSendMessage appends, so you may need to adjust this logic for your chat state)
+                          // For now, just append as new message for each chunk
+                          if (typeof onSendMessage === "function") {
+                            onSendMessage(streamed);
+                          }
+                        }
+                      }
+                    } catch (err) {
+                      if (typeof onSendMessage === "function") {
+                        onSendMessage("Network error calling ChatGPT API (streamed): " + err);
+                      }
+                    }
+                  }}
+                  style={{
+                    fontSize: 15,
+                    padding: "4px 14px",
+                    borderRadius: 4,
+                    background: "#007bff",
+                    color: "#fff",
+                    border: "none",
+                    cursor: "pointer",
+                    marginTop: 2,
+                    marginBottom: 2
+                  }}
+                >
+                  Streamed
                 </button>
               </div>
             )}
