@@ -155,33 +155,76 @@ const TreeView: React.FC<TreeViewProps> = ({
     /\/public\/MENU\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Shooting
     /\/public\/MENU\/?$/.test(node.path) ||     // e.g., /public/MENU
     /\/public\/MENU\/[^/]+\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Shooting/PAGE_1
-    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Shooting/PAGE_1
+    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Shooting/PAGE_1
+    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Shooting/PAGE_1
   )
           && (
-            <button
-              style={{
-                marginLeft: 6,
-                fontSize: 13,
-                padding: "0 6px",
-                borderRadius: "50%",
-                border: "1px solid #aaa",
-                background: "#f5f5f5",
-                color: "#333",
-                cursor: "pointer",
-                height: 22,
-                width: 22,
-                lineHeight: "18px",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center"
-              }}
-              title="Add subdirectory"
-              onClick={e => {
-                e.stopPropagation();
-                setCreateMenuDir({ parentPath: node.path, open: true });
-                setNewDirName("");
-              }}
-            >+</button>
+            <>
+              <button
+                style={{
+                  marginLeft: 6,
+                  fontSize: 13,
+                  padding: "0 6px",
+                  borderRadius: "50%",
+                  border: "1px solid #aaa",
+                  background: "#f5f5f5",
+                  color: "#333",
+                  cursor: "pointer",
+                  height: 22,
+                  width: 22,
+                  lineHeight: "18px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                title="Add subdirectory"
+                onClick={e => {
+                  e.stopPropagation();
+                  setCreateMenuDir({ parentPath: node.path, open: true });
+                  setNewDirName("");
+                }}
+              >+</button>
+              <button
+                style={{
+                  marginLeft: 4,
+                  fontSize: 13,
+                  padding: "0 6px",
+                  borderRadius: "50%",
+                  border: "1px solid #e55",
+                  background: "#fff5f5",
+                  color: "#e55",
+                  cursor: "pointer",
+                  height: 22,
+                  width: 22,
+                  lineHeight: "18px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                title="Delete directory"
+                onClick={e => {
+                  e.stopPropagation();
+                  if (window.confirm(`Delete directory "${node.name}" and all its contents?`)) {
+                    fetch("/api/delete-dir", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ target_path: node.path })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                      if (data.success) {
+                        fetch(dataUrl)
+                          .then(res => res.json())
+                          .then(setTree);
+                      } else {
+                        alert("Error: " + (data.error || "Failed to delete directory"));
+                      }
+                    })
+                    .catch(err => alert("Error: " + err));
+                  }
+                }}
+              >-</button>
+            </>
           )}
         </div>
         {isDir && isOpen && node.children && (

@@ -55,4 +55,37 @@ app.post('/api/create-dir', (req, res) => {
   }
 });
 
+app.post('/api/delete-dir', (req, res) => {
+  const { target_path } = req.body;
+  const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+  if (!target_path) {
+    return res.status(400).json({ error: "Missing target_path" });
+  }
+  // Ensure target_path is under menuRoot and not menuRoot itself
+  const resolvedTarget = path.resolve(target_path);
+  if (!resolvedTarget.startsWith(menuRoot) || resolvedTarget === menuRoot) {
+    return res.status(400).json({ error: "Invalid or protected path" });
+  }
+  try {
+    fs.rmSync(resolvedTarget, { recursive: true, force: true });
+    // Refresh tree-data.json
+    const { exec } = require('child_process');
+    exec('python3 tree-view-app/gen_tree_json.py', (error, stdout, stderr) => {
+      if (error) {
+        console.error('Error regenerating tree-data.json:', error);
+      }
+      if (stderr) {
+        console.error('stderr:', stderr);
+      }
+      if (stdout) {
+        console.log('stdout:', stdout);
+      }
+    });
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error("DIR DELETE ERROR", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.listen(3001, () => console.log('Server running on http://localhost:3001'));
