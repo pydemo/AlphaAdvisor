@@ -15,14 +15,29 @@ type PreviewContent =
   | { type: "json+image"; json: string; imageSrc: string; imageAlt: string }
   | null;
 
-const Chat: React.FC<ChatProps> = ({ messages, onSendMessage, onReplaceLastBotMessage }) => {
+type SetTab = (tab: "Conversion" | "Question") => void;
+
+interface ChatPropsWithSetTab extends ChatProps {
+  tab: "Conversion" | "Question";
+  setTab: SetTab;
+  setTabExternal?: SetTab;
+}
+
+const Chat: React.FC<ChatPropsWithSetTab> = ({
+  messages,
+  onSendMessage,
+  onReplaceLastBotMessage,
+  tab,
+  setTab,
+  setTabExternal
+}) => {
   const [input, setInput] = useState("Convert this menu screenshot of Sony 'a7rV' to json including brief description of each menu option.");
   const [generalInput, setGeneralInput] = useState("");
-  const [tab, setTab] = useState<"Conversion" | "General">("Conversion");
 
   const handleSend = () => {
     if (input.trim() === "") return;
     onSendMessage(input);
+    if (setTabExternal) setTabExternal("Question");
     // Do not clear input after sending
     // setInput("");
   };
@@ -249,462 +264,304 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage, onReplaceLastBotMe
             Start the conversation...
           </div>
         )}
-        {messages.map((msg, i) => (
-          <div key={i} style={{ marginBottom: 0 }}>
-            <div
-              style={{
-                margin: "8px 0",
-                textAlign: msg.from === "user" ? "right" : "left",
-                position: "relative",
-                display: "flex",
-                flexDirection: msg.from === "user" ? "row-reverse" : "row",
-                alignItems: "center",
-              }}
-            >
-              {(msg.from === "log" || msg.from === "bot") && /<img\s/i.test(msg.text) ? (
-              <span
+        {messages
+          .filter((msg) => {
+            if (tab === "Question") {
+              // Only show Echo messages and their associated user messages in the Question tab
+              if (msg.from === "bot" && /^Echo:/i.test(msg.text)) return true;
+              // Show the user message immediately preceding an Echo message
+              const idx = messages.indexOf(msg);
+              if (
+                msg.from === "user" &&
+                messages[idx + 1] &&
+                messages[idx + 1].from === "bot" &&
+                /^Echo:/i.test(messages[idx + 1].text)
+              ) {
+                return true;
+              }
+              return false;
+            } else {
+              // In Conversion tab, hide Echo messages
+              if (msg.from === "bot" && /^Echo:/i.test(msg.text)) return false;
+              return true;
+            }
+          })
+          .map((msg, i) => (
+            <div key={i} style={{ marginBottom: 0 }}>
+              <div
                 style={{
-                  display: "block",
-                  background:
-                    msg.from === "log"
-                      ? "#ffeeba"
-                      : "#e2e3e5",
-                  color: "#222",
-                  borderRadius: 8,
-                  padding: "6px 12px",
-                  maxWidth: "100%",
-                  wordBreak: "break-word",
-                  fontStyle: msg.from === "log" ? "italic" : undefined,
-                  whiteSpace: "pre-line",
-                  overflowX: "auto",
+                  margin: "8px 0",
+                  textAlign: msg.from === "user" ? "right" : "left",
                   position: "relative",
+                  display: "flex",
+                  flexDirection: msg.from === "user" ? "row-reverse" : "row",
+                  alignItems: "center",
                 }}
               >
-                {/* Extract image src and alt from the img tag in msg.text */}
-                {(() => {
-                  const imgMatch = msg.text.match(/<img[^>]*src=["']([^"']+)["'][^>]*alt=["']([^"']*)["'][^>]*>/i);
-                  if (imgMatch) {
-                    const imgSrc = imgMatch[1];
-                    const imgAlt = imgMatch[2];
-                    return (
-                      <span style={{ display: "flex", alignItems: "center" }}>
-                        <img
-                          src={imgSrc}
-                          alt={imgAlt}
-                          style={{
-                            display: "block",
-                            width: 128,
-                            maxWidth: "100%",
-                            height: "auto",
-                            margin: 0,
-                            borderRadius: 4,
-                            border: "1px solid #ccc",
-                            cursor: "pointer"
-                          }}
-                          onClick={() => handleImagePreview(imgSrc, imgAlt)}
-                          title="Click to preview"
-                        />
-                        <button
-                          onClick={() => handleImagePreview(imgSrc, imgAlt)}
-                          style={{
-                            marginLeft: 8,
-                            background: "none",
-                            border: "none",
-                            cursor: "pointer",
-                            fontSize: 16,
-                            color: "#28a745",
-                            padding: 2,
-                            position: "relative",
-                          }}
-                          title="Preview image"
-                        >
-                          Preview
-                        </button>
-                      </span>
-                    );
-                  }
-                  // fallback: render as HTML if parsing fails
-                  return (
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: msg.text.replace(
-                          /<img\s/gi,
-                          '<img style="display:block;width:384px;max-width:100%;height:auto;margin:0;" '
-                        )
-                      }}
-                    />
-                  );
-                })()}
-              </span>
-            ) : (
-              <>
-                {msg.from === "bot" && (() => {
-                  // Try to pretty-print JSON if possible
-                  let parsed: any = null;
-                  try {
-                    parsed = JSON.parse(msg.text);
-                  } catch {}
-                  if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
-                    return (
-                      <pre
-                        style={{
-                          background: "#f6f8fa",
-                          borderRadius: 4,
-                          padding: "12px 16px",
-                          fontSize: 14,
-                          maxWidth: "70%",
-                          overflow: "auto",
-                          whiteSpace: "pre-wrap",
-                          wordBreak: "break-all",
-                          textAlign: "left",
-                          fontFamily: "monospace",
-                          margin: "8px 0 8px 24px",
-                          color: "#222",
-                          border: "1px solid #e1e4e8",
-                          boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
-                        }}
-                      >
-                        {JSON.stringify(parsed, null, 2)}
-                      </pre>
-                    );
-                  }
-                  // fallback to plain text
-                  return (
-                    <span
-                      style={{
-                        display: "inline-block",
-                        background: "#e2e3e5",
-                        color: "#222",
-                        borderRadius: 8,
-                        padding: "6px 12px",
-                        maxWidth: "70%",
-                        wordBreak: "break-word",
-                        whiteSpace: "pre-line",
-                      }}
-                    >
-                      {msg.text}
-                    </span>
-                  );
-                })()}
-                {msg.from !== "bot" && (
+                {(msg.from === "log" || msg.from === "bot") && /<img\s/i.test(msg.text) ? (
                   <span
                     style={{
-                      display: "inline-block",
+                      display: "block",
                       background:
-                        msg.from === "user"
-                          ? "#cce5ff"
-                          : msg.from === "log"
+                        msg.from === "log"
                           ? "#ffeeba"
                           : "#e2e3e5",
                       color: "#222",
                       borderRadius: 8,
                       padding: "6px 12px",
-                      maxWidth: "70%",
+                      maxWidth: "100%",
                       wordBreak: "break-word",
                       fontStyle: msg.from === "log" ? "italic" : undefined,
                       whiteSpace: "pre-line",
+                      overflowX: "auto",
+                      position: "relative",
                     }}
                   >
-                    {msg.text}
+                    {/* Extract image src and alt from the img tag in msg.text */}
+                    {(() => {
+                      const imgMatch = msg.text.match(/<img[^>]*src=["']([^"']+)["'][^>]*alt=["']([^"']*)["'][^>]*>/i);
+                      if (imgMatch) {
+                        const imgSrc = imgMatch[1];
+                        const imgAlt = imgMatch[2];
+                        return (
+                          <span style={{ display: "flex", alignItems: "center" }}>
+                            <img
+                              src={imgSrc}
+                              alt={imgAlt}
+                              style={{
+                                display: "block",
+                                width: 128,
+                                maxWidth: "100%",
+                                height: "auto",
+                                margin: 0,
+                                borderRadius: 4,
+                                border: "1px solid #ccc",
+                                cursor: "pointer"
+                              }}
+                              onClick={() => handleImagePreview(imgSrc, imgAlt)}
+                              title="Click to preview"
+                            />
+                            <button
+                              onClick={() => handleImagePreview(imgSrc, imgAlt)}
+                              style={{
+                                marginLeft: 8,
+                                background: "none",
+                                border: "none",
+                                cursor: "pointer",
+                                fontSize: 16,
+                                color: "#28a745",
+                                padding: 2,
+                                position: "relative",
+                              }}
+                              title="Preview image"
+                            >
+                              Preview
+                            </button>
+                          </span>
+                        );
+                      }
+                      // fallback: render as HTML if parsing fails
+                      return (
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: msg.text.replace(
+                              /<img\s/gi,
+                              '<img style="display:block;width:384px;max-width:100%;height:auto;margin:0;" '
+                            )
+                          }}
+                        />
+                      );
+                    })()}
                   </span>
-                )}
-                {(msg.from === "bot" || msg.from === "log") && (
+                ) : (
                   <>
-                    <button
-                      onClick={() => handleCopy(msg.text, i)}
-                      style={{
-                        marginLeft: 8,
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        fontSize: 18,
-                        color: "#007bff",
-                        padding: 2,
-                        position: "relative",
-                      }}
-                      title="Copy to clipboard"
-                    >
-                      {copiedIdx === i ? "✔️" : "📋"}
-                    </button>
-                    {/* Preview button for JSON file selection */}
-                    {/^Selected file:\s*.+\.json$/i.test(msg.text) && (
-                      <button
-                        onClick={() => handlePreview(msg.text)}
+                    {msg.from === "bot" && (() => {
+                      // Try to pretty-print JSON if possible
+                      let parsed: any = null;
+                      try {
+                        parsed = JSON.parse(msg.text);
+                      } catch {}
+                      if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
+                        return (
+                          <pre
+                            style={{
+                              background: "#f6f8fa",
+                              borderRadius: 4,
+                              padding: "12px 16px",
+                              fontSize: 14,
+                              maxWidth: "70%",
+                              overflow: "auto",
+                              whiteSpace: "pre-wrap",
+                              wordBreak: "break-all",
+                              textAlign: "left",
+                              fontFamily: "monospace",
+                              margin: "8px 0 8px 24px",
+                              color: "#222",
+                              border: "1px solid #e1e4e8",
+                              boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
+                            }}
+                          >
+                            {JSON.stringify(parsed, null, 2)}
+                          </pre>
+                        );
+                      }
+                      // fallback to plain text
+                      return (
+                        <span
+                          style={{
+                            display: "inline-block",
+                            background: "#e2e3e5",
+                            color: "#222",
+                            borderRadius: 8,
+                            padding: "6px 12px",
+                            maxWidth: "70%",
+                            wordBreak: "break-word",
+                            whiteSpace: "pre-line",
+                          }}
+                        >
+                          {msg.text}
+                        </span>
+                      );
+                    })()}
+                    {msg.from !== "bot" && (
+                      <span
                         style={{
-                          marginLeft: 4,
-                          background: "none",
-                          border: "none",
-                          cursor: "pointer",
-                          fontSize: 16,
-                          color: "#28a745",
-                          padding: 2,
-                          position: "relative",
+                          display: "inline-block",
+                          background:
+                            msg.from === "user"
+                              ? "#cce5ff"
+                              : msg.from === "log"
+                              ? "#ffeeba"
+                              : "#e2e3e5",
+                          color: "#222",
+                          borderRadius: 8,
+                          padding: "6px 12px",
+                          maxWidth: "70%",
+                          wordBreak: "break-word",
+                          fontStyle: msg.from === "log" ? "italic" : undefined,
+                          whiteSpace: "pre-line",
                         }}
-                        title="Preview JSON"
                       >
-                        Preview
-                      </button>
+                        {msg.text}
+                      </span>
+                    )}
+                    {(msg.from === "bot" || msg.from === "log") && (
+                      <>
+                        <button
+                          onClick={() => handleCopy(msg.text, i)}
+                          style={{
+                            marginLeft: 8,
+                            background: "none",
+                            border: "none",
+                            cursor: "pointer",
+                            fontSize: 18,
+                            color: "#007bff",
+                            padding: 2,
+                            position: "relative",
+                          }}
+                          title="Copy to clipboard"
+                        >
+                          {copiedIdx === i ? "✔️" : "📋"}
+                        </button>
+                        {/* Preview button for JSON file selection */}
+                        {/^Selected file:\s*.+\.json$/i.test(msg.text) && (
+                          <button
+                            onClick={() => handlePreview(msg.text)}
+                            style={{
+                              marginLeft: 4,
+                              background: "none",
+                              border: "none",
+                              cursor: "pointer",
+                              fontSize: 16,
+                              color: "#28a745",
+                              padding: 2,
+                              position: "relative",
+                            }}
+                            title="Preview JSON"
+                          >
+                            Preview
+                          </button>
+                        )}
+                      </>
                     )}
                   </>
                 )}
-              </>
-            )}
-            </div>
-            {/* Ask ChatGPT button under echo message */}
-            {msg.from === "bot" && /^Echo:/i.test(msg.text) && (
-              <div
-                style={{
-                  textAlign: "left",
-                  margin: "0 0 8px 0",
-                  paddingLeft: 24,
-                  display: "flex",
-                  alignItems: "center"
-                }}
-              >
-                <button
-                  onClick={async () => {
-                    setAskLoadingIdx(i);
-                    const start = Date.now();
-                    // Extract text and file paths from echo message
-                    // Echo:\n[file paths]\n[user text]
-                    const lines = msg.text.split("\n").map(l => l.trim()).filter(Boolean);
-                    let files: string[] = [];
-                    let userText = "";
-                    if (lines.length > 1 && lines[0].toLowerCase().startsWith("echo:")) {
-                      // If there are file paths, they are between Echo: and the last line
-                      files = lines.slice(1, -1);
-                      userText = lines[lines.length - 1];
-                    } else if (lines.length === 2 && lines[0].toLowerCase().startsWith("echo:")) {
-                      userText = lines[1];
-                    } else {
-                      userText = msg.text.replace(/^Echo:\s*/i, "");
-                    }
-                    // Find the first file path that looks like a PNG
-                    const imagePath = files.find(f => /\.png$/i.test(f));
-                    if (!imagePath) {
-                      setAskLoadingIdx(null);
-                      if (typeof onSendMessage === "function") {
-                        onSendMessage("Error: No image file found to send to ChatGPT.");
-                      }
-                      return;
-                    }
-                    try {
-                      const res = await fetch("/api/ask-chatgpt", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ target_path: imagePath })
-                      });
-                      if (!res.ok) {
-                        setAskLoadingIdx(null);
-                        const err = await res.json();
-                        if (typeof onSendMessage === "function") {
-                          onSendMessage("Error from ChatGPT API: " + (err.error || "Unknown error"));
-                        }
-                        return;
-                      }
-                      const data = await res.json();
-                      setAskLoadingIdx(null);
-                      // Ensure the user's question is preserved before replacing Echo
-                      if (
-                        onReplaceLastBotMessage &&
-                        (!messages[i - 1] || messages[i - 1].from !== "user" || messages[i - 1].text !== userText)
-                      ) {
-                        if (typeof onSendMessage === "function") {
-                          onSendMessage(userText);
-                        }
-                        setTimeout(() => {
-                          onReplaceLastBotMessage!(data.content || "No response from ChatGPT.");
-                        }, 0);
-                      } else if (onReplaceLastBotMessage) {
-                        onReplaceLastBotMessage(data.content || "No response from ChatGPT.");
-                      } else if (typeof onSendMessage === "function") {
-                        onSendMessage(data.content || "No response from ChatGPT.");
-                      }
-                      // No elapsed time message
-                    } catch (err) {
-                      setAskLoadingIdx(null);
-                      // Ensure the user's question is preserved before replacing Echo
-                      if (
-                        onReplaceLastBotMessage &&
-                        (!messages[i - 1] || messages[i - 1].from !== "user" || messages[i - 1].text !== userText)
-                      ) {
-                        if (typeof onSendMessage === "function") {
-                          onSendMessage(userText);
-                        }
-                        setTimeout(() => {
-                          onReplaceLastBotMessage!("Network error calling ChatGPT API: " + err);
-                        }, 0);
-                      } else if (onReplaceLastBotMessage) {
-                        onReplaceLastBotMessage("Network error calling ChatGPT API: " + err);
-                      } else if (typeof onSendMessage === "function") {
-                        onSendMessage("Network error calling ChatGPT API: " + err);
-                      }
-                      // No elapsed time message
-                    }
-                  }}
-                  style={{
-                    fontSize: 15,
-                    padding: "4px 14px",
-                    borderRadius: 4,
-                    background: "#10a37f",
-                    color: "#fff",
-                    border: "none",
-                    cursor: "pointer",
-                    marginTop: 2,
-                    marginBottom: 2,
-                    marginRight: 8
-                  }}
-                  disabled={askLoadingIdx === i}
-                >
-                  Ask ChatGPT
-                  {askLoadingIdx === i && (
-                    <span
-                      style={{
-                        marginLeft: 8,
-                        display: "inline-block",
-                        width: 18,
-                        height: 18,
-                        border: "2.5px solid #fff",
-                        borderTop: "2.5px solid #10a37f",
-                        borderRadius: "50%",
-                        animation: "spin-ask-cgpt 0.7s linear infinite",
-                        verticalAlign: "middle"
-                      }}
-                      title="Loading..."
-                    />
-                  )}
-                </button>
-                <button
-                  onClick={async () => {
-                    setStreamedLoadingIdx(i);
-                    const start = Date.now();
-                    // Extract text and file paths from echo message
-                    const lines = msg.text.split("\n").map(l => l.trim()).filter(Boolean);
-                    let files: string[] = [];
-                    let userText = "";
-                    if (lines.length > 1 && lines[0].toLowerCase().startsWith("echo:")) {
-                      files = lines.slice(1, -1);
-                      userText = lines[lines.length - 1];
-                    } else if (lines.length === 2 && lines[0].toLowerCase().startsWith("echo:")) {
-                      userText = lines[1];
-                    } else {
-                      userText = msg.text.replace(/^Echo:\s*/i, "");
-                    }
-                    const imagePath = files.find(f => /\.png$/i.test(f));
-                    if (!imagePath) {
-                      setStreamedLoadingIdx(null);
-                      if (typeof onSendMessage === "function") {
-                        onSendMessage("Error: No image file found to send to ChatGPT.");
-                        const elapsed = ((Date.now() - start) / 1000).toFixed(2);
-                        onSendMessage(`Elapsed: ${elapsed}s`);
-                      }
-                      return;
-                    }
-                    // Streaming fetch using ReadableStream
-                    try {
-                      const res = await fetch("/api/ask-chatgpt_streamed", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ target_path: imagePath })
-                      });
-                      if (!res.ok || !res.body) {
-                        setStreamedLoadingIdx(null);
-                        const err = await res.json();
-                        if (typeof onSendMessage === "function") {
-                          onSendMessage("Error from ChatGPT API (streamed): " + (err.error || "Unknown error"));
-                          const elapsed = ((Date.now() - start) / 1000).toFixed(2);
-                          onSendMessage(`Elapsed: ${elapsed}s`);
-                        }
-                        return;
-                      }
-                      // Add a new bot message and stream into it
-                      let streamed = "";
-                      // Do not add a user message, only show streamed content
-                      const reader = res.body.getReader();
-                      let done = false;
-                      while (!done) {
-                        const { value, done: doneReading } = await reader.read();
-                        done = doneReading;
-                        if (value) {
-                          const chunk = new TextDecoder().decode(value);
-                          streamed += chunk;
-                      // Only show streamed content as bot message
-                      // Ensure the user's question is preserved before replacing Echo
-                      if (
-                        onReplaceLastBotMessage &&
-                        (!messages[i - 1] || messages[i - 1].from !== "user" || messages[i - 1].text !== userText)
-                      ) {
-                        if (typeof onSendMessage === "function") {
-                          onSendMessage(userText);
-                        }
-                        setTimeout(() => {
-                          onReplaceLastBotMessage!(streamed);
-                        }, 0);
-                      } else if (onReplaceLastBotMessage) {
-                        onReplaceLastBotMessage(streamed);
-                      } else if (typeof onSendMessage === "function") {
-                        onSendMessage(streamed);
-                      }
-                        }
-                      }
-                      setStreamedLoadingIdx(null);
-                      // No elapsed time message
-                    } catch (err) {
-                      setStreamedLoadingIdx(null);
-                      // Ensure the user's question is preserved before replacing Echo
-                      if (
-                        onReplaceLastBotMessage &&
-                        (!messages[i - 1] || messages[i - 1].from !== "user" || messages[i - 1].text !== userText)
-                      ) {
-                        if (typeof onSendMessage === "function") {
-                          onSendMessage(userText);
-                        }
-                        setTimeout(() => {
-                          onReplaceLastBotMessage!("Network error calling ChatGPT API (streamed): " + err);
-                        }, 0);
-                      } else if (onReplaceLastBotMessage) {
-                        onReplaceLastBotMessage("Network error calling ChatGPT API (streamed): " + err);
-                      } else if (typeof onSendMessage === "function") {
-                        onSendMessage("Network error calling ChatGPT API (streamed): " + err);
-                      }
-                      // No elapsed time message
-                    }
-                  }}
-                  style={{
-                    fontSize: 15,
-                    padding: "4px 14px",
-                    borderRadius: 4,
-                    background: "#007bff",
-                    color: "#fff",
-                    border: "none",
-                    cursor: "pointer",
-                    marginTop: 2,
-                    marginBottom: 2
-                  }}
-                  disabled={streamedLoadingIdx === i}
-                >
-                  Streamed
-                  {streamedLoadingIdx === i && (
-                    <span
-                      style={{
-                        marginLeft: 8,
-                        display: "inline-block",
-                        width: 18,
-                        height: 18,
-                        border: "2.5px solid #fff",
-                        borderTop: "2.5px solid #007bff",
-                        borderRadius: "50%",
-                        animation: "spin-ask-cgpt 0.7s linear infinite",
-                        verticalAlign: "middle"
-                      }}
-                      title="Loading..."
-                    />
-                  )}
-                </button>
               </div>
-            )}
-          </div>
-        ))}
+              {/* Ask ChatGPT button under echo message */}
+              {msg.from === "bot" && /^Echo:/i.test(msg.text) && (
+                <div
+                  style={{
+                    textAlign: "left",
+                    margin: "0 0 8px 0",
+                    paddingLeft: 24,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 12
+                  }}
+                >
+                  <button
+                    style={{
+                      background: "#007bff",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: 4,
+                      padding: "6px 16px",
+                      fontSize: 15,
+                      cursor: "pointer",
+                      marginRight: 8
+                    }}
+                    onClick={async () => {
+                      // Extract image path from Echo message
+                      const match = msg.text.match(/(?:^Echo:\s*)?((?:.*\.(?:png|jpg|jpeg))(?:\n|$))/im);
+                      const imagePath = match ? match[1].trim() : null;
+                      if (!imagePath) {
+                        alert("No image path found in Echo message.");
+                        return;
+                      }
+                      // POST to /api/ask-chatgpt
+                      try {
+                        const res = await fetch("/api/ask-chatgpt", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ target_path: imagePath })
+                        });
+                        const data = await res.json();
+                        if (data && data.success && data.content) {
+                          // Add response as a new bot message
+                          if (typeof onReplaceLastBotMessage === "function") {
+                            onReplaceLastBotMessage(data.content);
+                          }
+                        } else {
+                          alert("API error: " + (data.error || "Unknown error"));
+                        }
+                      } catch (err) {
+                        alert("Request failed: " + err);
+                      }
+                    }}
+                  >
+                    Ask ChatGPT
+                  </button>
+                  <button
+                    style={{
+                      background: "#28a745",
+                      color: "#fff",
+                      border: "none",
+                      borderRadius: 4,
+                      padding: "6px 16px",
+                      fontSize: 15,
+                      cursor: "pointer"
+                    }}
+                    onClick={() => {
+                      // Placeholder for Streamed logic
+                      alert("Streamed clicked!");
+                    }}
+                  >
+                    Streamed
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
       </div>
       {/* Preview Modal */}
       {previewContent !== null && (

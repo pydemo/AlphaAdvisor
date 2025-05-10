@@ -1,8 +1,8 @@
 import React from "react";
 
 type MessageTabsAndSendButtonProps = {
-  tab: "Conversion" | "General";
-  setTab: (tab: "Conversion" | "General") => void;
+  tab: "Conversion" | "Question";
+  setTab: (tab: "Conversion" | "Question") => void;
   input: string;
   setInput: (input: string) => void;
   generalInput: string;
@@ -54,16 +54,16 @@ const MessageTabsAndSendButton: React.FC<MessageTabsAndSendButtonProps> = ({
           padding: "8px 24px",
           borderTopLeftRadius: 8,
           borderTopRightRadius: 8,
-          background: tab === "General" ? "#fff" : "#f3f3f3",
+          background: tab === "Question" ? "#fff" : "#f3f3f3",
           border: "1px solid #ccc",
-          borderBottom: tab === "General" ? "none" : "1px solid #ccc",
+          borderBottom: tab === "Question" ? "none" : "1px solid #ccc",
           fontWeight: 600,
-          color: tab === "General" ? "#007bff" : "#555",
-          cursor: tab === "General" ? "default" : "pointer",
+          color: tab === "Question" ? "#007bff" : "#555",
+          cursor: tab === "Question" ? "default" : "pointer",
         }}
-        onClick={() => setTab("General")}
+        onClick={() => setTab("Question")}
       >
-        General
+        Question
       </div>
     </div>
     {/* Tab content */}
