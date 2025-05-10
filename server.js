@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const sharp = require('sharp');
 const app = express();
 app.use(express.json({ limit: '20mb' }));
 app.use(require('cors')());
@@ -241,7 +242,15 @@ app.post('/api/ask-chatgpt', async (req, res) => {
   }
   try {
     const requestStartTime = Date.now();
-    const imageBase64 = fs.readFileSync(resolvedTarget, { encoding: 'base64' });
+    // Optimize image: auto-crop, remove metadata, convert to JPEG
+    const imageBuffer = await sharp(resolvedTarget)
+      .trim() // auto-crop
+      .removeAlpha()
+      .flatten({ background: '#fff' })
+      .withMetadata({}) // strip metadata
+      .jpeg({ quality: 75 })
+      .toBuffer();
+    const imageBase64 = imageBuffer.toString('base64');
     const gptRes = await openai.chat.completions.create({
       model: "gpt-4o",
       messages: [
@@ -254,7 +263,7 @@ app.post('/api/ask-chatgpt', async (req, res) => {
 {
   "menu": "<menu name>",
   "items": [
-    { "label": "<item label>", "value": "<selected value>" },
+    { "label": "<item label>", "value": "<selected value>", "description": "brief item decription" },
     ...
   ]
 }
@@ -263,7 +272,7 @@ Respond with only valid JSON, no extra text.`
             {
               type: "image_url",
               image_url: {
-                url: `data:image/png;base64,${imageBase64}`
+                url: `data:image/jpeg;base64,${imageBase64}`
               }
             }
           ]
@@ -297,7 +306,15 @@ app.post('/api/ask-chatgpt_streamed', async (req, res) => {
   }
 
   try {
-    const imageBase64 = fs.readFileSync(resolvedTarget, { encoding: 'base64' });
+    // Optimize image: auto-crop, remove metadata, convert to JPEG
+    const imageBuffer = await sharp(resolvedTarget)
+      .trim() // auto-crop
+      .removeAlpha()
+      .flatten({ background: '#fff' })
+      .withMetadata({}) // strip metadata
+      .jpeg({ quality: 75 })
+      .toBuffer();
+    const imageBase64 = imageBuffer.toString('base64');
 
     res.setHeader('Content-Type', 'text/event-stream');
     res.setHeader('Cache-Control', 'no-cache');
@@ -326,7 +343,7 @@ Respond with only valid JSON, no extra text.`
             {
               type: "image_url",
               image_url: {
-                url: `data:image/png;base64,${imageBase64}`
+                url: `data:image/jpeg;base64,${imageBase64}`
               }
             }
           ]
