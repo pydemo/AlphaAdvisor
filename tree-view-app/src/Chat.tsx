@@ -813,55 +813,80 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
               </div>
             ) : typeof previewContent === "string" ? (
               <>
-                <pre
+                <textarea
+                  value={previewContent}
+                  onChange={e => setPreviewContent(e.target.value)}
                   style={{
                     background: "#f6f8fa",
                     borderRadius: 4,
                     padding: 12,
                     fontSize: 14,
                     maxHeight: "60vh",
+                    minHeight: 180,
+                    width: "100%",
                     overflow: "auto",
                     whiteSpace: "pre-wrap",
                     wordBreak: "break-all",
                     textAlign: "left",
                     fontFamily: "monospace",
                     margin: 0,
+                    border: "1px solid #bbb",
+                    resize: "vertical"
                   }}
-                >
-                  {previewContent}
-                </pre>
-                {/* Copy button for JSON file preview */}
+                />
+                {/* Copy and Save buttons for JSON file preview */}
                 {/^Selected file: .+\.json$/i.test(previewTitle) && (
-                  <button
-                    style={{
-                      marginTop: 12,
-                      fontSize: 15,
-                      padding: "4px 18px",
-                      borderRadius: 4,
-                      background: previewCopied ? "#d4edda" : "#eee",
-                      color: previewCopied ? "#388e3c" : "#333",
-                      border: previewCopied ? "1.5px solid #388e3c" : "1px solid #bbb",
-                      alignSelf: "flex-end",
-                      transition: "all 0.15s"
-                    }}
-                    onClick={() => {
-                      if (navigator.clipboard) {
-                        navigator.clipboard.writeText(previewContent);
-                      } else {
-                        // fallback for older browsers
-                        const textarea = document.createElement("textarea");
-                        textarea.value = previewContent;
-                        document.body.appendChild(textarea);
-                        textarea.select();
-                        document.execCommand("copy");
-                        document.body.removeChild(textarea);
-                      }
-                      setPreviewContent(null);
-                    }}
-                    title="Copy JSON to clipboard"
-                  >
-                    {previewCopied ? "✔ Copied" : "Copy"}
-                  </button>
+                  <div style={{ display: "flex", gap: 12, marginTop: 12, justifyContent: "flex-end" }}>
+                    <button
+                      style={{
+                        fontSize: 15,
+                        padding: "4px 18px",
+                        borderRadius: 4,
+                        background: previewCopied ? "#d4edda" : "#eee",
+                        color: previewCopied ? "#388e3c" : "#333",
+                        border: previewCopied ? "1.5px solid #388e3c" : "1px solid #bbb",
+                        alignSelf: "flex-end",
+                        transition: "all 0.15s"
+                      }}
+                      onClick={() => {
+                        if (navigator.clipboard) {
+                          navigator.clipboard.writeText(previewContent);
+                        } else {
+                          // fallback for older browsers
+                          const textarea = document.createElement("textarea");
+                          textarea.value = previewContent;
+                          document.body.appendChild(textarea);
+                          textarea.select();
+                          document.execCommand("copy");
+                          document.body.removeChild(textarea);
+                        }
+                        setPreviewContent(null);
+                      }}
+                      title="Copy JSON to clipboard"
+                    >
+                      {previewCopied ? "✔ Copied" : "Copy"}
+                    </button>
+                    <button
+                      style={{
+                        fontSize: 15,
+                        padding: "4px 18px",
+                        borderRadius: 4,
+                        background: "#007bff",
+                        color: "#fff",
+                        border: "1.5px solid #007bff",
+                        alignSelf: "flex-end",
+                        transition: "all 0.15s"
+                      }}
+                      onClick={() => {
+                        // Save action: for now, just close the modal
+                        setPreviewContent(null);
+                        // In a real app, you would POST the content here
+                      }}
+                      title="Save JSON"
+                    >
+                      Save
+                    </button>
+                  </div>
                 )}
               </>
             ) : null}
