@@ -102,6 +102,8 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
 
   // State for Ask ChatGPT progress indicator
   const [askLoadingIdx, setAskLoadingIdx] = useState<number | null>(null);
+  // State for Streamed button progress indicator
+  const [streamedLoadingIdx, setStreamedLoadingIdx] = useState<number | null>(null);
 
   // Close preview on Esc key
   useEffect(() => {
@@ -493,6 +495,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                 </button>
                 <button
                   onClick={async () => {
+                    setStreamedLoadingIdx(i);
                     // Extract text and file paths from echo message
                     const lines = msg.text.split("\n").map(l => l.trim()).filter(Boolean);
                     let files: string[] = [];
@@ -507,6 +510,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                     }
                     const imagePath = files.find(f => /\.png$/i.test(f));
                     if (!imagePath) {
+                      setStreamedLoadingIdx(null);
                       if (typeof onSendMessage === "function") {
                         onSendMessage("Error: No image file found to send to ChatGPT.");
                       }
@@ -520,6 +524,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                         body: JSON.stringify({ target_path: imagePath })
                       });
                       if (!res.ok || !res.body) {
+                        setStreamedLoadingIdx(null);
                         const err = await res.json();
                         if (typeof onSendMessage === "function") {
                           onSendMessage("Error from ChatGPT API (streamed): " + (err.error || "Unknown error"));
@@ -547,7 +552,9 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                           }
                         }
                       }
+                      setStreamedLoadingIdx(null);
                     } catch (err) {
+                      setStreamedLoadingIdx(null);
                       if (typeof onSendMessage === "function") {
                         onSendMessage("Network error calling ChatGPT API (streamed): " + err);
                       }
@@ -564,8 +571,25 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                     marginTop: 2,
                     marginBottom: 2
                   }}
+                  disabled={streamedLoadingIdx === i}
                 >
                   Streamed
+                  {streamedLoadingIdx === i && (
+                    <span
+                      style={{
+                        marginLeft: 8,
+                        display: "inline-block",
+                        width: 18,
+                        height: 18,
+                        border: "2.5px solid #fff",
+                        borderTop: "2.5px solid #007bff",
+                        borderRadius: "50%",
+                        animation: "spin-ask-cgpt 0.7s linear infinite",
+                        verticalAlign: "middle"
+                      }}
+                      title="Loading..."
+                    />
+                  )}
                 </button>
               </div>
             )}
