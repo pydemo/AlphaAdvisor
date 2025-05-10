@@ -12,7 +12,7 @@ function App() {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [expandAllSignal, setExpandAllSignal] = useState(0);
   const [collapseAllSignal, setCollapseAllSignal] = useState(0);
-  const [tab, setTab] = useState<"Conversion" | "Question">("Conversion");
+  const [tab, setTab] = useState<"Conversion" | "General">("Conversion");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(e.target.value);

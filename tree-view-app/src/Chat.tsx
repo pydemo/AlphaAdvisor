@@ -15,10 +15,10 @@ type PreviewContent =
   | { type: "json+image"; json: string; imageSrc: string; imageAlt: string }
   | null;
 
-type SetTab = (tab: "Conversion" | "Question") => void;
+type SetTab = (tab: "Conversion" | "General") => void;
 
 interface ChatPropsWithSetTab extends ChatProps {
-  tab: "Conversion" | "Question";
+  tab: "Conversion" | "General";
   setTab: SetTab;
   setTabExternal?: SetTab;
 }
@@ -265,8 +265,8 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
         )}
         {messages
           .filter((msg) => {
-            if (tab === "Question") {
-              // Only show Echo messages and their associated user messages in the Question tab
+            if (tab === "General") {
+              // Only show Echo messages and their associated user messages in the General tab
               if (msg.from === "bot" && /^Echo:/i.test(msg.text)) return true;
               // Show the user message immediately preceding an Echo message
               const idx = messages.indexOf(msg);
