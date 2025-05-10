@@ -250,6 +250,19 @@ app.post('/api/ask-chatgpt', async (req, res) => {
       .withMetadata({}) // strip metadata
       .jpeg({ quality: 75 })
       .toBuffer();
+
+    // Log optimized image to log/sharpened/
+    const logDir = path.join(__dirname, 'log', 'sharpened');
+    if (!fs.existsSync(logDir)) {
+      fs.mkdirSync(logDir, { recursive: true });
+    }
+    const baseName = path.basename(resolvedTarget, path.extname(resolvedTarget));
+    const logFile = path.join(
+      logDir,
+      `${baseName}_${Date.now()}.jpg`
+    );
+    fs.writeFileSync(logFile, imageBuffer);
+
     const imageBase64 = imageBuffer.toString('base64');
     const gptRes = await openai.chat.completions.create({
       model: "gpt-4o",
@@ -314,6 +327,18 @@ app.post('/api/ask-chatgpt_streamed', async (req, res) => {
       .withMetadata({}) // strip metadata
       .jpeg({ quality: 75 })
       .toBuffer();
+    // Log optimized image to log/sharpened/
+    const logDir = path.join(__dirname, 'log', 'sharpened');
+    if (!fs.existsSync(logDir)) {
+      fs.mkdirSync(logDir, { recursive: true });
+    }
+    const baseName = path.basename(resolvedTarget, path.extname(resolvedTarget));
+    const logFile = path.join(
+      logDir,
+      `${baseName}_${Date.now()}.jpg`
+    );
+    fs.writeFileSync(logFile, imageBuffer);
+
     const imageBase64 = imageBuffer.toString('base64');
 
     res.setHeader('Content-Type', 'text/event-stream');
