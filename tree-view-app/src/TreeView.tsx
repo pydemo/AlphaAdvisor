@@ -280,7 +280,8 @@ const TreeView: React.FC<TreeViewProps> = ({
             <>
               {/* E/C toggle button for /public/MENU or /public/MENU/xxx */}
               {(
-                /\/public\/MENU\/?$/.test(node.path)
+                /\/public\/MENU\/?$/.test(node.path) ||
+                /\/public\/MENU\/[^/]+\/[^/]+$/.test(node.path)
               ) && (
                 (() => {
                   // Helper to collect all descendant dir paths
