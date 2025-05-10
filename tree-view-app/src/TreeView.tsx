@@ -590,8 +590,21 @@ const TreeView: React.FC<TreeViewProps> = ({
                 alignSelf: "flex-end"
               }}
               disabled={!infoPopup.image}
-              onClick={() => {
-                // TODO: Implement save logic (e.g., send to backend)
+              onClick={async () => {
+                if (!infoPopup.image || !infoFileName.trim() || !infoPopup.node) return;
+                try {
+                  await fetch("/api/save-image-file", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      dir_path: infoPopup.node.path,
+                      file_name: infoFileName.trim(),
+                      image_data: infoPopup.image
+                    })
+                  });
+                } catch (err) {
+                  alert("Failed to save image: " + err);
+                }
                 setInfoPopup({ open: false, node: null, image: null });
               }}
             >

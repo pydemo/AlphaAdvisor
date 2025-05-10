@@ -436,19 +436,51 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
             </div>
             {/* Show image or JSON/text based on previewContent type */}
             {previewContent && typeof previewContent === "object" && "type" in previewContent && previewContent.type === "image" ? (
-              <img
-                src={previewContent.src}
-                alt={previewContent.alt}
-                style={{
-                  maxWidth: "70vw",
-                  maxHeight: "65vh",
-                  borderRadius: 8,
-                  border: "1px solid #ccc",
-                  background: "#f6f8fa",
-                  margin: "0 auto",
-                  display: "block"
-                }}
-              />
+              <>
+                <img
+                  src={previewContent.src}
+                  alt={previewContent.alt}
+                  style={{
+                    maxWidth: "70vw",
+                    maxHeight: "65vh",
+                    borderRadius: 8,
+                    border: "1px solid #ccc",
+                    background: "#f6f8fa",
+                    margin: "0 auto",
+                    display: "block"
+                  }}
+                />
+                <button
+                  style={{
+                    marginTop: 18,
+                    fontSize: 15,
+                    padding: "4px 18px",
+                    borderRadius: 4,
+                    background: previewCopied ? "#d4edda" : "#eee",
+                    color: previewCopied ? "#388e3c" : "#333",
+                    border: previewCopied ? "1.5px solid #388e3c" : "1px solid #bbb",
+                    alignSelf: "center",
+                    transition: "all 0.15s"
+                  }}
+                  onClick={async () => {
+                    try {
+                      const response = await fetch(previewContent.src, { mode: "cors" });
+                      const blob = await response.blob();
+                      // Try to use the original type, fallback to image/png
+                      const type = blob.type || "image/png";
+                      const clipboardItem = new window.ClipboardItem({ [type]: blob });
+                      await navigator.clipboard.write([clipboardItem]);
+                      setPreviewCopied(true);
+                      setTimeout(() => setPreviewCopied(false), 1200);
+                    } catch (e) {
+                      // fallback: show error or do nothing
+                    }
+                  }}
+                  title="Copy image to clipboard"
+                >
+                  {previewCopied ? "✔ Copied" : "Copy"}
+                </button>
+              </>
             ) : typeof previewContent === "string" ? (
               <>
                 <pre
