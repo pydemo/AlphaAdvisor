@@ -123,6 +123,44 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
     }
   };
 
+  // Preview handler for image files (dual preview if sibling JSON exists)
+  const handleImagePreview = async (imgSrc: string, imgAlt: string) => {
+    // Try to find sibling JSON file
+    try {
+      // Remove query/hash if present
+      const cleanImgSrc = imgSrc.split(/[?#]/)[0];
+      const jsonPath = cleanImgSrc.replace(/\.png$/i, ".json");
+      // For debugging: log the computed JSON path
+      // eslint-disable-next-line no-console
+      console.log("Checking for JSON sibling at:", jsonPath);
+      const jsonRes = await fetch(jsonPath, { method: "GET", headers: { Accept: "application/json" } });
+      if (jsonRes.ok) {
+        const text = await jsonRes.text();
+        let displayText = text;
+        try {
+          displayText = JSON.stringify(JSON.parse(text), null, 2);
+        } catch {
+          // Not valid JSON, show as-is
+        }
+        // Show dual preview
+        setPreviewTitle(`Selected file: ${imgAlt}.png + ${imgAlt}.json`);
+        setPreviewContent({
+          type: "json+image",
+          json: displayText,
+          imageSrc: imgSrc,
+          imageAlt: imgAlt
+        });
+        return;
+      }
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log("Error checking JSON sibling:", err);
+    }
+    // Fallback: show image only
+    setPreviewTitle(`Selected file: ${imgAlt}.png`);
+    setPreviewContent({ type: "image", src: imgSrc, alt: imgAlt });
+  };
+
   // Preview handler for JSON files
   const handlePreview = async (msgText: string) => {
     // Extract file path from "Selected file: ..." message
@@ -256,11 +294,11 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                             border: "1px solid #ccc",
                             cursor: "pointer"
                           }}
-                          onClick={() => setPreviewContent({ type: "image", src: imgSrc, alt: imgAlt })}
+                          onClick={() => handleImagePreview(imgSrc, imgAlt)}
                           title="Click to preview"
                         />
                         <button
-                          onClick={() => setPreviewContent({ type: "image", src: imgSrc, alt: imgAlt })}
+                          onClick={() => handleImagePreview(imgSrc, imgAlt)}
                           style={{
                             marginLeft: 8,
                             background: "none",
