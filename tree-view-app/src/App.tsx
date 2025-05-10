@@ -251,6 +251,17 @@ function App() {
         <Chat
           messages={chatMessages}
           onSendMessage={handleSendMessage}
+          onReplaceLastBotMessage={(text: string) => {
+            setChatMessages((prev) => {
+              // Find last bot message
+              const idx = [...prev].reverse().findIndex(m => m.from === "bot");
+              if (idx === -1) return prev;
+              const realIdx = prev.length - 1 - idx;
+              const newMessages = [...prev];
+              newMessages[realIdx] = { text, from: "bot" };
+              return newMessages;
+            });
+          }}
         />
       </div>
     </div>
