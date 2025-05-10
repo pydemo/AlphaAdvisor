@@ -34,6 +34,8 @@ const TreeView: React.FC<TreeViewProps> = ({
   // Removed internal selected state; selection is managed by parent
   // Info popup state for image paste
   const [infoPopup, setInfoPopup] = useState<{ open: boolean; node: TreeNode | null; image: string | null }>({ open: false, node: null, image: null });
+  // File name for info popup
+  const [infoFileName, setInfoFileName] = useState("");
   // JSON popup state
   const [jsonPopup, setJsonPopup] = useState<{ open: boolean; node: TreeNode | null; text: string; fileName: string }>({ open: false, node: null, text: "", fileName: "" });
 
@@ -175,6 +177,7 @@ const TreeView: React.FC<TreeViewProps> = ({
                     onClick={e => {
                       e.stopPropagation();
                       setInfoPopup({ open: true, node, image: null });
+                      setInfoFileName(`${node.name}.png`);
                     }}
                   >
                     i
@@ -199,9 +202,9 @@ const TreeView: React.FC<TreeViewProps> = ({
                     title="Edit JSON"
                     onClick={e => {
                       e.stopPropagation();
-                      // Default fileName: [dir name].png
+                      // Default fileName: [dir name].json
                       const dirName = node.name || "file";
-                      setJsonPopup({ open: true, node, text: "", fileName: `${dirName}.png` });
+                      setJsonPopup({ open: true, node, text: "", fileName: `${dirName}.json` });
                     }}
                   >
                     J
@@ -522,6 +525,19 @@ const TreeView: React.FC<TreeViewProps> = ({
             <div style={{ fontWeight: "bold", marginBottom: 8 }}>
               Paste image for <span style={{ color: "#0074d9" }}>{infoPopup.node?.name}</span>
             </div>
+            <input
+              type="text"
+              value={infoFileName}
+              onChange={e => setInfoFileName(e.target.value)}
+              placeholder="File name"
+              style={{
+                fontSize: 15,
+                padding: "6px 10px",
+                borderRadius: 4,
+                border: "1.5px solid #0074d9",
+                marginBottom: 6
+              }}
+            />
             <div
               tabIndex={0}
               style={{
