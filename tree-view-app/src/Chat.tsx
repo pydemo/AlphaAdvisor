@@ -420,12 +420,35 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                     } else {
                       userText = msg.text.replace(/^Echo:\s*/i, "");
                     }
-                    // Placeholder: simulate API call and response
-                    // TODO: Replace with real multimodal OpenAI API call
-                    const reply = `ChatGPT multimodal (simulated):\nText: ${userText}\nFiles: ${files.join(", ") || "none"}`;
-                    // Add response to chat
-                    if (typeof onSendMessage === "function") {
-                      onSendMessage(reply);
+                    // Find the first file path that looks like a PNG
+                    const imagePath = files.find(f => /\.png$/i.test(f));
+                    if (!imagePath) {
+                      if (typeof onSendMessage === "function") {
+                        onSendMessage("Error: No image file found to send to ChatGPT.");
+                      }
+                      return;
+                    }
+                    try {
+                      const res = await fetch("/api/ask-chatgpt", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ target_path: imagePath })
+                      });
+                      if (!res.ok) {
+                        const err = await res.json();
+                        if (typeof onSendMessage === "function") {
+                          onSendMessage("Error from ChatGPT API: " + (err.error || "Unknown error"));
+                        }
+                        return;
+                      }
+                      const data = await res.json();
+                      if (typeof onSendMessage === "function") {
+                        onSendMessage(data.content || "No response from ChatGPT.");
+                      }
+                    } catch (err) {
+                      if (typeof onSendMessage === "function") {
+                        onSendMessage("Network error calling ChatGPT API: " + err);
+                      }
                     }
                   }}
                   style={{
