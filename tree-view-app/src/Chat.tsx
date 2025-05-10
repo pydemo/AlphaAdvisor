@@ -525,8 +525,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                         document.execCommand("copy");
                         document.body.removeChild(textarea);
                       }
-                      setPreviewCopied(true);
-                      setTimeout(() => setPreviewCopied(false), 1200);
+                      setPreviewContent(null);
                     }}
                     title="Copy JSON to clipboard"
                   >
