@@ -126,4 +126,56 @@ app.post('/api/delete-file', (req, res) => {
   }
 });
 
+const OpenAI = require('openai');
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+app.post('/api/ask-chatgpt', async (req, res) => {
+  const { target_path } = req.body;
+  const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+  if (!target_path) {
+    return res.status(400).json({ error: "Missing target_path" });
+  }
+  const resolvedTarget = path.resolve(target_path);
+  if (!resolvedTarget.startsWith(menuRoot)) {
+    return res.status(400).json({ error: "Invalid path" });
+  }
+  try {
+    const imageBase64 = fs.readFileSync(resolvedTarget, { encoding: 'base64' });
+    const gptRes = await openai.chat.completions.create({
+      model: "gpt-4o",
+      messages: [
+        {
+          role: "user",
+          content: [
+            {
+              type: "text",
+              text: `Extract structured JSON from this Sony camera menu screenshot. Format:
+{
+  "menu": "<menu name>",
+  "items": [
+    { "label": "<item label>", "value": "<selected value>" },
+    ...
+  ]
+}
+Respond with only valid JSON, no extra text.`
+            },
+            {
+              type: "image_url",
+              image_url: {
+                url: `data:image/png;base64,${imageBase64}`
+              }
+            }
+          ]
+        }
+      ],
+      max_tokens: 1000
+    });
+    const content = gptRes.choices[0].message.content;
+    res.status(200).json({ success: true, content });
+  } catch (err) {
+    console.error("ASK CHATGPT ERROR", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.listen(3001, () => console.log('Server running on http://localhost:3001'));

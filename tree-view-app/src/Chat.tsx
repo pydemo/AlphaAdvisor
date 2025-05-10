@@ -13,7 +13,7 @@ type PreviewContent =
   | null;
 
 const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState("Convert this menu screenshot of Sony a7rV' to json including brief description of each menu option.");
 
   const handleSend = () => {
     if (input.trim() === "") return;

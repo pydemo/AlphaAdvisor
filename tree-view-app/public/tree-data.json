@@ -249,10 +249,17 @@
                   "name": "menu_setup.json",
                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/menu_setup.json",
                   "type": "file"
-                },
+                }
+              ]
+            },
+            {
+              "name": "docs",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/docs",
+              "type": "directory",
+              "children": [
                 {
                   "name": "sony_a7r5_user_manual.pdf",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/sony_a7r5_user_manual.pdf",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/docs/sony_a7r5_user_manual.pdf",
                   "type": "file"
                 }
               ]
