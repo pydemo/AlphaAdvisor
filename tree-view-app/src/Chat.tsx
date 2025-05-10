@@ -100,6 +100,9 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
   // State for copy feedback in preview modal
   const [previewCopied, setPreviewCopied] = useState(false);
 
+  // State for Ask ChatGPT progress indicator
+  const [askLoadingIdx, setAskLoadingIdx] = useState<number | null>(null);
+
   // Close preview on Esc key
   useEffect(() => {
     if (previewContent === null) return;
@@ -406,6 +409,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
               >
                 <button
                   onClick={async () => {
+                    setAskLoadingIdx(i);
                     // Extract text and file paths from echo message
                     // Echo:\n[file paths]\n[user text]
                     const lines = msg.text.split("\n").map(l => l.trim()).filter(Boolean);
@@ -423,6 +427,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                     // Find the first file path that looks like a PNG
                     const imagePath = files.find(f => /\.png$/i.test(f));
                     if (!imagePath) {
+                      setAskLoadingIdx(null);
                       if (typeof onSendMessage === "function") {
                         onSendMessage("Error: No image file found to send to ChatGPT.");
                       }
@@ -435,6 +440,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                         body: JSON.stringify({ target_path: imagePath })
                       });
                       if (!res.ok) {
+                        setAskLoadingIdx(null);
                         const err = await res.json();
                         if (typeof onSendMessage === "function") {
                           onSendMessage("Error from ChatGPT API: " + (err.error || "Unknown error"));
@@ -442,10 +448,12 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                         return;
                       }
                       const data = await res.json();
+                      setAskLoadingIdx(null);
                       if (typeof onSendMessage === "function") {
                         onSendMessage(data.content || "No response from ChatGPT.");
                       }
                     } catch (err) {
+                      setAskLoadingIdx(null);
                       if (typeof onSendMessage === "function") {
                         onSendMessage("Network error calling ChatGPT API: " + err);
                       }
@@ -463,8 +471,14 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                     marginBottom: 2,
                     marginRight: 8
                   }}
+                  disabled={askLoadingIdx === i}
                 >
                   Ask ChatGPT
+                  {askLoadingIdx === i && (
+                    <span style={{ marginLeft: 8, fontSize: 18 }} title="Loading...">
+                      ⏳
+                    </span>
+                  )}
                 </button>
                 <button
                   onClick={async () => {
