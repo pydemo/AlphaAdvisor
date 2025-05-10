@@ -96,6 +96,8 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
   // State for preview modal
   const [previewContent, setPreviewContent] = useState<PreviewContent>(null);
   const [previewTitle, setPreviewTitle] = useState<string>("");
+  // State for copy feedback in preview modal
+  const [previewCopied, setPreviewCopied] = useState(false);
 
   // Close preview on Esc key
   useEffect(() => {
@@ -448,23 +450,59 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                 }}
               />
             ) : typeof previewContent === "string" ? (
-              <pre
-                style={{
-                  background: "#f6f8fa",
-                  borderRadius: 4,
-                  padding: 12,
-                  fontSize: 14,
-                  maxHeight: "60vh",
-                  overflow: "auto",
-                  whiteSpace: "pre-wrap",
-                  wordBreak: "break-all",
-                  textAlign: "left",
-                  fontFamily: "monospace",
-                  margin: 0,
-                }}
-              >
-                {previewContent}
-              </pre>
+              <>
+                <pre
+                  style={{
+                    background: "#f6f8fa",
+                    borderRadius: 4,
+                    padding: 12,
+                    fontSize: 14,
+                    maxHeight: "60vh",
+                    overflow: "auto",
+                    whiteSpace: "pre-wrap",
+                    wordBreak: "break-all",
+                    textAlign: "left",
+                    fontFamily: "monospace",
+                    margin: 0,
+                  }}
+                >
+                  {previewContent}
+                </pre>
+                {/* Copy button for JSON file preview */}
+                {/^Selected file: .+\.json$/i.test(previewTitle) && (
+                  <button
+                    style={{
+                      marginTop: 12,
+                      fontSize: 15,
+                      padding: "4px 18px",
+                      borderRadius: 4,
+                      background: previewCopied ? "#d4edda" : "#eee",
+                      color: previewCopied ? "#388e3c" : "#333",
+                      border: previewCopied ? "1.5px solid #388e3c" : "1px solid #bbb",
+                      alignSelf: "flex-end",
+                      transition: "all 0.15s"
+                    }}
+                    onClick={() => {
+                      if (navigator.clipboard) {
+                        navigator.clipboard.writeText(previewContent);
+                      } else {
+                        // fallback for older browsers
+                        const textarea = document.createElement("textarea");
+                        textarea.value = previewContent;
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand("copy");
+                        document.body.removeChild(textarea);
+                      }
+                      setPreviewCopied(true);
+                      setTimeout(() => setPreviewCopied(false), 1200);
+                    }}
+                    title="Copy JSON to clipboard"
+                  >
+                    {previewCopied ? "✔ Copied" : "Copy"}
+                  </button>
+                )}
+              </>
             ) : null}
           </div>
         </div>
