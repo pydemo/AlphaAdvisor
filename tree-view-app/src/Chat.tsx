@@ -13,7 +13,7 @@ type PreviewContent =
   | null;
 
 const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
-  const [input, setInput] = useState("Convert this menu screenshot of Sony a7rV' to json including brief description of each menu option.");
+  const [input, setInput] = useState("Convert this menu screenshot of Sony 'a7rV' to json including brief description of each menu option.");
 
   const handleSend = () => {
     if (input.trim() === "") return;
@@ -460,38 +460,74 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
           </div>
         </div>
       )}
-      <div style={{ display: "flex" }}>
-        <textarea
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleTextareaKeyDown}
-          placeholder="Type a message..."
-          style={{
-            flex: 1,
-            fontSize: 16,
-            padding: "6px 10px",
-            borderRadius: 4,
-            border: "1px solid #bbb",
-            marginRight: 8,
-            resize: "vertical",
-            minHeight: 164,
-            maxHeight: 200,
-            lineHeight: 1.4,
-          }}
-        />
-        <button
-          onClick={handleSend}
-          style={{
-            fontSize: 16,
-            padding: "6px 16px",
-            borderRadius: 4,
-            background: "#007bff",
-            color: "#fff",
-            border: "none",
-          }}
-        >
-          Send
-        </button>
+      {/* Tabbed input area */}
+      <div style={{ marginTop: 8 }}>
+        {/* Tab bar */}
+        <div style={{
+          display: "flex",
+          borderBottom: "1px solid #ccc",
+          marginBottom: 0,
+        }}>
+          <div
+            style={{
+              padding: "8px 24px",
+              borderTopLeftRadius: 8,
+              borderTopRightRadius: 8,
+              background: "#fff",
+              border: "1px solid #ccc",
+              borderBottom: "none",
+              fontWeight: 600,
+              color: "#007bff",
+              cursor: "default",
+              marginRight: 4,
+            }}
+          >
+            Conversion
+          </div>
+        </div>
+        {/* Tab content */}
+        <div style={{
+          border: "1px solid #ccc",
+          borderTop: "none",
+          borderBottomLeftRadius: 8,
+          borderBottomRightRadius: 8,
+          padding: 12,
+          background: "#fff",
+        }}>
+          <div style={{ display: "flex" }}>
+            <textarea
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleTextareaKeyDown}
+              placeholder="Type a message..."
+              style={{
+                flex: 1,
+                fontSize: 16,
+                padding: "6px 10px",
+                borderRadius: 4,
+                border: "1px solid #bbb",
+                marginRight: 8,
+                resize: "vertical",
+                minHeight: 164,
+                maxHeight: 200,
+                lineHeight: 1.4,
+              }}
+            />
+            <button
+              onClick={handleSend}
+              style={{
+                fontSize: 16,
+                padding: "6px 16px",
+                borderRadius: 4,
+                background: "#007bff",
+                color: "#fff",
+                border: "none",
+              }}
+            >
+              Send
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
