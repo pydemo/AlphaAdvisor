@@ -412,6 +412,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                 <button
                   onClick={async () => {
                     setAskLoadingIdx(i);
+                    const start = Date.now();
                     // Extract text and file paths from echo message
                     // Echo:\n[file paths]\n[user text]
                     const lines = msg.text.split("\n").map(l => l.trim()).filter(Boolean);
@@ -453,11 +454,15 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                       setAskLoadingIdx(null);
                       if (typeof onSendMessage === "function") {
                         onSendMessage(data.content || "No response from ChatGPT.");
+                        const elapsed = ((Date.now() - start) / 1000).toFixed(2);
+                        onSendMessage(`Elapsed: ${elapsed}s`);
                       }
                     } catch (err) {
                       setAskLoadingIdx(null);
                       if (typeof onSendMessage === "function") {
                         onSendMessage("Network error calling ChatGPT API: " + err);
+                        const elapsed = ((Date.now() - start) / 1000).toFixed(2);
+                        onSendMessage(`Elapsed: ${elapsed}s`);
                       }
                     }
                   }}
@@ -496,6 +501,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                 <button
                   onClick={async () => {
                     setStreamedLoadingIdx(i);
+                    const start = Date.now();
                     // Extract text and file paths from echo message
                     const lines = msg.text.split("\n").map(l => l.trim()).filter(Boolean);
                     let files: string[] = [];
@@ -513,6 +519,8 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                       setStreamedLoadingIdx(null);
                       if (typeof onSendMessage === "function") {
                         onSendMessage("Error: No image file found to send to ChatGPT.");
+                        const elapsed = ((Date.now() - start) / 1000).toFixed(2);
+                        onSendMessage(`Elapsed: ${elapsed}s`);
                       }
                       return;
                     }
@@ -528,6 +536,8 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                         const err = await res.json();
                         if (typeof onSendMessage === "function") {
                           onSendMessage("Error from ChatGPT API (streamed): " + (err.error || "Unknown error"));
+                          const elapsed = ((Date.now() - start) / 1000).toFixed(2);
+                          onSendMessage(`Elapsed: ${elapsed}s`);
                         }
                         return;
                       }
@@ -553,10 +563,16 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                         }
                       }
                       setStreamedLoadingIdx(null);
+                      if (typeof onSendMessage === "function") {
+                        const elapsed = ((Date.now() - start) / 1000).toFixed(2);
+                        onSendMessage(`Elapsed: ${elapsed}s`);
+                      }
                     } catch (err) {
                       setStreamedLoadingIdx(null);
                       if (typeof onSendMessage === "function") {
                         onSendMessage("Network error calling ChatGPT API (streamed): " + err);
+                        const elapsed = ((Date.now() - start) / 1000).toFixed(2);
+                        onSendMessage(`Elapsed: ${elapsed}s`);
                       }
                     }
                   }}
