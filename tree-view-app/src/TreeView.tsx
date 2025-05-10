@@ -127,7 +127,49 @@ const TreeView: React.FC<TreeViewProps> = ({
               {isOpen ? "▼" : "▶"}
             </span>
           ) : (
-            <span style={{ width: 16, display: "inline-block" }} />
+            <>
+              <span style={{ width: 16, display: "inline-block" }} />
+              <button
+                style={{
+                  marginLeft: 4,
+                  fontSize: 13,
+                  padding: "0 6px",
+                  borderRadius: "50%",
+                  border: "1px solid #e55",
+                  background: "#fff5f5",
+                  color: "#e55",
+                  cursor: "pointer",
+                  height: 22,
+                  width: 22,
+                  lineHeight: "18px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                title="Delete file"
+                onClick={e => {
+                  e.stopPropagation();
+                  if (window.confirm(`Delete file "${node.name}"?`)) {
+                    fetch("/api/delete-file", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ target_path: node.path })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                      if (data.success) {
+                        fetch(dataUrl)
+                          .then(res => res.json())
+                          .then(setTree);
+                      } else {
+                        alert("Error: " + (data.error || "Failed to delete file"));
+                      }
+                    })
+                    .catch(err => alert("Error: " + err));
+                  }
+                }}
+              >-</button>
+            </>
           )}
           <span style={{
             fontWeight:

@@ -88,4 +88,42 @@ app.post('/api/delete-dir', (req, res) => {
   }
 });
 
+app.post('/api/delete-file', (req, res) => {
+  const { target_path } = req.body;
+  const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+  if (!target_path) {
+    return res.status(400).json({ error: "Missing target_path" });
+  }
+  const resolvedTarget = path.resolve(target_path);
+  if (!resolvedTarget.startsWith(menuRoot)) {
+    return res.status(400).json({ error: "Invalid path" });
+  }
+  try {
+    if (!fs.existsSync(resolvedTarget)) {
+      return res.status(404).json({ error: "File does not exist" });
+    }
+    if (fs.lstatSync(resolvedTarget).isDirectory()) {
+      return res.status(400).json({ error: "Target is a directory, not a file" });
+    }
+    fs.unlinkSync(resolvedTarget);
+    // Refresh tree-data.json
+    const { exec } = require('child_process');
+    exec('python3 tree-view-app/gen_tree_json.py', (error, stdout, stderr) => {
+      if (error) {
+        console.error('Error regenerating tree-data.json:', error);
+      }
+      if (stderr) {
+        console.error('stderr:', stderr);
+      }
+      if (stdout) {
+        console.log('stdout:', stdout);
+      }
+    });
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error("FILE DELETE ERROR", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.listen(3001, () => console.log('Server running on http://localhost:3001'));
