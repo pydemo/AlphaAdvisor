@@ -510,18 +510,48 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
               </>
             ) : previewContent && typeof previewContent === "object" && "type" in previewContent && previewContent.type === "json+image" ? (
               <div style={{ display: "flex", flexDirection: "row", gap: 24, alignItems: "flex-start", maxWidth: "75vw" }}>
-                <img
-                  src={previewContent.imageSrc}
-                  alt={previewContent.imageAlt}
-                  style={{
-                    maxWidth: "32vw",
-                    maxHeight: "60vh",
-                    borderRadius: 8,
-                    border: "1px solid #ccc",
-                    background: "#f6f8fa",
-                    display: "block"
-                  }}
-                />
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                  <img
+                    src={previewContent.imageSrc}
+                    alt={previewContent.imageAlt}
+                    style={{
+                      maxWidth: "32vw",
+                      maxHeight: "60vh",
+                      borderRadius: 8,
+                      border: "1px solid #ccc",
+                      background: "#f6f8fa",
+                      display: "block"
+                    }}
+                  />
+                  <button
+                    style={{
+                      marginTop: 12,
+                      fontSize: 15,
+                      padding: "4px 18px",
+                      borderRadius: 4,
+                      background: previewCopied ? "#d4edda" : "#eee",
+                      color: previewCopied ? "#388e3c" : "#333",
+                      border: previewCopied ? "1.5px solid #388e3c" : "1px solid #bbb",
+                      alignSelf: "center",
+                      transition: "all 0.15s"
+                    }}
+                    onClick={async () => {
+                      try {
+                        const response = await fetch(previewContent.imageSrc, { mode: "cors" });
+                        const blob = await response.blob();
+                        const type = blob.type || "image/png";
+                        const clipboardItem = new window.ClipboardItem({ [type]: blob });
+                        await navigator.clipboard.write([clipboardItem]);
+                      } catch (e) {
+                        // fallback: show error or do nothing
+                      }
+                      setPreviewContent(null);
+                    }}
+                    title="Copy image to clipboard"
+                  >
+                    {previewCopied ? "✔ Copied" : "Copy"}
+                  </button>
+                </div>
                 <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
                   <pre
                     style={{
