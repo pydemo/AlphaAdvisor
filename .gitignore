@@ -2,3 +2,7 @@
 .claude
 .claude/
 *Zone.Identifier
+
+log
+log/
+log/*
