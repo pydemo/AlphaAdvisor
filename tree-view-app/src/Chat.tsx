@@ -10,6 +10,7 @@ type ChatProps = {
 type PreviewContent =
   | string
   | { type: "image"; src: string; alt: string }
+  | { type: "json+image"; json: string; imageSrc: string; imageAlt: string }
   | null;
 
 const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
@@ -146,8 +147,35 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
         } catch {
           // Not valid JSON, show as-is
         }
-        setPreviewTitle(`Selected file: ${filePath.split("/").pop() || filePath}`);
-        setPreviewContent(displayText);
+        // Check for sibling PNG
+        const jsonFileName = filePath.split("/").pop() || "";
+        const dirPath = filePath.slice(0, filePath.lastIndexOf("/"));
+        const baseName = jsonFileName.replace(/\.json$/i, "");
+        const pngPath = `${dirPath}/${baseName}.png`;
+        let pngExists = false;
+        try {
+          // For debugging: log the computed PNG path
+          // eslint-disable-next-line no-console
+          console.log("Checking for PNG sibling at:", pngPath);
+          // Use GET instead of HEAD, as some static servers don't support HEAD
+          const pngRes = await fetch(pngPath, { method: "GET" });
+          pngExists = pngRes.ok;
+        } catch (err) {
+          // eslint-disable-next-line no-console
+          console.log("Error checking PNG sibling:", err);
+        }
+        if (pngExists) {
+          setPreviewTitle(`Selected file: ${jsonFileName} + ${baseName}.png`);
+          setPreviewContent({
+            type: "json+image",
+            json: displayText,
+            imageSrc: pngPath,
+            imageAlt: baseName
+          });
+        } else {
+          setPreviewTitle(`Selected file: ${jsonFileName}`);
+          setPreviewContent(displayText);
+        }
       } catch (e) {
         setPreviewTitle("Error");
         setPreviewContent("Could not load file.");
@@ -480,6 +508,70 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                   {previewCopied ? "✔ Copied" : "Copy"}
                 </button>
               </>
+            ) : previewContent && typeof previewContent === "object" && "type" in previewContent && previewContent.type === "json+image" ? (
+              <div style={{ display: "flex", flexDirection: "row", gap: 24, alignItems: "flex-start", maxWidth: "75vw" }}>
+                <img
+                  src={previewContent.imageSrc}
+                  alt={previewContent.imageAlt}
+                  style={{
+                    maxWidth: "32vw",
+                    maxHeight: "60vh",
+                    borderRadius: 8,
+                    border: "1px solid #ccc",
+                    background: "#f6f8fa",
+                    display: "block"
+                  }}
+                />
+                <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
+                  <pre
+                    style={{
+                      background: "#f6f8fa",
+                      borderRadius: 4,
+                      padding: 12,
+                      fontSize: 14,
+                      maxHeight: "60vh",
+                      overflow: "auto",
+                      whiteSpace: "pre-wrap",
+                      wordBreak: "break-all",
+                      textAlign: "left",
+                      fontFamily: "monospace",
+                      margin: 0,
+                    }}
+                  >
+                    {previewContent.json}
+                  </pre>
+                  <button
+                    style={{
+                      marginTop: 12,
+                      fontSize: 15,
+                      padding: "4px 18px",
+                      borderRadius: 4,
+                      background: previewCopied ? "#d4edda" : "#eee",
+                      color: previewCopied ? "#388e3c" : "#333",
+                      border: previewCopied ? "1.5px solid #388e3c" : "1px solid #bbb",
+                      alignSelf: "flex-end",
+                      transition: "all 0.15s"
+                    }}
+                    onClick={() => {
+                      if (navigator.clipboard) {
+                        navigator.clipboard.writeText(previewContent.json);
+                      } else {
+                        // fallback for older browsers
+                        const textarea = document.createElement("textarea");
+                        textarea.value = previewContent.json;
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand("copy");
+                        document.body.removeChild(textarea);
+                      }
+                      setPreviewContent(null);
+                    }}
+                    title="Copy JSON to clipboard"
+                  >
+                    {previewCopied ? "✔ Copied" : "Copy"}
+                  </button>
+                </div>
+              </div>
             ) : typeof previewContent === "string" ? (
               <>
                 <pre
