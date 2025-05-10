@@ -470,11 +470,10 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                       const type = blob.type || "image/png";
                       const clipboardItem = new window.ClipboardItem({ [type]: blob });
                       await navigator.clipboard.write([clipboardItem]);
-                      setPreviewCopied(true);
-                      setTimeout(() => setPreviewCopied(false), 1200);
                     } catch (e) {
                       // fallback: show error or do nothing
                     }
+                    setPreviewContent(null);
                   }}
                   title="Copy image to clipboard"
                 >
