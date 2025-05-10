@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-app.use(express.json({ limit: '10mb' }));
+app.use(express.json({ limit: '20mb' }));
 app.use(require('cors')());
 
 // Catch-all logging middleware
@@ -144,6 +144,52 @@ app.post('/api/refresh-tree', (req, res) => {
     }
     res.status(200).json({ success: true });
   });
+});
+
+app.post('/api/save-image-file', (req, res) => {
+  const { dir_path, file_name, image_data } = req.body;
+  console.log(req.body); 
+  console.log(`[${dir_path}] ${file_name} `);
+  if (!dir_path || !file_name || !image_data) {
+    return res.status(400).json({ success: false, error: "Missing dir_path, file_name, or image_data" });
+  }
+  // Only allow saving under MENU
+  const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+  const resolvedDir = path.resolve(dir_path);
+  if (!resolvedDir.startsWith(menuRoot)) {
+    return res.status(400).json({ success: false, error: "Invalid directory path" });
+  }
+  // Prevent path traversal in file_name
+  if (file_name.includes("..") || file_name.includes("/") || file_name.includes("\\") || !file_name.toLowerCase().endsWith(".png")) {
+    return res.status(400).json({ success: false, error: "Invalid file name" });
+  }
+  // Decode base64 image data from data URL
+  try {
+    if (!image_data.startsWith("data:image")) {
+      return res.status(400).json({ success: false, error: "Invalid image data" });
+    }
+    const b64data = image_data.split(",", 2)[1];
+    const imgBuffer = Buffer.from(b64data, "base64");
+    const targetFile = path.join(resolvedDir, file_name);
+    fs.writeFileSync(targetFile, imgBuffer);
+    // Refresh tree-data.json
+    const { exec } = require('child_process');
+    exec('python3 tree-view-app/gen_tree_json.py', (error, stdout, stderr) => {
+      if (error) {
+        console.error('Error regenerating tree-data.json:', error);
+      }
+      if (stderr) {
+        console.error('stderr:', stderr);
+      }
+      if (stdout) {
+        console.log('stdout:', stdout);
+      }
+    });
+    res.status(200).json({ success: true, file: targetFile });
+  } catch (err) {
+    console.error("SAVE IMAGE FILE ERROR", err);
+    res.status(500).json({ success: false, error: err.message });
+  }
 });
 
 app.post('/api/save-json-file', (req, res) => {

@@ -52,6 +52,11 @@
                                       "name": "JPEG_HREF_Switch.json",
                                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch/JPEG_HREF_Switch.json",
                                       "type": "file"
+                                    },
+                                    {
+                                      "name": "JPEG_HREF_Switch.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch/JPEG_HREF_Switch.png",
+                                      "type": "file"
                                     }
                                   ]
                                 },
