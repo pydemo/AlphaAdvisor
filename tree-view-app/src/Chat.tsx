@@ -37,7 +37,6 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
   const handleSend = () => {
     if (input.trim() === "") return;
     onSendMessage(input);
-    if (setTabExternal) setTabExternal("Question");
     // Do not clear input after sending
     // setInput("");
   };
@@ -281,8 +280,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
               }
               return false;
             } else {
-              // In Conversion tab, hide Echo messages
-              if (msg.from === "bot" && /^Echo:/i.test(msg.text)) return false;
+              // In Conversion tab, show all messages (including Echo)
               return true;
             }
           })
