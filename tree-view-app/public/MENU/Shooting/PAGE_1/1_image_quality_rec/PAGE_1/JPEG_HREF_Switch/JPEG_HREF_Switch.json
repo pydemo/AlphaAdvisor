@@ -1,8 +1,20 @@
 {
-"menu": "JPEG/HEIF Switch",
-"items": [
-{ "label": "JPEG", "value": "selected", "description": "JPEG format selected" },
-{ "label": "HEIF(4:2:0)", "value": "not selected", "description": "HEIF format with 4:2:0 chroma subsampling" },
-{ "label": "HEIF(4:2:2)", "value": "not selected", "description": "HEIF format with 4:2:2 chroma subsampling" }
-]
+  "menu": "JPEG/HEIF Switch",
+  "items": [
+    {
+      "label": "JPEG",
+      "value": "selected",
+      "description": "Select JPEG format"
+    },
+    {
+      "label": "HEIF(4:2:0)",
+      "value": "not selected",
+      "description": "Select HEIF format with 4:2:0 chroma subsampling"
+    },
+    {
+      "label": "HEIF(4:2:2)",
+      "value": "not selected",
+      "description": "Select HEIF format with 4:2:2 chroma subsampling"
+    }
+  ]
 }

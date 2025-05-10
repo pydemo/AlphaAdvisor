@@ -1035,20 +1035,22 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                 </button>
               </>
             ) : previewContent && typeof previewContent === "object" && "type" in previewContent && previewContent.type === "json+image" ? (
-              <div style={{ display: "flex", flexDirection: "row", gap: 24, alignItems: "flex-start", maxWidth: "90vw", minHeight: "70vh" }}>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flex: 1 }}>
-                  <img
-                    src={previewContent.imageSrc}
-                    alt={previewContent.imageAlt}
-                    style={{
-                      maxWidth: "20vw",
-                      maxHeight: "60vh",
-                      borderRadius: 8,
-                      border: "1px solid #ccc",
-                      background: "#f6f8fa",
-                      display: "block"
-                    }}
-                  />
+              <div style={{ display: "flex", flexDirection: "row", gap: 24, alignItems: "stretch", maxWidth: "90vw", height: "75vh" }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between", flex: 1 }}>
+                  <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flex: 1, overflow: "hidden" }}>
+                    <img
+                      src={previewContent.imageSrc}
+                      alt={previewContent.imageAlt}
+                      style={{
+                        maxWidth: "20vw",
+                        maxHeight: "65vh",
+                        borderRadius: 8,
+                        border: "1px solid #ccc",
+                        background: "#f6f8fa",
+                        display: "block"
+                      }}
+                    />
+                  </div>
                   <button
                     style={{
                       marginTop: 12,
@@ -1078,7 +1080,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                     {previewCopied ? "✔ Copied" : "Copy"}
                   </button>
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", flex: 3 }}>
+                <div style={{ display: "flex", flexDirection: "column", flex: 3, height: "100%" }}>
                   <textarea
                     value={typeof previewContent.json === "string" ? previewContent.json : ""}
                     onChange={e => {
@@ -1094,13 +1096,10 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                       borderRadius: 4,
                       padding: 18,
                       fontSize: 16,
-                      height: "75vh",
-                      minHeight: "500px",
-                      maxHeight: "85vh",
+                      flex: 1,
                       width: "100%",
                       minWidth: "600px",
                       maxWidth: "100%",
-                      flex: 3,
                       overflow: "auto",
                       whiteSpace: "pre-wrap",
                       wordBreak: "break-all",
@@ -1108,7 +1107,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                       fontFamily: "monospace",
                       margin: 0,
                       border: "1px solid #bbb",
-                      resize: "vertical"
+                      resize: "none"
                     }}
                   />
                   <div style={{ display: "flex", gap: 12, marginTop: 12, justifyContent: "flex-end" }}>
@@ -1168,13 +1167,23 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
 
                         // Map web path to full filesystem path
                         const PUBLIC_ROOT = "/home/alexb/myg/cla_2/tree-view-app/public";
-                        let relPath = filePath;
-                        if (relPath.startsWith("/MENU/")) {
-                          relPath = "/MENU/" + relPath.split("/MENU/")[1];
-                        } else if (relPath.startsWith("/public/")) {
-                          relPath = relPath.replace(/^\/public/, "");
+                        
+                        // Check if the path already contains the PUBLIC_ROOT to avoid duplication
+                        let fullPath;
+                        if (filePath.startsWith(PUBLIC_ROOT)) {
+                          // Path already has the PUBLIC_ROOT, use it directly
+                          fullPath = filePath;
+                        } else {
+                          // Path doesn't have PUBLIC_ROOT, need to add it
+                          let relPath = filePath;
+                          if (relPath.startsWith("/MENU/")) {
+                            relPath = "/MENU/" + relPath.split("/MENU/")[1];
+                          } else if (relPath.startsWith("/public/")) {
+                            relPath = relPath.replace(/^\/public/, "");
+                          }
+                          fullPath = PUBLIC_ROOT + relPath;
                         }
-                        const fullPath = PUBLIC_ROOT + relPath;
+                        
                         const lastSlash = fullPath.lastIndexOf("/");
                         const file_name = lastSlash !== -1 ? fullPath.slice(lastSlash + 1) : fullPath;
                         const dir_path = lastSlash !== -1 ? fullPath.slice(0, lastSlash) : PUBLIC_ROOT;
