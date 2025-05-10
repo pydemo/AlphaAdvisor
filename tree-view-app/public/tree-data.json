@@ -24,6 +24,18 @@
                   "type": "directory",
                   "children": [
                     {
+                      "name": "2222",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/2222",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "333",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/333",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
                       "name": "777",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/777",
                       "type": "directory",
@@ -229,6 +241,60 @@
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/www",
                       "type": "directory",
                       "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "dddddd",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/dddddd",
+                  "type": "directory",
+                  "children": []
+                },
+                {
+                  "name": "home",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/home",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "alexb",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/home/alexb",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "myg",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/home/alexb/myg",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "cla_2",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/home/alexb/myg/cla_2",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "tree-view-app",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/home/alexb/myg/cla_2/tree-view-app",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "public",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/home/alexb/myg/cla_2/tree-view-app/public",
+                                      "type": "directory",
+                                      "children": [
+                                        {
+                                          "name": "MENU",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/home/alexb/myg/cla_2/tree-view-app/public/MENU",
+                                          "type": "directory",
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 },

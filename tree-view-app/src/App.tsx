@@ -15,16 +15,11 @@ function App() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(e.target.value);
-  };
-
-  const handleSearch = () => {
-    setSearch(filter);
+    setSearch(e.target.value);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
+    // No-op: live filter, no need to handle Enter
   };
 
   // Called when a file is double-clicked in the tree
@@ -129,17 +124,6 @@ function App() {
             }}
           />
           <button
-            onClick={handleSearch}
-            style={{
-              fontSize: 16,
-              padding: "4px 12px",
-              marginRight: 6,
-              flex: "0 0 auto"
-            }}
-          >
-            Search
-          </button>
-          <button
             onClick={() => {
               setFilter("");
               setSearch("");
@@ -185,6 +169,7 @@ function App() {
             selectedPaths={selectedObjects.map((obj) => obj.path)}
             expandAllSignal={expandAllSignal}
             collapseAllSignal={collapseAllSignal}
+            onRequestFilter={setSearch}
           />
         </div>
         {/* Optionally, show selected objects */}

@@ -14,6 +14,7 @@ type TreeViewProps = {
   selectedPaths?: string[];
   expandAllSignal?: number;
   collapseAllSignal?: number;
+  onRequestFilter?: (filter: string) => void;
 };
 
 const TreeView: React.FC<TreeViewProps> = ({
@@ -23,6 +24,7 @@ const TreeView: React.FC<TreeViewProps> = ({
   selectedPaths = [],
   expandAllSignal,
   collapseAllSignal,
+  onRequestFilter,
 }) => {
   const [tree, setTree] = useState<TreeNode | null>(null);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
@@ -148,7 +150,7 @@ const TreeView: React.FC<TreeViewProps> = ({
             {node.name}
           </span>
           {/* "+" button for MENU section dirs */}
-          {isDir && /\/public\/MENU\/[^/]+$/.test(node.path) && (
+          {isDir && (/\/public\/MENU\/[^/]+$/.test(node.path) || /\/public\/MENU\/?$/.test(node.path)) && (
             <button
               style={{
                 marginLeft: 6,
@@ -236,17 +238,31 @@ const TreeView: React.FC<TreeViewProps> = ({
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                      parentPath: createMenuDir.parentPath,
-                      newDirName: newDirName.trim()
+                      parent_path: createMenuDir.parentPath,
+                      dir_name: newDirName.trim()
                     })
                   })
                   .then(res => res.json())
                   .then(data => {
                     if (data.success) {
+                      // Expand parent and new dir, refetch tree
+                      setExpanded(prev => {
+                        const next = new Set(prev);
+                        next.add(createMenuDir.parentPath);
+                        let newDirPath = createMenuDir.parentPath.endsWith("/")
+                          ? createMenuDir.parentPath + newDirName.trim()
+                          : createMenuDir.parentPath + "/" + newDirName.trim();
+                        next.add(newDirPath);
+                        return next;
+                      });
+                      fetch(dataUrl)
+                        .then(res => res.json())
+                        .then(setTree);
+                      if (onRequestFilter) {
+                        onRequestFilter(newDirName.trim());
+                      }
                       setCreateMenuDir({ parentPath: "", open: false });
                       setNewDirName("");
-                      // Optionally, refresh tree
-                      window.location.reload();
                     } else {
                       alert("Error: " + (data.error || "Failed to create directory"));
                     }
@@ -263,17 +279,31 @@ const TreeView: React.FC<TreeViewProps> = ({
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify({
-                        parentPath: createMenuDir.parentPath,
-                        newDirName: newDirName.trim()
+                        parent_path: createMenuDir.parentPath,
+                        dir_name: newDirName.trim()
                       })
                     })
                     .then(res => res.json())
                     .then(data => {
                       if (data.success) {
+                        // Expand parent and new dir, refetch tree
+                        setExpanded(prev => {
+                          const next = new Set(prev);
+                          next.add(createMenuDir.parentPath);
+                          let newDirPath = createMenuDir.parentPath.endsWith("/")
+                            ? createMenuDir.parentPath + newDirName.trim()
+                            : createMenuDir.parentPath + "/" + newDirName.trim();
+                          next.add(newDirPath);
+                          return next;
+                        });
+                        fetch(dataUrl)
+                          .then(res => res.json())
+                          .then(setTree);
+                        if (onRequestFilter) {
+                          onRequestFilter(newDirName.trim());
+                        }
                         setCreateMenuDir({ parentPath: "", open: false });
                         setNewDirName("");
-                        // Optionally, refresh tree
-                        window.location.reload();
                       } else {
                         alert("Error: " + (data.error || "Failed to create directory"));
                       }
