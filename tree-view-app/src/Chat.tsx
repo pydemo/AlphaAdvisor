@@ -475,9 +475,20 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
                 >
                   Ask ChatGPT
                   {askLoadingIdx === i && (
-                    <span style={{ marginLeft: 8, fontSize: 18 }} title="Loading...">
-                      ⏳
-                    </span>
+                    <span
+                      style={{
+                        marginLeft: 8,
+                        display: "inline-block",
+                        width: 18,
+                        height: 18,
+                        border: "2.5px solid #fff",
+                        borderTop: "2.5px solid #10a37f",
+                        borderRadius: "50%",
+                        animation: "spin-ask-cgpt 0.7s linear infinite",
+                        verticalAlign: "middle"
+                      }}
+                      title="Loading..."
+                    />
                   )}
                 </button>
                 <button
@@ -949,3 +960,16 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
 };
 
 export default Chat;
+
+// Spinner animation for Ask ChatGPT button
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes spin-ask-cgpt {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+`;
+if (typeof document !== "undefined" && !document.getElementById("ask-cgpt-spinner-style")) {
+  style.id = "ask-cgpt-spinner-style";
+  document.head.appendChild(style);
+}

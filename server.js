@@ -240,6 +240,7 @@ app.post('/api/ask-chatgpt', async (req, res) => {
     return res.status(400).json({ error: "Invalid path" });
   }
   try {
+    const requestStartTime = Date.now();
     const imageBase64 = fs.readFileSync(resolvedTarget, { encoding: 'base64' });
     const gptRes = await openai.chat.completions.create({
       model: "gpt-4o",
@@ -271,7 +272,11 @@ Respond with only valid JSON, no extra text.`
       max_tokens: 1000
     });
     const content = gptRes.choices[0].message.content;
+    
+    console.log(`${content} `);
     res.status(200).json({ success: true, content });
+    const totalElapsed = Date.now() - requestStartTime;
+    console.log(`[Total elapsed] (+${totalElapsed} ms) (+${totalElapsed/1000} sec)`);
   } catch (err) {
     console.error("ASK CHATGPT ERROR", err);
     res.status(500).json({ error: err.message });
@@ -298,7 +303,7 @@ app.post('/api/ask-chatgpt_streamed', async (req, res) => {
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Connection', 'keep-alive');
     res.flushHeaders();
-
+    const requestStartTime = Date.now();
     const completion = await openai.chat.completions.create({
       model: "gpt-4o",
       stream: true,
@@ -312,7 +317,7 @@ app.post('/api/ask-chatgpt_streamed', async (req, res) => {
 {
   "menu": "<menu name>",
   "items": [
-    { "label": "<item label>", "value": "<selected value>" },
+    { "label": "<item label>", "value": "<selected value>", "description": "brief item decription"},
     ...
   ]
 }
@@ -329,15 +334,23 @@ Respond with only valid JSON, no extra text.`
       ],
       max_tokens: 1000,
     });
-
+    let chunkId = 0;
+    const elapsedStart = Date.now() - requestStartTime;
+    console.log(`[Start delta] (+${elapsedStart} ms)`);
+    const startTime = Date.now();
     for await (const chunk of completion) {
       const content = chunk.choices?.[0]?.delta?.content;
       if (content) {
+        const elapsedMs = Date.now() - startTime;
+        console.log(`[chunk ${chunkId}] (+${elapsedMs} ms): ${content}`);
         res.write(content);
+        chunkId++;
       }
     }
 
     res.end();
+    const totalElapsed = Date.now() - requestStartTime;
+    console.log(`[Total elapsed] (+${totalElapsed} ms) (+${totalElapsed/1000} sec)`);
   } catch (err) {
     console.error("ASK CHATGPT ERROR", err);
     res.status(500).json({ error: err.message });
