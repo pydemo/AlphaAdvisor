@@ -278,6 +278,75 @@ const TreeView: React.FC<TreeViewProps> = ({
   )
           && (
             <>
+              {/* E/C toggle button for /public/MENU or /public/MENU/xxx */}
+              {(
+                /\/public\/MENU\/?$/.test(node.path)
+              ) && (
+                (() => {
+                  // Helper to collect all descendant dir paths
+                  function collectAllDirPaths(n: TreeNode): string[] {
+                    let paths: string[] = [];
+                    if (n.type === "directory") {
+                      paths.push(n.path);
+                      if (n.children) {
+                        n.children.forEach((child: TreeNode) => {
+                          paths = paths.concat(collectAllDirPaths(child));
+                        });
+                      }
+                    }
+                    return paths;
+                  }
+                  // All descendant dirs except the current node itself
+                  const allDescendantDirs = node.children
+                    ? node.children.flatMap(collectAllDirPaths)
+                    : [];
+                  // Are all descendant dirs expanded?
+                  const allExpanded = allDescendantDirs.every(p => expanded.has(p));
+                  return (
+                    <button
+                      style={{
+                        marginLeft: 6,
+                        fontSize: 13,
+                        padding: "0 6px",
+                        borderRadius: "50%",
+                        border: "1px solid #0074d9",
+                        background: "#e6f2fb",
+                        color: "#0074d9",
+                        cursor: "pointer",
+                        height: 22,
+                        width: 22,
+                        lineHeight: "18px",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center"
+                      }}
+                      title={allExpanded ? "Collapse all subdirectories" : "Expand all subdirectories"}
+                      onClick={e => {
+                        e.stopPropagation();
+                        if (allExpanded) {
+                          // Collapse all descendant dirs (but keep current dir expanded)
+                          setExpanded(prev => {
+                            const next = new Set(prev);
+                            allDescendantDirs.forEach(p => next.delete(p));
+                            next.add(node.path);
+                            return next;
+                          });
+                        } else {
+                          // Expand all descendant dirs
+                          setExpanded(prev => {
+                            const next = new Set(prev);
+                            allDescendantDirs.forEach(p => next.add(p));
+                            next.add(node.path);
+                            return next;
+                          });
+                        }
+                      }}
+                    >
+                      {allExpanded ? "C" : "E"}
+                    </button>
+                  );
+                })()
+              )}
               <button
                 style={{
                   marginLeft: 6,
