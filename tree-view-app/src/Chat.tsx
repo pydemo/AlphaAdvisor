@@ -144,7 +144,7 @@ const Chat: React.FC<ChatProps> = ({ messages, onSendMessage }) => {
         } catch {
           // Not valid JSON, show as-is
         }
-        setPreviewTitle(filePath.split("/").pop() || filePath);
+        setPreviewTitle(`Selected file: ${filePath.split("/").pop() || filePath}`);
         setPreviewContent(displayText);
       } catch (e) {
         setPreviewTitle("Error");

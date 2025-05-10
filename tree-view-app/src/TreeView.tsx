@@ -32,6 +32,10 @@ const TreeView: React.FC<TreeViewProps> = ({
   const [createMenuDir, setCreateMenuDir] = useState<{ parentPath: string; open: boolean }>({ parentPath: "", open: false });
   const [newDirName, setNewDirName] = useState("");
   // Removed internal selected state; selection is managed by parent
+  // Info popup state for image paste
+  const [infoPopup, setInfoPopup] = useState<{ open: boolean; node: TreeNode | null; image: string | null }>({ open: false, node: null, image: null });
+  // JSON popup state
+  const [jsonPopup, setJsonPopup] = useState<{ open: boolean; node: TreeNode | null; text: string; fileName: string }>({ open: false, node: null, text: "", fileName: "" });
 
   useEffect(() => {
     fetch(dataUrl)
@@ -123,9 +127,88 @@ const TreeView: React.FC<TreeViewProps> = ({
           }}
         >
           {isDir ? (
-            <span style={{ marginRight: 4 }}>
-              {isOpen ? "▼" : "▶"}
-            </span>
+            <>
+              <span style={{ marginRight: 4 }}>
+                {isOpen ? "▼" : "▶"}
+              </span>
+              <span style={{
+                fontWeight:
+                  selectedPaths.includes(node.path)
+                    ? "bold"
+                    : (isDir && /\/public\/MENU\//.test(node.path))
+                      ? "bold"
+                      : "normal",
+                color:
+                  isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\/[^/]+\//.test(node.path)
+                    ? "#5b88c4"
+                    : isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\//.test(node.path)
+                    ? "#6c9c6a"
+                    : isDir && /\/MENU\/.*\/PAGE_\d+\//.test(node.path)
+                    ? "blue"
+                    : isDir && /\/MENU\/.*\//.test(node.path)
+                    ? "orange"
+                    : undefined
+              }}>
+                {node.name}
+              </span>
+              {/* Info and JSON buttons for specific MENU leaf directories */}
+              {/\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) && (
+                <>
+                  <button
+                    style={{
+                      marginLeft: 6,
+                      fontSize: 13,
+                      padding: "0 6px",
+                      borderRadius: "50%",
+                      border: "1px solid #0074d9",
+                      background: "#e6f2fb",
+                      color: "#0074d9",
+                      cursor: "pointer",
+                      height: 22,
+                      width: 22,
+                      lineHeight: "18px",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
+                    title="Paste image from clipboard"
+                    onClick={e => {
+                      e.stopPropagation();
+                      setInfoPopup({ open: true, node, image: null });
+                    }}
+                  >
+                    i
+                  </button>
+                  <button
+                    style={{
+                      marginLeft: 6,
+                      fontSize: 13,
+                      padding: "0 6px",
+                      borderRadius: "50%",
+                      border: "1px solid #6c9c6a",
+                      background: "#f0f9f0",
+                      color: "#388e3c",
+                      cursor: "pointer",
+                      height: 22,
+                      width: 22,
+                      lineHeight: "18px",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
+                    title="Edit JSON"
+                    onClick={e => {
+                      e.stopPropagation();
+                      // Default fileName: [dir name].png
+                      const dirName = node.name || "file";
+                      setJsonPopup({ open: true, node, text: "", fileName: `${dirName}.png` });
+                    }}
+                  >
+                    J
+                  </button>
+                </>
+              )}
+            </>
           ) : (
             <>
               <span style={{ width: 16, display: "inline-block" }} />
@@ -169,36 +252,26 @@ const TreeView: React.FC<TreeViewProps> = ({
                   }
                 }}
               >-</button>
+              <span style={{
+                fontWeight:
+                  selectedPaths.includes(node.path)
+                    ? "bold"
+                    : "normal",
+                color: undefined
+              }}>
+                {node.name}
+              </span>
             </>
           )}
-          <span style={{
-            fontWeight:
-              selectedPaths.includes(node.path)
-                ? "bold"
-                : (isDir && /\/public\/MENU\//.test(node.path))
-                  ? "bold"
-                  : "normal",
-            color:
-              isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\/[^/]+\//.test(node.path)
-                ? "#5b88c4"
-                : isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\//.test(node.path)
-                ? "#6c9c6a"
-                : isDir && /\/MENU\/.*\/PAGE_\d+\//.test(node.path)
-                ? "blue"
-                : isDir && /\/MENU\/.*\//.test(node.path)
-                ? "orange"
-                : undefined
-          }}>
-            {node.name}
-          </span>
           {/* "+" button for MENU section dirs */}
           {isDir && 
           (
     /\/public\/MENU\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Shooting
     /\/public\/MENU\/?$/.test(node.path) ||     // e.g., /public/MENU
     /\/public\/MENU\/[^/]+\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Shooting/PAGE_1
-    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Shooting/PAGE_1
-    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Shooting/PAGE_1
+    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Shooting/PAGE_1/1_image_quality_rec
+    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1
+    // /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch/
   )
           && (
             <>
@@ -411,6 +484,237 @@ const TreeView: React.FC<TreeViewProps> = ({
               <button
                 onClick={() => setCreateMenuDir({ parentPath: "", open: false })}
                 style={{ fontSize: 15, padding: "4px 18px", borderRadius: 4, background: "#eee", color: "#333", border: "1px solid #bbb" }}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Info popup for image paste */}
+      {infoPopup.open && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0, left: 0, width: "100vw", height: "100vh",
+            background: "rgba(0,0,0,0.18)",
+            zIndex: 2000,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+          onClick={() => setInfoPopup({ open: false, node: null, image: null })}
+        >
+          <div
+            style={{
+              background: "#fff",
+              borderRadius: 8,
+              boxShadow: "0 2px 16px rgba(0,0,0,0.18)",
+              padding: 24,
+              minWidth: 340,
+              display: "flex",
+              flexDirection: "column",
+              gap: 16,
+              position: "relative"
+            }}
+            onClick={e => e.stopPropagation()}
+          >
+            <div style={{ fontWeight: "bold", marginBottom: 8 }}>
+              Paste image for <span style={{ color: "#0074d9" }}>{infoPopup.node?.name}</span>
+            </div>
+            <div
+              tabIndex={0}
+              style={{
+                border: "2px dashed #0074d9",
+                borderRadius: 6,
+                minHeight: 120,
+                minWidth: 220,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "#f7fbff",
+                cursor: "pointer",
+                outline: "none"
+              }}
+              onPaste={e => {
+                const items = e.clipboardData.items;
+                for (let i = 0; i < items.length; i++) {
+                  if (items[i].type.indexOf("image") !== -1) {
+                    const file = items[i].getAsFile();
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onload = ev => {
+                        setInfoPopup(prev => ({
+                          ...prev,
+                          image: ev.target?.result as string
+                        }));
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }
+                }
+                e.preventDefault();
+              }}
+            >
+              {infoPopup.image ? (
+                <img src={infoPopup.image} alt="Clipboard" style={{ maxWidth: 200, maxHeight: 120, borderRadius: 4 }} />
+              ) : (
+                <span style={{ color: "#888" }}>Paste image here (Ctrl+V)</span>
+              )}
+            </div>
+            <button
+              style={{
+                marginTop: 18,
+                fontSize: 16,
+                padding: "6px 24px",
+                borderRadius: 4,
+                background: "#0074d9",
+                color: "#fff",
+                border: "none",
+                alignSelf: "flex-end"
+              }}
+              disabled={!infoPopup.image}
+              onClick={() => {
+                // TODO: Implement save logic (e.g., send to backend)
+                setInfoPopup({ open: false, node: null, image: null });
+              }}
+            >
+              Save
+            </button>
+            <button
+              style={{
+                marginTop: 8,
+                fontSize: 15,
+                padding: "4px 18px",
+                borderRadius: 4,
+                background: "#eee",
+                color: "#333",
+                border: "1px solid #bbb",
+                alignSelf: "flex-end"
+              }}
+              onClick={() => setInfoPopup({ open: false, node: null, image: null })}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+      {/* JSON popup for editing JSON text */}
+      {jsonPopup.open && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0, left: 0, width: "100vw", height: "100vh",
+            background: "rgba(0,0,0,0.18)",
+            zIndex: 2000,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+          onClick={() => setJsonPopup({ open: false, node: null, text: "", fileName: "" })}
+        >
+          <div
+            style={{
+              background: "#fff",
+              borderRadius: 8,
+              boxShadow: "0 2px 16px rgba(0,0,0,0.18)",
+              padding: 24,
+              minWidth: 380,
+              display: "flex",
+              flexDirection: "column",
+              gap: 16,
+              position: "relative"
+            }}
+            onClick={e => e.stopPropagation()}
+          >
+            <div style={{ fontWeight: "bold", marginBottom: 8 }}>
+              Edit JSON for <span style={{ color: "#388e3c" }}>{jsonPopup.node?.name}</span>
+            </div>
+            <input
+              type="text"
+              value={jsonPopup.fileName}
+              onChange={e => setJsonPopup(prev => ({ ...prev, fileName: e.target.value }))}
+              placeholder="File name"
+              style={{
+                fontSize: 15,
+                padding: "6px 10px",
+                borderRadius: 4,
+                border: "1.5px solid #6c9c6a",
+                marginBottom: 6
+              }}
+            />
+            <textarea
+              value={jsonPopup.text}
+              onChange={e => setJsonPopup(prev => ({ ...prev, text: e.target.value }))}
+              placeholder="Paste or type JSON here"
+              style={{
+                fontFamily: "monospace",
+                fontSize: 15,
+                minHeight: 120,
+                minWidth: 300,
+                border: "1.5px solid #6c9c6a",
+                borderRadius: 6,
+                padding: 10,
+                background: "#f8fff8",
+                resize: "vertical"
+              }}
+              autoFocus
+            />
+            <div style={{ display: "flex", gap: 10, marginTop: 10, justifyContent: "flex-end" }}>
+              <button
+                style={{
+                  fontSize: 15,
+                  padding: "4px 18px",
+                  borderRadius: 4,
+                  background: "#eee",
+                  color: "#333",
+                  border: "1px solid #bbb"
+                }}
+                onClick={() => {
+                  if (navigator.clipboard) {
+                    navigator.clipboard.writeText(jsonPopup.text);
+                  } else {
+                    // fallback for older browsers
+                    const textarea = document.createElement("textarea");
+                    textarea.value = jsonPopup.text;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(textarea);
+                  }
+                }}
+                disabled={!jsonPopup.text.trim()}
+                title="Copy JSON to clipboard"
+              >
+                Copy
+              </button>
+              <button
+                style={{
+                  fontSize: 16,
+                  padding: "6px 24px",
+                  borderRadius: 4,
+                  background: "#388e3c",
+                  color: "#fff",
+                  border: "none"
+                }}
+                disabled={!jsonPopup.text.trim()}
+                onClick={() => {
+                  // TODO: Implement save logic (e.g., send to backend)
+                  setJsonPopup({ open: false, node: null, text: "", fileName: "" });
+                }}
+              >
+                Save
+              </button>
+              <button
+                style={{
+                  fontSize: 15,
+                  padding: "4px 18px",
+                  borderRadius: 4,
+                  background: "#eee",
+                  color: "#333",
+                  border: "1px solid #bbb"
+                }}
+                onClick={() => setJsonPopup({ open: false, node: null, text: "", fileName: "" })}
               >
                 Cancel
               </button>
