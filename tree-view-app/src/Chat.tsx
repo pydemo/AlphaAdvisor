@@ -22,6 +22,7 @@ interface ChatPropsWithSetTab extends ChatProps {
   setTab: SetTab;
   setTabExternal?: SetTab;
   saveAppState?: () => void;
+  elementSelectorMode?: boolean; // DEV: highlight/copy element name
 }
 
 const Chat: React.FC<ChatPropsWithSetTab> = ({
@@ -31,7 +32,8 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
   tab,
   setTab,
   setTabExternal,
-  saveAppState
+  saveAppState,
+  elementSelectorMode = false,
 }) => {
   // Map of message index to { json: string, show: boolean }
   const [jsonResults, setJsonResults] = useState<{ [idx: number]: { json: string; show: boolean } }>({});
@@ -272,6 +274,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
 
   return (
     <div
+      data-element-name="Chat"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -280,6 +283,26 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
         padding: 16,
         boxSizing: "border-box",
         background: "#fafbfc",
+        position: "relative",
+        outline: elementSelectorMode ? "2.5px dashed #ffb700" : undefined,
+        boxShadow: elementSelectorMode ? "0 0 0 3px #ffe066" : undefined,
+        cursor: elementSelectorMode ? "copy" : undefined,
+        transition: "box-shadow 0.15s, outline 0.15s"
+      }}
+      title={elementSelectorMode ? "Click to copy element name: Chat" : undefined}
+      onClick={e => {
+        if (elementSelectorMode) {
+          e.stopPropagation();
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText("Chat");
+          }
+          // Optionally show a quick feedback
+          const el = e.currentTarget as HTMLElement;
+          el.style.background = "#fffbe6";
+          setTimeout(() => {
+            el.style.background = "";
+          }, 350);
+        }
       }}
     >
       <div

@@ -17,6 +17,7 @@ type TreeViewProps = {
   onRequestFilter?: (filter: string) => void;
   initialExpandedPaths?: string[];
   onExpandedChange?: (expandedPaths: string[]) => void;
+  elementSelectorMode?: boolean; // DEV: highlight/copy element name
 };
 
 const TreeView: React.FC<TreeViewProps> = ({
@@ -29,6 +30,7 @@ const TreeView: React.FC<TreeViewProps> = ({
   onRequestFilter,
   initialExpandedPaths,
   onExpandedChange,
+  elementSelectorMode = false,
 }) => {
   const [tree, setTree] = useState<TreeNode | null>(null);
   // Initialize expanded state from localStorage or initialExpandedPaths
@@ -523,7 +525,31 @@ const TreeView: React.FC<TreeViewProps> = ({
   if (!filteredTree) return <div>No results found.</div>;
 
   return (
-    <div>
+    <div
+      data-element-name="TreeView"
+      style={{
+        position: "relative",
+        outline: elementSelectorMode ? "2.5px dashed #ffb700" : undefined,
+        boxShadow: elementSelectorMode ? "0 0 0 3px #ffe066" : undefined,
+        cursor: elementSelectorMode ? "copy" : undefined,
+        transition: "box-shadow 0.15s, outline 0.15s"
+      }}
+      title={elementSelectorMode ? "Click to copy element name: TreeView" : undefined}
+      onClick={e => {
+        if (elementSelectorMode) {
+          e.stopPropagation();
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText("TreeView");
+          }
+          // Optionally show a quick feedback
+          const el = e.currentTarget as HTMLElement;
+          el.style.background = "#fffbe6";
+          setTimeout(() => {
+            el.style.background = "";
+          }, 350);
+        }
+      }}
+    >
       {renderTree(filteredTree)}
       {/* Popup for creating new dir under MENU section */}
       {createMenuDir.open && (

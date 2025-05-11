@@ -14,6 +14,8 @@ function App() {
   const [collapseAllSignal, setCollapseAllSignal] = useState(0);
   const [tab, setTab] = useState<"Conversion" | "General">("Conversion");
   const [expandedPaths, setExpandedPaths] = useState<string[]>([]);
+  // Element selector mode for development
+  const [elementSelectorMode, setElementSelectorMode] = useState(false);
 
   // Save state to localStorage
   const saveAppState = () => {
@@ -179,6 +181,23 @@ function App() {
           >
             Reset
           </button>
+          {/* Element Selector Mode Toggle (DEV ONLY) */}
+          <button
+            onClick={() => setElementSelectorMode((v) => !v)}
+            style={{
+              fontSize: 15,
+              padding: "4px 10px",
+              marginLeft: 12,
+              background: elementSelectorMode ? "#ffe066" : "#f5f5f5",
+              color: "#333",
+              border: "1px solid #ccc",
+              borderRadius: 4,
+              cursor: "pointer"
+            }}
+            title="Toggle element selector mode (DEV TOOL)"
+          >
+            {elementSelectorMode ? "Selector Mode: ON" : "Selector Mode: OFF"}
+          </button>
         </div>
         {/* Expand/Collapse All buttons and PNG|JPG filter */}
         <div style={{ marginBottom: 8, display: "flex", alignItems: "center", gap: 8 }}>
@@ -226,6 +245,7 @@ function App() {
             onRequestFilter={setSearch}
             initialExpandedPaths={expandedPaths}
             onExpandedChange={setExpandedPaths}
+            elementSelectorMode={elementSelectorMode}
           />
         </div>
         {/* Optionally, show selected objects */}
@@ -311,6 +331,7 @@ function App() {
           setTab={setTab}
           setTabExternal={setTab}
           saveAppState={saveAppState}
+          elementSelectorMode={elementSelectorMode}
         />
       </div>
     </div>
