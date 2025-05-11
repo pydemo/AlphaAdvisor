@@ -182,11 +182,45 @@ app.post('/api/save-image-file', (req, res) => {
     const imgBuffer = Buffer.from(b64data, "base64");
     const targetFile = path.join(resolvedDir, file_name);
     console.log(`[SAVE IMAGE] targetFile: ${targetFile}`);
-    // Ensure directory exists
+
+    // Log original image to log/original/
+    const logOriginalDir = path.join(__dirname, 'log', 'original');
+    fs.mkdirSync(logOriginalDir, { recursive: true });
+    const logOriginalFile = path.join(
+      logOriginalDir,
+      `${path.basename(file_name, path.extname(file_name))}_${Date.now()}${path.extname(file_name)}`
+    );
+    fs.writeFileSync(logOriginalFile, imgBuffer);
+    console.log(`[LOG ORIGINAL] ${logOriginalFile}`);
+
+    // Optimize image using sharp (strip metadata, compress, keep PNG)
     fs.mkdirSync(resolvedDir, { recursive: true });
-    fs.writeFileSync(targetFile, imgBuffer);
-    // Refresh tree-data.json
-    const { exec } = require('child_process');
+    sharp(imgBuffer)
+      .png({ quality: 80, compressionLevel: 9, adaptiveFiltering: true })
+      .withMetadata(false)
+      .toBuffer()
+      .then(optimizedBuffer => {
+        fs.writeFileSync(targetFile, optimizedBuffer);
+        // Refresh tree-data.json
+        const { exec } = require('child_process');
+        exec('python3 tree-view-app/gen_tree_json.py', (error, stdout, stderr) => {
+          if (error) {
+            console.error('Error regenerating tree-data.json:', error);
+          }
+          if (stderr) {
+            console.error('stderr:', stderr);
+          }
+          if (stdout) {
+            console.log('stdout:', stdout);
+          }
+        });
+        res.status(200).json({ success: true, file: targetFile });
+      })
+      .catch(err => {
+        console.error("SHARP OPTIMIZE ERROR", err);
+        res.status(500).json({ success: false, error: "Image optimization failed: " + err.message });
+      });
+    return;
     exec('python3 tree-view-app/gen_tree_json.py', (error, stdout, stderr) => {
       if (error) {
         console.error('Error regenerating tree-data.json:', error);

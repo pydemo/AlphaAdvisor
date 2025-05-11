@@ -1,0 +1,39 @@
+{
+  "menu": "Rec Frame Rate",
+  "description": "Sets the frame rate",
+  "modes": [
+    "photo",
+    "movie",
+    "s&q"
+  ],
+  "condition": {
+    "mode": [
+      "movie",
+      "s&q"
+    ]
+  },
+  "items": [
+    {
+      "label": "60p",
+      "value": "60p",
+      "description": ""
+    },
+    {
+      "label": "30p",
+      "value": "30p",
+      "description": ""
+    },
+    {
+      "label": "24p",
+      "value": "24p",
+      "description": ""
+    },
+    {
+      "label": "120p",
+      "value": "120p",
+      "description": ""
+    }
+  ],
+  "hint": "The higher the bit rate, the higher the image quality.",
+  "note": "Recording frame rates are indicated as the closest integer values. The actual corresponding frame rates are as follows: 24p: 23.98 fps, 30p: 29.97 fps, 60p: 59.94 fps, and 120p: 119.88 fps."
+}

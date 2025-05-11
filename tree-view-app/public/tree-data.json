@@ -110,6 +110,23 @@
                                           "type": "file"
                                         }
                                       ]
+                                    },
+                                    {
+                                      "name": "4_JPEG-Image-Size+--",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings+--/4_JPEG-Image-Size+--",
+                                      "type": "directory",
+                                      "children": [
+                                        {
+                                          "name": "4_JPEG-Image-Size+--.json",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings+--/4_JPEG-Image-Size+--/4_JPEG-Image-Size+--.json",
+                                          "type": "file"
+                                        },
+                                        {
+                                          "name": "4_JPEG-Image-Size+--.png",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings+--/4_JPEG-Image-Size+--/4_JPEG-Image-Size+--.png",
+                                          "type": "file"
+                                        }
+                                      ]
                                     }
                                   ]
                                 },
@@ -127,6 +144,64 @@
                                       "name": "Aspect-Ratio+--.png",
                                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/3_Aspect-Ratio+--/Aspect-Ratio+--.png",
                                       "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "4_File_Format+++",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/4_File_Format+++",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "4_File_Format+++.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/4_File_Format+++/4_File_Format+++.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "4_File_Format+++.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/4_File_Format+++/4_File_Format+++.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "5_Movie-Settings+++",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings+++",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "1_Rec-Frame-Rate+++",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings+++/1_Rec-Frame-Rate+++",
+                                      "type": "directory",
+                                      "children": [
+                                        {
+                                          "name": "1_Rec-Frame-Rate+++.json",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings+++/1_Rec-Frame-Rate+++/1_Rec-Frame-Rate+++.json",
+                                          "type": "file"
+                                        },
+                                        {
+                                          "name": "1_Rec-Frame-Rate+++.png",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings+++/1_Rec-Frame-Rate+++/1_Rec-Frame-Rate+++.png",
+                                          "type": "file"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "name": "2_Record-Setting+++",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings+++/2_Record-Setting+++",
+                                      "type": "directory",
+                                      "children": [
+                                        {
+                                          "name": "2_Record-Setting+++.json",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings+++/2_Record-Setting+++/2_Record-Setting+++.json",
+                                          "type": "file"
+                                        },
+                                        {
+                                          "name": "2_Record-Setting+++.png",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings+++/2_Record-Setting+++/2_Record-Setting+++.png",
+                                          "type": "file"
+                                        }
+                                      ]
                                     }
                                   ]
                                 }
