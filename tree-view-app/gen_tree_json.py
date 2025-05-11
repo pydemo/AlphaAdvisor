@@ -48,7 +48,52 @@ def has_includable_descendant(full_path, entry_rel_path):
 def build_tree(path, rel_path="", in_included_subtree=False):
     tree = {"name": os.path.basename(path) or path, "path": path, "type": "directory", "children": []}
     try:
-        for entry in sorted(os.listdir(path)):
+        # Check if this is the top-level MENU directory
+        is_top_menu_dir = path.endswith('/MENU')
+        # Check if this is any MENU directory
+        is_menu_dir = '/MENU/' in path
+        
+        entries = os.listdir(path)
+        
+        # Sort entries based on directory type
+        if is_top_menu_dir:
+            # For the top-level MENU directory, sort directories by creation time (newest first)
+            dirs = [entry for entry in entries if os.path.isdir(os.path.join(path, entry))]
+            files = [entry for entry in entries if not os.path.isdir(os.path.join(path, entry))]
+
+            # Get creation time for each directory
+            dirs_with_ctime = []
+            for entry in dirs:
+                full_path = os.path.join(path, entry)
+                try:
+                    ctime = os.path.getctime(full_path)
+                except (FileNotFoundError, PermissionError):
+                    ctime = 0
+                dirs_with_ctime.append((entry, ctime))
+            # Sort directories by creation time, oldest first
+            sorted_dirs = [entry for entry, _ in sorted(dirs_with_ctime, key=lambda x: x[1])]
+
+            # Combine sorted directories and alphabetically sorted files
+            sorted_entries = sorted_dirs + sorted(files)
+        elif is_menu_dir:
+            # For other MENU subdirectories, sort by modification time (newest first)
+            entries_with_time = []
+            for entry in entries:
+                full_path = os.path.join(path, entry)
+                try:
+                    # Get modification time (mtime) for sorting
+                    mod_time = os.path.getmtime(full_path)
+                    entries_with_time.append((entry, mod_time))
+                except (FileNotFoundError, PermissionError):
+                    entries_with_time.append((entry, 0))
+            
+            # Sort by modification time (newest first)
+            sorted_entries = [entry for entry, _ in sorted(entries_with_time, key=lambda x: x[1], reverse=True)]
+        else:
+            # Regular alphabetical sort for non-MENU directories
+            sorted_entries = sorted(entries)
+        
+        for entry in sorted_entries:
             full_path = os.path.join(path, entry)
             entry_rel_path = os.path.join(rel_path, entry) if rel_path else entry
 
