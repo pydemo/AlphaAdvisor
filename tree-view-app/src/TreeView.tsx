@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 type TreeNode = {
   name: string;
@@ -31,12 +31,38 @@ const TreeView: React.FC<TreeViewProps> = ({
   onExpandedChange,
 }) => {
   const [tree, setTree] = useState<TreeNode | null>(null);
-  const [expanded, setExpanded] = useState<Set<string>>(
-    () => new Set(initialExpandedPaths || [])
-  );
+  // Initialize expanded state from localStorage or initialExpandedPaths
+  const [expanded, setExpanded] = useState<Set<string>>(() => {
+    try {
+      // Try to get expanded paths from localStorage first
+      const savedExpandedPaths = localStorage.getItem('treeViewExpandedPaths');
+      if (savedExpandedPaths) {
+        return new Set(JSON.parse(savedExpandedPaths));
+      }
+    } catch (error) {
+      console.error('Error loading expanded paths from localStorage:', error);
+    }
+    // Fall back to initialExpandedPaths or empty set
+    return new Set(initialExpandedPaths || []);
+  });
+  
+  // Ref to always have latest expanded state
+  const expandedRef = useRef(expanded);
+  useEffect(() => {
+    expandedRef.current = expanded;
+    
+    // Save expanded paths to localStorage whenever they change
+    try {
+      localStorage.setItem('treeViewExpandedPaths', JSON.stringify(Array.from(expanded)));
+    } catch (error) {
+      console.error('Error saving expanded paths to localStorage:', error);
+    }
+  }, [expanded]);
   // Popup state for creating a new dir under MENU
   const [createMenuDir, setCreateMenuDir] = useState<{ parentPath: string; open: boolean }>({ parentPath: "", open: false });
   const [newDirName, setNewDirName] = useState("");
+  // Store expanded state before creating a new directory
+  const [expandedBeforeCreate, setExpandedBeforeCreate] = useState<Set<string> | null>(null);
   // Removed internal selected state; selection is managed by parent
   // Info popup state for image paste
   const [infoPopup, setInfoPopup] = useState<{ open: boolean; node: TreeNode | null; image: string | null }>({ open: false, node: null, image: null });
@@ -82,7 +108,13 @@ const TreeView: React.FC<TreeViewProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [expanded]);
 
+  // Keep track of whether we're in the process of opening the create directory dialog
+  const [isOpeningCreateDialog, setIsOpeningCreateDialog] = useState(false);
+
   const toggleExpand = (path: string) => {
+    // Don't toggle if we're in the process of opening the create directory dialog
+    if (isOpeningCreateDialog) return;
+    
     setExpanded((prev) => {
       const next = new Set(prev);
       if (next.has(path)) {
@@ -258,9 +290,14 @@ const TreeView: React.FC<TreeViewProps> = ({
                     .then(res => res.json())
                     .then(data => {
                       if (data.success) {
+                        // Preserve expanded state after refresh
+                        const prevExpanded = new Set(expanded);
                         fetch(dataUrl)
                           .then(res => res.json())
-                          .then(setTree);
+                          .then(treeData => {
+                            setTree(treeData);
+                            setExpanded(prevExpanded);
+                          });
                       } else {
                         alert("Error: " + (data.error || "Failed to delete file"));
                       }
@@ -383,8 +420,28 @@ const TreeView: React.FC<TreeViewProps> = ({
                 title="Add subdirectory"
                 onClick={e => {
                   e.stopPropagation();
-                  setCreateMenuDir({ parentPath: node.path, open: true });
-                  setNewDirName("");
+                  
+                  // Set flag to prevent toggleExpand from running
+                  setIsOpeningCreateDialog(true);
+                  
+                  // Store current expanded state before opening the create directory dialog
+                  const currentExpanded = new Set(expanded);
+                  setExpandedBeforeCreate(currentExpanded);
+                  
+                  // Use React.startTransition if available to batch these updates
+                  if (typeof window !== "undefined" && "startTransition" in React) {
+                    React.startTransition(() => {
+                      setCreateMenuDir({ parentPath: node.path, open: true });
+                      setNewDirName("");
+                      // Reset the flag after a short delay to allow state updates to complete
+                      setTimeout(() => setIsOpeningCreateDialog(false), 100);
+                    });
+                  } else {
+                    setCreateMenuDir({ parentPath: node.path, open: true });
+                    setNewDirName("");
+                    // Reset the flag after a short delay to allow state updates to complete
+                    setTimeout(() => setIsOpeningCreateDialog(false), 100);
+                  }
                 }}
               >+</button>
               <button
@@ -430,9 +487,14 @@ const TreeView: React.FC<TreeViewProps> = ({
                     })
                     .then(data => {
                       if (data.success) {
+                        // Preserve expanded state after refresh
+                        const prevExpanded = new Set(expanded);
                         fetch(dataUrl)
                           .then(res => res.json())
-                          .then(setTree);
+                          .then(treeData => {
+                            setTree(treeData);
+                            setExpanded(prevExpanded);
+                          });
                       } else {
                         alert("Error: " + (data.error || "Failed to delete directory"));
                       }
@@ -474,7 +536,10 @@ const TreeView: React.FC<TreeViewProps> = ({
             alignItems: "center",
             justifyContent: "center"
           }}
-          onClick={() => setCreateMenuDir({ parentPath: "", open: false })}
+          onClick={() => {
+            setCreateMenuDir({ parentPath: "", open: false });
+            setExpandedBeforeCreate(null); // Clear the saved expanded state
+          }}
         >
           <div
             style={{
@@ -501,6 +566,8 @@ const TreeView: React.FC<TreeViewProps> = ({
               onKeyDown={e => {
                 if (e.key === "Enter" && newDirName.trim()) {
                   // Call backend to create dir
+                  // Use the saved expanded state from when the dialog was opened
+                  const prevExpanded = expandedBeforeCreate ? new Set(expandedBeforeCreate) : new Set(expandedRef.current);
                   fetch("/api/create-dir", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -526,24 +593,32 @@ const TreeView: React.FC<TreeViewProps> = ({
                   })
                   .then(data => {
                     if (data.success) {
-                      // Expand parent and new dir, refetch tree
-                      setExpanded(prev => {
-                        const next = new Set(prev);
-                        next.add(createMenuDir.parentPath);
-                        let newDirPath = createMenuDir.parentPath.endsWith("/")
-                          ? createMenuDir.parentPath + newDirName.trim()
-                          : createMenuDir.parentPath + "/" + newDirName.trim();
-                        next.add(newDirPath);
-                        return next;
-                      });
+                      // Expand parent and new dir, refetch tree, restore previous expansion
+                      let newDirPath = createMenuDir.parentPath.endsWith("/")
+                        ? createMenuDir.parentPath + newDirName.trim()
+                        : createMenuDir.parentPath + "/" + newDirName.trim();
+                      prevExpanded.add(createMenuDir.parentPath);
+                      prevExpanded.add(newDirPath);
                       fetch(dataUrl)
                         .then(res => res.json())
-                        .then(setTree);
+                        .then(treeData => {
+                          // Batch tree and expanded state updates together
+                          if (typeof window !== "undefined" && "startTransition" in React) {
+                            React.startTransition(() => {
+                              setTree(treeData);
+                              setExpanded(new Set(prevExpanded));
+                            });
+                          } else {
+                            setTree(treeData);
+                            setExpanded(new Set(prevExpanded));
+                          }
+                        });
                       if (onRequestFilter) {
                         onRequestFilter(newDirName.trim());
                       }
                       setCreateMenuDir({ parentPath: "", open: false });
                       setNewDirName("");
+                      setExpandedBeforeCreate(null); // Clear the saved expanded state
                     } else {
                       alert("Error: " + (data.error || "Failed to create directory"));
                     }
@@ -556,6 +631,8 @@ const TreeView: React.FC<TreeViewProps> = ({
               <button
                 onClick={() => {
                   if (newDirName.trim()) {
+                    // Use the saved expanded state from when the dialog was opened
+                    const prevExpanded = expandedBeforeCreate ? new Set(expandedBeforeCreate) : new Set(expandedRef.current);
                     fetch("/api/create-dir", {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
@@ -581,24 +658,24 @@ const TreeView: React.FC<TreeViewProps> = ({
                     })
                     .then(data => {
                       if (data.success) {
-                        // Expand parent and new dir, refetch tree
-                        setExpanded(prev => {
-                          const next = new Set(prev);
-                          next.add(createMenuDir.parentPath);
-                          let newDirPath = createMenuDir.parentPath.endsWith("/")
-                            ? createMenuDir.parentPath + newDirName.trim()
-                            : createMenuDir.parentPath + "/" + newDirName.trim();
-                          next.add(newDirPath);
-                          return next;
-                        });
+                        // Expand parent and new dir, refetch tree, restore previous expansion
+                        let newDirPath = createMenuDir.parentPath.endsWith("/")
+                          ? createMenuDir.parentPath + newDirName.trim()
+                          : createMenuDir.parentPath + "/" + newDirName.trim();
+                        prevExpanded.add(createMenuDir.parentPath);
+                        prevExpanded.add(newDirPath);
                         fetch(dataUrl)
                           .then(res => res.json())
-                          .then(setTree);
+                          .then(treeData => {
+                            setTree(treeData);
+                            setExpanded(new Set(prevExpanded));
+                          });
                         if (onRequestFilter) {
                           onRequestFilter(newDirName.trim());
                         }
                         setCreateMenuDir({ parentPath: "", open: false });
                         setNewDirName("");
+                        setExpandedBeforeCreate(null); // Clear the saved expanded state
                       } else {
                         alert("Error: " + (data.error || "Failed to create directory"));
                       }
@@ -612,7 +689,10 @@ const TreeView: React.FC<TreeViewProps> = ({
                 Create
               </button>
               <button
-                onClick={() => setCreateMenuDir({ parentPath: "", open: false })}
+                onClick={() => {
+                  setCreateMenuDir({ parentPath: "", open: false });
+                  setExpandedBeforeCreate(null); // Clear the saved expanded state
+                }}
                 style={{ fontSize: 15, padding: "4px 18px", borderRadius: 4, background: "#eee", color: "#333", border: "1px solid #bbb" }}
               >
                 Cancel

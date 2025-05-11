@@ -102,8 +102,38 @@
                               "type": "file"
                             },
                             {
+                              "name": "dddd",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/2_media/dddd",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "fff",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/2_media/fff",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "rr",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/2_media/rr",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "sssss",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/2_media/sssss",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
                               "name": "test",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/2_media/test",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "testsst",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/2_media/testsst",
                               "type": "directory",
                               "children": []
                             }
