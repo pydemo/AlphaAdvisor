@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import TreeView from "./TreeView";
 import Chat from "./Chat";
+import TreeFilterBar from "./TreeFilterBar";
 
 type ChatMessage = { text: string; from: "user" | "bot" | "log" };
 
@@ -152,88 +153,19 @@ function App() {
         }}
       >
         <h2 style={{ marginTop: 0 }}>Directory Tree Viewer</h2>
-        <div style={{ marginBottom: 12, display: "flex", alignItems: "center", flexWrap: "nowrap" }}>
-          <input
-            type="text"
-            value={filter}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            placeholder="Filter..."
-            style={{
-              fontSize: 16,
-              padding: "4px 8px",
-              marginRight: 8,
-              width: 120,
-              maxWidth: 160,
-              flex: "0 0 auto"
-            }}
-          />
-          <button
-            onClick={() => {
-              setFilter("");
-              setSearch("");
-            }}
-            style={{
-              fontSize: 16,
-              padding: "4px 12px",
-              flex: "0 0 auto"
-            }}
-          >
-            Reset
-          </button>
-          {/* Element Selector Mode Toggle (DEV ONLY) */}
-          <button
-            onClick={() => setElementSelectorMode((v) => !v)}
-            style={{
-              fontSize: 15,
-              padding: "4px 10px",
-              marginLeft: 12,
-              background: elementSelectorMode ? "#ffe066" : "#f5f5f5",
-              color: "#333",
-              border: "1px solid #ccc",
-              borderRadius: 4,
-              cursor: "pointer"
-            }}
-            title="Toggle element selector mode (DEV TOOL)"
-          >
-            {elementSelectorMode ? "Selector Mode: ON" : "Selector Mode: OFF"}
-          </button>
-        </div>
-        {/* Expand/Collapse All buttons and PNG|JPG filter */}
-        <div style={{ marginBottom: 8, display: "flex", alignItems: "center", gap: 8 }}>
-          <button
-            onClick={() => setExpandAllSignal((n) => n + 1)}
-            style={{ fontSize: 15, padding: "3px 10px" }}
-          >
-            Expand All
-          </button>
-          <button
-            onClick={() => {
-              setFilter("jpg|png");
-              setSearch("jpg|png");
-            }}
-            style={{ fontSize: 15, padding: "3px 10px" }}
-          >
-            png|jpg
-          </button>
-          <button
-            onClick={() => setCollapseAllSignal((n) => n + 1)}
-            style={{ fontSize: 15, padding: "3px 10px" }}
-          >
-            Collapse All
-          </button>
-          <button
-            onClick={async () => {
-              await fetch("/api/refresh-tree", { method: "POST" });
-              // Re-fetch tree data by updating search (triggers TreeView to reload)
-              setSearch(s => s); // force update
-            }}
-            style={{ fontSize: 15, padding: "3px 10px", marginLeft: 8, background: "#e6f2fb", color: "#0074d9", border: "1px solid #0074d9", borderRadius: 4 }}
-            title="Refresh tree data"
-          >
-            Refresh
-          </button>
-        </div>
+        <TreeFilterBar
+          filter={filter}
+          setFilter={setFilter}
+          setSearch={setSearch}
+          setExpandAllSignal={setExpandAllSignal}
+          setCollapseAllSignal={setCollapseAllSignal}
+          onRefresh={async () => {
+            await fetch("/api/refresh-tree", { method: "POST" });
+            setSearch(s => s); // force update
+          }}
+          elementSelectorMode={elementSelectorMode}
+          onToggleSelectorMode={() => setElementSelectorMode(v => !v)}
+        />
         <div style={{ flex: 1, minHeight: 0, overflowY: "auto" }}>
           <TreeView
             dataUrl="/tree-data.json"
