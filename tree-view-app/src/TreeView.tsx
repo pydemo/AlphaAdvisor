@@ -413,7 +413,21 @@ const TreeView: React.FC<TreeViewProps> = ({
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify({ target_path: node.path })
                     })
-                    .then(res => res.json())
+                    .then(async res => {
+                      if (!res.ok) {
+                        const errorText = await res.text();
+                        console.error("Server error response (delete-dir):", errorText);
+                        throw new Error(`Server responded with ${res.status}: ${errorText}`);
+                      }
+                      const contentType = res.headers.get("content-type");
+                      if (contentType && contentType.indexOf("application/json") !== -1) {
+                        return res.json();
+                      } else {
+                        const responseText = await res.text();
+                        console.error("Received non-JSON response (delete-dir):", responseText);
+                        throw new Error(`Expected JSON, but received ${contentType}: ${responseText}`);
+                      }
+                    })
                     .then(data => {
                       if (data.success) {
                         fetch(dataUrl)
@@ -495,7 +509,21 @@ const TreeView: React.FC<TreeViewProps> = ({
                       dir_name: newDirName.trim()
                     })
                   })
-                  .then(res => res.json())
+                  .then(async res => {
+                    if (!res.ok) {
+                      const errorText = await res.text();
+                      console.error("Server error response (create-dir, onKeyDown):", errorText);
+                      throw new Error(`Server responded with ${res.status}: ${errorText}`);
+                    }
+                    const contentType = res.headers.get("content-type");
+                    if (contentType && contentType.indexOf("application/json") !== -1) {
+                      return res.json();
+                    } else {
+                      const responseText = await res.text();
+                      console.error("Received non-JSON response (create-dir, onKeyDown):", responseText);
+                      throw new Error(`Expected JSON, but received ${contentType}: ${responseText}`);
+                    }
+                  })
                   .then(data => {
                     if (data.success) {
                       // Expand parent and new dir, refetch tree
@@ -536,7 +564,21 @@ const TreeView: React.FC<TreeViewProps> = ({
                         dir_name: newDirName.trim()
                       })
                     })
-                    .then(res => res.json())
+                    .then(async res => {
+                      if (!res.ok) {
+                        const errorText = await res.text();
+                        console.error("Server error response (create-dir, onClick):", errorText);
+                        throw new Error(`Server responded with ${res.status}: ${errorText}`);
+                      }
+                      const contentType = res.headers.get("content-type");
+                      if (contentType && contentType.indexOf("application/json") !== -1) {
+                        return res.json();
+                      } else {
+                        const responseText = await res.text();
+                        console.error("Received non-JSON response (create-dir, onClick):", responseText);
+                        throw new Error(`Expected JSON, but received ${contentType}: ${responseText}`);
+                      }
+                    })
                     .then(data => {
                       if (data.success) {
                         // Expand parent and new dir, refetch tree

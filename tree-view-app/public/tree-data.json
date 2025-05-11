@@ -100,6 +100,12 @@
                               "name": "2_media.json",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/2_media/2_media.json",
                               "type": "file"
+                            },
+                            {
+                              "name": "test",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/2_media/test",
+                              "type": "directory",
+                              "children": []
                             }
                           ]
                         },
