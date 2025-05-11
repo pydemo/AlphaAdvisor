@@ -76,19 +76,18 @@ def build_tree(path, rel_path="", in_included_subtree=False):
             # Combine sorted directories and alphabetically sorted files
             sorted_entries = sorted_dirs + sorted(files)
         elif is_menu_dir:
-            # For other MENU subdirectories, sort by modification time (newest first)
-            entries_with_time = []
+            # For other MENU subdirectories, sort by creation time (oldest first)
+            entries_with_ctime = []
             for entry in entries:
                 full_path = os.path.join(path, entry)
                 try:
-                    # Get modification time (mtime) for sorting
-                    mod_time = os.path.getmtime(full_path)
-                    entries_with_time.append((entry, mod_time))
+                    ctime = os.path.getctime(full_path)
+                    entries_with_ctime.append((entry, ctime))
                 except (FileNotFoundError, PermissionError):
-                    entries_with_time.append((entry, 0))
-            
-            # Sort by modification time (newest first)
-            sorted_entries = [entry for entry, _ in sorted(entries_with_time, key=lambda x: x[1], reverse=True)]
+                    entries_with_ctime.append((entry, 0))
+
+            # Sort by creation time (oldest first)
+            sorted_entries = [entry for entry, _ in sorted(entries_with_ctime, key=lambda x: x[1])]
         else:
             # Regular alphabetical sort for non-MENU directories
             sorted_entries = sorted(entries)
