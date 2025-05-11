@@ -293,8 +293,9 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
       onClick={e => {
         if (elementSelectorMode) {
           e.stopPropagation();
+          const refName = "Chat.tsx:Chat";
           if (navigator.clipboard) {
-            navigator.clipboard.writeText("Chat");
+            navigator.clipboard.writeText(refName);
           }
           // Optionally show a quick feedback
           const el = e.currentTarget as HTMLElement;
@@ -1382,6 +1383,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
         handleSend={handleSend}
         handleGeneralSend={handleGeneralSend}
         handleTextareaKeyDown={handleTextareaKeyDown}
+        elementSelectorMode={elementSelectorMode}
       />
     </div>
   );

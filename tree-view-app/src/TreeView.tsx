@@ -538,8 +538,9 @@ const TreeView: React.FC<TreeViewProps> = ({
       onClick={e => {
         if (elementSelectorMode) {
           e.stopPropagation();
+          const refName = "TreeView.tsx:TreeView";
           if (navigator.clipboard) {
-            navigator.clipboard.writeText("TreeView");
+            navigator.clipboard.writeText(refName);
           }
           // Optionally show a quick feedback
           const el = e.currentTarget as HTMLElement;

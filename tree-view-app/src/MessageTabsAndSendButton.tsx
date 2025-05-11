@@ -10,6 +10,7 @@ type MessageTabsAndSendButtonProps = {
   handleSend: () => void;
   handleGeneralSend: () => void;
   handleTextareaKeyDown: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void;
+  elementSelectorMode?: boolean; // DEV: highlight/copy element name
 };
 
 const MessageTabsAndSendButton: React.FC<MessageTabsAndSendButtonProps> = ({
@@ -22,8 +23,35 @@ const MessageTabsAndSendButton: React.FC<MessageTabsAndSendButtonProps> = ({
   handleSend,
   handleGeneralSend,
   handleTextareaKeyDown,
+  elementSelectorMode = false,
 }) => (
-  <div style={{ marginTop: 8 }}>
+  <div
+    data-element-name="MessageTabsAndSendButton"
+    style={{
+      marginTop: 8,
+      position: "relative",
+      outline: elementSelectorMode ? "2.5px dashed #ffb700" : undefined,
+      boxShadow: elementSelectorMode ? "0 0 0 3px #ffe066" : undefined,
+      cursor: elementSelectorMode ? "copy" : undefined,
+      transition: "box-shadow 0.15s, outline 0.15s"
+    }}
+    title={elementSelectorMode ? "Click to copy element name: MessageTabsAndSendButton" : undefined}
+    onClick={e => {
+      if (elementSelectorMode) {
+        e.stopPropagation();
+        const refName = "MessageTabsAndSendButton.tsx:MessageTabsAndSendButton";
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(refName);
+        }
+        // Optionally show a quick feedback
+        const el = e.currentTarget as HTMLElement;
+        el.style.background = "#fffbe6";
+        setTimeout(() => {
+          el.style.background = "";
+        }, 350);
+      }
+    }}
+  >
     {/* Tab bar */}
     <div
       style={{
