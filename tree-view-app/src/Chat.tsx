@@ -848,7 +848,10 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                         const response = await fetch("http://localhost:3002/api/ask-chatgpt_streamed", {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify({ target_path: imagePath }),
+                          body: JSON.stringify({
+                            target_path: imagePath,
+                            user_message: tab === "General" ? generalInput : input
+                          }),
                           signal
                         });
                         

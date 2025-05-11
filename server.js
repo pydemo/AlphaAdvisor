@@ -314,7 +314,8 @@ app.post('/api/ask-chatgpt_streamed', async (req, res) => {
     return res.status(503).json({ error: "OpenAI API is not configured. Set OPENAI_API_KEY environment variable." });
   }
 
-  const { target_path } = req.body;
+  const { target_path, user_message } = req.body;
+  console.log(`[USER MESSAGE] ${user_message} `);
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
 
   if (!target_path) {
@@ -363,13 +364,15 @@ app.post('/api/ask-chatgpt_streamed', async (req, res) => {
           content: [
             {
               type: "text",
-              text: `Extract structured JSON from this Sony camera menu screenshot. Format:
+              text: `Extract structured JSON from this Sony camera menu screenshot. Set fields like 'hint' to values set in user messsage.
+              JSON Format:
 {
   "menu": "<menu name>",
   "items": [
-    { "label": "<item label>", "value": "<selected value>", "description": "brief item decription"},
+    { "label": "<item label>", "value": "<selected value>", "description": "item decription"},
     ...
-  ]
+  ],
+  "hint": "<hint related to this menu item>"
 }
 Respond with only valid JSON, no extra text.`
             },
