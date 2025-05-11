@@ -370,13 +370,16 @@ app.post('/api/ask-chatgpt_streamed', async (req, res) => {
               text: `
             [user_message]:
             ${user_message}
-            [task]: Extract structured JSON from this Sony camera menu screenshot. Set fields like 'modes', 'hint', 'note', 'description' to values set in user messsage.
+            [task]: Extract structured JSON from this Sony camera menu screenshot. 
+            Set fields like 'condition', 'modes', 'hint', 'note', 'description' to values set in user messsage.
+            If 'condition' enabling this menu item is not set - leave it empty.
   shooting modes: can be any combo of following: ['photo', 'video','s&q']
               JSON Format:
 {
   "menu": "<menu name>",
   "description": <menu item description>,
   "modes": [<list of shooting modes>],
+  "condition": {<json for condition>}
   "items": [
     { "label": "<item label>", "value": "<selected value>", "description": "item decription"},
     ...
