@@ -181,6 +181,9 @@ app.post('/api/save-image-file', (req, res) => {
     const b64data = image_data.split(",", 2)[1];
     const imgBuffer = Buffer.from(b64data, "base64");
     const targetFile = path.join(resolvedDir, file_name);
+    console.log(`[SAVE IMAGE] targetFile: ${targetFile}`);
+    // Ensure directory exists
+    fs.mkdirSync(resolvedDir, { recursive: true });
     fs.writeFileSync(targetFile, imgBuffer);
     // Refresh tree-data.json
     const { exec } = require('child_process');

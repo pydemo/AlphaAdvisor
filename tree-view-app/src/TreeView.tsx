@@ -200,7 +200,8 @@ const TreeView: React.FC<TreeViewProps> = ({
                 {node.name}
               </span>
               {/* Info and JSON buttons for specific MENU leaf directories */}
-              {/\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) && (
+              {(/\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||
+                /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path)) && (
                 <>
                   <button
                     style={{
@@ -324,8 +325,8 @@ const TreeView: React.FC<TreeViewProps> = ({
     /\/public\/MENU\/?$/.test(node.path) ||     // e.g., /public/MENU
     /\/public\/MENU\/[^/]+\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Shooting/PAGE_1
     /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Shooting/PAGE_1/1_image_quality_rec
-    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1
-    // /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch/
+    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1
+    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch/
   )
           && (
             <>
@@ -943,10 +944,7 @@ const TreeView: React.FC<TreeViewProps> = ({
                       body: JSON.stringify({
                         dir_path: jsonPopup.node.path,
                         file_name: (() => {
-                          // Use full absolute path to file
-                          if (jsonPopup.node && jsonPopup.node.path) {
-                            return jsonPopup.node.path.replace(/\/+$/, "") + "/" + jsonPopup.fileName.trim();
-                          }
+                          // Only send the filename, not the full path
                           return jsonPopup.fileName.trim();
                         })(),
                         json_text: jsonPopup.text

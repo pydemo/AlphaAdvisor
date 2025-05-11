@@ -1,0 +1,26 @@
+{
+  "menu": "File Format",
+  "description": "Sets the file format for still images.",
+  "modes": [
+    "photo"
+  ],
+  "items": [
+    {
+      "label": "RAW",
+      "value": "RAW",
+      "description": "Digital processing is not performed on this file format. Select this format to process images on a computer for professional purposes."
+    },
+    {
+      "label": "RAW & JPEG",
+      "value": "RAW & JPEG",
+      "description": "A RAW image and a JPEG or HEIF image are created at the same time. This is suitable when you need two image files, a JPEG or HEIF for viewing, and a RAW for editing."
+    },
+    {
+      "label": "JPEG",
+      "value": "JPEG",
+      "description": "The image is recorded in the JPEG or HEIF format."
+    }
+  ],
+  "hint": "When [Recording Media] is set to [Sort Recording], you can select the file format for each slot from among RAW and JPEG, or RAW and HEIF.",
+  "note": "If you do not intend to edit the images on your computer, we recommend that you record in JPEG or HEIF format. An environment supporting the HEIF format is required to play back HEIF images."
+}

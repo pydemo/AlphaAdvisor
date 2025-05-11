@@ -39,27 +39,62 @@
                               "type": "directory",
                               "children": [
                                 {
-                                  "name": "JPEG_HREF_Switch",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch",
+                                  "name": "1_JPEG_HREF_Switch+--",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/1_JPEG_HREF_Switch+--",
                                   "type": "directory",
                                   "children": [
                                     {
-                                      "name": "JPEG_HREF_Switch.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch/JPEG_HREF_Switch.json",
+                                      "name": "JPEG_HREF_Switch+--.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/1_JPEG_HREF_Switch+--/JPEG_HREF_Switch+--.json",
                                       "type": "file"
                                     },
                                     {
-                                      "name": "JPEG_HREF_Switch.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch/JPEG_HREF_Switch.png",
+                                      "name": "JPEG_HREF_Switch+--.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/1_JPEG_HREF_Switch+--/JPEG_HREF_Switch+--.png",
                                       "type": "file"
                                     }
                                   ]
                                 },
                                 {
-                                  "name": "test",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/test",
+                                  "name": "2_Image-Quality-Settings+--",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/2_Image-Quality-Settings+--",
                                   "type": "directory",
-                                  "children": []
+                                  "children": [
+                                    {
+                                      "name": "1_File_Format+--",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/2_Image-Quality-Settings+--/1_File_Format+--",
+                                      "type": "directory",
+                                      "children": [
+                                        {
+                                          "name": "1_File_Format+--.json",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/2_Image-Quality-Settings+--/1_File_Format+--/1_File_Format+--.json",
+                                          "type": "file"
+                                        },
+                                        {
+                                          "name": "1_File_Format+--.png",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/2_Image-Quality-Settings+--/1_File_Format+--/1_File_Format+--.png",
+                                          "type": "file"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "3_Aspect-Ratio+--",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/3_Aspect-Ratio+--",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "Aspect-Ratio+--.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/3_Aspect-Ratio+--/Aspect-Ratio+--.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "Aspect-Ratio+--.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/3_Aspect-Ratio+--/Aspect-Ratio+--.png",
+                                      "type": "file"
+                                    }
+                                  ]
                                 }
                               ]
                             },
