@@ -7,7 +7,7 @@ import fnmatch
 # Supports wildcards, e.g. "*.py" to include only Python files.
 INCLUDE = [
     # Example: "include", "tree-view-app", "*.py"
-    "tree-view-app/public/*",
+    "tree-view-app/public/**",
 ]
 
 # List of file or directory names or glob patterns to exclude (case-sensitive)

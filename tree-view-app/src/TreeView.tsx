@@ -942,10 +942,20 @@ const TreeView: React.FC<TreeViewProps> = ({
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify({
                         dir_path: jsonPopup.node.path,
-                        file_name: jsonPopup.fileName.trim(),
+                        file_name: (() => {
+                          // Use full absolute path to file
+                          if (jsonPopup.node && jsonPopup.node.path) {
+                            return jsonPopup.node.path.replace(/\/+$/, "") + "/" + jsonPopup.fileName.trim();
+                          }
+                          return jsonPopup.fileName.trim();
+                        })(),
                         json_text: jsonPopup.text
                       })
                     });
+                    // Refetch tree data after saving JSON
+                    fetch(dataUrl)
+                      .then(res => res.json())
+                      .then(treeData => setTree(treeData));
                   } catch (err) {
                     alert("Failed to save JSON file: " + err);
                   }

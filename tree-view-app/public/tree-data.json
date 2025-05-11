@@ -34,11 +34,6 @@
                           "type": "directory",
                           "children": [
                             {
-                              "name": "1_image_quality_rec.json",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/1_image_quality_rec.json",
-                              "type": "file"
-                            },
-                            {
                               "name": "PAGE_1",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1",
                               "type": "directory",
@@ -59,11 +54,6 @@
                                       "type": "file"
                                     }
                                   ]
-                                },
-                                {
-                                  "name": "JPEG_HREF_Switch.png",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch.png",
-                                  "type": "file"
                                 },
                                 {
                                   "name": "test",

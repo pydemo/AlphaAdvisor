@@ -4,17 +4,17 @@
     {
       "label": "JPEG",
       "value": "selected",
-      "description": "Select JPEG format"
+      "description": "Standard JPEG format"
     },
     {
       "label": "HEIF(4:2:0)",
       "value": "not selected",
-      "description": "Select HEIF format with 4:2:0 chroma subsampling"
+      "description": "High Efficiency Image File (4:2:0)"
     },
     {
       "label": "HEIF(4:2:2)",
       "value": "not selected",
-      "description": "Select HEIF format with 4:2:2 chroma subsampling"
+      "description": "High Efficiency Image File (4:2:2)"
     }
   ]
 }
