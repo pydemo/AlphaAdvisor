@@ -1,0 +1,80 @@
+{
+  "photo": {
+    "mode_name": "Photo",
+    "label": "photo",
+    "description": "Photo mode is used for capturing high-quality still images. It offers full control over exposure, focus, and image format. Supported formats include JPEG, HEIF, and RAW, enabling both quick sharing and professional-grade editing. Features like silent shutter, aspect ratio selection, and autofocus customization enhance creative flexibility.",
+    "details": {
+      "breakdown": {
+        "formats": ["JPEG", "HEIF", "RAW"],
+        "features": [
+          "Full-resolution image capture",
+          "Manual and auto exposure modes",
+          "Advanced autofocus and tracking",
+          "Silent shutter option",
+          "Adjustable aspect ratios (e.g. 3:2, 4:3, 16:9)"
+        ]
+      },
+      "use_cases": [
+        "Portrait photography",
+        "Landscape and travel",
+        "Studio and product shoots",
+        "Street photography",
+        "Low-light handheld shooting"
+      ]
+    }
+  },
+  "video": {
+    "mode_name": "Video",
+    "label": "video",
+    "description": "Video mode enables high-quality movie recording with flexible control over resolution, frame rate, and audio. It supports features like Log profiles (S-Log3, HLG), manual focus, real-time tracking, and audio input monitoring. Ideal for professional video production or content creation.",
+    "details": {
+      "breakdown": {
+        "formats": ["XAVC S", "XAVC HS", "XAVC S-I"],
+        "features": [
+          "4K and Full HD resolution options",
+          "Selectable frame rates (24p, 30p, 60p, 120p)",
+          "Picture Profiles including S-Log3 and HLG",
+          "Audio input and headphone monitoring",
+          "Manual focus peaking and zebra display"
+        ]
+      },
+      "use_cases": [
+        "Vlogging and content creation",
+        "Documentaries and interviews",
+        "Cinematic filmmaking",
+        "Event coverage",
+        "Slow-motion and high-frame-rate recording"
+      ]
+    }
+  },
+  "s&q": {
+    "mode_name": "S&Q (Slow & Quick Motion)",
+    "label": "s&q",
+    "description": "S&Q mode (Slow & Quick Motion) lets you record video at frame rates faster or slower than playback speed, enabling in-camera slow-motion or fast-motion effects without post-processing. It's perfect for capturing dramatic or accelerated action creatively and efficiently.",
+    "details": {
+      "breakdown": {
+        "recording_frame_rates": ["1 fps", "120 fps"],
+        "playback_speed": "Typically 24p output",
+        "features": [
+          "Direct slow or quick motion recording",
+          "Selectable recording and playback rates",
+          "Support for XAVC S and other formats",
+          "Fast/slow motion preview in-camera",
+          "Creative time-manipulation without editing"
+        ]
+      },
+      "use_cases": {
+        "slow": [
+          "Water splashes",
+          "Action sports",
+          "Dramatic movements"
+        ],
+        "quick": [
+          "Crowd movement",
+          "Clouds drifting",
+          "City time-lapses"
+        ]
+      }
+    }
+  }
+}

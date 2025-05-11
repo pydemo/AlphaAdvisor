@@ -35,7 +35,10 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
 }) => {
   // Map of message index to { json: string, show: boolean }
   const [jsonResults, setJsonResults] = useState<{ [idx: number]: { json: string; show: boolean } }>({});
-  const [input, setInput] = useState("Convert this menu screenshot of Sony 'a7rV' to json including brief description of each menu option.");
+  const [input, setInput] = useState(`Convert this menu screenshot of Sony 'a7rV' to json including brief 
+    description of each menu option.`
+
+  );
   const [generalInput, setGeneralInput] = useState("");
 
   const handleSend = () => {
@@ -152,6 +155,10 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
   const handleCopy = async (text: string, idx: number) => {
     // Remove "Echo:", "Selected file:", or "Deselected file:" prefix if present (case-insensitive, optional whitespace)
     let cleanText = text.replace(/^(Echo:|Selected file:|Deselected file:)\s*/i, "");
+    // Remove __JSON_FROM_STREAM__ prefix if present
+    if (cleanText.startsWith("__JSON_FROM_STREAM__")) {
+      cleanText = cleanText.replace("__JSON_FROM_STREAM__", "");
+    }
     try {
       await navigator.clipboard.writeText(cleanText);
       setCopiedIdx(idx);

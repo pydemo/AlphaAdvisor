@@ -388,8 +388,8 @@
                   ]
                 },
                 {
-                  "name": "menu_main.json",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/menu_main.json",
+                  "name": "modes.json",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/modes.json",
                   "type": "file"
                 }
               ]

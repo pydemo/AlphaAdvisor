@@ -364,15 +364,22 @@ app.post('/api/ask-chatgpt_streamed', async (req, res) => {
           content: [
             {
               type: "text",
-              text: `Extract structured JSON from this Sony camera menu screenshot. Set fields like 'hint' to values set in user messsage.
+              text: `
+            [user_message]:
+            ${user_message}
+            [task]: Extract structured JSON from this Sony camera menu screenshot. Set fields like 'modes', 'hint', 'note', 'description' to values set in user messsage.
+  shooting modes: can be any combo of following: ['photo', 'video','s&q']
               JSON Format:
 {
   "menu": "<menu name>",
+  "description": <menu item description>,
+  "modes": [<list of shooting modes>],
   "items": [
     { "label": "<item label>", "value": "<selected value>", "description": "item decription"},
     ...
   ],
   "hint": "<hint related to this menu item>"
+  "note": "<note related to this menu item>"
 }
 Respond with only valid JSON, no extra text.`
             },
