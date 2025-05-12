@@ -1,0 +1,34 @@
+{
+  "menu": "High ISO NR",
+  "description": "When shooting with high ISO sensitivity, the product reduces noise that becomes more noticeable when the product sensitivity is high.",
+  "modes": [
+    "photo"
+  ],
+"condition": {
+    "not_available_when": [
+      {
+        "context": "shoot_mode",
+        "value": "intelligent_auto"
+      }
+    ]
+  },
+  "items": [
+    {
+      "label": "Normal",
+      "value": "Selected",
+      "description": "Activates high ISO noise reduction normally."
+    },
+    {
+      "label": "Low",
+      "value": "",
+      "description": "Activates high ISO noise reduction moderately."
+    },
+    {
+      "label": "Off",
+      "value": "",
+      "description": "Does not activate high ISO noise reduction."
+    }
+  ],
+  "hint": "",
+  "note": "[High ISO NR] is fixed to [Normal] in the following shooting modes: [Intelligent Auto]"
+}

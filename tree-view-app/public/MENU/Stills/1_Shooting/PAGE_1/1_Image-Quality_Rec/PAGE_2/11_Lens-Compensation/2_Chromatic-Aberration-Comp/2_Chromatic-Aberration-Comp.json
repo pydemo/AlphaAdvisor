@@ -1,0 +1,24 @@
+{
+  "menu": "Chromatic Aberration Comp.",
+  "description": "Reduces color deviation at the corners of the screen caused by certain lens characteristics.",
+  "modes": [
+    "photo",
+    "movie",
+    "s&q"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Auto",
+      "value": "selected",
+      "description": "Sets whether to automatically reduce color deviation at the corners of the screen."
+    },
+    {
+      "label": "Off",
+      "value": "not selected",
+      "description": "Sets whether to automatically reduce color deviation at the corners of the screen."
+    }
+  ],
+  "hint": "",
+  "note": ""
+}

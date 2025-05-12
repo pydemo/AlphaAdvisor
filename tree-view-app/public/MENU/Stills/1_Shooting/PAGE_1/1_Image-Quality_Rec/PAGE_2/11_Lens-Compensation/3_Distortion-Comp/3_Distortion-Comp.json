@@ -1,0 +1,26 @@
+{
+  "menu": "Distortion Comp.",
+  "description": "Compensates distortion of the screen",
+  "modes": [
+    "photo",
+    "movie",
+    "s&q"
+  ],
+  "condition": {
+    "availability": "Automatic compensation compliant lens is attached"
+  },
+  "items": [
+    {
+      "label": "Auto",
+      "value": "not selected",
+      "description": "Automatically compensates for distortion."
+    },
+    {
+      "label": "Off",
+      "value": "selected",
+      "description": "Does not compensate for distortion."
+    }
+  ],
+  "hint": "Sets whether to automatically compensate for distortion of the screen.",
+  "note": "This function is only available when using an automatic compensation compliant lens. Depending on the attached lens, [Distortion Comp.] is fixed to [Auto], and you cannot select [Off]."
+}

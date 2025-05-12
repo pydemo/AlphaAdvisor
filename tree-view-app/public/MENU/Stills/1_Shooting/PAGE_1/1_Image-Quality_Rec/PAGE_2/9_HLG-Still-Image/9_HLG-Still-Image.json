@@ -1,0 +1,34 @@
+{
+  "menu": "HLG Still Image",
+  "description": "By using gamma characteristics equivalent to HLG (Hybrid Log-Gamma: standard for HDR images), you can shoot still images with a wide dynamic range and a wide color gamut compatible with BT.2020.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {
+    "condition": "[HLG Still Image] can only be set when shooting in the HEIF format.",
+    "settings": [
+      {
+        "setting": "[JPEG/HEIF Switch]",
+        "value": "[HEIF(4:2:0)] or [HEIF(4:2:2)]"
+      },
+      {
+        "setting": "[File Format] under [Image Quality Settings]",
+        "value": "[HEIF]"
+      }
+    ]
+  },
+  "items": [
+    {
+      "label": "On",
+      "value": "selected value",
+      "description": "Shoots HLG still images."
+    },
+    {
+      "label": "Off",
+      "value": "selected value",
+      "description": "Shoots normal still images."
+    }
+  ],
+  "hint": "You can reproduce a wider range of brightness by playing back HLG still images on an HLG-compatible TV or monitor. We recommend setting MENU → (Setup) → [External Output] → [HDMI Resolution] to one of the followings when you display HLG still images from the camera on a TV using an HDMI cable (sold separately). Auto 2160p 1080p 1080i You can display HLG still images on the camera’s monitor in almost the same quality as when they are displayed on an HLG- (BT.2020-) compatible monitor by setting as follows. [Gamma Display Assist]: [On] [Gamma Disp. Assist Typ.]: [Auto] or [HLG(BT.2020)]",
+  "note": "In the following situations, [HLG Still Image] is fixed to [Off]: [JPEG/HEIF Switch] is set to [JPEG] [File Format] under [Image Quality Settings] is set to [RAW] or [RAW & HEIF] When a shooting mode other than P / A / S / M is set during still image shooting When the ISO sensitivity is temporarily activated by the [Reg. Custom Shoot Set] function When the [DRO Bracket] function under [Drive Mode] is temporarily activated by the [Reg. Custom Shoot Set] function When [HLG Still Image] is set to [On], the following functions are not available. [D-Range Optimizer] [Creative Look] [DRO Bracket] under [Drive Mode] [Picture Profile] When [HLG Still Image] is set to [On], the available ISO range changes."
+}

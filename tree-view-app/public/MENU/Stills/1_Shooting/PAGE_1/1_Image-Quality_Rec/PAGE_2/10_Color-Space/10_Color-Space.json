@@ -1,0 +1,22 @@
+{
+  "menu": "Color Space",
+  "description": "The way colors are represented using combinations of numbers or the range of color reproduction is called 'color space.' You can change the color space depending on the purpose of the image.",
+  "modes": [],
+  "condition": {
+    "image_quality": "JPEG"
+  },
+  "items": [
+    {
+      "label": "sRGB",
+      "value": "selected",
+      "description": "This is the standard color space of the digital camera. Use [sRGB] in normal shooting, such as when you intend to print out the images without any modification."
+    },
+    {
+      "label": "AdobeRGB",
+      "value": "not selected",
+      "description": "This color space has a wide range of color reproduction. When a large part of the subject is vivid green or red, Adobe RGB is effective. The file name of the recorded image starts with “_.”"
+    }
+  ],
+  "hint": null,
+  "note": "The [Color Space] setting is invalid when shooting images in the HEIF format. If [HLG Still Image] is set to [Off], images will be recorded with the sRGB color space. When [HLG Still Image] is set to [On], it is recorded in the BT.2100 color space (BT.2020 color gamut). [AdobeRGB] is for applications or printers that support color management and DCF2.0 option color space. Images may not be printed or viewed in the correct colors if you use applications or printers that do not support Adobe RGB. When displaying images that were recorded with [AdobeRGB] on non-Adobe RGB-compliant devices, the images will be displayed with low saturation."
+}

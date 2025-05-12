@@ -1,0 +1,25 @@
+{
+  "menu": "Shading Comp.",
+  "description": "Compensates for shading in the corners of the screen",
+  "modes": ["photo","movie","s&q"],
+  "condition": {},
+  "items": [
+    {
+      "label": "Auto",
+      "value": "selected",
+      "description": "Automatically compensates for darkness in the corners of the screen."
+    },
+    {
+      "label": "Low",
+      "value": "not selected",
+      "description": "Sets compensation to low."
+    },
+    {
+      "label": "Off",
+      "value": "not selected",
+      "description": "Turns off compensation for corner darkness."
+    }
+  ],
+  "hint": "Sets whether to automatically compensate for darkness in the corners of the screen. ([Auto]/[Low]/[Off])",
+  "note": "This function is only available when using an automatic compensation compliant lens. Darkness in the corners of the screen may not be corrected with [Shading Comp.], depending on the lens type. There may be no difference in the correction effect between [Auto] and [Low] in [Shading Comp.], depending on the lens type."
+}

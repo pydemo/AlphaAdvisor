@@ -325,10 +325,11 @@ const TreeView: React.FC<TreeViewProps> = ({
           (
     /\/public\/MENU\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Shooting
     /\/public\/MENU\/?$/.test(node.path) ||     // e.g., /public/MENU
-    /\/public\/MENU\/[^/]+\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Shooting/PAGE_1
-    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Shooting/PAGE_1/1_image_quality_rec
-    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1
-    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/JPEG_HREF_Switch/
+    /\/public\/MENU\/[^/]+\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Stills/Shooting
+    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Stills/Shooting/PAGE_1
+    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Stills/Shooting/PAGE_1/1_image_quality_rec
+    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Stills/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/
+    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Stills/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/Lens-Compensation
   )
           && (
             <>
