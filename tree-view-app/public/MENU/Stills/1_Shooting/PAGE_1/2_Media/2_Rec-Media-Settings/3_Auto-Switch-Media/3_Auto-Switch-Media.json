@@ -1,0 +1,23 @@
+{
+  "menu": "Auto Switch Media",
+  "description": "If a memory card in use becomes full or you have forgotten to insert a memory card into a slot, you can record images to the other memory card.",
+  "modes": [
+    "stills",
+    "movie"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "On",
+      "value": "selected",
+      "description": "The camera automatically starts recording on the other memory card when a memory card in use becomes full or if you have forgotten to insert a memory card."
+    },
+    {
+      "label": "Off",
+      "value": "not selected",
+      "description": "The camera does not perform [Auto Switch Media]."
+    }
+  ],
+  "hint": "Images are recorded to the memory card in the slot displayed on the monitor with an arrow symbol. After the camera switches the slot using [Auto Switch Media], replace the memory card in the former slot with a recordable memory card.",
+  "note": "When recording both still images and movies on a single memory card, the settings for [Recording Media] and [Recording Media] change automatically as the slot switches. If you want to record on the slot in use before switching, select the desired slot with [Recording Media]/[Recording Media]. If you want to record with the settings with [Recording Media] and [Recording Media], set [Auto Switch Media] to [Off]."
+}

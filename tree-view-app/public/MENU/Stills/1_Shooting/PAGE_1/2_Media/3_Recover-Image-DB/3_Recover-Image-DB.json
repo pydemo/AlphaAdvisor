@@ -1,0 +1,15 @@
+{
+  "menu": "Recovery",
+  "description": "If image files were processed on a computer, problems may occur in the image database file. In such cases, the images on the memory card will not be played back on this product. Also, if you use a memory card in the camera after using it in another device, the images on the memory card may not be played back correctly. For example, the images may not be displayed as a group. If these problems happen, repair the file using [Recover Image DB].",
+  "modes": ["movie"],
+  "condition": {},
+  "items": [
+    {
+      "label": "Select media card",
+      "value": "Slot 1",
+      "description": ""
+    }
+  ],
+  "hint": "Images recorded on the memory card are not deleted by [Recover Image DB].",
+  "note": "If the battery pack is extremely depleted, image database files cannot be repaired. Use a sufficiently charged battery pack."
+}

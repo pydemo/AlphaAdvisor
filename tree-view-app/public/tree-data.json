@@ -429,7 +429,18 @@
                                       "name": "3_Auto-Switch-Media",
                                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/3_Auto-Switch-Media",
                                       "type": "directory",
-                                      "children": []
+                                      "children": [
+                                        {
+                                          "name": "3_Auto-Switch-Media.json",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/3_Auto-Switch-Media/3_Auto-Switch-Media.json",
+                                          "type": "file"
+                                        },
+                                        {
+                                          "name": "3_Auto-Switch-Media.png",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/3_Auto-Switch-Media/3_Auto-Switch-Media.png",
+                                          "type": "file"
+                                        }
+                                      ]
                                     }
                                   ]
                                 },
@@ -437,13 +448,35 @@
                                   "name": "3_Recover-Image-DB",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/3_Recover-Image-DB",
                                   "type": "directory",
-                                  "children": []
+                                  "children": [
+                                    {
+                                      "name": "3_Recover-Image-DB.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/3_Recover-Image-DB/3_Recover-Image-DB.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "3_Recover-Image-DB.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/3_Recover-Image-DB/3_Recover-Image-DB.png",
+                                      "type": "file"
+                                    }
+                                  ]
                                 },
                                 {
                                   "name": "4_Display-Media-Info",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/4_Display-Media-Info",
                                   "type": "directory",
-                                  "children": []
+                                  "children": [
+                                    {
+                                      "name": "4_Display-Media-Info.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/4_Display-Media-Info/4_Display-Media-Info.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "4_Display-Media-Info.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/4_Display-Media-Info/4_Display-Media-Info.png",
+                                      "type": "file"
+                                    }
+                                  ]
                                 }
                               ]
                             },

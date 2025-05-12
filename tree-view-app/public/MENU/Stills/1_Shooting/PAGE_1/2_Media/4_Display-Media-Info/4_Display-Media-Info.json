@@ -1,0 +1,23 @@
+{
+  "menu": "Display Media Info",
+  "description": "Displays the recordable number of still images and the remaining recording time for movies on the memory card.",
+  "modes": [
+    "photo",
+    "video"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Slot 1",
+      "value": "selected",
+      "description": "Selected media card slot"
+    },
+    {
+      "label": "Slot 2",
+      "value": "not selected",
+      "description": "Unselected media card slot"
+    }
+  ],
+  "hint": "Select media card.",
+  "note": ""
+}
