@@ -370,43 +370,42 @@
                               "type": "directory",
                               "children": [
                                 {
+                                  "name": "1_Format",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/1_Format",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "1_Format.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/1_Format/1_Format.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "1_Format.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/1_Format/1_Format.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "2_Rec-Media-Settings",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings",
+                                  "type": "directory",
+                                  "children": []
+                                },
+                                {
                                   "name": "2_media.json",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_media.json",
                                   "type": "file"
                                 },
                                 {
-                                  "name": "dddd",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/dddd",
+                                  "name": "3_Recover-Image-DB",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/3_Recover-Image-DB",
                                   "type": "directory",
                                   "children": []
                                 },
                                 {
-                                  "name": "fff",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/fff",
-                                  "type": "directory",
-                                  "children": []
-                                },
-                                {
-                                  "name": "rr",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/rr",
-                                  "type": "directory",
-                                  "children": []
-                                },
-                                {
-                                  "name": "sssss",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/sssss",
-                                  "type": "directory",
-                                  "children": []
-                                },
-                                {
-                                  "name": "test",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/test",
-                                  "type": "directory",
-                                  "children": []
-                                },
-                                {
-                                  "name": "testsst",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/testsst",
+                                  "name": "4_Display-Media-Info",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/4_Display-Media-Info",
                                   "type": "directory",
                                   "children": []
                                 }

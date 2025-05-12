@@ -1,0 +1,19 @@
+{
+  "menu": "Format",
+  "description": "When you use a memory card with this camera for the first time, we recommend that you format the card using the camera for stable performance of the memory card. Note that formatting permanently erases all data on the memory card, and is unrecoverable. Save valuable data on a computer, etc.",
+  "modes": [
+    "photo",
+    "movie",
+    "s&q"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Quick formatting",
+      "value": "Select [Enter]",
+      "description": "If you press the (Delete) button, a message to perform full formatting will be displayed. You can launch full formatting by selecting [Enter]. The difference between quick formatting and full formatting. Perform full formatting when you feel like the speed of recording to the memory card or read-out from the memory card has become slow, or when you want to erase data completely, etc. Full formatting takes longer than quick formatting, because all areas of the memory card are initialized."
+    }
+  ],
+  "hint": "You can also display the screen for formatting the memory card by pressing and holding the MENU button and then the (Delete) button on the shooting screen for approximately two seconds. You can cancel full formatting before it is completed. Even if you cancel full formatting in the middle of the process, the data will be erased, so you can use the memory card as is.",
+  "note": "Formatting permanently erases all data including protected images and registered settings (from M1 to M4). The access lamp lights up during formatting. Do not remove the memory card while the access lamp is lit up. Format the memory card on this camera. If you format the memory card on the computer, the memory card may not be usable depending on the format type. It may take a few minutes to complete formatting, depending on the memory card. You cannot format the memory card if the remaining battery charge is less than 1%."
+}

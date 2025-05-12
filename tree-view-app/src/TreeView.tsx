@@ -201,8 +201,10 @@ const TreeView: React.FC<TreeViewProps> = ({
               }}>
                 {node.name}
               </span>
+              
               {/* Info and JSON buttons for specific MENU leaf directories */}
-              {(/\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||
+              { (/\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/(?!PAGE_\d+$)[^/]+$/.test(node.path) ||
+                /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||
                 /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path)) && (
                 <>
                   <button
