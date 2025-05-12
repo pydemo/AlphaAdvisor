@@ -189,21 +189,21 @@ const TreeView: React.FC<TreeViewProps> = ({
                       ? "bold"
                       : "normal",
                 color:
-                  isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\/[^/]+\//.test(node.path)
+                  isDir && /\/public\/MENU\/.*\/\/.*\/PAGE_\d+\/[^/]+\//.test(node.path)
                     ? "#5b88c4"
-                    : isDir && /\/public\/MENU\/[^/]+\/PAGE_\d+\//.test(node.path)
+                    : isDir && /\/public\/MENU\/.*\/PAGE_\d+\/.*\/PAGE_\d+\//.test(node.path)
+                    ? "#4a6996"
+                    : isDir && /\/public\/MENU\/.*\/PAGE_\d+\//.test(node.path)
                     ? "#6c9c6a"
-                    : isDir && /\/MENU\/.*\/PAGE_\d+\//.test(node.path)
-                    ? "blue"
-                    : isDir && /\/MENU\/.*\//.test(node.path)
+                    : isDir && /\/public\/MENU\/.*\//.test(node.path)
                     ? "orange"
                     : undefined
               }}>
                 {node.name}
               </span>
               {/* Info and JSON buttons for specific MENU leaf directories */}
-              {(/\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||
-                /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path)) && (
+              {(/\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||
+                /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path)) && (
                 <>
                   <button
                     style={{
@@ -336,7 +336,8 @@ const TreeView: React.FC<TreeViewProps> = ({
               {(
                 /\/public\/MENU\/?$/.test(node.path) ||
                 /\/public\/MENU\/[^/]+\/[^/]+$/.test(node.path) ||
-                /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path)
+                /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||
+                /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path)
               ) && (
                 (() => {
                   // Helper to collect all descendant dir paths

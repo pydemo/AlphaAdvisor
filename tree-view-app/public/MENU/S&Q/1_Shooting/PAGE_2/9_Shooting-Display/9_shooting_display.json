@@ -1,0 +1,60 @@
+{
+  "id": 9,
+  "name": "Shooting Display",
+  "description": "Settings for display during shooting",
+  "type": "submenu",
+  "submenu": {
+    "settings": [
+      {
+        "name": "Live View Display",
+        "options": ["Setting Effect ON", "Setting Effect OFF"],
+        "description": "Sets whether to show images with effects like exposure compensation on screen"
+      },
+      {
+        "name": "Emph disp dur shoot",
+        "options": ["Off", "On"],
+        "description": "Whether to display a frame around the edge of the screen during shooting"
+      },
+      {
+        "name": "Shot. Result Preview",
+        "options": ["Off", "On"],
+        "description": "Automatically shows captured image after shooting"
+      },
+      {
+        "name": "Aperture Preview",
+        "options": ["On", "Off"],
+        "description": "Shows preview of aperture depth of field when button is pressed"
+      },
+      {
+        "name": "Shooting Info. Display",
+        "options": ["Auto", "Manual"],
+        "description": "Sets whether the shooting information display automatically follows orientation changes"
+      },
+      {
+        "name": "TC/UB Disp. Setting",
+        "options": ["TC", "UB"],
+        "description": "Sets the display for the time counter and user bits"
+      },
+      {
+        "name": "Focus Map",
+        "options": ["On", "Off"],
+        "description": "Provides a visual indicator of depth that highlights in-focus areas for precise focus"
+      },
+      {
+        "name": "Zebra Display",
+        "options": ["Off", "On"],
+        "description": "Sets zebra pattern to guide exposure"
+      },
+      {
+        "name": "Grid Line",
+        "options": ["Off", "Rule of 3rds Grid", "Square Grid", "Diag. + Square Grid"],
+        "description": "Sets whether to display the grid line"
+      },
+      {
+        "name": "Exposure Set. Guide",
+        "options": ["Off", "On"],
+        "description": "Sets whether to display a guide when exposure settings are changed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "menu": "RAW File Type",
+  "description": "Selects the file type for RAW images.",
+  "modes": [],
+  "condition": {
+    "file_format": {
+      "not": "JPEG"
+    }
+  },
+  "items": [
+    {
+      "label": "Uncompressed",
+      "value": "Uncompressed",
+      "description": "Records images in uncompressed RAW format. When [Uncompressed] is selected for [RAW File Type], the file size of the image will be larger than if it were recorded in lossless compressed RAW format or compressed RAW format."
+    },
+    {
+      "label": "Lossless Comp (L)",
+      "value": "RAW_L",
+      "description": "Records images with a lossless compression method that causes no deterioration in image quality and has a high compression rate. The file size is smaller than when [Uncompressed] is selected. The L size can be selected only when shooting in full frame."
+    },
+    {
+      "label": "Lossless Comp (M)",
+      "value": "RAW_M",
+      "description": "Records images with a lossless compression method that causes no deterioration in image quality and has a high compression rate. The file size is smaller than when [Uncompressed] is selected. The M size reduces image size and resolution is lower than L."
+    },
+    {
+      "label": "Lossless Comp (S)",
+      "value": "RAW_S",
+      "description": "Records images with a lossless compression method that causes no deterioration in image quality and has a high compression rate. The file size is smaller than when [Uncompressed] is selected. The S size reduces image size and resolution is lower than L."
+    },
+    {
+      "label": "Compressed",
+      "value": "Compressed",
+      "description": "Records images in compressed RAW format. The file size of the image will be approximately half of that with [Uncompressed]."
+    }
+  ],
+  "hint": "The [RAW File Type] icons are displayed as shown below. Uncompressed: Lossless compression L/M/S: Compressed: The aspect ratio for RAW images is always 3:2. JPEG/HEIF images are recorded with the aspect ratio set in [Aspect Ratio] when RAW images and JPEG/HEIF images are recorded at the same time.",
+  "note": "You cannot record RAW images with different formats to Slot 1 and Slot 2. Even when [Recording Media] is set to [Sort Recording], each slot has the same setting for [RAW File Type]."
+}

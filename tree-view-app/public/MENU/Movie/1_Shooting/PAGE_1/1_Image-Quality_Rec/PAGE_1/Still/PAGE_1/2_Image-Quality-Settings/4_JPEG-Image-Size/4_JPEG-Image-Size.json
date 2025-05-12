@@ -1,0 +1,27 @@
+{
+  "menu": "JPEG Image Size",
+  "description": "The larger the image size, the more detail will be reproduced when the image is printed on large-format paper. The smaller the image size, the more images can be recorded.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "L: 54M",
+      "value": "54M",
+      "description": "8448×6336 pixels"
+    },
+    {
+      "label": "M: 23M",
+      "value": "23M",
+      "description": "5552×4160 pixels"
+    },
+    {
+      "label": "S: 13M",
+      "value": "13M",
+      "description": "4224×3168 pixels"
+    }
+  ],
+  "hint": "When recording in the M or S size, the pixel number will not change even if you switch the angle of view between the full-frame size and APS-C size.",
+  "note": "The L size cannot be selected when shooting in the APS-C size. If you shoot in the APS-C size while the L size is selected, the image size will switch to the M size temporarily."
+}

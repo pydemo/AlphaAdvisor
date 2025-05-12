@@ -1,0 +1,90 @@
+{
+  "id": 5,
+  "name": "Drive Mode",
+  "description": "Settings for continuous shooting and self-timer",
+  "type": "submenu",
+  "submenu": {
+    "settings": [
+      {
+        "name": "Drive Mode",
+        "options": ["Single Shooting", "Cont. Shooting Lo", "Cont. Shooting Mid", "Cont. Shooting Hi", "Self-timer 3s", "Self-timer 10s", "Self-timer Cont.", "Bracket Cont."],
+        "description": "Sets the drive mode such as continuous shooting or self-timer"
+      },
+      {
+        "name": "Bracket Settings",
+        "type": "submenu",
+        "description": "Settings for bracketing shots",
+        "submenu": {
+          "settings": [
+            {
+              "name": "Bracket Type",
+              "options": ["Cont. Bracket", "Single Bracket", "WB Bracket", "DRO Bracket"],
+              "description": "Sets the type of bracketing to perform"
+            },
+            {
+              "name": "Self-timer during Bracket",
+              "options": ["2 Sec", "5 Sec", "10 Sec", "Off"],
+              "description": "Sets whether to use the self-timer during bracket shooting"
+            },
+            {
+              "name": "Bracket order",
+              "options": ["0→-→+", "0→+→-"],
+              "description": "Sets the shooting order for exposure bracketing"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Interval Shoot Func.",
+        "type": "submenu",
+        "description": "Settings for interval shooting",
+        "submenu": {
+          "settings": [
+            {
+              "name": "Interval Shooting",
+              "options": ["On", "Off"],
+              "description": "Sets whether to perform interval shooting"
+            },
+            {
+              "name": "Number of Shots",
+              "description": "Sets the number of images to be captured during interval shooting"
+            },
+            {
+              "name": "Shooting Interval",
+              "description": "Sets the shooting interval for interval shooting"
+            },
+            {
+              "name": "AE Tracking Sensitivity",
+              "options": ["High", "Mid", "Low"],
+              "description": "Sets the sensitivity of auto exposure tracking during interval shooting"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Pixel Shift Multi Shoot",
+        "type": "submenu",
+        "description": "Settings for pixel shift multiple shooting",
+        "submenu": {
+          "settings": [
+            {
+              "name": "Pixel Shift Multi Shooting",
+              "options": ["On", "Off"],
+              "description": "Sets whether to perform pixel shift multi shooting"
+            },
+            {
+              "name": "Number of Shots",
+              "options": ["4 Shots", "16 Shots"],
+              "description": "Sets the number of images to capture in pixel shift mode"
+            },
+            {
+              "name": "Shooting Interval",
+              "options": ["0.5 sec", "1.0 sec", "1.5 sec", "2.0 sec"],
+              "description": "Sets the interval for pixel shift shooting"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

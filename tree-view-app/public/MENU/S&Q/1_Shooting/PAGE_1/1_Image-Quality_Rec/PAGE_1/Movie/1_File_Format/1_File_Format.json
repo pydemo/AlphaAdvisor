@@ -1,0 +1,46 @@
+{
+  "menu": "File Format",
+  "description": "Selects the movie file format.",
+  "modes": [
+    "photo",
+    "movie",
+    "s&q"
+  ],
+  "condition": {
+    "mode": ["movie", "s&q"]
+  },
+  "items": [
+    {
+      "label": "XAVC HS 8K",
+      "value": "XAVC HS 8K",
+      "description": "Records 8K movies in the XAVC HS format. The XAVC HS format uses the HEVC codec, which has high compression efficiency. The camera can record movies with higher image quality than XAVC S movies but the same data volume. Long GOP compression is used for movies."
+    },
+    {
+      "label": "XAVC HS 4K",
+      "value": "XAVC HS 4K",
+      "description": "Records 4K movies in the XAVC HS format. The XAVC HS format uses the HEVC codec, which has high compression efficiency. The camera can record movies with higher image quality than XAVC S movies but the same data volume. Long GOP compression is used for movies."
+    },
+    {
+      "label": "XAVC S 4K",
+      "value": "XAVC S 4K",
+      "description": "Records movies in 4K resolution (3840×2160). Long GOP compression is used for movies."
+    },
+    {
+      "label": "XAVC S HD",
+      "value": "XAVC S HD",
+      "description": "Records movies in HD resolution (1920×1080). Long GOP compression is used for movies."
+    },
+    {
+      "label": "XAVC S-I 4K",
+      "value": "XAVC S-I 4K",
+      "description": "Records movies in the XAVC S-I format. The XAVC S-I format uses Intra compression for movies. This format is more suitable for editing than Long GOP compression."
+    },
+    {
+      "label": "XAVC S-I HD",
+      "value": "XAVC S-I HD",
+      "description": "Records movies in the XAVC S-I format. The XAVC S-I format uses Intra compression for movies. This format is more suitable for editing than Long GOP compression."
+    }
+  ],
+  "hint": null,
+  "note": "To play back XAVC HS 4K / XAVC HS 8K movies on a computer, you need a device or software with high processing capability that supports the HEVC codec. When recording 4K 60p/50p or 8K movies, [ Shooting] becomes disabled and locked to [Off]. If an APS-C size dedicated lens is attached, the edges of the screen may appear dark. When recording 4K 60p/50p or 8K movies with this camera, we recommend using a lens compatible with the 35 mm full-frame format. To properly display 8K movies from the camera on a TV manufactured by Sony using a HDMI cable (sold separately), you need to change the image quality settings for the TV manually. Change the image quality settings (gamma or color mode) for the TV according to the settings applied when shooting. When recording 8K movies, image distortion caused by the movement of the subject or the camera may occur."
+}

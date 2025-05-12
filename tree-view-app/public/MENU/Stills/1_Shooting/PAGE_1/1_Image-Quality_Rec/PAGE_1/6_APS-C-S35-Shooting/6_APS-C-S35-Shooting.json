@@ -1,0 +1,28 @@
+{
+  "menu": "APS-C S35 Shooting",
+  "description": "Sets whether or not to record with the angle of view of APS-C for still images and with an angle of view equivalent to Super 35mm for movies. If you select [On] or [Auto], you can use an APS-C size dedicated lens on this product.",
+  "modes": [
+    "photo",
+    "movie", "s&q"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "On",
+      "value": "On",
+      "description": "Records in either APS-C-equivalent size or Super 35mm-equivalent size. When [On] is selected, the angle of view becomes approximately 1.5 times the focal length indicated on the lens."
+    },
+    {
+      "label": "Auto",
+      "value": "Auto",
+      "description": "Automatically sets the capture range according to the lens."
+    },
+    {
+      "label": "Off",
+      "value": "Off",
+      "description": "Always captures 35mm full-frame image sensor pictures."
+    }
+  ],
+  "hint": "",
+  "note": "When you attach an APS-C-compatible lens and set [ Shooting] to [Off], you may not achieve optimal shooting results. For example, the edges of the image may become darker. When [ Shooting] is set to [On], the angle of view is the same as when shooting with an APS-C-size image sensor. [ Shooting] is locked to [Off] when shooting movies in 4K 60p/50p or 8K. We recommend using a lens compatible with the 35 mm full-frame format. When shooting movies in 4K 60p/50p or 8K, the angle of view becomes approximately 1.2 times the focal length indicated on the lens."
+}

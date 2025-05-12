@@ -1,0 +1,26 @@
+{
+  "menu": "JPEG/HEIF Switch",
+  "description": "Switches the file format (JPEG / HEIF) of the still image to be recorded. The JPEG format has general compatibility. You can view and edit JPEG files in various environments. The HEIF format has high compression efficiency. The camera can record with high image quality and small file sizes in the HEIF format. Depending on the computer or software, you may not be able to view or edit HEIF files. In addition, a HEIF-compatible environment is required to play back still images in the HEIF format. You can enjoy high-quality still images by connecting the camera and the TV via HDMI.",
+  "modes": [
+    "photo"
+  ],
+  "items": [
+    {
+      "label": "JPEG",
+      "value": "JPEG",
+      "description": "Performs digital processing on the RAW file and records it in the JPEG format. This setting gives priority to compatibility."
+    },
+    {
+      "label": "HEIF(4:2:0)",
+      "value": "HEIF(4:2:0)",
+      "description": "Performs digital processing on the RAW file and records it in the HEIF (4:2:0) format. This setting gives priority to image quality and compression efficiency."
+    },
+    {
+      "label": "HEIF(4:2:2)",
+      "value": "HEIF(4:2:2)",
+      "description": "Performs digital processing on the RAW file and records it in the HEIF (4:2:2) format. This setting gives priority to image quality."
+    }
+  ],
+  "hint": "Depending on the setting for [JPEG/HEIF Switch], items related to the file format ([File Format], etc.) will switch to JPEG or HEIF.",
+  "note": "HEIF image files recorded with this camera cannot be displayed on other cameras that do not support the HEIF file format. Be careful not to accidentally erase HEIF image files by formatting the memory card or deleting the files. When recording in the HEIF format with [HLG Still Image] set to [Off], the color space is recorded in sRGB. When [HLG Still Image] is set to [On], it is recorded in the BT.2100 color space (BT.2020 color gamut)"
+}

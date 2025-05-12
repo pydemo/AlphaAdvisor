@@ -152,7 +152,34 @@ function App() {
           background: "#fff",
         }}
       >
-        <h2 style={{ marginTop: 0 }}>Directory Tree Viewer</h2>
+        <h2
+          data-element-name="DirectoryTreeViewerTitle"
+          style={{
+            marginTop: 0,
+            outline: elementSelectorMode ? "2.5px dashed #ffb700" : undefined,
+            boxShadow: elementSelectorMode ? "0 0 0 3px #ffe066" : undefined,
+            cursor: elementSelectorMode ? "copy" : undefined,
+            transition: "box-shadow 0.15s, outline 0.15s"
+          }}
+          title={elementSelectorMode ? "Click to copy element name: DirectoryTreeViewerTitle" : undefined}
+          onClick={e => {
+            if (elementSelectorMode) {
+              e.stopPropagation();
+              const refName = "App.tsx:DirectoryTreeViewerTitle";
+              if (navigator.clipboard) {
+                navigator.clipboard.writeText(refName);
+              }
+              // Optionally show a quick feedback
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "#fffbe6";
+              setTimeout(() => {
+                el.style.background = "";
+              }, 350);
+            }
+          }}
+        >
+          Sony Menu Viewer
+        </h2>
         <TreeFilterBar
           filter={filter}
           setFilter={setFilter}

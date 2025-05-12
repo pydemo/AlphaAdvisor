@@ -1,0 +1,29 @@
+{
+  "menu": "Long Exposure NR",
+  "description": "When you set the shutter speed to 1 second(s) or longer (long exposure shooting), noise reduction is turned on for the duration that the shutter is open. With the function turned on, the grainy noise typical of long exposures is reduced.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {
+  "not_available_when": [
+    {
+      "context": "shoot_mode",
+      "value": "intelligent_auto"
+    }
+  ]
+},
+  "items": [
+    {
+      "label": "On",
+      "value": "selected",
+      "description": "Activates noise reduction for the same duration that the shutter is open. When noise reduction is in progress, a message appears and you cannot take another picture. Select this to prioritize the image quality."
+    },
+    {
+      "label": "Off",
+      "value": "unselected",
+      "description": "Does not activate noise reduction. Select this to prioritize the timing of shooting."
+    }
+  ],
+  "hint": "The noise reduction process can be canceled by pressing the shutter button during the process. In this case, processing up to the point of cancellation is applied.",
+  "note": "[Long Exposure NR] is unavailable in the following situations: [Shutter Type] is set to [Electronic Shutter]. [Drive Mode] is set to [Cont. Shooting] or [Cont. Bracket]. [Long Exposure NR] cannot be set to [Off] in the following shooting modes: [Intelligent Auto]"
+}

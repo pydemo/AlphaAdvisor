@@ -1,0 +1,45 @@
+{
+  "menu": "Shooting > Image Quality/Rec",
+  "description": "",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "JPEG/HEIF Switch",
+      "value": "JPEG",
+      "description": ""
+    },
+    {
+      "label": "Image Quality Settings",
+      "value": "1:40M",
+      "description": ""
+    },
+    {
+      "label": "Aspect Ratio",
+      "value": "1:1",
+      "description": ""
+    },
+    {
+      "label": "File Format",
+      "value": "XAVC S HD",
+      "description": ""
+    },
+    {
+      "label": "Movie Settings",
+      "value": "",
+      "description": ""
+    },
+    {
+      "label": "APS-C S35 Shooting",
+      "value": "Off",
+      "description": ""
+    },
+    {
+      "label": "Long Exposure NR",
+      "value": "On",
+      "description": ""
+    }
+  ],
+  "hint": "",
+  "note": ""
+}
