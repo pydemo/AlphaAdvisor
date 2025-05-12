@@ -1,0 +1,27 @@
+{
+  "menu": "Recording Media",
+  "description": "Selects the memory card slot to record movies.",
+  "modes": [
+    "movie"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Slot 1",
+      "value": "selected",
+      "description": "Records movies on the memory card in Slot 1."
+    },
+    {
+      "label": "Slot 2",
+      "value": "",
+      "description": "Records movies on the memory card in Slot 2."
+    },
+    {
+      "label": "Simult. Recording",
+      "value": "",
+      "description": "Simultaneously records movies on the memory cards in Slot 1 and Slot 2."
+    }
+  ],
+  "hint": "In the default settings, [Slot 1] is selected.",
+  "note": "If you want to use one memory card without changing the setting, use Slot 1."
+}

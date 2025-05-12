@@ -1,0 +1,32 @@
+{
+  "menu": "Recording Media",
+  "description": "Selects the memory card slot to record still images.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Slot 1",
+      "value": "selected",
+      "description": "Records still images on the memory card in Slot 1."
+    },
+    {
+      "label": "Slot 2",
+      "value": "not selected",
+      "description": "Records still images on the memory card in Slot 2."
+    },
+    {
+      "label": "Simult. Recording",
+      "value": "not selected",
+      "description": "Simultaneously records still images on the memory cards in Slot 1 and Slot 2."
+    },
+    {
+      "label": "Sort Recording",
+      "value": "not selected",
+      "description": "Records still images with different file formats and image sizes by sorting them to different slots."
+    }
+  ],
+  "hint": "Set the file format and image size of still images for each slot.",
+  "note": "In the default settings, [Slot 1] is selected. If you want to use one memory card without changing the setting, use Slot 1."
+}

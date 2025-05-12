@@ -390,12 +390,48 @@
                                   "name": "2_Rec-Media-Settings",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings",
                                   "type": "directory",
-                                  "children": []
-                                },
-                                {
-                                  "name": "2_media.json",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_media.json",
-                                  "type": "file"
+                                  "children": [
+                                    {
+                                      "name": "1_Stills-Recording-Media",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/1_Stills-Recording-Media",
+                                      "type": "directory",
+                                      "children": [
+                                        {
+                                          "name": "1_Stills-Recording-Media.json",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/1_Stills-Recording-Media/1_Stills-Recording-Media.json",
+                                          "type": "file"
+                                        },
+                                        {
+                                          "name": "1_Stills-Recording-Media.png",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/1_Stills-Recording-Media/1_Stills-Recording-Media.png",
+                                          "type": "file"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "name": "2_Movies-Recording-Media",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/2_Movies-Recording-Media",
+                                      "type": "directory",
+                                      "children": [
+                                        {
+                                          "name": "2_Movies-Recording-Media.json",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/2_Movies-Recording-Media/2_Movies-Recording-Media.json",
+                                          "type": "file"
+                                        },
+                                        {
+                                          "name": "2_Movies-Recording-Media.png",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/2_Movies-Recording-Media/2_Movies-Recording-Media.png",
+                                          "type": "file"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "name": "3_Auto-Switch-Media",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/3_Auto-Switch-Media",
+                                      "type": "directory",
+                                      "children": []
+                                    }
+                                  ]
                                 },
                                 {
                                   "name": "3_Recover-Image-DB",
