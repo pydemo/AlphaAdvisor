@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ConversionTab from "./ConversionTab";
+import NoImageChat from "./NoImageChat";
 
 type TabType = "Conversion" | "No Image" | "General";
 
@@ -30,6 +31,19 @@ const MessageTabsAndSendButton: React.FC<MessageTabsAndSendButtonProps> = ({
 }) => {
   // State for No Image tab
   const [noImageInput, setNoImageInput] = useState("");
+  const [generalInputLocal, setGeneralInputLocal] = useState("");
+
+  // Set default message for No Image and General tabs on tab change
+  React.useEffect(() => {
+    if (tab === "No Image" && noImageInput === "") {
+      setNoImageInput("Default No Image");
+    }
+    if (tab === "General" && generalInputLocal === "") {
+      setGeneralInputLocal("Default General");
+    }
+    // Conversion handled by parent
+    // eslint-disable-next-line
+  }, [tab]);
   const handleNoImageSend = () => {
     // You can customize this handler as needed
     // For now, just alert or do nothing
@@ -154,17 +168,26 @@ const MessageTabsAndSendButton: React.FC<MessageTabsAndSendButtonProps> = ({
           handleTextareaKeyDown={handleTextareaKeyDown}
         />
       ) : tab === "No Image" ? (
-        <ConversionTab
+        <NoImageChat
           input={noImageInput}
           setInput={setNoImageInput}
-          handleSend={handleNoImageSend}
-          handleTextareaKeyDown={handleNoImageKeyDown}
+          onSendMessage={(text: string) => {
+            // Echo logic: add user message and then bot echo message
+            if (typeof window !== "undefined" && window.dispatchEvent) {
+              // Custom event to bubble up to parent (Chat/App)
+              const event = new CustomEvent("noImageChatSend", { detail: { text } });
+              window.dispatchEvent(event);
+            }
+          }}
         />
       ) : (
         <div style={{ display: "flex" }}>
           <textarea
-            value={generalInput}
-            onChange={(e) => setGeneralInput(e.target.value)}
+            value={generalInputLocal}
+            onChange={(e) => {
+              setGeneralInputLocal(e.target.value);
+              setGeneralInput(e.target.value);
+            }}
             onKeyDown={e => {
               if (
                 e.key === "Enter" &&

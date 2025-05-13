@@ -51,7 +51,15 @@ function App() {
   const [filter, setFilter] = useState("");
   const [search, setSearch] = useState("");
   const [selectedObjects, setSelectedObjects] = useState<{ name: string; path: string }[]>([]);
-  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+  const [chatMessages, setChatMessages] = useState<{
+    Conversion: ChatMessage[];
+    "No Image": ChatMessage[];
+    General: ChatMessage[];
+  }>({
+    Conversion: [],
+    "No Image": [],
+    General: [],
+  });
   const [expandAllSignal, setExpandAllSignal] = useState(0);
   const [collapseAllSignal, setCollapseAllSignal] = useState(0);
   type TabType = "Conversion" | "No Image" | "General";
@@ -121,52 +129,105 @@ function App() {
       return [...prev, { name: node.name, path: node.path }];
     });
     setChatMessages((prev) => {
+      const currentTab = tab;
+      const prevTabMessages = prev[currentTab];
+      let newTabMessages: ChatMessage[];
       if (selectedObjects.some((obj) => obj.path === node.path)) {
         // Deselect message
-        return [
-          ...prev,
+        newTabMessages = [
+          ...prevTabMessages,
           { text: `Deselected file: ${node.path}`, from: "log" },
         ];
-      }
-      // Select message
-      const newMessages: ChatMessage[] = [
-        ...prev,
-        { text: `Selected file: ${node.path}`, from: "log" as const },
-      ];
-      if (/\.(png|jpe?g)$/i.test(node.path)) {
-        // Use the actual file path for the image source
-        let imgSrc;
-        if (node.path.includes('/MENU')) {
-          imgSrc = `/MENU${node.path.split('/MENU')[1]}`;
-        } else {
-          imgSrc = `/${node.path.replace(/^(\.\/|\/)/, '')}`;
+      } else {
+        // Select message
+        newTabMessages = [
+          ...prevTabMessages,
+          { text: `Selected file: ${node.path}`, from: "log" as const },
+        ];
+        if (/\.(png|jpe?g)$/i.test(node.path)) {
+          // Use the actual file path for the image source
+          let imgSrc;
+          if (node.path.includes('/MENU')) {
+            imgSrc = `/MENU${node.path.split('/MENU')[1]}`;
+          } else {
+            imgSrc = `/${node.path.replace(/^(\.\/|\/)/, '')}`;
+          }
+          newTabMessages.push({
+            text: `<img src="${imgSrc}" alt="${node.name}" style="width:256px;max-width:100%;border-radius:4px;border:1px solid #ccc;margin-top:4px;" />`,
+            from: "bot" as const
+          });
         }
-        newMessages.push({
-          text: `<img src="${imgSrc}" alt="${node.name}" style="width:256px;max-width:100%;border-radius:4px;border:1px solid #ccc;margin-top:4px;" />`,
-          from: "bot" as const
-        });
       }
-      return newMessages;
+      return {
+        ...prev,
+        [currentTab]: newTabMessages,
+      };
     });
   };
 
-  // Called when user sends a chat message
+  // Per-tab input state
+  const [conversionInput, setConversionInput] = useState(
+    `Convert this menu screenshot of Sony 'a7rV' to json including brief 
+    description of each menu option.`
+  );
+  const [noImageInput, setNoImageInput] = useState("");
+  const [generalInput, setGeneralInput] = useState("");
+
+  // Called when user sends a chat message for the current tab
   const handleSendMessage = (text: string) => {
-    setChatMessages((prev) => [...prev, { text, from: "user" }]);
+    setChatMessages((prev) => ({
+      ...prev,
+      [tab]: [
+        ...prev[tab],
+        { text, from: "user" }
+      ]
+    }));
     // Capture selected files/dirs at the time of sending
     const selectedList = selectedObjects.map(obj => obj.path).join("\n");
     setTimeout(() => {
-      setChatMessages((prev) => [
+      setChatMessages((prev) => ({
         ...prev,
-        {
-          text:
-            selectedList
-              ? `Echo:\n${selectedList}\n${text}`
-              : `Echo:\n${text}`,
-          from: "bot"
-        }
-      ]);
+        [tab]: [
+          ...prev[tab],
+          {
+            text:
+              selectedList
+                ? `Echo:\n${selectedList}\n${text}`
+                : `Echo:\n${text}`,
+            from: "bot"
+          }
+        ]
+      }));
     }, 500);
+  };
+
+  // Per-tab send handlers for MessageTabsAndSendButton
+  const handleSend = () => {
+    if (conversionInput.trim() === "") return;
+    handleSendMessage(conversionInput);
+  };
+  const handleNoImageSend = () => {
+    if (noImageInput.trim() === "") return;
+    handleSendMessage(noImageInput);
+  };
+  const handleGeneralSend = () => {
+    if (generalInput.trim() === "") return;
+    handleSendMessage(generalInput);
+  };
+
+  // Handler for textarea keydown
+  const handleTextareaKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (
+      e.key === "Enter" &&
+      !e.shiftKey &&
+      !e.ctrlKey &&
+      !e.altKey &&
+      !e.metaKey
+    ) {
+      e.preventDefault();
+      handleSend();
+    }
+    // If any modifier is pressed, allow default (insert newline)
   };
 
   return (
@@ -348,17 +409,21 @@ function App() {
         }}
       >
         <Chat
-          messages={chatMessages}
+          messages={chatMessages[tab]}
           onSendMessage={handleSendMessage}
           onReplaceLastBotMessage={(text: string) => {
             setChatMessages((prev) => {
-              // Find last bot message
-              const idx = [...prev].reverse().findIndex(m => m.from === "bot");
+              const tabMessages = prev[tab];
+              // Find last bot message in this tab
+              const idx = [...tabMessages].reverse().findIndex(m => m.from === "bot");
               if (idx === -1) return prev;
-              const realIdx = prev.length - 1 - idx;
-              const newMessages = [...prev];
-              newMessages[realIdx] = { text, from: "bot" };
-              return newMessages;
+              const realIdx = tabMessages.length - 1 - idx;
+              const newTabMessages = [...tabMessages];
+              newTabMessages[realIdx] = { text, from: "bot" };
+              return {
+                ...prev,
+                [tab]: newTabMessages
+              };
             });
           }}
           tab={tab}
@@ -377,6 +442,17 @@ function App() {
               });
             }
           }}
+          // Pass per-tab input state and handlers
+          conversionInput={conversionInput}
+          setConversionInput={setConversionInput}
+          noImageInput={noImageInput}
+          setNoImageInput={setNoImageInput}
+          generalInput={generalInput}
+          setGeneralInput={setGeneralInput}
+          handleSend={handleSend}
+          handleNoImageSend={handleNoImageSend}
+          handleGeneralSend={handleGeneralSend}
+          handleTextareaKeyDown={handleTextareaKeyDown}
         />
       </div>
     {/* Selector mode popover (shared) */}
@@ -407,8 +483,60 @@ function App() {
               whiteSpace: "nowrap"
             }}
             onClick={() => {
+              // Map object to true code location
+              const objectToRegion: Record<string, string> = {
+                // MessageTabsAndSendButton
+                "SendButton": "MessageTabsAndSendButton.tsx:MessageTabsAndSendButton",
+                "ConversionTab": "MessageTabsAndSendButton.tsx:MessageTabsAndSendButton",
+                "NoImageTab": "MessageTabsAndSendButton.tsx:MessageTabsAndSendButton",
+                "GeneralTab": "MessageTabsAndSendButton.tsx:MessageTabsAndSendButton",
+                "MessageTabsAndSendButton: Tab Bar": "MessageTabsAndSendButton.tsx:MessageTabsAndSendButton",
+                // TreeView
+                "TreeView: Directory Tree": "TreeView.tsx:TreeView",
+                "TreeNode: File/Folder Node": "TreeView.tsx:TreeView",
+                "ExpandCollapseButton": "TreeView.tsx:TreeView",
+                "InfoButton": "TreeView.tsx:TreeView",
+                "JsonButton": "TreeView.tsx:TreeView",
+                // TreeFilterBar
+                "TreeFilterBar: Filter Controls": "TreeFilterBar.tsx:TreeFilterBar",
+                "FilterInput": "TreeFilterBar.tsx:TreeFilterBar",
+                "ResetButton": "TreeFilterBar.tsx:TreeFilterBar",
+                "ExpandAllButton": "TreeFilterBar.tsx:TreeFilterBar",
+                "CollapseAllButton": "TreeFilterBar.tsx:TreeFilterBar",
+                "RefreshButton": "TreeFilterBar.tsx:TreeFilterBar",
+                // Chat
+                "Chat: Message Feed": "Chat.tsx:Chat",
+                "MessageInput": "Chat.tsx:Chat",
+                "MessageBubble": "Chat.tsx:Chat",
+                // Title
+                "DirectoryTreeViewerTitle: Title": "App.tsx:DirectoryTreeViewerTitle"
+              };
+              let regionId = objectToRegion[obj];
+              if (!regionId) {
+                // fallback to region
+                switch (selectorPopover.region) {
+                  case "TreeView":
+                    regionId = "TreeView.tsx:TreeView";
+                    break;
+                  case "Chat":
+                    regionId = "Chat.tsx:Chat";
+                    break;
+                  case "TreeFilterBar":
+                    regionId = "TreeFilterBar.tsx:TreeFilterBar";
+                    break;
+                  case "DirectoryTreeViewerTitle":
+                    regionId = "App.tsx:DirectoryTreeViewerTitle";
+                    break;
+                  case "MessageTabsAndSendButton":
+                    regionId = "MessageTabsAndSendButton.tsx:MessageTabsAndSendButton";
+                    break;
+                  default:
+                    regionId = selectorPopover.region;
+                }
+              }
+              const fullId = `${regionId}:${obj}`;
               if (navigator.clipboard) {
-                navigator.clipboard.writeText(obj);
+                navigator.clipboard.writeText(fullId);
               }
               setSelectorPopover(null);
             }}

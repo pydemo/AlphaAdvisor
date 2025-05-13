@@ -25,11 +25,23 @@ interface ChatPropsWithSetTab extends ChatProps {
   saveAppState?: () => void;
   elementSelectorMode?: boolean; // DEV: highlight/copy element name
   onContextMenu?: (e: React.MouseEvent) => void;
+
+  // Per-tab input state and handlers
+  conversionInput: string;
+  setConversionInput: React.Dispatch<React.SetStateAction<string>>;
+  noImageInput: string;
+  setNoImageInput: React.Dispatch<React.SetStateAction<string>>;
+  generalInput: string;
+  setGeneralInput: React.Dispatch<React.SetStateAction<string>>;
+  handleSend: () => void;
+  handleNoImageSend: () => void;
+  handleGeneralSend: () => void;
+  handleTextareaKeyDown: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void;
 }
 
 const Chat: React.FC<ChatPropsWithSetTab> = ({
   messages,
-  onSendMessage,
+  onSendMessage: _onSendMessage,
   onReplaceLastBotMessage,
   tab,
   setTab,
@@ -37,47 +49,38 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
   saveAppState,
   elementSelectorMode = false,
   onContextMenu,
+  conversionInput,
+  setConversionInput,
+  noImageInput,
+  setNoImageInput,
+  generalInput,
+  setGeneralInput,
+  handleSend,
+  handleNoImageSend,
+  handleGeneralSend,
+  handleTextareaKeyDown,
 }) => {
+  // No internal per-tab chat histories; use props.messages and props.onSendMessage
+
+  // Listen for NoImageChat send event to add echo message to No Image tab only
+  React.useEffect(() => {
+    function handleNoImageChatSend(e: any) {
+      const text = e.detail?.text || "";
+      if (!text) return;
+      if (tab === "No Image") {
+        _onSendMessage(text);
+      }
+    }
+    window.addEventListener("noImageChatSend", handleNoImageChatSend as EventListener);
+    return () => {
+      window.removeEventListener("noImageChatSend", handleNoImageChatSend as EventListener);
+    };
+  }, [tab, _onSendMessage]);
   // Map of message index to { json: string, show: boolean }
   const [jsonResults, setJsonResults] = useState<{ [idx: number]: { json: string; show: boolean } }>({});
-  const [input, setInput] = useState(`Convert this menu screenshot of Sony 'a7rV' to json including brief 
-    description of each menu option.`
+  // Per-tab input state and send handlers should be managed at a higher level or passed as props
 
-  );
-  const [generalInput, setGeneralInput] = useState("");
-
-  const handleSend = () => {
-    if (input.trim() === "") return;
-    onSendMessage(input);
-    // Do not clear input after sending
-    // setInput("");
-  };
-
-  const handleGeneralSend = () => {
-    if (generalInput.trim() === "") return;
-    onSendMessage(generalInput);
-    // Do not clear input after sending
-    // setGeneralInput("");
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") handleSend();
-  };
-
-  // Handler for textarea keydown
-  const handleTextareaKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (
-      e.key === "Enter" &&
-      !e.shiftKey &&
-      !e.ctrlKey &&
-      !e.altKey &&
-      !e.metaKey
-    ) {
-      e.preventDefault();
-      handleSend();
-    }
-    // If any modifier is pressed, allow default (insert newline)
-  };
+  // No local handleTextareaKeyDown; use the prop version everywhere
 
   // Ref for chat feed container
   const chatFeedRef = useRef<HTMLDivElement>(null);
@@ -274,6 +277,8 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
       }
     }
   };
+
+  // Use props.messages and props.onSendMessage directly
 
   return (
     <div
@@ -885,7 +890,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                           headers: { "Content-Type": "application/json" },
                           body: JSON.stringify({
                             target_path: imagePath,
-                            user_message: tab === "General" ? generalInput : input
+                            user_message: tab === "General" ? generalInput : conversionInput
                           }),
                           signal
                         });
@@ -1380,8 +1385,8 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
       <MessageTabsAndSendButton
         tab={tab}
         setTab={setTab}
-        input={input}
-        setInput={setInput}
+        input={conversionInput}
+        setInput={setConversionInput}
         generalInput={generalInput}
         setGeneralInput={setGeneralInput}
         handleSend={handleSend}
