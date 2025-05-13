@@ -18,6 +18,7 @@ type TreeViewProps = {
   initialExpandedPaths?: string[];
   onExpandedChange?: (expandedPaths: string[]) => void;
   elementSelectorMode?: boolean; // DEV: highlight/copy element name
+  onContextMenu?: (e: React.MouseEvent) => void;
 };
 
 const TreeView: React.FC<TreeViewProps> = ({
@@ -31,7 +32,23 @@ const TreeView: React.FC<TreeViewProps> = ({
   initialExpandedPaths,
   onExpandedChange,
   elementSelectorMode = false,
+  onContextMenu,
 }) => {
+  // Popover state for selector mode
+  const [selectorPopover, setSelectorPopover] = useState<{
+    open: boolean;
+    x: number;
+    y: number;
+  } | null>(null);
+
+  // Example objects for TreeView region
+  const selectorObjects = [
+    "TreeView: Directory Tree",
+    "TreeNode: File/Folder Node",
+    "ExpandCollapseButton",
+    "InfoButton",
+    "JsonButton"
+  ];
   const [tree, setTree] = useState<TreeNode | null>(null);
   // Initialize expanded state from localStorage or initialExpandedPaths
   const [expanded, setExpanded] = useState<Set<string>>(() => {
@@ -554,8 +571,61 @@ const TreeView: React.FC<TreeViewProps> = ({
           }, 350);
         }
       }}
+      onContextMenu={onContextMenu}
     >
       {renderTree(filteredTree)}
+      {/* Selector mode popover */}
+      {elementSelectorMode && selectorPopover?.open && (
+        <div
+          style={{
+            position: "fixed",
+            top: selectorPopover.y,
+            left: selectorPopover.x,
+            zIndex: 9999,
+            background: "#fff",
+            border: "1.5px solid #007bff",
+            borderRadius: 6,
+            boxShadow: "0 2px 12px rgba(0,0,0,0.18)",
+            padding: "8px 0",
+            minWidth: 180
+          }}
+          onClick={e => e.stopPropagation()}
+        >
+          {selectorObjects.map(obj => (
+            <div
+              key={obj}
+              style={{
+                padding: "6px 18px",
+                cursor: "pointer",
+                fontSize: 15,
+                color: "#0074d9",
+                whiteSpace: "nowrap"
+              }}
+              onClick={() => {
+                if (navigator.clipboard) {
+                  navigator.clipboard.writeText(obj);
+                }
+                setSelectorPopover(null);
+              }}
+              onMouseDown={e => e.stopPropagation()}
+              onContextMenu={e => e.preventDefault()}
+            >
+              {obj}
+            </div>
+          ))}
+          <div
+            style={{
+              padding: "6px 18px",
+              color: "#888",
+              fontSize: 13,
+              cursor: "pointer"
+            }}
+            onClick={() => setSelectorPopover(null)}
+          >
+            Cancel
+          </div>
+        </div>
+      )}
       {/* Popup for creating new dir under MENU section */}
       {createMenuDir.open && (
         <div

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import ConversionTab from "./ConversionTab";
 
+type TabType = "Conversion" | "No Image" | "General";
+
 type MessageTabsAndSendButtonProps = {
-  tab: "Conversion" | "General";
-  setTab: (tab: "Conversion" | "General") => void;
+  tab: TabType;
+  setTab: (tab: TabType) => void;
   input: string;
   setInput: (input: string) => void;
   generalInput: string;
@@ -25,7 +27,28 @@ const MessageTabsAndSendButton: React.FC<MessageTabsAndSendButtonProps> = ({
   handleGeneralSend,
   handleTextareaKeyDown,
   elementSelectorMode = false,
-}) => (
+}) => {
+  // State for No Image tab
+  const [noImageInput, setNoImageInput] = useState("");
+  const handleNoImageSend = () => {
+    // You can customize this handler as needed
+    // For now, just alert or do nothing
+    // alert("No Image Send: " + noImageInput);
+  };
+  const handleNoImageKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (
+      e.key === "Enter" &&
+      !e.shiftKey &&
+      !e.ctrlKey &&
+      !e.altKey &&
+      !e.metaKey
+    ) {
+      e.preventDefault();
+      handleNoImageSend();
+    }
+  };
+
+  return (
   <div
     data-element-name="MessageTabsAndSendButton"
     style={{
@@ -83,6 +106,23 @@ const MessageTabsAndSendButton: React.FC<MessageTabsAndSendButtonProps> = ({
           padding: "8px 24px",
           borderTopLeftRadius: 8,
           borderTopRightRadius: 8,
+          background: tab === "No Image" ? "#fff" : "#f3f3f3",
+          border: "1px solid #ccc",
+          borderBottom: tab === "No Image" ? "none" : "1px solid #ccc",
+          fontWeight: 600,
+          color: tab === "No Image" ? "#007bff" : "#555",
+          cursor: tab === "No Image" ? "default" : "pointer",
+          marginRight: 4,
+        }}
+        onClick={() => setTab("No Image")}
+      >
+        No Image
+      </div>
+      <div
+        style={{
+          padding: "8px 24px",
+          borderTopLeftRadius: 8,
+          borderTopRightRadius: 8,
           background: tab === "General" ? "#fff" : "#f3f3f3",
           border: "1px solid #ccc",
           borderBottom: tab === "General" ? "none" : "1px solid #ccc",
@@ -112,6 +152,13 @@ const MessageTabsAndSendButton: React.FC<MessageTabsAndSendButtonProps> = ({
           setInput={setInput}
           handleSend={handleSend}
           handleTextareaKeyDown={handleTextareaKeyDown}
+        />
+      ) : tab === "No Image" ? (
+        <ConversionTab
+          input={noImageInput}
+          setInput={setNoImageInput}
+          handleSend={handleNoImageSend}
+          handleTextareaKeyDown={handleNoImageKeyDown}
         />
       ) : (
         <div style={{ display: "flex" }}>
@@ -161,6 +208,7 @@ const MessageTabsAndSendButton: React.FC<MessageTabsAndSendButtonProps> = ({
       )}
     </div>
   </div>
-);
+  );
+};
 
 export default MessageTabsAndSendButton;

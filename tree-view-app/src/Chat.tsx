@@ -15,14 +15,16 @@ type PreviewContent =
   | { type: "json+image"; json: string; imageSrc: string; imageAlt: string }
   | null;
 
-type SetTab = (tab: "Conversion" | "General") => void;
+type TabType = "Conversion" | "No Image" | "General";
+type SetTab = (tab: TabType) => void;
 
 interface ChatPropsWithSetTab extends ChatProps {
-  tab: "Conversion" | "General";
+  tab: TabType;
   setTab: SetTab;
   setTabExternal?: SetTab;
   saveAppState?: () => void;
   elementSelectorMode?: boolean; // DEV: highlight/copy element name
+  onContextMenu?: (e: React.MouseEvent) => void;
 }
 
 const Chat: React.FC<ChatPropsWithSetTab> = ({
@@ -34,6 +36,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
   setTabExternal,
   saveAppState,
   elementSelectorMode = false,
+  onContextMenu,
 }) => {
   // Map of message index to { json: string, show: boolean }
   const [jsonResults, setJsonResults] = useState<{ [idx: number]: { json: string; show: boolean } }>({});
@@ -305,6 +308,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
           }, 350);
         }
       }}
+      onContextMenu={onContextMenu}
     >
       <div
         ref={chatFeedRef}

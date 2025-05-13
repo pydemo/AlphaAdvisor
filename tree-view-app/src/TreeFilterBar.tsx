@@ -9,6 +9,7 @@ type TreeFilterBarProps = {
   onRefresh: () => void;
   elementSelectorMode?: boolean;
   onToggleSelectorMode?: () => void;
+  onContextMenu?: (e: React.MouseEvent) => void;
 };
 
 const TreeFilterBar: React.FC<TreeFilterBarProps> = ({
@@ -20,6 +21,7 @@ const TreeFilterBar: React.FC<TreeFilterBarProps> = ({
   onRefresh,
   elementSelectorMode = false,
   onToggleSelectorMode,
+  onContextMenu,
 }) => (
   <div
     data-element-name="TreeFilterBar"
@@ -47,6 +49,7 @@ const TreeFilterBar: React.FC<TreeFilterBarProps> = ({
         }, 350);
       }
     }}
+    onContextMenu={onContextMenu}
   >
     {/* First row: filter, reset, refresh, selector toggle */}
     <div style={{ display: "flex", alignItems: "center", flexWrap: "nowrap" }}>

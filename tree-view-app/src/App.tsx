@@ -7,13 +7,55 @@ import TreeFilterBar from "./TreeFilterBar";
 type ChatMessage = { text: string; from: "user" | "bot" | "log" };
 
 function App() {
+  // Popover state for selector mode (shared across regions)
+  const [selectorPopover, setSelectorPopover] = useState<{
+    open: boolean;
+    x: number;
+    y: number;
+    region: string;
+  } | null>(null);
+
+  // Example objects for each region
+  const selectorObjectsMap: Record<string, string[]> = {
+    TreeView: [
+      "TreeView: Directory Tree",
+      "TreeNode: File/Folder Node",
+      "ExpandCollapseButton",
+      "InfoButton",
+      "JsonButton"
+    ],
+    Chat: [
+      "Chat: Message Feed",
+      "MessageInput",
+      "SendButton",
+      "MessageBubble"
+    ],
+    TreeFilterBar: [
+      "TreeFilterBar: Filter Controls",
+      "FilterInput",
+      "ResetButton",
+      "ExpandAllButton",
+      "CollapseAllButton",
+      "RefreshButton"
+    ],
+    DirectoryTreeViewerTitle: [
+      "DirectoryTreeViewerTitle: Title"
+    ],
+    MessageTabsAndSendButton: [
+      "MessageTabsAndSendButton: Tab Bar",
+      "ConversionTab",
+      "NoImageTab",
+      "GeneralTab"
+    ]
+  };
   const [filter, setFilter] = useState("");
   const [search, setSearch] = useState("");
   const [selectedObjects, setSelectedObjects] = useState<{ name: string; path: string }[]>([]);
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [expandAllSignal, setExpandAllSignal] = useState(0);
   const [collapseAllSignal, setCollapseAllSignal] = useState(0);
-  const [tab, setTab] = useState<"Conversion" | "General">("Conversion");
+  type TabType = "Conversion" | "No Image" | "General";
+  const [tab, setTab] = useState<TabType>("Conversion");
   const [expandedPaths, setExpandedPaths] = useState<string[]>([]);
   // Element selector mode for development
   const [elementSelectorMode, setElementSelectorMode] = useState(false);
@@ -177,6 +219,17 @@ function App() {
               }, 350);
             }
           }}
+          onContextMenu={e => {
+            if (elementSelectorMode) {
+              e.preventDefault();
+              setSelectorPopover({
+                open: true,
+                x: e.clientX,
+                y: e.clientY,
+                region: "DirectoryTreeViewerTitle"
+              });
+            }
+          }}
         >
           Sony Menu Viewer
         </h2>
@@ -192,6 +245,17 @@ function App() {
           }}
           elementSelectorMode={elementSelectorMode}
           onToggleSelectorMode={() => setElementSelectorMode(v => !v)}
+          onContextMenu={e => {
+            if (elementSelectorMode) {
+              e.preventDefault();
+              setSelectorPopover({
+                open: true,
+                x: e.clientX,
+                y: e.clientY,
+                region: "TreeFilterBar"
+              });
+            }
+          }}
         />
         <div style={{ flex: 1, minHeight: 0, overflowY: "auto" }}>
           <TreeView
@@ -205,6 +269,17 @@ function App() {
             initialExpandedPaths={expandedPaths}
             onExpandedChange={setExpandedPaths}
             elementSelectorMode={elementSelectorMode}
+            onContextMenu={e => {
+              if (elementSelectorMode) {
+                e.preventDefault();
+                setSelectorPopover({
+                  open: true,
+                  x: e.clientX,
+                  y: e.clientY,
+                  region: "TreeView"
+                });
+              }
+            }}
           />
         </div>
         {/* Optionally, show selected objects */}
@@ -291,8 +366,71 @@ function App() {
           setTabExternal={setTab}
           saveAppState={saveAppState}
           elementSelectorMode={elementSelectorMode}
+          onContextMenu={e => {
+            if (elementSelectorMode) {
+              e.preventDefault();
+              setSelectorPopover({
+                open: true,
+                x: e.clientX,
+                y: e.clientY,
+                region: "Chat"
+              });
+            }
+          }}
         />
       </div>
+    {/* Selector mode popover (shared) */}
+    {elementSelectorMode && selectorPopover?.open && (
+      <div
+        style={{
+          position: "fixed",
+          top: selectorPopover.y,
+          left: selectorPopover.x,
+          zIndex: 9999,
+          background: "#fff",
+          border: "1.5px solid #007bff",
+          borderRadius: 6,
+          boxShadow: "0 2px 12px rgba(0,0,0,0.18)",
+          padding: "8px 0",
+          minWidth: 180
+        }}
+        onClick={e => e.stopPropagation()}
+      >
+        {(selectorObjectsMap[selectorPopover.region] || []).map(obj => (
+          <div
+            key={obj}
+            style={{
+              padding: "6px 18px",
+              cursor: "pointer",
+              fontSize: 15,
+              color: "#0074d9",
+              whiteSpace: "nowrap"
+            }}
+            onClick={() => {
+              if (navigator.clipboard) {
+                navigator.clipboard.writeText(obj);
+              }
+              setSelectorPopover(null);
+            }}
+            onMouseDown={e => e.stopPropagation()}
+            onContextMenu={e => e.preventDefault()}
+          >
+            {obj}
+          </div>
+        ))}
+        <div
+          style={{
+            padding: "6px 18px",
+            color: "#888",
+            fontSize: 13,
+            cursor: "pointer"
+          }}
+          onClick={() => setSelectorPopover(null)}
+        >
+          Cancel
+        </div>
+      </div>
+    )}
     </div>
   );
 }
