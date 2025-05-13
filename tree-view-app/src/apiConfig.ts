@@ -15,7 +15,7 @@ export const apiConfig: ApiConfig = {
   },
   "No Image": {
     "Ask ChatGPT": "/api/ask-chatgpt",
-    Streamed: "/api/ask-chatgpt_streamed",
+    Streamed: "/api/ask-chatgpt_streamed_noimage",
   },
   General: {
     "Ask ChatGPT": "/api/ask-chatgpt",
