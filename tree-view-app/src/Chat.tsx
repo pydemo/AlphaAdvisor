@@ -870,25 +870,72 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                     }}
                     disabled={streamedLoadingIdx !== null}
                     onClick={async () => {
-                      // Extract image path from Echo message
+                      // For "No Image" tab, do not require image path
+                      if (tab === "No Image") {
+                        setStreamedLoadingIdx(i);
+                        setStreamedContent("");
+                        try {
+                          const controller = new AbortController();
+                          const signal = controller.signal;
+                          const endpoint = apiConfig[tab]?.["Streamed"] || "/api/ask-chatgpt_streamed_noimage";
+                          const response = await fetch(endpoint, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                              user_message: noImageInput || generalInput || conversionInput
+                            }),
+                            signal
+                          });
+                          if (!response.ok) {
+                            const errorData = await response.json();
+                            throw new Error(errorData.error || "Unknown error");
+                          }
+                          const reader = response.body?.getReader();
+                          if (!reader) throw new Error("Failed to get stream reader");
+                          let accumulatedContent = "";
+                          while (true) {
+                            const { done, value } = await reader.read();
+                            if (done) break;
+                            const chunk = new TextDecoder().decode(value);
+                            accumulatedContent += chunk;
+                            setStreamedContent(accumulatedContent);
+                          }
+                          if (typeof onReplaceLastBotMessage === "function") {
+                            try {
+                              let contentToFormat = accumulatedContent;
+                              const codeBlockMatch = contentToFormat.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
+                              if (codeBlockMatch) contentToFormat = codeBlockMatch[1];
+                              const parsed = JSON.parse(contentToFormat);
+                              if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
+                                onReplaceLastBotMessage("__JSON_FROM_STREAM__" + JSON.stringify(parsed, null, 2));
+                              } else {
+                                onReplaceLastBotMessage(accumulatedContent);
+                              }
+                            } catch (err) {
+                              onReplaceLastBotMessage(accumulatedContent);
+                            }
+                          }
+                        } catch (err) {
+                          console.error("Streaming error:", err);
+                          alert("Streaming failed: " + err);
+                        } finally {
+                          setStreamedLoadingIdx(null);
+                          setStreamedContent("");
+                        }
+                        return;
+                      }
+                      // Default: require image path for other tabs
                       const match = msg.text.match(/(?:^Echo:\s*)?((?:.*\.(?:png|jpg|jpeg))(?:\n|$))/im);
                       const imagePath = match ? match[1].trim() : null;
                       if (!imagePath) {
                         alert("No image path found in Echo message.");
                         return;
                       }
-                      
-                      // Set loading state
                       setStreamedLoadingIdx(i);
                       setStreamedContent("");
-                      
                       try {
-                        // Create a new AbortController to allow cancelling the fetch
                         const controller = new AbortController();
                         const signal = controller.signal;
-                        
-                        // Start the fetch with streaming
-                        // Use global config for endpoint
                         const endpoint = apiConfig[tab]?.["Streamed"] || "/api/ask-chatgpt_streamed";
                         const response = await fetch(endpoint, {
                           method: "POST",
@@ -899,54 +946,36 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                           }),
                           signal
                         });
-                        
                         if (!response.ok) {
                           const errorData = await response.json();
                           throw new Error(errorData.error || "Unknown error");
                         }
-                        
-                        // Process the stream
                         const reader = response.body?.getReader();
                         if (!reader) {
                           throw new Error("Failed to get stream reader");
                         }
-                        
-                        // Read the stream
                         let accumulatedContent = "";
                         while (true) {
                           const { done, value } = await reader.read();
                           if (done) break;
-                          
-                          // Convert the chunk to text
                           const chunk = new TextDecoder().decode(value);
                           accumulatedContent += chunk;
-                          
-                          // Update the UI with the accumulated content
                           setStreamedContent(accumulatedContent);
                         }
-                        
-                        // When stream is complete, replace the last bot message
                         if (typeof onReplaceLastBotMessage === "function") {
-                          // Try to parse and format the content as JSON before replacing
                           try {
-                            // Check if the content is wrapped in code block
                             let contentToFormat = accumulatedContent;
                             const codeBlockMatch = contentToFormat.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
                             if (codeBlockMatch) {
                               contentToFormat = codeBlockMatch[1];
                             }
-                            
-                            // Try to parse as JSON
                             const parsed = JSON.parse(contentToFormat);
                             if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
-                              // If it's valid JSON, replace with the pretty-printed version and add the special marker
                               onReplaceLastBotMessage("__JSON_FROM_STREAM__" + JSON.stringify(parsed, null, 2));
                             } else {
-                              // If it's not an object or array, just use the original content
                               onReplaceLastBotMessage(accumulatedContent);
                             }
                           } catch (err) {
-                            // If parsing fails, use the original content
                             onReplaceLastBotMessage(accumulatedContent);
                           }
                         }
@@ -954,7 +983,6 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                         console.error("Streaming error:", err);
                         alert("Streaming failed: " + err);
                       } finally {
-                        // Clear loading state
                         setStreamedLoadingIdx(null);
                         setStreamedContent("");
                       }
