@@ -467,35 +467,50 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                 ) : (
                   <>
                     {msg.from === "bot" && (() => {
-                      // Check if this is JSON from the streamed endpoint (marked with __JSON_FROM_STREAM__)
-                      if (msg.text.startsWith("__JSON_FROM_STREAM__")) {
-                        const jsonContent = msg.text.replace("__JSON_FROM_STREAM__", "");
+                      // If message starts with /api:, try to pretty-print the JSON after the first newline
+                      if (msg.text.startsWith("/api:")) {
+                        const firstNewline = msg.text.indexOf("\n");
+                        const apiLine = msg.text.slice(0, firstNewline);
+                        const jsonPart = msg.text.slice(firstNewline + 1);
                         try {
-                          const parsed = JSON.parse(jsonContent);
+                          const parsed = JSON.parse(jsonPart);
                           return (
-                            <pre
-                              style={{
-                                background: "#f0fff4",
-                                borderRadius: 4,
-                                padding: "12px 16px",
-                                fontSize: 14,
-                                maxWidth: "70%",
-                                overflow: "auto",
-                                whiteSpace: "pre-wrap",
-                                wordBreak: "break-all",
-                                textAlign: "left",
-                                fontFamily: "monospace",
-                                margin: "8px 0 8px 24px",
-                                color: "#1e7e34",
-                                border: "1px solid #c3e6cb",
-                                boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
-                              }}
-                            >
-                              {JSON.stringify(parsed, null, 2)}
-                            </pre>
+                            <div style={{ textAlign: "left", margin: "8px 0 8px 24px" }}>
+                              <div
+                                style={{
+                                  fontFamily: "monospace",
+                                  fontSize: 13,
+                                  color: "#888",
+                                  marginBottom: 2,
+                                  userSelect: "text",
+                                }}
+                              >
+                                {apiLine}
+                              </div>
+                              <pre
+                                style={{
+                                  background: "#f0fff4",
+                                  borderRadius: 4,
+                                  padding: "12px 16px",
+                                  fontSize: 14,
+                                  maxWidth: "70%",
+                                  overflow: "auto",
+                                  whiteSpace: "pre-wrap",
+                                  wordBreak: "break-all",
+                                  textAlign: "left",
+                                  fontFamily: "monospace",
+                                  margin: 0,
+                                  color: "#1e7e34",
+                                  border: "1px solid #c3e6cb",
+                                  boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
+                                }}
+                              >
+                                {JSON.stringify(parsed, null, 2)}
+                              </pre>
+                            </div>
                           );
                         } catch {
-                          // If parsing fails, remove the marker and display as normal text
+                          // If parsing fails, show as plain text
                           return (
                             <span
                               style={{
@@ -509,12 +524,11 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                                 whiteSpace: "pre-line",
                               }}
                             >
-                              {msg.text.replace("__JSON_FROM_STREAM__", "")}
+                              {msg.text}
                             </span>
                           );
                         }
                       }
-                      
                       // Try to pretty-print JSON if possible
                       let parsed: any = null;
                       try {
@@ -808,20 +822,22 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                               if (codeBlockMatch) {
                                 contentToFormat = codeBlockMatch[1];
                               }
-                              
                               // Try to parse as JSON
                               const parsed = JSON.parse(contentToFormat);
                               if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
                                 // If it's valid JSON, replace with the pretty-printed version and add a special marker
                                 // to identify it as JSON from the streamed endpoint
-                                onReplaceLastBotMessage("__JSON_FROM_STREAM__" + JSON.stringify(parsed, null, 2));
+                                onReplaceLastBotMessage(
+                                  `/api: ${endpoint}\n` +
+                                  JSON.stringify(parsed, null, 2)
+                                );
                               } else {
                                 // If it's not an object or array, just use the original content
-                                onReplaceLastBotMessage(data.content);
+                                onReplaceLastBotMessage(`/api: ${endpoint}\n` + data.content);
                               }
                             } catch (err) {
                               // If parsing fails, use the original content
-                              onReplaceLastBotMessage(data.content);
+                              onReplaceLastBotMessage(`/api: ${endpoint}\n` + data.content);
                             }
                           }
                         } else {
@@ -899,21 +915,25 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                             const chunk = new TextDecoder().decode(value);
                             accumulatedContent += chunk;
                             setStreamedContent(accumulatedContent);
-                          }
-                          if (typeof onReplaceLastBotMessage === "function") {
-                            try {
-                              let contentToFormat = accumulatedContent;
-                              const codeBlockMatch = contentToFormat.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
-                              if (codeBlockMatch) contentToFormat = codeBlockMatch[1];
-                              const parsed = JSON.parse(contentToFormat);
-                              if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
-                                onReplaceLastBotMessage("__JSON_FROM_STREAM__" + JSON.stringify(parsed, null, 2));
+                            // Update chat in real time as JSON arrives
+                            if (typeof onReplaceLastBotMessage === "function") {
+                              try {
+                                let contentToFormat = accumulatedContent;
+                                const codeBlockMatch = contentToFormat.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
+                                if (codeBlockMatch) contentToFormat = codeBlockMatch[1];
+                                const parsed = JSON.parse(contentToFormat);
+                                if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
+                                onReplaceLastBotMessage(
+                                  `/api: ${endpoint}\n` +
+                                  "__JSON_FROM_STREAM__" + JSON.stringify(parsed, null, 2)
+                                );
                               } else {
-                                onReplaceLastBotMessage(accumulatedContent);
+                                onReplaceLastBotMessage(`/api: ${endpoint}\n` + accumulatedContent);
                               }
                             } catch (err) {
-                              onReplaceLastBotMessage(accumulatedContent);
+                              onReplaceLastBotMessage(`/api: ${endpoint}\n` + accumulatedContent);
                             }
+                          }
                           }
                         } catch (err) {
                           console.error("Streaming error:", err);
@@ -971,14 +991,17 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                             }
                             const parsed = JSON.parse(contentToFormat);
                             if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
-                              onReplaceLastBotMessage("__JSON_FROM_STREAM__" + JSON.stringify(parsed, null, 2));
-                            } else {
-                              onReplaceLastBotMessage(accumulatedContent);
+                                  onReplaceLastBotMessage(
+                                    `/api: ${endpoint}\n` +
+                                    JSON.stringify(parsed, null, 2)
+                                  );
+                                } else {
+                                  onReplaceLastBotMessage(`/api: ${endpoint}\n` + accumulatedContent);
+                                }
+                              } catch (err) {
+                                onReplaceLastBotMessage(`/api: ${endpoint}\n` + accumulatedContent);
+                              }
                             }
-                          } catch (err) {
-                            onReplaceLastBotMessage(accumulatedContent);
-                          }
-                        }
                       } catch (err) {
                         console.error("Streaming error:", err);
                         alert("Streaming failed: " + err);
