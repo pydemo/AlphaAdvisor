@@ -11,14 +11,14 @@ export type ApiConfig = {
 export const apiConfig: ApiConfig = {
   Conversion: {
     "Ask ChatGPT": "/api/ask-chatgpt",
-    Streamed: "/api/ask-chatgpt_streamed",
+    Streamed: "/api/ask-chatgpt_streamed_general",
   },
   "No Image": {
     "Ask ChatGPT": "/api/ask-chatgpt",
     Streamed: "/api/ask-chatgpt_streamed_noimage",
   },
   General: {
-    "Ask ChatGPT": "/api/ask-chatgpt",
-    Streamed: "/api/ask-chatgpt_streamed",
+    "Ask ChatGPT": "/api/ask-chatgpt_general",
+    Streamed: "/api/ask-chatgpt_streamed_general",
   },
 };

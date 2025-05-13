@@ -539,5 +539,63 @@ Respond with only valid JSON, no extra text.`
   }
 });
 
+app.post('/api/ask-chatgpt_streamed_general', async (req, res) => {
+  if (!openai) {
+    return res.status(503).json({ error: "OpenAI API is not configured. Set OPENAI_API_KEY environment variable." });
+  }
 
+  const { user_message } = req.body;
+  if (!user_message) {
+    return res.status(400).json({ error: "Missing user_message" });
+  }
+
+  console.log(`[USER MESSAGE GENERAL] ${user_message}`);
+
+  try {
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+    res.flushHeaders();
+
+    const requestStartTime = Date.now();
+
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o",
+      stream: true,
+      messages: [
+        {
+          role: "user",
+          content: `
+[user_message]:
+${user_message}
+[assistant output]:
+`
+        }
+      ],
+      max_tokens: 1000,
+    });
+
+    let chunkId = 0;
+    const elapsedStart = Date.now() - requestStartTime;
+    console.log(`[Start delta] (+${elapsedStart} ms)`);
+    const startTime = Date.now();
+
+    for await (const chunk of completion) {
+      const content = chunk.choices?.[0]?.delta?.content;
+      if (content) {
+        const elapsedMs = Date.now() - startTime;
+        console.log(`[chunk ${chunkId}] (+${elapsedMs} ms): ${content}`);
+        res.write(content);
+        chunkId++;
+      }
+    }
+
+    res.end();
+    const totalElapsed = Date.now() - requestStartTime;
+    console.log(`[Total elapsed] (+${totalElapsed} ms) (+${totalElapsed / 1000} sec)`);
+  } catch (err) {
+    console.error("ASK CHATGPT ERROR", err);
+    res.status(500).json({ error: err.message });
+  }
+});
 app.listen(3002, () => console.log('Server running on http://localhost:3002'));

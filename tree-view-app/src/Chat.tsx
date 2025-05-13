@@ -73,9 +73,19 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
         _onSendMessage(text);
       }
     }
+    function handleGeneralChatSend(e: any) {
+      const text = e.detail?.text || "";
+      if (!text) return;
+      if (tab === "General") {
+        _onSendMessage(text);
+        setLastGeneralUserMessage(text);
+      }
+    }
     window.addEventListener("noImageChatSend", handleNoImageChatSend as EventListener);
+    window.addEventListener("generalChatSend", handleGeneralChatSend as EventListener);
     return () => {
       window.removeEventListener("noImageChatSend", handleNoImageChatSend as EventListener);
+      window.removeEventListener("generalChatSend", handleGeneralChatSend as EventListener);
     };
   }, [tab, _onSendMessage]);
   // Map of message index to { json: string, show: boolean }
@@ -103,6 +113,9 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
   // State for Streamed button progress indicator and content
   const [streamedLoadingIdx, setStreamedLoadingIdx] = useState<number | null>(null);
   const [streamedContent, setStreamedContent] = useState<string>("");
+
+  // Track last user message sent in General tab
+  const [lastGeneralUserMessage, setLastGeneralUserMessage] = useState<string>("");
 
   // Helper function to scroll to bottom
   const scrollToBottom = () => {
@@ -380,15 +393,15 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
         {messages
           .filter((msg) => {
             if (tab === "General") {
-              // Only show Echo messages and their associated user messages in the General tab
-              if (msg.from === "bot" && /^Echo:/i.test(msg.text)) return true;
-              // Show the user message immediately preceding an Echo message
+              // Show Echo messages, streamed /api: output, and their associated user messages in the General tab
+              if (msg.from === "bot" && (/^Echo:/i.test(msg.text) || msg.text.startsWith("/api:"))) return true;
+              // Show the user message immediately preceding an Echo or /api: message
               const idx = messages.indexOf(msg);
               if (
                 msg.from === "user" &&
                 messages[idx + 1] &&
                 messages[idx + 1].from === "bot" &&
-                /^Echo:/i.test(messages[idx + 1].text)
+                (/^Echo:/i.test(messages[idx + 1].text) || messages[idx + 1].text.startsWith("/api:"))
               ) {
                 return true;
               }
@@ -861,8 +874,8 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                     }}
                     disabled={streamedLoadingIdx !== null}
                     onClick={async () => {
-                      // For "No Image" tab, do not require image path
-                      if (tab === "No Image") {
+                      // For "No Image" and "General" tabs, do not require image path
+                      if (tab === "No Image" || tab === "General") {
                         setStreamedLoadingIdx(i);
                         setStreamedContent("");
                         try {
@@ -873,7 +886,9 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({
-                              user_message: noImageInput || generalInput || conversionInput
+                              user_message: tab === "No Image"
+                                ? (noImageInput || generalInput || conversionInput)
+                                : lastGeneralUserMessage
                             }),
                             signal
                           });
@@ -898,17 +913,17 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                                 if (codeBlockMatch) contentToFormat = codeBlockMatch[1];
                                 const parsed = JSON.parse(contentToFormat);
                                 if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
-                                onReplaceLastBotMessage(
-                                  `/api: ${endpoint}\n` +
-                                  JSON.stringify(parsed, null, 2)
-                                );
-                              } else {
+                                  onReplaceLastBotMessage(
+                                    `/api: ${endpoint}\n` +
+                                    JSON.stringify(parsed, null, 2)
+                                  );
+                                } else {
+                                  onReplaceLastBotMessage(`/api: ${endpoint}\n` + accumulatedContent);
+                                }
+                              } catch (err) {
                                 onReplaceLastBotMessage(`/api: ${endpoint}\n` + accumulatedContent);
                               }
-                            } catch (err) {
-                              onReplaceLastBotMessage(`/api: ${endpoint}\n` + accumulatedContent);
                             }
-                          }
                           }
                         } catch (err) {
                           console.error("Streaming error:", err);
@@ -937,7 +952,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                           headers: { "Content-Type": "application/json" },
                           body: JSON.stringify({
                             target_path: imagePath,
-                            user_message: tab === "General" ? generalInput : conversionInput
+                            user_message: conversionInput
                           }),
                           signal
                         });

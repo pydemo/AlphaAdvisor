@@ -197,7 +197,12 @@ const MessageTabsAndSendButton: React.FC<MessageTabsAndSendButtonProps> = ({
                 !e.metaKey
               ) {
                 e.preventDefault();
-                handleGeneralSend();
+                if (generalInputLocal.trim() === "") return;
+                if (typeof window !== "undefined" && window.dispatchEvent) {
+                  const event = new CustomEvent("generalChatSend", { detail: { text: generalInputLocal } });
+                  window.dispatchEvent(event);
+                }
+                // Do not clear input after sending (to match No Image)
               }
             }}
             placeholder="Type a message..."
@@ -215,7 +220,14 @@ const MessageTabsAndSendButton: React.FC<MessageTabsAndSendButtonProps> = ({
             }}
           />
           <button
-            onClick={handleGeneralSend}
+            onClick={() => {
+              if (generalInputLocal.trim() === "") return;
+              if (typeof window !== "undefined" && window.dispatchEvent) {
+                const event = new CustomEvent("generalChatSend", { detail: { text: generalInputLocal } });
+                window.dispatchEvent(event);
+              }
+              // Do not clear input after sending (to match No Image)
+            }}
             style={{
               fontSize: 16,
               padding: "6px 16px",
