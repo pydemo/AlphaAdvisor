@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import MessageTabsAndSendButton from "./MessageTabsAndSendButton";
 import { apiConfig } from "./apiConfig";
+import { renderApiJsonMessage } from "./renderApiJsonMessage";
 
 type ChatMessage = { text: string; from: "user" | "bot" | "log" };
 
@@ -281,6 +282,57 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
 
   // Use props.messages and props.onSendMessage directly
 
+  // Handle send for No Image and General tabs to backend with JSON formatting
+  const handleNoImageSendToBackend = async () => {
+    const endpoint = apiConfig["No Image"]?.["Ask ChatGPT"] || "/api/ask-chatgpt";
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_message: noImageInput }),
+      });
+      const data = await res.json();
+      let formatted = "";
+      try {
+        formatted = JSON.stringify(data, null, 2);
+      } catch {
+        formatted = String(data);
+      }
+      if (typeof onReplaceLastBotMessage === "function") {
+        onReplaceLastBotMessage(`/api: ${endpoint}\n${formatted}`);
+      }
+    } catch (err) {
+      if (typeof onReplaceLastBotMessage === "function") {
+        onReplaceLastBotMessage(`/api: ${endpoint}\nError: ${err}`);
+      }
+    }
+  };
+
+  const handleGeneralSendToBackend = async () => {
+    const endpoint = apiConfig["General"]?.["Ask ChatGPT"] || "/api/ask-chatgpt";
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_message: generalInput }),
+      });
+      const data = await res.json();
+      let formatted = "";
+      try {
+        formatted = JSON.stringify(data, null, 2);
+      } catch {
+        formatted = String(data);
+      }
+      if (typeof onReplaceLastBotMessage === "function") {
+        onReplaceLastBotMessage(`/api: ${endpoint}\n${formatted}`);
+      }
+    } catch (err) {
+      if (typeof onReplaceLastBotMessage === "function") {
+        onReplaceLastBotMessage(`/api: ${endpoint}\nError: ${err}`);
+      }
+    }
+  };
+
   return (
     <div
       data-element-name="Chat"
@@ -467,67 +519,9 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                 ) : (
                   <>
                     {msg.from === "bot" && (() => {
-                      // If message starts with /api:, try to pretty-print the JSON after the first newline
+                      // Use the shared green JSON formatting for /api: messages
                       if (msg.text.startsWith("/api:")) {
-                        const firstNewline = msg.text.indexOf("\n");
-                        const apiLine = msg.text.slice(0, firstNewline);
-                        const jsonPart = msg.text.slice(firstNewline + 1);
-                        try {
-                          const parsed = JSON.parse(jsonPart);
-                          return (
-                            <div style={{ textAlign: "left", margin: "8px 0 8px 24px" }}>
-                              <div
-                                style={{
-                                  fontFamily: "monospace",
-                                  fontSize: 13,
-                                  color: "#888",
-                                  marginBottom: 2,
-                                  userSelect: "text",
-                                }}
-                              >
-                                {apiLine}
-                              </div>
-                              <pre
-                                style={{
-                                  background: "#f0fff4",
-                                  borderRadius: 4,
-                                  padding: "12px 16px",
-                                  fontSize: 14,
-                                  maxWidth: "70%",
-                                  overflow: "auto",
-                                  whiteSpace: "pre-wrap",
-                                  wordBreak: "break-all",
-                                  textAlign: "left",
-                                  fontFamily: "monospace",
-                                  margin: 0,
-                                  color: "#1e7e34",
-                                  border: "1px solid #c3e6cb",
-                                  boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
-                                }}
-                              >
-                                {JSON.stringify(parsed, null, 2)}
-                              </pre>
-                            </div>
-                          );
-                        } catch {
-                          // If parsing fails, show as plain text
-                          return (
-                            <span
-                              style={{
-                                display: "inline-block",
-                                background: "#e2e3e5",
-                                color: "#222",
-                                borderRadius: 8,
-                                padding: "6px 12px",
-                                maxWidth: "70%",
-                                wordBreak: "break-word",
-                                whiteSpace: "pre-line",
-                              }}
-                            >
-                              {msg.text}
-                            </span>
-                          );
-                        }
+                        return renderApiJsonMessage(msg.text);
                       }
                       // Try to pretty-print JSON if possible
                       let parsed: any = null;
@@ -726,40 +720,21 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                 )}
               </div>
               {/* Streaming content display */}
-              {streamedLoadingIdx === i && streamedContent && (
-                <div style={{ marginLeft: 24, marginTop: 8, marginBottom: 8 }}>
-                  <pre
-                    style={{
-                      background: "#f0fff4",
-                      borderRadius: 4,
-                      padding: "12px 16px",
-                      fontSize: 14,
-                      maxWidth: "70%",
-                      overflow: "auto",
-                      whiteSpace: "pre-wrap",
-                      wordBreak: "break-all",
-                      textAlign: "left",
-                      fontFamily: "monospace",
-                      margin: 0,
-                      color: "#1e7e34",
-                      border: "1px solid #c3e6cb",
-                      boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
-                    }}
-                  >
-                    {(() => {
-                      // Try to pretty-print JSON if possible
-                      try {
-                        const parsed = JSON.parse(streamedContent);
-                        if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
-                          return JSON.stringify(parsed, null, 2);
-                        }
-                      } catch {}
-                      // If not valid JSON or parsing fails, return as is
-                      return streamedContent;
-                    })()}
-                  </pre>
-                </div>
-              )}
+{streamedLoadingIdx === i && streamedContent && (
+  <div style={{ marginLeft: 24, marginTop: 8, marginBottom: 8 }}>
+    {(() => {
+      // Always use renderApiJsonMessage for streaming output, ensuring green JSON formatting
+      let content = streamedContent;
+      // Remove all __JSON_FROM_STREAM__ markers if present
+      content = content.replaceAll("__JSON_FROM_STREAM__", "");
+      // If not already /api:, prepend it to ensure consistent formatting
+      if (!content.startsWith("/api:")) {
+        content = `/api:\n${content}`;
+      }
+      return renderApiJsonMessage(content);
+    })()}
+  </div>
+)}
               {/* Ask ChatGPT button under echo message */}
               {msg.from === "bot" && /^Echo:/i.test(msg.text) && (
                 <div
@@ -925,7 +900,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                                 if (parsed && (typeof parsed === "object" || Array.isArray(parsed))) {
                                 onReplaceLastBotMessage(
                                   `/api: ${endpoint}\n` +
-                                  "__JSON_FROM_STREAM__" + JSON.stringify(parsed, null, 2)
+                                  JSON.stringify(parsed, null, 2)
                                 );
                               } else {
                                 onReplaceLastBotMessage(`/api: ${endpoint}\n` + accumulatedContent);
@@ -1449,6 +1424,9 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
         handleGeneralSend={handleGeneralSend}
         handleTextareaKeyDown={handleTextareaKeyDown}
         elementSelectorMode={elementSelectorMode}
+        // Add these handlers for No Image and General tabs
+        {...(tab === "No Image" && { handleSend: handleNoImageSendToBackend })}
+        {...(tab === "General" && { handleGeneralSend: handleGeneralSendToBackend })}
       />
     </div>
   );
