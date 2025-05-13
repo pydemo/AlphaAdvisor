@@ -486,9 +486,51 @@
                               "type": "directory",
                               "children": [
                                 {
-                                  "name": "3_file.json",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/3_file.json",
-                                  "type": "file"
+                                  "name": "1_File_Folder-Settings",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "1_File_Folder-Settings.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings/1_File_Folder-Settings.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "1_File_Folder-Settings.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings/1_File_Folder-Settings.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "2_Select-REC-Folder",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/2_Select-REC-Folder",
+                                  "type": "directory",
+                                  "children": []
+                                },
+                                {
+                                  "name": "3_Create-New-Folder",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/3_Create-New-Folder",
+                                  "type": "directory",
+                                  "children": []
+                                },
+                                {
+                                  "name": "4_IPTC-Information",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/4_IPTC-Information",
+                                  "type": "directory",
+                                  "children": []
+                                },
+                                {
+                                  "name": "5_Copyright-Info",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/5_Copyright-Info",
+                                  "type": "directory",
+                                  "children": []
+                                },
+                                {
+                                  "name": "6_Write-Serial-Number",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/6_Write-Serial-Number",
+                                  "type": "directory",
+                                  "children": []
                                 }
                               ]
                             },

@@ -1,0 +1,32 @@
+{
+  "menu": "File/Folder Settings",
+  "description": "Configure settings related to the folder and file name of the still image to be shot.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "File Number",
+      "value": "Series",
+      "description": "You can set how to assign file numbers to still images. [Series]: Does not reset file numbers for each folder. [Reset]: Resets file numbers for each folder."
+    },
+    {
+      "label": "Forced File Number Reset",
+      "value": "",
+      "description": "Resets the still image file number and creates a new folder."
+    },
+    {
+      "label": "Set File Name",
+      "value": "DSC",
+      "description": "You can specify the first three characters of the file name."
+    },
+    {
+      "label": "Folder Name",
+      "value": "Standard Form",
+      "description": "You can set how folder names are assigned. [Standard Form]: Folders are named as “folder number + any 5 characters”. Example: 100MSDCF [Date Form]: Folders are named as “folder number + Y (the last digit of the year)/MM/DD”. Example: 10020405 (Folder number: 100; date: 04/05/2022)"
+    }
+  ],
+  "hint": "The settings for [File Number] and [Set File Name] are applied to both Slot 1 and Slot 2. When [File Number] is set to [Series], file numbers will be assigned sequentially across the memory cards in the slots even if you switch the setting for [Rec. Media Settings] → [Recording Media] between Slot 1 and 2. When [Folder Name] is set to [Standard Form], the last 5 characters of the folder name can be set using [Create New Folder]. You can also change the last five characters of the folder name by using [Forced File Number Reset].",
+  "note": "Only capital letters, numbers, and underscores can be used for [Set File Name]. Underscores cannot be used for the first character. The three characters specified using [Set File Name] are only applied to files recorded after the setting is made."
+}
