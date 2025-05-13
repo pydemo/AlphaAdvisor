@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import MessageTabsAndSendButton from "./MessageTabsAndSendButton";
+import { apiConfig } from "./apiConfig";
 
 type ChatMessage = { text: string; from: "user" | "bot" | "log" };
 
@@ -788,7 +789,9 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                       
                       // POST to /api/ask-chatgpt
                       try {
-                        const res = await fetch("http://localhost:3002/api/ask-chatgpt", {
+                        // Use global config for endpoint
+                        const endpoint = apiConfig[tab]?.["Ask ChatGPT"] || "/api/ask-chatgpt";
+                        const res = await fetch(endpoint, {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
                           body: JSON.stringify({ target_path: imagePath })
@@ -885,7 +888,9 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                         const signal = controller.signal;
                         
                         // Start the fetch with streaming
-                        const response = await fetch("http://localhost:3002/api/ask-chatgpt_streamed", {
+                        // Use global config for endpoint
+                        const endpoint = apiConfig[tab]?.["Streamed"] || "/api/ask-chatgpt_streamed";
+                        const response = await fetch(endpoint, {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
                           body: JSON.stringify({
