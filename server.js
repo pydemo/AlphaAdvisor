@@ -405,12 +405,14 @@ app.post('/api/ask-chatgpt_streamed', async (req, res) => {
             [user_message]:
             ${user_message}
             [task]: Extract structured JSON from this Sony camera menu screenshot. 
-            Set fields like 'condition', 'modes', 'hint', 'note', 'description' to values set in user messsage.
+            Set fields like 'navigation', 'condition', 'modes', 'hint', 'note', 'description' to values set in user messsage.
             If 'condition' enabling this menu item is not set - leave it empty.
-  shooting modes: can be any combo of following: ['photo', 'video','s&q']
+            'navigation' will have structure like this: 'MENU → (Shooting) → [File] → [Create New Folder]'
+  shooting modes: can be any combo of following: ['photo', 'movie','s&q']
               JSON Format:
 {
   "menu": "<menu name>",
+  "navigation": "<menu navigation>",
   "description": <menu item description>,
   "modes": [<list of shooting modes>],
   "condition": {<json for condition>}
@@ -469,7 +471,7 @@ app.post('/api/ask-chatgpt_streamed_noimage', async (req, res) => {
     return res.status(400).json({ error: "Missing user_message" });
   }
 
-  console.log(`[USER MESSAGE] ${user_message}`);
+  console.log(`[USER MESSAGE NOIMAGE] ${user_message}`);
 
   try {
     res.setHeader('Content-Type', 'text/event-stream');
@@ -485,16 +487,16 @@ app.post('/api/ask-chatgpt_streamed_noimage', async (req, res) => {
       messages: [
         {
           role: "user",
-          content: `Extract structured JSON from this Sony camera menu description.
+          content: `Create structured JSON for this Sony camera menu description.
 
 [user_message]:
 ${user_message}
 
 [task]:
-Set fields like 'condition', 'modes', 'hint', 'note', 'description' based on user_message.
+Set fields like 'menu', 'condition', 'modes', 'hint', 'note', 'description' based on user_message.
 If 'condition' is not explicitly mentioned, leave it as an empty object.
 
-Shooting modes can be any combo of: ['photo', 'video', 's&q']
+Shooting modes can be any combo of: ['photo', 'movie', 's&q']
 
 JSON Format:
 {

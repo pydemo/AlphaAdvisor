@@ -1,0 +1,32 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Copyright Info",
+  "navigation": "MENU → (Shooting) → [File] → [Copyright Info]",
+  "description": "Writes copyright information onto the still images.",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "Write Copyright Info",
+      "value": "Off",
+      "description": "Sets whether to write copyright information. ([On]/[Off])"
+    },
+    {
+      "label": "Set Photographer",
+      "value": "",
+      "description": "Sets the photographer name."
+    },
+    {
+      "label": "Set Copyright",
+      "value": "",
+      "description": "Sets the copyright holder name."
+    },
+    {
+      "label": "Disp. Copyright Info",
+      "value": "",
+      "description": "Displays the current copyright information."
+    }
+  ],
+  "hint": "When you select [Set Photographer] or [Set Copyright], a keyboard appears on the screen. Enter your desired name. You can only enter alphanumeric characters and symbols for [Set Photographer] and [Set Copyright]. You can enter up to 46 letters.",
+  "note": "A (Copyright) icon appears during the playback of images with copyright information. In order to prevent unauthorized use of [Copyright Info], be sure to clear the [Set Photographer] and [Set Copyright] columns before lending out or handing over your camera. Sony is not liable for problems or damages resulting from use of [Copyright Info]."
+}

@@ -1,0 +1,29 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Bracket Settings",
+  "navigation": "MENU → (Shooting) → [Drive Mode] → [Bracket Settings]",
+  "description": "Sets self-timer shooting, the shooting order for the exposure bracket / white balance bracket, and the shooting method for the focus bracket in the bracket shooting mode.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Selftimer during Bracket",
+      "value": "Off",
+      "description": "Sets whether to use the self-timer during bracket shooting. Also sets the number of seconds until the shutter is released if using the self-timer."
+    },
+    {
+      "label": "Bracket order",
+      "value": "0→-→+",
+      "description": "Sets the order of exposure bracketing and white balance bracketing."
+    },
+    {
+      "label": "Focus Bracket Settings",
+      "value": "",
+      "description": "Sets the shooting order for the focus bracket. Exposure Smoothing, Shooting Interval, and Focus Brckt Saving Dest are also related settings."
+    }
+  ],
+  "hint": "",
+  "note": "When [0→-→+] is selected for [Focus Bracket Order], the number of shots taken with the focus bracket is fixed at three."
+}

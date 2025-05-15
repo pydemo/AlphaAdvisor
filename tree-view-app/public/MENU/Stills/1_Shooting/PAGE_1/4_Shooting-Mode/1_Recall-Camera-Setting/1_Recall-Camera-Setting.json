@@ -1,0 +1,15 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Recall",
+  "navigation": "MENU → (Shooting) → [Shooting Mode] → [Recall Camera Setting]",
+  "description": "Allows you to shoot an image after recalling your preferred shooting settings registered with [Camera Set. Memory].",
+  "modes": [
+    "photo",
+    "movie",
+    "s&q"
+  ],
+  "condition": {},
+  "items": [],
+  "hint": "If you recall settings registered to the memory card, the settings are recalled from the memory card in the slot specified in [Memory/Recall Media]. You can confirm the memory card slot by selecting MENU → (Shooting) → [Shooting Mode] → [Memory/Recall Media]. Settings registered to a memory card using another camera of the same model name can be recalled with this camera.",
+  "note": "If you set [Recall Camera Setting] after completing the shooting settings, the registered settings are given priority and the original settings may become invalid. Check the indicators on the screen before shooting. If the slot to which images are recorded is set to change, the shooting settings will not be applied until writing to the memory card is complete even when the mode dial is set to 1/2/3."
+}

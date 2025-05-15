@@ -1,0 +1,15 @@
+{
+  "menu": "Select REC Folder",
+  "description": "If [Folder Name] under [File/Folder Settings] is set to [Standard Form] and there are 2 folders or more, you can select the folder on the memory card to which images are to be recorded.",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "100MSDCF",
+      "value": "491",
+      "description": ""
+    }
+  ],
+  "hint": "",
+  "note": "You cannot select the folder when [Folder Name] under [File/Folder Settings] is set to [Date Form]. If the camera is set to record images to memory cards in both slots, you may only select a common folder on both memory cards. If there is no common folder, you can make one using [Create New Folder]."
+}

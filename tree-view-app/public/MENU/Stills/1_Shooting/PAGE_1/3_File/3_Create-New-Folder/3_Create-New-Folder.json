@@ -1,0 +1,19 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Create New Folder",
+  "navigation": "MENU → (Shooting) → [File] → [Create New Folder]",
+  "description": "Creates a new folder on the memory card for recording still images. A new folder is created with a folder number one greater than the largest folder number currently used. Images are recorded in the newly created folder. Up to 9 999 images in total can be stored in one folder. When the folder capacity is exceeded, a new folder may be automatically created.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Folder Name",
+      "value": "MSDCF",
+      "description": "Last 5 char. of folder name can be changed."
+    }
+  ],
+  "hint": "You can set the last 5 characters of the folder name.",
+  "note": "When you insert a memory card that was used with other equipment into this product and shoot images, a new folder may be automatically created. If the camera is set to record images to memory cards in both slots, a new folder will be created on both memory cards. A new folder number will be one greater than the largest existing folder number on the two memory cards. If the camera is set to record images to memory cards in both slots and an image is shot, a new folder may be automatically created. You cannot change the folder name when [Folder Name] under [File/Folder Settings] is set to [Date Form]."
+}

@@ -1,0 +1,22 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Memory/Recall Media",
+  "navigation": "MENU → (Shooting) → [Shooting Mode] → [Memory/Recall Media]",
+  "description": "Selects the memory card slot from which settings are recalled or to which settings are registered for M1 through M4.",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "Slot 1",
+      "value": "Selects the slot 1.",
+      "description": "Slot 1 is selected."
+    },
+    {
+      "label": "Slot 2",
+      "value": "Selects the slot 2.",
+      "description": "Slot 2 is selected."
+    }
+  ],
+  "hint": "",
+  "note": ""
+}

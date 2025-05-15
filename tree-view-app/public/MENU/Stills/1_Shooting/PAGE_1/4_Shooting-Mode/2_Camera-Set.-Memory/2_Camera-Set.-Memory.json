@@ -1,0 +1,17 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Camera Set. Memory",
+  "navigation": "MENU →  (Shooting) → [Shooting Mode] → [Camera Set. Memory]",
+  "description": "Allows you to register up to 3 often-used modes or product settings per shooting mode (Still/Movie/S&Q Motion) to the product and up to 4 (M1 through M4) to the memory card. You can recall the settings using just the mode dial.",
+  "modes": [
+    "photo",
+    "movie",
+    "s&q"
+  ],
+  "condition": {},
+  "items": [
+    
+  ],
+  "hint": "Set the product to the setting you want to register. MENU →  (Shooting) → [Shooting Mode] → [Camera Set. Memory] → desired number. Press the center of the control wheel to confirm.",
+  "note": "M1 through M4 can be selected only when a memory card is inserted into the product. When registering the settings on a memory card, only a memory card that has been selected using [Memory/Recall Media] can be used. Program Shift cannot be registered."
+}

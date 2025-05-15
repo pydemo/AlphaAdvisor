@@ -1,0 +1,39 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Interval Shooting",
+  "navigation": "MENU → (Shooting) → [Drive Mode] → [Interval Shoot Func.]",
+  "description": "You can automatically shoot a series of still images with the shooting interval and number of shots that you set in advance (Interval shooting). You can then create a time-lapse movie from the still images produced by interval shooting using the computer software Imaging Edge Desktop (Viewer). You cannot create a movie from the still images on the camera.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Interval Shooting",
+      "value": "Off",
+      "description": "Sets whether to perform interval shooting. ([Off]/[On])"
+    },
+    {
+      "label": "Shooting Start Time",
+      "value": "1sec",
+      "description": "Sets the time from when you press the shutter button to when interval shooting starts. (1 second to 99 minutes 59 seconds)"
+    },
+    {
+      "label": "Shooting Interval",
+      "value": "3sec",
+      "description": "Sets the shooting interval (time from when one exposure starts to when the exposure for the next shot starts). (1 second to 60 seconds)"
+    },
+    {
+      "label": "Number of Shots",
+      "value": "30",
+      "description": "Sets the number of shots for interval shooting. (1 shot to 9,999 shots)"
+    },
+    {
+      "label": "AE Tracking Sensitivity",
+      "value": "Mid",
+      "description": "Sets the tracking sensitivity of the auto exposure against the change in luminance during interval shooting. If you select [Low], exposure changes during interval shooting will be smoother. ([High]/[Mid]/[Low])"
+    }
+  ],
+  "hint": "If you press the shutter button during interval shooting, interval shooting will end and the camera will return to the standby screen for interval shooting. To return to the normal shooting mode, set [Interval Shooting] to [Off].",
+  "note": "You may not be able to record the set number of images depending on the remaining battery level and the amount of free space on the recording medium. Supply power via USB while shooting, and use a memory card with sufficient space."
+}

@@ -1,0 +1,24 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Interval Shooting",
+  "navigation": "MENU → (Shooting) → [Drive Mode] → [Interval Shoot Func.] → [Interval Shooting]",
+  "description": "You can automatically shoot a series of still images with the shooting interval and number of shots that you set in advance (Interval shooting). You can then create a time-lapse movie from the still images produced by interval shooting using the computer software Imaging Edge Desktop (Viewer). You cannot create a movie from the still images on the camera.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Shooting Interval",
+      "value": "3 sec",
+      "description": "Sets the shooting interval (time from when one exposure starts to when the exposure for the next shot starts). (1 second to 60 seconds)"
+    },
+    {
+      "label": "Number of shots",
+      "value": "30",
+      "description": "Number of shots to be taken in the interval."
+    }
+  ],
+  "hint": "For details on time-lapse movies, refer to the support page for Imaging Edge Desktop.",
+  "note": "When the shooting interval is short, the camera may get hot easily. Depending on the ambient temperature, you may not be able to record the set number of images because the camera may stop recording to protect the equipment."
+}

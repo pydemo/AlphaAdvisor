@@ -1,0 +1,24 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "IPTC Information",
+  "navigation": "MENU → (Shooting) → [File] → [IPTC Information]",
+  "description": "You can write IPTC information* when recording still images. Create and edit IPTC information using the IPTC Metadata Preset (https://www.sony.net/iptc/help/) and write the information to a memory card beforehand.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Write IPTC Info",
+      "value": "Off",
+      "description": "Sets whether to write IPTC information to still images. ([On]/[Off])"
+    },
+    {
+      "label": "Register IPTC Info",
+      "value": "",
+      "description": "Registers IPTC information from a memory card to the camera. Select [Slot 1] or [Slot 2] as the memory card from which to read out IPTC information."
+    }
+  ],
+  "hint": "When you play back images that have IPTC information, the (IPTC) icon appears on the screen.",
+  "note": "Whenever you register IPTC information, information previously registered to the camera is overwritten. You cannot edit or check IPTC information on the camera. To delete IPTC information registered to the camera, reset the camera to the initial settings. Before lending out or handing over the camera, reset the camera to delete IPTC information."
+}

@@ -1,0 +1,24 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Interval Shooting",
+  "navigation": "MENU → (Shooting) → [Drive Mode] → [Interval Shoot Func.]",
+  "description": "You can automatically shoot a series of still images with the shooting interval and number of shots that you set in advance (Interval shooting). You can then create a time-lapse movie from the still images produced by interval shooting using the computer software Imaging Edge Desktop (Viewer). You cannot create a movie from the still images on the camera.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Shutter Type in Interval",
+      "value": "Electronic Shutter",
+      "description": "Sets the shutter type during interval shooting."
+    },
+    {
+      "label": "Shoot Interval Priority",
+      "value": "Off",
+      "description": "Sets whether or not to prioritize the shooting interval when the exposure mode is [Program Auto] or [Aperture Priority] and the shutter speed becomes longer than the time set for [Shooting Interval]."
+    }
+  ],
+  "hint": "If you press the shutter button during interval shooting, interval shooting will end and the camera will return to the standby screen for interval shooting.",
+  "note": "You may not be able to record the set number of images depending on the remaining battery level and the amount of free space on the recording medium. Supply power via USB while shooting, and use a memory card with sufficient space. When the shooting interval is short, the camera may get hot easily. Depending on the ambient temperature, you may not be able to record the set number of images because the camera may stop recording to protect the equipment."
+}

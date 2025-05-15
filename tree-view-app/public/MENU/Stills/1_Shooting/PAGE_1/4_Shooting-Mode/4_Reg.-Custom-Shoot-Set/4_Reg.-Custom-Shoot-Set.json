@@ -1,0 +1,47 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Reg. Custom Shoot Set",
+  "navigation": "MENU → (Shooting) → [Shooting Mode] → [Reg. Custom Shoot Set]",
+  "description": "You can register shooting settings (such as exposure, focus setting, drive mode, etc.) to a custom key in advance and temporarily recall them while holding down the key. Simply press the custom key to switch the settings quickly and release the key to go back to the original settings. This function is useful when recording active scenes such as sports.
+MENU →  (Shooting) → [Shooting Mode] → [Reg. Custom Shoot Set] → Select a registration number from [Recall Custom hold 1] to [Recall Custom hold 3].
+The setting screen for the selected number will be displayed.
+Using the top/bottom/left/right side of the control wheel, select the check boxes for the functions that you want to recall with one of the registration numbers and press the center to check each box.
+A  (check) mark will be displayed in the boxes for the functions.
+To cancel a selection, press the center again.
+Select the function that you want to adjust using the top/bottom/left/right side of the control wheel, and press the center to adjust the function to the desired setting.
+Select [Import Current Setting] to register the current settings of the camera to the registration number that you chose.
+Select [Register].
+Items that can be registered
+You can register various functions for shooting. The items that can actually be registered are displayed on the menu of the camera.
+Exposure
+Focus setting
+Drive mode (other than self-timer)
+To recall registered settings
+MENU →  (Setup) → [Operation Customize] → [Custom Key/Dial Set.] → Select the desired key and then select one of the registration numbers from [Recall Custom hold 1] to [Recall Custom hold 3].
+On the shooting screen, press the shutter button while holding down the key to which you assigned one of the registration numbers.
+The registered settings are activated while you are holding down the custom key.
+",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Recall Custom hold 1",
+      "value": "",
+      "description": ""
+    },
+    {
+      "label": "Recall Custom hold 2",
+      "value": "",
+      "description": ""
+    },
+    {
+      "label": "Recall Custom hold 3",
+      "value": "",
+      "description": ""
+    }
+  ],
+  "hint": "You can change the settings for [Reg. Custom Shoot Set] after assigning one of the registration numbers to the custom key using [Custom Key/Dial Set.].",
+  "note": "The registration numbers [Recall Custom hold 1] through [Recall Custom hold 3] are available only when the shooting mode is set to P/A/S/M. Depending on the attached lens and the status of the camera when the registered setting recall is executed, the registered settings may not take effect."
+}

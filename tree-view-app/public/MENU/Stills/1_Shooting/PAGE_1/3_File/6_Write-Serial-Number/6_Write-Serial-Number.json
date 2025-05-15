@@ -1,0 +1,22 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Write Serial Number",
+  "navigation": "MENU → (Shooting) → [File] → [Write Serial Number]",
+  "description": "Writes the camera's serial number when shooting.",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "On",
+      "value": "not selected",
+      "description": "Writes the camera's serial number to the image."
+    },
+    {
+      "label": "Off",
+      "value": "selected",
+      "description": "Does not write the camera's serial number to the image."
+    }
+  ],
+  "hint": "",
+  "note": ""
+}

@@ -1,0 +1,20 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Interval Shooting",
+  "navigation": "MENU → (Shooting) → [Drive Mode] → [Interval Shoot Func.] → [Interval Shooting] → [On]",
+  "description": "You can automatically shoot a series of still images with the shooting interval and number of shots that you set in advance (Interval shooting).",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Number of Shots",
+      "value": "0030",
+      "description": "Sets the number of shots for interval shooting. (1 shot to 9 999 shots)"
+    }
+  ],
+  "hint": "Refer to the support page for Imaging Edge Desktop for details on time-lapse movies.",
+  "note": "You may not be able to record the set number of images depending on the remaining battery level and the amount of free space on the recording medium. Supply power via USB while shooting, and use a memory card with sufficient space.
+When the shooting interval is short, the camera may get hot easily. Depending on the ambient temperature, you may not be able to record the set number of images because the camera may stop recording to protect the equipment."
+}

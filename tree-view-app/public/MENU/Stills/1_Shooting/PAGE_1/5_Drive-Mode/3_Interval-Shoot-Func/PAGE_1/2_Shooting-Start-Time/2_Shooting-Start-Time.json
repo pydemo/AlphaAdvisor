@@ -1,0 +1,19 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Interval Shooting",
+  "navigation": "MENU → (Shooting) → [Drive Mode] → [Interval Shoot Func.] → [Interval Shooting]",
+  "description": "You can automatically shoot a series of still images with the shooting interval and number of shots that you set in advance (Interval shooting).",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Shooting Start Time",
+      "value": "0 min 01 sec",
+      "description": "Sets the time from when you press the shutter button to when interval shooting starts. (1 second to 99 minutes 59 seconds)"
+    }
+  ],
+  "hint": "Press the shutter button. When the time set for [Shooting Start Time] has elapsed, shooting will start.",
+  "note": "When the number of shots set for [Number of Shots] is completed, the camera will return to the standby screen for interval shooting."
+}

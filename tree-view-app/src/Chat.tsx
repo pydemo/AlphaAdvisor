@@ -71,6 +71,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
       if (!text) return;
       if (tab === "No Image") {
         _onSendMessage(text);
+        setLastNoImageUserMessage(text);
       }
     }
     function handleGeneralChatSend(e: any) {
@@ -116,6 +117,8 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
 
   // Track last user message sent in General tab
   const [lastGeneralUserMessage, setLastGeneralUserMessage] = useState<string>("");
+  // Track last user message sent in No Image tab
+  const [lastNoImageUserMessage, setLastNoImageUserMessage] = useState<string>("");
 
   // Helper function to scroll to bottom
   const scrollToBottom = () => {
@@ -887,7 +890,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({
                               user_message: tab === "No Image"
-                                ? (noImageInput || generalInput || conversionInput)
+                                ? lastNoImageUserMessage
                                 : lastGeneralUserMessage
                             }),
                             signal

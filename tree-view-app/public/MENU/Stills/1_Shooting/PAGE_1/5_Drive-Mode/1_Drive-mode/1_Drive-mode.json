@@ -1,0 +1,59 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Drive Mode",
+  "navigation": "MENU → (Shooting) → [Drive Mode] → [Drive Mode]",
+  "description": "Select the appropriate mode for the subject, such as single shooting, continuous shooting or bracketing shooting.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Single Shooting",
+      "value": "Single Shooting",
+      "description": "Normal shooting mode."
+    },
+    {
+      "label": "Cont. Shooting",
+      "value": "Cont. Shooting",
+      "description": "Shoots images continuously while you press and hold down the shutter button."
+    },
+    {
+      "label": "Self-timer(Single)",
+      "value": "Self-timer(Single)",
+      "description": "Shoots an image using the self-timer after a designated number of seconds have elapsed since the shutter button was pressed."
+    },
+    {
+      "label": "Self-timer(Cont)",
+      "value": "Self-timer(Cont)",
+      "description": "Shoots a designated number of images using the self-timer after a designated number of seconds have elapsed since the shutter button was pressed."
+    },
+    {
+      "label": "Cont. Bracket",
+      "value": "Cont. Bracket",
+      "description": "Shoots images while holding the shutter button down, each with different degrees of exposure."
+    },
+    {
+      "label": "Single Bracket",
+      "value": "Single Bracket",
+      "description": "Shoots a specified number of images, one by one, each with a different degrees of exposure."
+    },
+    {
+      "label": "Focus Bracket",
+      "value": "Focus Bracket",
+      "description": "Shoots multiple images while shifting the focus position."
+    },
+    {
+      "label": "WB bracket",
+      "value": "WB bracket",
+      "description": "Shoots a total of three images, each with different color tones according to the selected settings for white balance, color temperature and color filter."
+    },
+    {
+      "label": "DRO Bracket",
+      "value": "DRO Bracket",
+      "description": "Shoots a total of three images, each at a different degree of D-Range Optimizer."
+    }
+  ],
+  "hint": "Select / (Drive Mode) on the control wheel → desired setting.",
+  "note": "You can also set the drive mode by selecting MENU → (Shooting) → [Drive Mode] → [Drive Mode]. Select the desired mode using the right/left side of the control wheel."
+}

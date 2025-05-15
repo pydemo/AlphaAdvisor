@@ -1,0 +1,19 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Interval Shooting",
+  "navigation": "MENU → (Shooting) → [Drive Mode] → [Interval Shoot Func.] → [Interval Shooting]",
+  "description": "You can automatically shoot a series of still images with the shooting interval and number of shots that you set in advance (Interval shooting). You can then create a time-lapse movie from the still images produced by interval shooting using the computer software Imaging Edge Desktop (Viewer). You cannot create a movie from the still images on the camera.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Interval Shooting",
+      "value": "Off",
+      "description": "Sets whether to perform interval shooting. ([Off]/[On])"
+    }
+  ],
+  "hint": "If you press the shutter button during interval shooting, interval shooting will end and the camera will return to the standby screen for interval shooting. To return to the normal shooting mode, set [Interval Shooting] to [Off]. If you press a key to which one of the following functions has been assigned at the moment when shooting starts, the function will remain active during interval shooting even without you holding down the button. [AEL hold] [AEL hold] [AF/MF Selector Hold] [Regist. AF Area hold] [AWB Lock Hold]",
+  "note": "Still images shot with interval shooting can be played back continuously on the camera. If you intend to create a movie using the still images, you can preview the result."
+}
