@@ -1,0 +1,62 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Pixel Shift Multi Shoot.",
+  "navigation": "MENU → (Shooting) → [Drive Mode] → [Pixel Shift Multi Shoot.]",
+  "description": "You can create images with a higher resolution than is possible with regular shooting by recording four or sixteen RAW images and then combining them on a computer. This is helpful when shooting still subjects such as works of art or architecture. To combine multiple RAW images, dedicated software is needed.
+
+Make sure the camera is not connected to your smartphone beforehand.
+
+Connect the USB Type-C terminal on the camera to the computer with the USB cable, and then select [Remote Shoot (PC Remote)] on the screen displayed on the camera.
+When connecting the camera to your computer using a Wi-Fi connection via a Wi-Fi access point, select MENU →  (Network) → [Wi-Fi] → [Wi-Fi Connect] → [On], and then connect the camera to the Wi-Fi access point. Also, connect the computer to the same Wi-Fi access point.
+When using the camera as an access point and connecting the computer to the camera directly via Wi-Fi, select MENU →  (Network) → [Cnct./Remote Sht.] → [Remote Shoot Function] → [Wi-Fi Direct Info.] to display the Wi-Fi connection information (SSID and password) for the camera. Connect the computer and the camera using the Wi-Fi connection information displayed on the camera. Then, continue the procedure from Step 3.
+Remote shooting using a Wi-Fi connection may take a long time to transfer the recorded images. It is recommended that you set [Still Img. Save Dest.] under [Remote Shoot Setting] to [Camera Only], or use a wired connection instead.
+MENU →  (Network) → [Cnct./Remote Sht.] → [Remote Shoot Function] → [Remote Shooting] → [On].
+When connecting the camera to your computer using a Wi-Fi connection via a Wi-Fi access point, select [Access Authen. Settings] to display information such as the username, password, and fingerprint. You can also check the information by selecting MENU →  (Network) → [Network Option] → [Access Authen. Info].
+Launch Imaging Edge Desktop (Remote) on the computer.
+When connecting the camera to your computer using a Wi-Fi connection via a Wi-Fi access point, enter and confirm the access authentication information.
+
+Secure the camera using a tripod. Perform [Pixel Shift Multi Shoot.] using Imaging Edge Desktop (Remote).
+The camera will record the selected number of RAW images at the selected interval. The images will be saved on the computer along with the combined image.
+Try to avoid camera shaking or blurring of the subject.
+The four or sixteen RAW images are recorded with the same settings. You cannot change the settings during the interval between the shots.
+You can cancel the recording by pressing the center of the control wheel during the interval between the recordings.
+If you will not be using a flash (sold separately), select a shortest shooting interval in Imaging Edge Desktop (Remote). If using a flash, set the interval according to the charging time of your flash.
+The flash-syncing speed is 1/8 second.
+If you have set [Still Img. Save Dest.] under [Remote Shoot Setting] to [Camera Only], import the recorded four or sixteen RAW images to the computer and then combine them using Imaging Edge Desktop (Viewer).
+For techniques for [Pixel Shift Multi Shoot.], refer to the following support site.
+https://www.sony.net/psms/",
+  "modes": [
+    "photo"
+  ],
+  "condition": {
+    "notConnectedToSmartphone": true,
+    "tripodRecommended": true
+  },
+  "items": [
+    {
+      "label": "Off",
+      "value": "Off",
+      "description": "Disable Pixel Shift Multi Shoot."
+    },
+    {
+      "label": "4 Shortest",
+      "value": "4 Shortest",
+      "description": "Capture four RAW images at the shortest interval."
+    },
+    {
+      "label": "16 Shortest",
+      "value": "16 Shortest",
+      "description": "Capture sixteen RAW images at the shortest interval."
+    }
+  ],
+  "hint": "You can also perform [Pixel Shift Multi Shoot.] on the camera itself without using Imaging Edge Desktop (Remote). Select MENU →  (Shooting) → [Drive Mode] → [Pixel Shift Multi Shoot.] and set the recording interval and the number of images, and then perform shooting. You can import the recorded RAW images in the computer and combine them using Imaging Edge Desktop (Viewer). If you will not be using Imaging Edge Desktop (Remote) for shooting, use a Wireless Remote Commander (sold separately) or the self-timer function in order to avoid camera shaking and subject blurring.",
+  "note": "If camera shaking and subject blurring occurs, the RAW images recorded with [Pixel Shift Multi Shoot.] may not be combined properly. Even when the subject is remaining still, if a nearby person or object moves, the RAW images may not be combined properly because the lighting of the subject can change.
+RAW images recorded with [Pixel Shift Multi Shoot.] cannot be combined using the camera. Use Imaging Edge Desktop (Viewer) to combine the images.
+In [Pixel Shift Multi Shoot.], some settings are locked as follows:
+[File Format] under [Image Quality Settings]: [RAW]
+[RAW File Type] under [Image Quality Settings]: [Uncompressed]
+In [Pixel Shift Multi Shoot.], you cannot perform bulb shooting.
+When shooting in the [Pixel Shift Multi Shoot.] mode, you cannot use the optical wireless flash.
+If shooting is set to a mode other than P/A/S/M, you cannot perform [Pixel Shift Multi Shoot.].
+If you use a Mount Adaptor, the shooting interval may be longer."
+}

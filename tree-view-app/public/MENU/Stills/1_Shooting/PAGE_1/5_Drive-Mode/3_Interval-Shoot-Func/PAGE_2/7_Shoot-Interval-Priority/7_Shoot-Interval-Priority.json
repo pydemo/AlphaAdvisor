@@ -1,0 +1,24 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Shoot Interval Priority",
+  "navigation": "MENU → (Shooting) → [Drive Mode] → [Interval Shoot Func.] → [Interval Shooting]",
+  "description": "Sets whether or not to prioritize the shooting interval when the exposure mode is [Program Auto] or [Aperture Priority] and the shutter speed becomes longer than the time set for [Shooting Interval].",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Shoot Interval Priority",
+      "value": "Off",
+      "description": "Shoot interval is not prioritized."
+    },
+    {
+      "label": "Shoot Interval Priority",
+      "value": "On",
+      "description": "Shoot interval is prioritized."
+    }
+  ],
+  "hint": "",
+  "note": "You can automatically shoot a series of still images with the shooting interval and number of shots that you set in advance (Interval shooting). You can then create a time-lapse movie from the still images produced by interval shooting using the computer software Imaging Edge Desktop (Viewer)."
+}

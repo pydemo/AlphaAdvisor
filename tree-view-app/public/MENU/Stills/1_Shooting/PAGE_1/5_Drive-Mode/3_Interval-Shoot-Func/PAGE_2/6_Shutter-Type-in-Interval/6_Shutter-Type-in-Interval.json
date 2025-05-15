@@ -1,0 +1,24 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Shutter Type in Interval",
+  "navigation": "MENU → (Shooting) → [Drive Mode] → [Interval Shoot Func.] → [Interval Shooting] → [Shutter Type in Interval]",
+  "description": "Sets the shutter type during interval shooting.",
+  "modes": [
+    "photo"
+  ],
+  "condition": {},
+  "items": [
+    {
+      "label": "Mechanical Shutter",
+      "value": "off",
+      "description": "Use the mechanical shutter for interval shooting."
+    },
+    {
+      "label": "Electronic Shutter",
+      "value": "on",
+      "description": "Use the electronic shutter for interval shooting."
+    }
+  ],
+  "hint": "Select the shutter type for your interval shooting setup.",
+  "note": "You can then create a time-lapse movie from the still images produced by interval shooting using the computer software Imaging Edge Desktop (Viewer). You cannot create a movie from the still images on the camera."
+}

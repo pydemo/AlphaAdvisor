@@ -814,13 +814,35 @@
                                           "name": "6_Shutter-Type-in-Interval",
                                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/6_Shutter-Type-in-Interval",
                                           "type": "directory",
-                                          "children": []
+                                          "children": [
+                                            {
+                                              "name": "6_Shutter-Type-in-Interval.json",
+                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/6_Shutter-Type-in-Interval/6_Shutter-Type-in-Interval.json",
+                                              "type": "file"
+                                            },
+                                            {
+                                              "name": "6_Shutter-Type-in-Interval.png",
+                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/6_Shutter-Type-in-Interval/6_Shutter-Type-in-Interval.png",
+                                              "type": "file"
+                                            }
+                                          ]
                                         },
                                         {
                                           "name": "7_Shoot-Interval-Priority",
                                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/7_Shoot-Interval-Priority",
                                           "type": "directory",
-                                          "children": []
+                                          "children": [
+                                            {
+                                              "name": "7_Shoot-Interval-Priority.json",
+                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/7_Shoot-Interval-Priority/7_Shoot-Interval-Priority.json",
+                                              "type": "file"
+                                            },
+                                            {
+                                              "name": "7_Shoot-Interval-Priority.png",
+                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/7_Shoot-Interval-Priority/7_Shoot-Interval-Priority.png",
+                                              "type": "file"
+                                            }
+                                          ]
                                         },
                                         {
                                           "name": "PAGE_2.json",
@@ -840,7 +862,18 @@
                                   "name": "4_Pixel-Shift-Multi-Shoot",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/4_Pixel-Shift-Multi-Shoot",
                                   "type": "directory",
-                                  "children": []
+                                  "children": [
+                                    {
+                                      "name": "4_Pixel-Shift-Multi-Shoot.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/4_Pixel-Shift-Multi-Shoot/4_Pixel-Shift-Multi-Shoot.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "4_Pixel-Shift-Multi-Shoot.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/4_Pixel-Shift-Multi-Shoot/4_Pixel-Shift-Multi-Shoot.png",
+                                      "type": "file"
+                                    }
+                                  ]
                                 }
                               ]
                             },
