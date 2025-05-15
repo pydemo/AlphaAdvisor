@@ -1,0 +1,17 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Silent Mode Settings",
+  "navigation": "MENU → (Shooting) → [Shutter/Silent] → [Silent Mode Settings]",
+  "description": "Configure settings related to the silent mode, which allows you to shoot without shutter sounds or electronic sounds.",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "Target Function Settings",
+      "value": "Auto Pixel Mapping",
+      "description": "Sets whether or not to simultaneously change the settings for other functions that emit sounds from the camera when the camera is set to the silent mode."
+    }
+  ],
+  "hint": "",
+  "note": ""
+}

@@ -1,0 +1,17 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Shutter/Silent",
+  "navigation": "MENU → (Shooting) → [Shutter/Silent] → [Silent Mode Settings]",
+  "description": "Configure settings related to silent mode, allowing shooting without shutter sounds or electronic sounds.",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "Target Function Settings",
+      "value": "",
+      "description": "Sets whether or not to simultaneously change the settings for other functions that emit sounds from the camera."
+    }
+  ],
+  "hint": "",
+  "note": "Shutter When Pwr OFF"
+}

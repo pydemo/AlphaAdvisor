@@ -1,0 +1,17 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Silent Mode Settings",
+  "navigation": "MENU → (Shooting) → [Shutter/Silent] → [Silent Mode Settings]",
+  "description": "Configure settings for shooting without shutter or electronic sounds. Set options for functions that emit sounds in silent mode.",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "Aperture Drive in AF",
+      "value": "Standard",
+      "description": "Sets whether or not to simultaneously change the settings for other functions that emit sounds from the camera when the camera is set to the silent mode."
+    }
+  ],
+  "hint": "",
+  "note": ""
+}

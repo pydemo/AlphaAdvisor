@@ -1,0 +1,17 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Silent Mode Settings",
+  "navigation": "MENU → (Shooting) → [Shutter/Silent] → [Silent Mode Settings]",
+  "description": "You can configure settings related to the silent mode, which allows you to shoot without shutter sounds or electronic sounds.",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "Silent Mode",
+      "value": "Off",
+      "description": "Sets whether or not to shoot without shutter sounds or electronic sounds. ([On]/[Off])"
+    }
+  ],
+  "hint": "Use the [Silent Mode] function on your own responsibility, while taking sufficient consideration to the privacy and portrait rights of the subject.",
+  "note": "Even if [Silent Mode] is set to [On], it will not be completely silent. Even if [Silent Mode] is set to [On], the operating sound of the aperture and focus will sound."
+}
