@@ -1,1028 +1,235 @@
 {
-  "name": "cla_2",
-  "path": "/home/alexb/myg/cla_2",
+  "name": "public",
+  "path": "/home/alexb/myg/cla_2/tree-view-app/public",
   "type": "directory",
   "children": [
     {
-      "name": "tree-view-app",
-      "path": "/home/alexb/myg/cla_2/tree-view-app",
+      "name": "MENU",
+      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU",
       "type": "directory",
       "children": [
         {
-          "name": "public",
-          "path": "/home/alexb/myg/cla_2/tree-view-app/public",
+          "name": "Stills",
+          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills",
           "type": "directory",
           "children": [
             {
-              "name": "MENU",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU",
+              "name": "1_Shooting",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting",
               "type": "directory",
               "children": [
                 {
-                  "name": "Stills",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills",
+                  "name": "PAGE_1",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1",
                   "type": "directory",
                   "children": [
                     {
-                      "name": "1_Shooting",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting",
+                      "name": "1_Image-Quality_Rec",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec",
                       "type": "directory",
                       "children": [
                         {
                           "name": "PAGE_1",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1",
                           "type": "directory",
                           "children": [
                             {
-                              "name": "1_Image-Quality_Rec",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec",
+                              "name": "1_JPEG_HREF-Switch",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF-Switch",
                               "type": "directory",
                               "children": [
                                 {
-                                  "name": "PAGE_1",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "1_JPEG_HREF-Switch",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF-Switch",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "JPEG_HREF_Switch+--.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF-Switch/JPEG_HREF_Switch+--.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "JPEG_HREF_Switch+--.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF-Switch/JPEG_HREF_Switch+--.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "2_Image-Quality-Settings",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "1_File_Format",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File_Format",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "1_File_Format.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File_Format/1_File_Format.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "1_File_Format.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File_Format/1_File_Format.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "2_RAW-File-Type",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "2_RAW-File-Type.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type/2_RAW-File-Type.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "2_RAW-File-Type.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type/2_RAW-File-Type.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "3_JPEG-Quality",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "3_JPEG-Quality.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality/3_JPEG-Quality.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "3_JPEG-Quality.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality/3_JPEG-Quality.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "4_JPEG-Image-Size",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "4_JPEG-Image-Size.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size/4_JPEG-Image-Size.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "4_JPEG-Image-Size.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size/4_JPEG-Image-Size.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "3_Aspect-Ratio",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/3_Aspect-Ratio",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "3_Aspect-Ratio.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/3_Aspect-Ratio/3_Aspect-Ratio.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "3_Aspect-Ratio.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/3_Aspect-Ratio/3_Aspect-Ratio.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "4_File_Format",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/4_File_Format",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "4_File_Format.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/4_File_Format/4_File_Format.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "4_File_Format.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/4_File_Format/4_File_Format.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "5_Movie-Settings",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "1_Rec-Frame-Rate",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/1_Rec-Frame-Rate",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "1_Rec-Frame-Rate.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/1_Rec-Frame-Rate/1_Rec-Frame-Rate.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "1_Rec-Frame-Rate.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/1_Rec-Frame-Rate/1_Rec-Frame-Rate.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "2_Record-Setting",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/2_Record-Setting",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "2_Record-Setting.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/2_Record-Setting/2_Record-Setting.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "2_Record-Setting.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/2_Record-Setting/2_Record-Setting.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "6_APS-C-S35-Shooting",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/6_APS-C-S35-Shooting",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "6_APS-C-S35-Shooting.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/6_APS-C-S35-Shooting/6_APS-C-S35-Shooting.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "6_APS-C-S35-Shooting.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/6_APS-C-S35-Shooting/6_APS-C-S35-Shooting.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "7_Long-Exposure-NR",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/7_Long-Exposure-NR",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "7_Long-Exposure-NR.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/7_Long-Exposure-NR/7_Long-Exposure-NR.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "7_Long-Exposure-NR.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/7_Long-Exposure-NR/7_Long-Exposure-NR.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    }
-                                  ]
+                                  "name": "JPEG_HREF_Switch.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF-Switch/JPEG_HREF_Switch.json",
+                                  "type": "file"
                                 },
                                 {
-                                  "name": "PAGE_2",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "10_Color-Space",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/10_Color-Space",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "10_Color-Space.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/10_Color-Space/10_Color-Space.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "10_Color-Space.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/10_Color-Space/10_Color-Space.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "11_Lens-Compensation",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "1_Shading-Comp",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/1_Shading-Comp",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "1_Shading-Comp.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/1_Shading-Comp/1_Shading-Comp.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "1_Shading-Comp.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/1_Shading-Comp/1_Shading-Comp.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "2_Chromatic-Aberration-Comp",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/2_Chromatic-Aberration-Comp",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "2_Chromatic-Aberration-Comp.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/2_Chromatic-Aberration-Comp/2_Chromatic-Aberration-Comp.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "2_Chromatic-Aberration-Comp.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/2_Chromatic-Aberration-Comp/2_Chromatic-Aberration-Comp.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "3_Distortion-Comp",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/3_Distortion-Comp",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "3_Distortion-Comp.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/3_Distortion-Comp/3_Distortion-Comp.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "3_Distortion-Comp.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/3_Distortion-Comp/3_Distortion-Comp.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "8_High-ISO-NR",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/8_High-ISO-NR",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "8_High-ISO-NR.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/8_High-ISO-NR/8_High-ISO-NR.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "8_High-ISO-NR.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/8_High-ISO-NR/8_High-ISO-NR.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "9_HLG-Still-Image",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/9_HLG-Still-Image",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "9_HLG-Still-Image.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/9_HLG-Still-Image/9_HLG-Still-Image.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "9_HLG-Still-Image.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/9_HLG-Still-Image/9_HLG-Still-Image.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "name": "2_Media",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media",
-                              "type": "directory",
-                              "children": [
-                                {
-                                  "name": "1_Format",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/1_Format",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "1_Format.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/1_Format/1_Format.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "1_Format.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/1_Format/1_Format.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "2_Rec-Media-Settings",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "1_Stills-Recording-Media",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/1_Stills-Recording-Media",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "1_Stills-Recording-Media.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/1_Stills-Recording-Media/1_Stills-Recording-Media.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "1_Stills-Recording-Media.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/1_Stills-Recording-Media/1_Stills-Recording-Media.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "2_Movies-Recording-Media",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/2_Movies-Recording-Media",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "2_Movies-Recording-Media.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/2_Movies-Recording-Media/2_Movies-Recording-Media.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "2_Movies-Recording-Media.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/2_Movies-Recording-Media/2_Movies-Recording-Media.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "3_Auto-Switch-Media",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/3_Auto-Switch-Media",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "3_Auto-Switch-Media.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/3_Auto-Switch-Media/3_Auto-Switch-Media.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "3_Auto-Switch-Media.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/3_Auto-Switch-Media/3_Auto-Switch-Media.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "3_Recover-Image-DB",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/3_Recover-Image-DB",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "3_Recover-Image-DB.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/3_Recover-Image-DB/3_Recover-Image-DB.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "3_Recover-Image-DB.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/3_Recover-Image-DB/3_Recover-Image-DB.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "4_Display-Media-Info",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/4_Display-Media-Info",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "4_Display-Media-Info.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/4_Display-Media-Info/4_Display-Media-Info.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "4_Display-Media-Info.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/4_Display-Media-Info/4_Display-Media-Info.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "name": "3_File",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File",
-                              "type": "directory",
-                              "children": [
-                                {
-                                  "name": "1_File_Folder-Settings",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "1_File_Folder-Settings.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings/1_File_Folder-Settings.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "1_File_Folder-Settings.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings/1_File_Folder-Settings.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "2_Select-REC-Folder",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/2_Select-REC-Folder",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "2_Select-REC-Folder.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/2_Select-REC-Folder/2_Select-REC-Folder.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "2_Select-REC-Folder.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/2_Select-REC-Folder/2_Select-REC-Folder.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "3_Create-New-Folder",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/3_Create-New-Folder",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "3_Create-New-Folder.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/3_Create-New-Folder/3_Create-New-Folder.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "3_Create-New-Folder.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/3_Create-New-Folder/3_Create-New-Folder.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "4_IPTC-Information",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/4_IPTC-Information",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "4_IPTC-Information.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/4_IPTC-Information/4_IPTC-Information.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "4_IPTC-Information.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/4_IPTC-Information/4_IPTC-Information.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "5_Copyright-Info",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/5_Copyright-Info",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "5_Copyright-Info.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/5_Copyright-Info/5_Copyright-Info.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "5_Copyright-Info.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/5_Copyright-Info/5_Copyright-Info.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "6_Write-Serial-Number",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/6_Write-Serial-Number",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "6_Write-Serial-Number.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/6_Write-Serial-Number/6_Write-Serial-Number.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "6_Write-Serial-Number.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/6_Write-Serial-Number/6_Write-Serial-Number.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "name": "4_Shooting-Mode",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode",
-                              "type": "directory",
-                              "children": [
-                                {
-                                  "name": "1_Recall-Camera-Setting",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1_Recall-Camera-Setting",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "1_Recall-Camera-Setting.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1_Recall-Camera-Setting/1_Recall-Camera-Setting.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "1_Recall-Camera-Setting.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1_Recall-Camera-Setting/1_Recall-Camera-Setting.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "2_Camera-Set.-Memory",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2_Camera-Set.-Memory",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "2_Camera-Set.-Memory.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2_Camera-Set.-Memory/2_Camera-Set.-Memory.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "2_Camera-Set.-Memory.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2_Camera-Set.-Memory/2_Camera-Set.-Memory.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "3_Memory_Recall-Media",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3_Memory_Recall-Media",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "3_Memory_Recall-Media.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3_Memory_Recall-Media/3_Memory_Recall-Media.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "3_Memory_Recall-Media.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3_Memory_Recall-Media/3_Memory_Recall-Media.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "4_Reg.-Custom-Shoot-Set",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4_Reg.-Custom-Shoot-Set",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "4_Reg.-Custom-Shoot-Set.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4_Reg.-Custom-Shoot-Set/4_Reg.-Custom-Shoot-Set.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "4_Reg.-Custom-Shoot-Set.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4_Reg.-Custom-Shoot-Set/4_Reg.-Custom-Shoot-Set.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "name": "5_Drive-Mode",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode",
-                              "type": "directory",
-                              "children": [
-                                {
-                                  "name": "1_Drive-mode",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/1_Drive-mode",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "1_Drive-mode.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/1_Drive-mode/1_Drive-mode.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "1_Drive-mode.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/1_Drive-mode/1_Drive-mode.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "2_Bracket-Settings",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/2_Bracket-Settings",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "2_Bracket-Settings.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/2_Bracket-Settings/2_Bracket-Settings.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "2_Bracket-Settings.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/2_Bracket-Settings/2_Bracket-Settings.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "3_Interval-Shoot-Func",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "PAGE_1",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "1_Interval-Shooting",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/1_Interval-Shooting",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "1_Interval-Shooting.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/1_Interval-Shooting/1_Interval-Shooting.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "1_Interval-Shooting.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/1_Interval-Shooting/1_Interval-Shooting.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "2_Shooting-Start-Time",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/2_Shooting-Start-Time",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "2_Shooting-Start-Time.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/2_Shooting-Start-Time/2_Shooting-Start-Time.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "2_Shooting-Start-Time.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/2_Shooting-Start-Time/2_Shooting-Start-Time.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "3_Shooting-Interval",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/3_Shooting-Interval",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "3_Shooting-Interval.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/3_Shooting-Interval/3_Shooting-Interval.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "3_Shooting-Interval.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/3_Shooting-Interval/3_Shooting-Interval.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "4_Number-of-Shots",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/4_Number-of-Shots",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "4_Number-of-Shots.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/4_Number-of-Shots/4_Number-of-Shots.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "4_Number-of-Shots.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/4_Number-of-Shots/4_Number-of-Shots.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "5_AE-Tracking-Sensitivity",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/5_AE-Tracking-Sensitivity",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "5_AE-Tracking-Sensitivity.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/5_AE-Tracking-Sensitivity/5_AE-Tracking-Sensitivity.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "PAGE_1.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/PAGE_1.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "PAGE_1.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/PAGE_1.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "PAGE_2",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "6_Shutter-Type-in-Interval",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/6_Shutter-Type-in-Interval",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "6_Shutter-Type-in-Interval.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/6_Shutter-Type-in-Interval/6_Shutter-Type-in-Interval.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "6_Shutter-Type-in-Interval.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/6_Shutter-Type-in-Interval/6_Shutter-Type-in-Interval.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "7_Shoot-Interval-Priority",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/7_Shoot-Interval-Priority",
-                                          "type": "directory",
-                                          "children": [
-                                            {
-                                              "name": "7_Shoot-Interval-Priority.json",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/7_Shoot-Interval-Priority/7_Shoot-Interval-Priority.json",
-                                              "type": "file"
-                                            },
-                                            {
-                                              "name": "7_Shoot-Interval-Priority.png",
-                                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/7_Shoot-Interval-Priority/7_Shoot-Interval-Priority.png",
-                                              "type": "file"
-                                            }
-                                          ]
-                                        },
-                                        {
-                                          "name": "PAGE_2.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/PAGE_2.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "PAGE_2.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/PAGE_2.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "4_Pixel-Shift-Multi-Shoot",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/4_Pixel-Shift-Multi-Shoot",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "4_Pixel-Shift-Multi-Shoot.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/4_Pixel-Shift-Multi-Shoot/4_Pixel-Shift-Multi-Shoot.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "4_Pixel-Shift-Multi-Shoot.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/4_Pixel-Shift-Multi-Shoot/4_Pixel-Shift-Multi-Shoot.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "name": "6_Shutter_Silent",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent",
-                              "type": "directory",
-                              "children": [
-                                {
-                                  "name": "1_Silent-Mode",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/1_Silent-Mode",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "1_Silent-Mode.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/1_Silent-Mode/1_Silent-Mode.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "1_Silent-Mode.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/1_Silent-Mode/1_Silent-Mode.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "2_Target_Function_Settings",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "1_Aperture-Drive-in-AF",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/1_Aperture-Drive-in-AF",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "1_Aperture-Drive-in-AF.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/1_Aperture-Drive-in-AF/1_Aperture-Drive-in-AF.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "1_Aperture-Drive-in-AF.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/1_Aperture-Drive-in-AF/1_Aperture-Drive-in-AF.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "2_Shutter-When-Pwr-OFF",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/2_Shutter-When-Pwr-OFF",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "2_Shutter-When-Pwr-OFF.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/2_Shutter-When-Pwr-OFF/2_Shutter-When-Pwr-OFF.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "2_Shutter-When-Pwr-OFF.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/2_Shutter-When-Pwr-OFF/2_Shutter-When-Pwr-OFF.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "name": "3_Auto-Pixel-Mapping",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/3_Auto-Pixel-Mapping",
-                                      "type": "directory",
-                                      "children": [
-                                        {
-                                          "name": "3_Auto-Pixel-Mapping.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/3_Auto-Pixel-Mapping/3_Auto-Pixel-Mapping.json",
-                                          "type": "file"
-                                        },
-                                        {
-                                          "name": "3_Auto-Pixel-Mapping.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/3_Auto-Pixel-Mapping/3_Auto-Pixel-Mapping.png",
-                                          "type": "file"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "6_shutter_silent.json",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/6_shutter_silent.json",
+                                  "name": "JPEG_HREF_Switch.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF-Switch/JPEG_HREF_Switch.png",
                                   "type": "file"
                                 }
                               ]
                             },
                             {
-                              "name": "7_Image-Stabilization",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization",
+                              "name": "2_Image-Quality-Settings",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings",
                               "type": "directory",
                               "children": [
                                 {
-                                  "name": "1_SteadyShot",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/1_SteadyShot",
+                                  "name": "1_File_Format",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File_Format",
                                   "type": "directory",
                                   "children": [
                                     {
-                                      "name": "1_SteadyShot.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/1_SteadyShot/1_SteadyShot.json",
+                                      "name": "1_File_Format.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File_Format/1_File_Format.json",
                                       "type": "file"
                                     },
                                     {
-                                      "name": "1_SteadyShot.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/1_SteadyShot/1_SteadyShot.png",
+                                      "name": "1_File_Format.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File_Format/1_File_Format.png",
                                       "type": "file"
                                     }
                                   ]
                                 },
                                 {
-                                  "name": "2_SteadyShot-Adjusst",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/2_SteadyShot-Adjusst",
+                                  "name": "2_RAW-File-Type",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type",
                                   "type": "directory",
                                   "children": [
                                     {
-                                      "name": "2_SteadyShot-Adjusst.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/2_SteadyShot-Adjusst/2_SteadyShot-Adjusst.json",
+                                      "name": "2_RAW-File-Type.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type/2_RAW-File-Type.json",
                                       "type": "file"
                                     },
                                     {
-                                      "name": "2_SteadyShot-Adjusst.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/2_SteadyShot-Adjusst/2_SteadyShot-Adjusst.png",
+                                      "name": "2_RAW-File-Type.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type/2_RAW-File-Type.png",
                                       "type": "file"
                                     }
                                   ]
                                 },
                                 {
-                                  "name": "3_Focal-Length",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/3_Focal-Length",
+                                  "name": "3_JPEG-Quality",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality",
                                   "type": "directory",
                                   "children": [
                                     {
-                                      "name": "3_Focal-Length.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/3_Focal-Length/3_Focal-Length.json",
+                                      "name": "3_JPEG-Quality.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality/3_JPEG-Quality.json",
                                       "type": "file"
                                     },
                                     {
-                                      "name": "3_Focal-Length.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/3_Focal-Length/3_Focal-Length.png",
+                                      "name": "3_JPEG-Quality.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality/3_JPEG-Quality.png",
                                       "type": "file"
                                     }
                                   ]
                                 },
                                 {
-                                  "name": "7_image_stabilization.json",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/7_image_stabilization.json",
+                                  "name": "4_JPEG-Image-Size",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "4_JPEG-Image-Size.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size/4_JPEG-Image-Size.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "4_JPEG-Image-Size.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size/4_JPEG-Image-Size.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "3_Aspect-Ratio",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/3_Aspect-Ratio",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "3_Aspect-Ratio.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/3_Aspect-Ratio/3_Aspect-Ratio.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "3_Aspect-Ratio.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/3_Aspect-Ratio/3_Aspect-Ratio.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "4_File_Format",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/4_File_Format",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "4_File_Format.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/4_File_Format/4_File_Format.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "4_File_Format.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/4_File_Format/4_File_Format.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "5_Movie-Settings",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "1_Rec-Frame-Rate",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/1_Rec-Frame-Rate",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "1_Rec-Frame-Rate.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/1_Rec-Frame-Rate/1_Rec-Frame-Rate.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "1_Rec-Frame-Rate.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/1_Rec-Frame-Rate/1_Rec-Frame-Rate.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "2_Record-Setting",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/2_Record-Setting",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "2_Record-Setting.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/2_Record-Setting/2_Record-Setting.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "2_Record-Setting.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings/2_Record-Setting/2_Record-Setting.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "6_APS-C-S35-Shooting",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/6_APS-C-S35-Shooting",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "6_APS-C-S35-Shooting.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/6_APS-C-S35-Shooting/6_APS-C-S35-Shooting.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "6_APS-C-S35-Shooting.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/6_APS-C-S35-Shooting/6_APS-C-S35-Shooting.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "7_Long-Exposure-NR",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/7_Long-Exposure-NR",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "7_Long-Exposure-NR.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/7_Long-Exposure-NR/7_Long-Exposure-NR.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "7_Long-Exposure-NR.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/7_Long-Exposure-NR/7_Long-Exposure-NR.png",
                                   "type": "file"
                                 }
                               ]
@@ -1031,47 +238,114 @@
                         },
                         {
                           "name": "PAGE_2",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2",
                           "type": "directory",
                           "children": [
                             {
-                              "name": "8_Zoom",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/8_Zoom",
+                              "name": "10_Color-Space",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/10_Color-Space",
                               "type": "directory",
                               "children": [
                                 {
-                                  "name": "8_zoom.json",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/8_Zoom/8_zoom.json",
+                                  "name": "10_Color-Space.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/10_Color-Space/10_Color-Space.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "10_Color-Space.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/10_Color-Space/10_Color-Space.png",
                                   "type": "file"
                                 }
                               ]
                             },
                             {
-                              "name": "9_Shooting-Display",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display",
+                              "name": "11_Lens-Compensation",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation",
                               "type": "directory",
                               "children": [
                                 {
-                                  "name": "1_Grid-Line-Display",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/1_Grid-Line-Display",
+                                  "name": "1_Shading-Comp",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/1_Shading-Comp",
                                   "type": "directory",
-                                  "children": []
+                                  "children": [
+                                    {
+                                      "name": "1_Shading-Comp.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/1_Shading-Comp/1_Shading-Comp.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "1_Shading-Comp.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/1_Shading-Comp/1_Shading-Comp.png",
+                                      "type": "file"
+                                    }
+                                  ]
                                 },
                                 {
-                                  "name": "2_Grind-Line-Type",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/2_Grind-Line-Type",
+                                  "name": "2_Chromatic-Aberration-Comp",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/2_Chromatic-Aberration-Comp",
                                   "type": "directory",
-                                  "children": []
+                                  "children": [
+                                    {
+                                      "name": "2_Chromatic-Aberration-Comp.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/2_Chromatic-Aberration-Comp/2_Chromatic-Aberration-Comp.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "2_Chromatic-Aberration-Comp.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/2_Chromatic-Aberration-Comp/2_Chromatic-Aberration-Comp.png",
+                                      "type": "file"
+                                    }
+                                  ]
                                 },
                                 {
-                                  "name": "3_Live-View-Display-Set",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/3_Live-View-Display-Set",
+                                  "name": "3_Distortion-Comp",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/3_Distortion-Comp",
                                   "type": "directory",
-                                  "children": []
+                                  "children": [
+                                    {
+                                      "name": "3_Distortion-Comp.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/3_Distortion-Comp/3_Distortion-Comp.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "3_Distortion-Comp.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11_Lens-Compensation/3_Distortion-Comp/3_Distortion-Comp.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "8_High-ISO-NR",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/8_High-ISO-NR",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "8_High-ISO-NR.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/8_High-ISO-NR/8_High-ISO-NR.json",
+                                  "type": "file"
                                 },
                                 {
-                                  "name": "9_shooting_display.json",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/9_shooting_display.json",
+                                  "name": "8_High-ISO-NR.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/8_High-ISO-NR/8_High-ISO-NR.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "9_HLG-Still-Image",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/9_HLG-Still-Image",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "9_HLG-Still-Image.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/9_HLG-Still-Image/9_HLG-Still-Image.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "9_HLG-Still-Image.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/9_HLG-Still-Image/9_HLG-Still-Image.png",
                                   "type": "file"
                                 }
                               ]
@@ -1081,232 +355,944 @@
                       ]
                     },
                     {
-                      "name": "2_Exposure_Colour",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/2_Exposure_Colour",
+                      "name": "2_Media",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media",
                       "type": "directory",
                       "children": [
                         {
-                          "name": "PAGE_1",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/2_Exposure_Colour/PAGE_1",
-                          "type": "directory",
-                          "children": []
-                        },
-                        {
-                          "name": "PAGE_2",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/2_Exposure_Colour/PAGE_2",
-                          "type": "directory",
-                          "children": []
-                        }
-                      ]
-                    },
-                    {
-                      "name": "3_Focus",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/3_Focus",
-                      "type": "directory",
-                      "children": [
-                        {
-                          "name": "PAGE_1",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/3_Focus/PAGE_1",
-                          "type": "directory",
-                          "children": []
-                        }
-                      ]
-                    },
-                    {
-                      "name": "4_Network",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/4_Network",
-                      "type": "directory",
-                      "children": [
-                        {
-                          "name": "PAGE_1",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/4_Network/PAGE_1",
-                          "type": "directory",
-                          "children": []
-                        },
-                        {
-                          "name": "PAGE_2",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/4_Network/PAGE_2",
-                          "type": "directory",
-                          "children": []
-                        }
-                      ]
-                    },
-                    {
-                      "name": "5_Playback",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/5_Playback",
-                      "type": "directory",
-                      "children": [
-                        {
-                          "name": "PAGE_1",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/5_Playback/PAGE_1",
-                          "type": "directory",
-                          "children": []
-                        }
-                      ]
-                    },
-                    {
-                      "name": "6_Setup",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup",
-                      "type": "directory",
-                      "children": [
-                        {
-                          "name": "PAGE_1",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1",
+                          "name": "1_Format",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/1_Format",
                           "type": "directory",
                           "children": [
                             {
-                              "name": "1_Area_Date",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/1_Area_Date",
-                              "type": "directory",
-                              "children": []
+                              "name": "1_Format.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/1_Format/1_Format.json",
+                              "type": "file"
                             },
                             {
-                              "name": "2_Reset_Save-Settings",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/2_Reset_Save-Settings",
-                              "type": "directory",
-                              "children": []
-                            },
-                            {
-                              "name": "3_Operation-Customize",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/3_Operation-Customize",
-                              "type": "directory",
-                              "children": []
-                            },
-                            {
-                              "name": "4_Dial-Customize",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/4_Dial-Customize",
-                              "type": "directory",
-                              "children": []
-                            },
-                            {
-                              "name": "5_Touch-Operation",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/5_Touch-Operation",
-                              "type": "directory",
-                              "children": []
-                            },
-                            {
-                              "name": "6_Accessibility",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/6_Accessibility",
-                              "type": "directory",
-                              "children": []
-                            },
-                            {
-                              "name": "7_Finder_Monitor",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/7_Finder_Monitor",
-                              "type": "directory",
-                              "children": []
+                              "name": "1_Format.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/1_Format/1_Format.png",
+                              "type": "file"
                             }
                           ]
                         },
                         {
-                          "name": "PAGE_2",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2",
+                          "name": "2_Rec-Media-Settings",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings",
                           "type": "directory",
                           "children": [
                             {
-                              "name": "10_Sound-Option",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/10_Sound-Option",
+                              "name": "1_Stills-Recording-Media",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/1_Stills-Recording-Media",
                               "type": "directory",
-                              "children": []
+                              "children": [
+                                {
+                                  "name": "1_Stills-Recording-Media.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/1_Stills-Recording-Media/1_Stills-Recording-Media.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "1_Stills-Recording-Media.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/1_Stills-Recording-Media/1_Stills-Recording-Media.png",
+                                  "type": "file"
+                                }
+                              ]
                             },
                             {
-                              "name": "11_USB",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/11_USB",
+                              "name": "2_Movies-Recording-Media",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/2_Movies-Recording-Media",
                               "type": "directory",
-                              "children": []
+                              "children": [
+                                {
+                                  "name": "2_Movies-Recording-Media.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/2_Movies-Recording-Media/2_Movies-Recording-Media.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "2_Movies-Recording-Media.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/2_Movies-Recording-Media/2_Movies-Recording-Media.png",
+                                  "type": "file"
+                                }
+                              ]
                             },
                             {
-                              "name": "12_External-Output",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/12_External-Output",
+                              "name": "3_Auto-Switch-Media",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/3_Auto-Switch-Media",
                               "type": "directory",
-                              "children": []
-                            },
-                            {
-                              "name": "12_Setup-Option",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/12_Setup-Option",
-                              "type": "directory",
-                              "children": []
-                            },
-                            {
-                              "name": "8_Display-Option",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/8_Display-Option",
-                              "type": "directory",
-                              "children": []
-                            },
-                            {
-                              "name": "9_Power-Setting-Option",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/9_Power-Setting-Option",
-                              "type": "directory",
-                              "children": []
+                              "children": [
+                                {
+                                  "name": "3_Auto-Switch-Media.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/3_Auto-Switch-Media/3_Auto-Switch-Media.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "3_Auto-Switch-Media.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/2_Rec-Media-Settings/3_Auto-Switch-Media/3_Auto-Switch-Media.png",
+                                  "type": "file"
+                                }
+                              ]
                             }
                           ]
+                        },
+                        {
+                          "name": "3_Recover-Image-DB",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/3_Recover-Image-DB",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "3_Recover-Image-DB.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/3_Recover-Image-DB/3_Recover-Image-DB.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "3_Recover-Image-DB.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/3_Recover-Image-DB/3_Recover-Image-DB.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "4_Display-Media-Info",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/4_Display-Media-Info",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "4_Display-Media-Info.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/4_Display-Media-Info/4_Display-Media-Info.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "4_Display-Media-Info.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/2_Media/4_Display-Media-Info/4_Display-Media-Info.png",
+                              "type": "file"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "3_File",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1_File_Folder-Settings",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_File_Folder-Settings.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings/1_File_Folder-Settings.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1_File_Folder-Settings.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings/1_File_Folder-Settings.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "2_Select-REC-Folder",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/2_Select-REC-Folder",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "2_Select-REC-Folder.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/2_Select-REC-Folder/2_Select-REC-Folder.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "2_Select-REC-Folder.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/2_Select-REC-Folder/2_Select-REC-Folder.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "3_Create-New-Folder",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/3_Create-New-Folder",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "3_Create-New-Folder.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/3_Create-New-Folder/3_Create-New-Folder.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "3_Create-New-Folder.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/3_Create-New-Folder/3_Create-New-Folder.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "4_IPTC-Information",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/4_IPTC-Information",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "4_IPTC-Information.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/4_IPTC-Information/4_IPTC-Information.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "4_IPTC-Information.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/4_IPTC-Information/4_IPTC-Information.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "5_Copyright-Info",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/5_Copyright-Info",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "5_Copyright-Info.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/5_Copyright-Info/5_Copyright-Info.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "5_Copyright-Info.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/5_Copyright-Info/5_Copyright-Info.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "6_Write-Serial-Number",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/6_Write-Serial-Number",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "6_Write-Serial-Number.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/6_Write-Serial-Number/6_Write-Serial-Number.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "6_Write-Serial-Number.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/3_File/6_Write-Serial-Number/6_Write-Serial-Number.png",
+                              "type": "file"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "4_Shooting-Mode",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1_Recall-Camera-Setting",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1_Recall-Camera-Setting",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_Recall-Camera-Setting.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1_Recall-Camera-Setting/1_Recall-Camera-Setting.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1_Recall-Camera-Setting.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1_Recall-Camera-Setting/1_Recall-Camera-Setting.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "2_Camera-Set.-Memory",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2_Camera-Set.-Memory",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "2_Camera-Set.-Memory.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2_Camera-Set.-Memory/2_Camera-Set.-Memory.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "2_Camera-Set.-Memory.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2_Camera-Set.-Memory/2_Camera-Set.-Memory.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "3_Memory_Recall-Media",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3_Memory_Recall-Media",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "3_Memory_Recall-Media.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3_Memory_Recall-Media/3_Memory_Recall-Media.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "3_Memory_Recall-Media.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3_Memory_Recall-Media/3_Memory_Recall-Media.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "4_Reg.-Custom-Shoot-Set",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4_Reg.-Custom-Shoot-Set",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "4_Reg.-Custom-Shoot-Set.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4_Reg.-Custom-Shoot-Set/4_Reg.-Custom-Shoot-Set.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "4_Reg.-Custom-Shoot-Set.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4_Reg.-Custom-Shoot-Set/4_Reg.-Custom-Shoot-Set.png",
+                              "type": "file"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "5_Drive-Mode",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1_Drive-mode",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/1_Drive-mode",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_Drive-mode.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/1_Drive-mode/1_Drive-mode.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1_Drive-mode.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/1_Drive-mode/1_Drive-mode.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "2_Bracket-Settings",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/2_Bracket-Settings",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "2_Bracket-Settings.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/2_Bracket-Settings/2_Bracket-Settings.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "2_Bracket-Settings.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/2_Bracket-Settings/2_Bracket-Settings.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "3_Interval-Shoot-Func",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "PAGE_1",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "1_Interval-Shooting",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/1_Interval-Shooting",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "1_Interval-Shooting.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/1_Interval-Shooting/1_Interval-Shooting.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "1_Interval-Shooting.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/1_Interval-Shooting/1_Interval-Shooting.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "2_Shooting-Start-Time",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/2_Shooting-Start-Time",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "2_Shooting-Start-Time.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/2_Shooting-Start-Time/2_Shooting-Start-Time.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "2_Shooting-Start-Time.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/2_Shooting-Start-Time/2_Shooting-Start-Time.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "3_Shooting-Interval",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/3_Shooting-Interval",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "3_Shooting-Interval.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/3_Shooting-Interval/3_Shooting-Interval.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "3_Shooting-Interval.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/3_Shooting-Interval/3_Shooting-Interval.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "4_Number-of-Shots",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/4_Number-of-Shots",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "4_Number-of-Shots.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/4_Number-of-Shots/4_Number-of-Shots.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "4_Number-of-Shots.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/4_Number-of-Shots/4_Number-of-Shots.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "5_AE-Tracking-Sensitivity",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/5_AE-Tracking-Sensitivity",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "5_AE-Tracking-Sensitivity.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/5_AE-Tracking-Sensitivity/5_AE-Tracking-Sensitivity.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "PAGE_1.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/PAGE_1.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "PAGE_1.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_1/PAGE_1.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "PAGE_2",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "6_Shutter-Type-in-Interval",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/6_Shutter-Type-in-Interval",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "6_Shutter-Type-in-Interval.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/6_Shutter-Type-in-Interval/6_Shutter-Type-in-Interval.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "6_Shutter-Type-in-Interval.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/6_Shutter-Type-in-Interval/6_Shutter-Type-in-Interval.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "7_Shoot-Interval-Priority",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/7_Shoot-Interval-Priority",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "7_Shoot-Interval-Priority.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/7_Shoot-Interval-Priority/7_Shoot-Interval-Priority.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "7_Shoot-Interval-Priority.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/7_Shoot-Interval-Priority/7_Shoot-Interval-Priority.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "PAGE_2.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/PAGE_2.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "PAGE_2.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3_Interval-Shoot-Func/PAGE_2/PAGE_2.png",
+                                  "type": "file"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "4_Pixel-Shift-Multi-Shoot",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/4_Pixel-Shift-Multi-Shoot",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "4_Pixel-Shift-Multi-Shoot.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/4_Pixel-Shift-Multi-Shoot/4_Pixel-Shift-Multi-Shoot.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "4_Pixel-Shift-Multi-Shoot.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/5_Drive-Mode/4_Pixel-Shift-Multi-Shoot/4_Pixel-Shift-Multi-Shoot.png",
+                              "type": "file"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "6_Shutter_Silent",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1_Silent-Mode",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/1_Silent-Mode",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_Silent-Mode.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/1_Silent-Mode/1_Silent-Mode.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1_Silent-Mode.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/1_Silent-Mode/1_Silent-Mode.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "2_Target_Function_Settings",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_Aperture-Drive-in-AF",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/1_Aperture-Drive-in-AF",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "1_Aperture-Drive-in-AF.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/1_Aperture-Drive-in-AF/1_Aperture-Drive-in-AF.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "1_Aperture-Drive-in-AF.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/1_Aperture-Drive-in-AF/1_Aperture-Drive-in-AF.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "2_Shutter-When-Pwr-OFF",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/2_Shutter-When-Pwr-OFF",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "2_Shutter-When-Pwr-OFF.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/2_Shutter-When-Pwr-OFF/2_Shutter-When-Pwr-OFF.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "2_Shutter-When-Pwr-OFF.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/2_Shutter-When-Pwr-OFF/2_Shutter-When-Pwr-OFF.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "3_Auto-Pixel-Mapping",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/3_Auto-Pixel-Mapping",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "3_Auto-Pixel-Mapping.json",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/3_Auto-Pixel-Mapping/3_Auto-Pixel-Mapping.json",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "3_Auto-Pixel-Mapping.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2_Target_Function_Settings/3_Auto-Pixel-Mapping/3_Auto-Pixel-Mapping.png",
+                                  "type": "file"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "6_shutter_silent.json",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/6_shutter_silent.json",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "7_Image-Stabilization",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1_SteadyShot",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/1_SteadyShot",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_SteadyShot.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/1_SteadyShot/1_SteadyShot.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1_SteadyShot.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/1_SteadyShot/1_SteadyShot.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "2_SteadyShot-Adjusst",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/2_SteadyShot-Adjusst",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "2_SteadyShot-Adjusst.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/2_SteadyShot-Adjusst/2_SteadyShot-Adjusst.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "2_SteadyShot-Adjusst.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/2_SteadyShot-Adjusst/2_SteadyShot-Adjusst.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "3_Focal-Length",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/3_Focal-Length",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "3_Focal-Length.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/3_Focal-Length/3_Focal-Length.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "3_Focal-Length.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/3_Focal-Length/3_Focal-Length.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "7_image_stabilization.json",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/7_image_stabilization.json",
+                          "type": "file"
                         }
                       ]
                     }
                   ]
                 },
                 {
-                  "name": "modes.json",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/modes.json",
-                  "type": "file"
+                  "name": "PAGE_2",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "8_Zoom",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/8_Zoom",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "8_zoom.json",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/8_Zoom/8_zoom.json",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "9_Shooting-Display",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1_Grid-Line-Display",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/1_Grid-Line-Display",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "2_Grind-Line-Type",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/2_Grind-Line-Type",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3_Live-View-Display-Set",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/3_Live-View-Display-Set",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "9_shooting_display.json",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/9_shooting_display.json",
+                          "type": "file"
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
             {
-              "name": "docs",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/docs",
+              "name": "2_Exposure_Colour",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/2_Exposure_Colour",
               "type": "directory",
               "children": [
                 {
-                  "name": "manual.txt",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/docs/manual.txt",
-                  "type": "file"
+                  "name": "PAGE_1",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/2_Exposure_Colour/PAGE_1",
+                  "type": "directory",
+                  "children": []
                 },
                 {
-                  "name": "sony_a7r5_user_manual.pdf",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/docs/sony_a7r5_user_manual.pdf",
-                  "type": "file"
+                  "name": "PAGE_2",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/2_Exposure_Colour/PAGE_2",
+                  "type": "directory",
+                  "children": []
                 }
               ]
             },
             {
-              "name": "favicon.ico",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/favicon.ico",
-              "type": "file"
+              "name": "3_Focus",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/3_Focus",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "PAGE_1",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/3_Focus/PAGE_1",
+                  "type": "directory",
+                  "children": []
+                }
+              ]
             },
             {
-              "name": "index.html",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/index.html",
-              "type": "file"
+              "name": "4_Network",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/4_Network",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "PAGE_1",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/4_Network/PAGE_1",
+                  "type": "directory",
+                  "children": []
+                },
+                {
+                  "name": "PAGE_2",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/4_Network/PAGE_2",
+                  "type": "directory",
+                  "children": []
+                }
+              ]
             },
             {
-              "name": "logo192.png",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/logo192.png",
-              "type": "file"
+              "name": "5_Playback",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/5_Playback",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "PAGE_1",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/5_Playback/PAGE_1",
+                  "type": "directory",
+                  "children": []
+                }
+              ]
             },
             {
-              "name": "logo512.png",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/logo512.png",
-              "type": "file"
-            },
-            {
-              "name": "manifest.json",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/manifest.json",
-              "type": "file"
-            },
-            {
-              "name": "robots.txt",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/robots.txt",
-              "type": "file"
-            },
-            {
-              "name": "tree-data.json",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/tree-data.json",
-              "type": "file"
+              "name": "6_Setup",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "PAGE_1",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1_Area_Date",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/1_Area_Date",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2_Reset_Save-Settings",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/2_Reset_Save-Settings",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3_Operation-Customize",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/3_Operation-Customize",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "4_Dial-Customize",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/4_Dial-Customize",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "5_Touch-Operation",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/5_Touch-Operation",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "6_Accessibility",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/6_Accessibility",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "7_Finder_Monitor",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_1/7_Finder_Monitor",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "PAGE_2",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "10_Sound-Option",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/10_Sound-Option",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "11_USB",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/11_USB",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "12_External-Output",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/12_External-Output",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "12_Setup-Option",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/12_Setup-Option",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "8_Display-Option",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/8_Display-Option",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "9_Power-Setting-Option",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/6_Setup/PAGE_2/9_Power-Setting-Option",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
             }
           ]
+        },
+        {
+          "name": "modes.json",
+          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/modes.json",
+          "type": "file"
         }
       ]
+    },
+    {
+      "name": "docs",
+      "path": "/home/alexb/myg/cla_2/tree-view-app/public/docs",
+      "type": "directory",
+      "children": [
+        {
+          "name": "manual.txt",
+          "path": "/home/alexb/myg/cla_2/tree-view-app/public/docs/manual.txt",
+          "type": "file"
+        },
+        {
+          "name": "sony_a7r5_user_manual.pdf",
+          "path": "/home/alexb/myg/cla_2/tree-view-app/public/docs/sony_a7r5_user_manual.pdf",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "favicon.ico",
+      "path": "/home/alexb/myg/cla_2/tree-view-app/public/favicon.ico",
+      "type": "file"
+    },
+    {
+      "name": "index.html",
+      "path": "/home/alexb/myg/cla_2/tree-view-app/public/index.html",
+      "type": "file"
+    },
+    {
+      "name": "logo192.png",
+      "path": "/home/alexb/myg/cla_2/tree-view-app/public/logo192.png",
+      "type": "file"
+    },
+    {
+      "name": "logo512.png",
+      "path": "/home/alexb/myg/cla_2/tree-view-app/public/logo512.png",
+      "type": "file"
+    },
+    {
+      "name": "manifest.json",
+      "path": "/home/alexb/myg/cla_2/tree-view-app/public/manifest.json",
+      "type": "file"
+    },
+    {
+      "name": "robots.txt",
+      "path": "/home/alexb/myg/cla_2/tree-view-app/public/robots.txt",
+      "type": "file"
+    },
+    {
+      "name": "tree-data.json",
+      "path": "/home/alexb/myg/cla_2/tree-view-app/public/tree-data.json",
+      "type": "file"
     }
   ]
 }

@@ -6,8 +6,8 @@ import fnmatch
 # If INCLUDE is not empty, only files/dirs matching at least one pattern will be included.
 # Supports wildcards, e.g. "*.py" to include only Python files.
 INCLUDE = [
-    # Example: "include", "tree-view-app", "*.py"
-    "tree-view-app/public/**",
+    # Since we're starting from public directory, include everything
+    "**",
 ]
 
 # List of file or directory names or glob patterns to exclude (case-sensitive)
@@ -16,9 +16,7 @@ EXCLUDE = [
     ".git",           # Example: exclude .git directory
     "node_modules",   # Example: exclude node_modules
     # Add more names or patterns to exclude as needed
-    "tree-view-app",
     ".claude",
-    "include",
     "*Zone.Identifier"
 ]
 
@@ -121,7 +119,8 @@ def build_tree(path, rel_path="", in_included_subtree=False):
     return tree
 
 if __name__ == "__main__":
-    root_path = os.path.abspath(os.path.dirname(__file__)).replace('/tree-view-app', '')
+    # Start from the public directory instead of the root
+    root_path = os.path.join(os.path.dirname(__file__), "public")
     tree = build_tree(root_path)
-    with open(os.path.join(os.path.dirname(__file__), "public", "tree-data.json"), "w") as f:
+    with open(os.path.join(root_path, "tree-data.json"), "w") as f:
         json.dump(tree, f, indent=2)

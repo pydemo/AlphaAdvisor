@@ -117,7 +117,9 @@ const TreeView: React.FC<TreeViewProps> = ({
   useEffect(() => {
     fetch(dataUrl)
       .then((res) => res.json())
-      .then(setTree);
+      .then((data) => {
+        setTree(data);
+      });
   }, [dataUrl]);
 
   // Expand all directories
