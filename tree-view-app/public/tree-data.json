@@ -44,18 +44,18 @@
                                   "type": "directory",
                                   "children": [
                                     {
-                                      "name": "1_JPEG_HREF_Switch",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF_Switch",
+                                      "name": "1_JPEG_HREF-Switch",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF-Switch",
                                       "type": "directory",
                                       "children": [
                                         {
                                           "name": "JPEG_HREF_Switch+--.json",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF_Switch/JPEG_HREF_Switch+--.json",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF-Switch/JPEG_HREF_Switch+--.json",
                                           "type": "file"
                                         },
                                         {
                                           "name": "JPEG_HREF_Switch+--.png",
-                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF_Switch/JPEG_HREF_Switch+--.png",
+                                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF-Switch/JPEG_HREF_Switch+--.png",
                                           "type": "file"
                                         }
                                       ]
@@ -1052,8 +1052,8 @@
                               "type": "directory",
                               "children": [
                                 {
-                                  "name": "1_Grid_Line_Display",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/1_Grid_Line_Display",
+                                  "name": "1_Grid-Line-Display",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/1_Grid-Line-Display",
                                   "type": "directory",
                                   "children": []
                                 },

@@ -26,6 +26,9 @@ const formatDirNameForDisplay = (name: string): string => {
   // First, remove leading numbers and underscores
   let formatted = name.replace(/^\d+_/, '');
   
+  // Replace underscores with forward slashes
+  formatted = formatted.replace(/_/g, '/');
+  
   // Special case: preserve dash in "APS-C"
   if (formatted.includes('APS-C')) {
     // Temporarily replace "APS-C" with a placeholder
