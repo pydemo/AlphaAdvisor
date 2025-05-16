@@ -136,6 +136,9 @@ function App() {
 
   // Called when a file is double-clicked in the tree
   const handleFileDoubleClick = (node: { name: string; path: string }) => {
+    // Log the node path for debugging
+    console.log("Double-clicked file path:", node.path);
+    
     setSelectedObjects((prev) => {
       if (prev.some((obj) => obj.path === node.path)) {
         // Deselect: remove from selectedObjects
@@ -163,10 +166,14 @@ function App() {
         if (/\.(png|jpe?g)$/i.test(node.path)) {
           // Use the actual file path for the image source
           let imgSrc;
-          if (node.path.includes('/MENU')) {
-            imgSrc = `/MENU${node.path.split('/MENU')[1]}`;
+          if (node.path.includes('/α7RV')) {
+            // Extract the part after α7RV
+            const pathParts = node.path.split('/α7RV');
+            imgSrc = `/α7RV${pathParts[1]}`;
+            console.log("Image path with α7RV:", imgSrc);
           } else {
             imgSrc = `/${node.path.replace(/^(\.\/|\/)/, '')}`;
+            console.log("Regular image path:", imgSrc);
           }
           newTabMessages.push({
             text: `<img src="${imgSrc}" alt="${node.name}" style="width:256px;max-width:100%;border-radius:4px;border:1px solid #ccc;margin-top:4px;" />`,

@@ -9,8 +9,16 @@ app.use(require('cors')());
 // Catch-all logging middleware
 app.use((req, res, next) => {
   console.log(`[${req.method}] ${req.url}`);
+  // Add more detailed logging for paths with Unicode characters
+  if (req.url.includes('%CE%B1')) {
+    console.log(`[DEBUG] Handling URL with encoded Unicode: ${req.url}`);
+    console.log(`[DEBUG] Decoded URL: ${decodeURIComponent(req.url)}`);
+  }
   next();
 });
+
+// Serve static files from the tree-view-app/public directory
+app.use(express.static(path.join(__dirname, 'tree-view-app', 'public')));
 
 app.post('/api/create-dir', (req, res) => {
   console.log(req.body); 

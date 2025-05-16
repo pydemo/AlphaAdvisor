@@ -6,18 +6,27 @@ import fnmatch
 # If INCLUDE is not empty, only files/dirs matching at least one pattern will be included.
 # Supports wildcards, e.g. "*.py" to include only Python files.
 INCLUDE = [
-    # Since we're starting from public directory, include everything
-    "**",
+    # Only include α7RV directory and its contents
+    "α7RV",
+    "α7RV/**",
 ]
 
 # List of file or directory names or glob patterns to exclude (case-sensitive)
 # Supports wildcards, e.g. "*Zone.Identifier" to exclude files ending with Zone.Identifier
 EXCLUDE = [
-    ".git",           # Example: exclude .git directory
-    "node_modules",   # Example: exclude node_modules
-    # Add more names or patterns to exclude as needed
-    ".claude",
-    "*Zone.Identifier"
+    ".git",           # Exclude .git directory
+    "node_modules",   # Exclude node_modules
+    ".claude",        # Exclude .claude
+    "*Zone.Identifier", # Exclude Zone.Identifier files
+    # Exclude everything else in public except α7RV
+    "docs",
+    "favicon.ico",
+    "index.html",
+    "logo192.png",
+    "logo512.png",
+    "manifest.json",
+    "robots.txt",
+    "tree-data.json"
 ]
 
 def matches_any(entry, patterns):

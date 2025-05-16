@@ -201,10 +201,13 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
       // Remove query/hash if present
       const cleanImgSrc = imgSrc.split(/[?#]/)[0];
       const jsonPath = cleanImgSrc.replace(/\.png$/i, ".json");
+      
       // For debugging: log the computed JSON path
-      // eslint-disable-next-line no-console
       console.log("Checking for JSON sibling at:", jsonPath);
-      const jsonRes = await fetch(jsonPath, { method: "GET", headers: { Accept: "application/json" } });
+      
+      // Ensure the path is properly encoded for fetch
+      const encodedJsonPath = encodeURI(jsonPath);
+      const jsonRes = await fetch(encodedJsonPath, { method: "GET", headers: { Accept: "application/json" } });
       if (jsonRes.ok) {
         const text = await jsonRes.text();
         let displayText = text;
@@ -235,19 +238,24 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
 
   // Preview handler for JSON files
   const handlePreview = async (msgText: string) => {
-    // Extract file path from "Selected file: ..." message
-    const match = msgText.match(/^Selected file:\s*(.+\.json)$/i);
-    if (match) {
-      const originalFullPath = match[1].trim();
-      setPreviewFullPath(originalFullPath);
-      let filePath = originalFullPath;
-      // Always use /MENU/... as fetch path if present
-      const menuIdx = filePath.indexOf("MENU/");
-      if (menuIdx !== -1) {
-        filePath = "/" + filePath.slice(menuIdx);
-      } else if (!filePath.startsWith("/")) {
-        filePath = "/" + filePath;
-      }
+  // Extract file path from "Selected file: ..." message
+  const match = msgText.match(/^Selected file:\s*(.+\.json)$/i);
+  if (match) {
+    const originalFullPath = match[1].trim();
+    setPreviewFullPath(originalFullPath);
+    let filePath = originalFullPath;
+    
+    // Always use /α7RV/... as fetch path if present
+    const menuIdx = filePath.indexOf("α7RV/");
+    if (menuIdx !== -1) {
+      // Properly encode the Unicode path for fetch
+      filePath = "/" + encodeURI(filePath.slice(menuIdx));
+    } else if (!filePath.startsWith("/")) {
+      filePath = "/" + filePath;
+    }
+    
+    // Log the file path for debugging
+    console.log("Preview file path:", filePath);
       try {
         const res = await fetch(filePath, { headers: { Accept: "application/json" } });
         if (!res.ok) throw new Error("Failed to fetch file");
@@ -269,8 +277,10 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
           // For debugging: log the computed PNG path
           // eslint-disable-next-line no-console
           console.log("Checking for PNG sibling at:", pngPath);
+          // Ensure the path is properly encoded for fetch
+          const encodedPngPath = encodeURI(pngPath);
           // Use GET instead of HEAD, as some static servers don't support HEAD
-          const pngRes = await fetch(pngPath, { method: "GET" });
+          const pngRes = await fetch(encodedPngPath, { method: "GET" });
           pngExists = pngRes.ok;
         } catch (err) {
           // eslint-disable-next-line no-console
@@ -281,7 +291,7 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
           setPreviewContent({
             type: "json+image",
             json: displayText,
-            imageSrc: pngPath,
+            imageSrc: encodeURI(pngPath),
             imageAlt: baseName
           });
         } else {
@@ -796,10 +806,12 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                       try {
                         // Use global config for endpoint
                         const endpoint = apiConfig[tab]?.["Ask ChatGPT"] || "/api/ask-chatgpt";
+                        // Ensure the path is properly encoded for the server
+                        const encodedImagePath = imagePath.includes("α7RV") ? imagePath : imagePath;
                         const res = await fetch(endpoint, {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify({ target_path: imagePath })
+                          body: JSON.stringify({ target_path: encodedImagePath })
                         });
                         const data = await res.json();
                         if (data && data.success && data.content) {
@@ -950,11 +962,13 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                         const controller = new AbortController();
                         const signal = controller.signal;
                         const endpoint = apiConfig[tab]?.["Streamed"] || "/api/ask-chatgpt_streamed";
+                        // Ensure the path is properly encoded for the server
+                        const encodedImagePath = imagePath.includes("α7RV") ? imagePath : imagePath;
                         const response = await fetch(endpoint, {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
                           body: JSON.stringify({
-                            target_path: imagePath,
+                            target_path: encodedImagePath,
                             user_message: conversionInput
                           }),
                           signal
@@ -1268,8 +1282,8 @@ const Chat: React.FC<ChatPropsWithSetTab> = ({
                         } else {
                           // Path doesn't have PUBLIC_ROOT, need to add it
                           let relPath = filePath;
-                          if (relPath.startsWith("/MENU/")) {
-                            relPath = "/MENU/" + relPath.split("/MENU/")[1];
+                          if (relPath.startsWith("/α7RV/")) {
+                            relPath = "/α7RV/" + relPath.split("/α7RV/")[1];
                           } else if (relPath.startsWith("/public/")) {
                             relPath = relPath.replace(/^\/public/, "");
                           }

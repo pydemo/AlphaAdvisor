@@ -101,7 +101,7 @@ const TreeView: React.FC<TreeViewProps> = ({
       console.error('Error saving expanded paths to localStorage:', error);
     }
   }, [expanded]);
-  // Popup state for creating a new dir under MENU
+  // Popup state for creating a new dir under α7RV
   const [createMenuDir, setCreateMenuDir] = useState<{ parentPath: string; open: boolean }>({ parentPath: "", open: false });
   const [newDirName, setNewDirName] = useState("");
   // Store expanded state before creating a new directory
@@ -228,30 +228,30 @@ const TreeView: React.FC<TreeViewProps> = ({
                 fontWeight:
                   selectedPaths.includes(node.path)
                     ? "bold"
-                    : (isDir && /\/public\/MENU\//.test(node.path))
+                    : (isDir && /\/public\/α7RV\//.test(node.path))
                       ? "bold"
                       : "normal",
                 color:
-                  isDir && /\/public\/MENU\/.*\/\/.*\/PAGE_\d+\/[^/]+\//.test(node.path)
+                  isDir && /\/public\/α7RV\/.*\/\/.*\/PAGE_\d+\/[^/]+\//.test(node.path)
                     ? "#5b88c4"
-                    : isDir && /\/public\/MENU\/.*\/PAGE_\d+\/.*\/PAGE_\d+\//.test(node.path)
+                    : isDir && /\/public\/α7RV\/.*\/PAGE_\d+\/.*\/PAGE_\d+\//.test(node.path)
                     ? "#4a6996"
-                    : isDir && /\/public\/MENU\/.*\/PAGE_\d+\//.test(node.path)
+                    : isDir && /\/public\/α7RV\/.*\/PAGE_\d+\//.test(node.path)
                     ? "#6c9c6a"
-                    : isDir && /\/public\/MENU\/.*\//.test(node.path)
+                    : isDir && /\/public\/α7RV\/.*\//.test(node.path)
                     ? "orange"
                     : undefined
               }}>
                 {/* Format directory names for display */}
-                {isDir && /\/public\/MENU\//.test(node.path) 
+                {isDir && /\/public\/α7RV\//.test(node.path)
                   ? formatDirNameForDisplay(node.name) 
                   : node.name}
               </span>
               
-              {/* Info and JSON buttons for specific MENU leaf directories */}
-              { (/\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/(?!PAGE_\d+$)[^/]+$/.test(node.path) ||
-                /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||
-                /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path)) && (
+              {/* Info and JSON buttons for specific α7RV leaf directories */}
+              { (/\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/(?!PAGE_\d+$)[^/]+$/.test(node.path) ||
+                /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||
+                /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path)) && (
                 <>
                   <button
                     style={{
@@ -368,25 +368,25 @@ const TreeView: React.FC<TreeViewProps> = ({
               </span>
             </>
           )}
-          {/* "+" button for MENU section dirs */}
+          {/* "+" button for α7RV section dirs */}
           {isDir && 
           (
-    /\/public\/MENU\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Shooting
-    /\/public\/MENU\/?$/.test(node.path) ||     // e.g., /public/MENU
-    /\/public\/MENU\/[^/]+\/[^/]+$/.test(node.path) || // e.g., /public/MENU/Stills/Shooting
-    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Stills/Shooting/PAGE_1
-    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Stills/Shooting/PAGE_1/1_image_quality_rec
-    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/MENU/Stills/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/
-    /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/MENU/Stills/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/Lens-Compensation
+    /\/public\/α7RV\/[^/]+$/.test(node.path) || // e.g., /public/α7RV/Shooting
+    /\/public\/α7RV\/?$/.test(node.path) ||     // e.g., /public/α7RV
+    /\/public\/α7RV\/[^/]+\/[^/]+$/.test(node.path) || // e.g., /public/α7RV/Stills/Shooting
+    /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/α7RV/Stills/Shooting/PAGE_1
+    /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/α7RV/Stills/Shooting/PAGE_1/1_image_quality_rec
+    /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/α7RV/Stills/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/
+    /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/α7RV/Stills/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/Lens-Compensation
   )
           && (
             <>
-              {/* E/C toggle button for /public/MENU or /public/MENU/xxx */}
+              {/* E/C toggle button for /public/α7RV or /public/α7RV/xxx */}
               {(
-                /\/public\/MENU\/?$/.test(node.path) ||
-                /\/public\/MENU\/[^/]+\/[^/]+$/.test(node.path) ||
-                /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||
-                /\/public\/MENU\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path)
+                /\/public\/α7RV\/?$/.test(node.path) ||
+                /\/public\/α7RV\/[^/]+\/[^/]+$/.test(node.path) ||
+                /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||
+                /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path)
               ) && (
                 (() => {
                   // Helper to collect all descendant dir paths
@@ -655,7 +655,7 @@ const TreeView: React.FC<TreeViewProps> = ({
           </div>
         </div>
       )}
-      {/* Popup for creating new dir under MENU section */}
+      {/* Popup for creating new dir under α7RV section */}
       {createMenuDir.open && (
         <div
           style={{
@@ -690,7 +690,7 @@ const TreeView: React.FC<TreeViewProps> = ({
               Create new directory under 
               <span style={{ color: "#0074d9" }}>
                 {createMenuDir.parentPath
-                  .replace(/^.*\/public\/MENU\//, "MENU/")
+                  .replace(/^.*\/public\/α7RV\//, "α7RV/")
                   .split('/')
                   .map(segment => segment.match(/^\d+_/) ? formatDirNameForDisplay(segment) : segment)
                   .join('/')}
