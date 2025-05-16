@@ -1,0 +1,22 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "SteadyShot",
+  "navigation": "MENU → (Shooting) → [Image Stabilization] → [SteadyShot]",
+  "description": "Sets whether or not to use the SteadyShot function.",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "On",
+      "value": "Uses [SteadyShot].",
+      "description": ""
+    },
+    {
+      "label": "Off",
+      "value": "Does not use [SteadyShot].",
+      "description": ""
+    }
+  ],
+  "hint": "When using a tripod, etc., make sure to turn off the SteadyShot function because this can cause any malfunction when shooting. If you assign [SteadyShot Select] to a desired key using [Custom Key/Dial Set.], you can switch the [SteadyShot] function on or off by pressing the key. When shooting in a dark place, the (SteadyShot) icon may blink. We recommend that you set a faster shutter speed by decreasing the aperture value or adjusting the ISO sensitivity to a higher value.",
+  "note": "With some lenses, the camera body and the lens work together to perform image stabilization, making it possible to correct larger blurs than usual. Refer to the following URL for compatible lenses. https://www.sony.net/dics/7rm5-s/"
+}

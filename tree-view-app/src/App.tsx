@@ -79,6 +79,9 @@ function App() {
       collapseAllSignal,
       tab,
       expandedPaths,
+      conversionInput,
+      noImageInput,
+      generalInput,
     };
     try {
       localStorage.setItem("treeChatAppState", JSON.stringify(state));
@@ -96,17 +99,30 @@ function App() {
         if (typeof state.filter === "string") setFilter(state.filter);
         if (typeof state.search === "string") setSearch(state.search);
         if (Array.isArray(state.selectedObjects)) setSelectedObjects(state.selectedObjects);
-        if (Array.isArray(state.chatMessages)) setChatMessages(state.chatMessages);
+        if (typeof state.chatMessages === "object" && state.chatMessages !== null) setChatMessages(state.chatMessages);
         if (typeof state.expandAllSignal === "number") setExpandAllSignal(state.expandAllSignal);
         if (typeof state.collapseAllSignal === "number") setCollapseAllSignal(state.collapseAllSignal);
-        if (state.tab === "Conversion" || state.tab === "General") setTab(state.tab);
+        if (state.tab === "Conversion" || state.tab === "No Image" || state.tab === "General") setTab(state.tab);
         if (Array.isArray(state.expandedPaths)) setExpandedPaths(state.expandedPaths);
-        // Optionally clear after restoring
-        localStorage.removeItem("treeChatAppState");
+        if (typeof state.conversionInput === "string") setConversionInput(state.conversionInput);
+        if (typeof state.noImageInput === "string") setNoImageInput(state.noImageInput);
+        if (typeof state.generalInput === "string") setGeneralInput(state.generalInput);
+        // Keep the state in localStorage for refresh operations
       }
     } catch (e) {
       // ignore
     }
+    
+    // Add event listener for saveAppState custom event
+    const handleSaveAppState = () => {
+      saveAppState();
+    };
+    window.addEventListener('saveAppState', handleSaveAppState);
+    
+    // Clean up event listener on unmount
+    return () => {
+      window.removeEventListener('saveAppState', handleSaveAppState);
+    };
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -301,7 +317,31 @@ function App() {
           setExpandAllSignal={setExpandAllSignal}
           setCollapseAllSignal={setCollapseAllSignal}
           onRefresh={async () => {
+            // Save current state
+            saveAppState();
+            // Refresh API
             await fetch("/api/refresh-tree", { method: "POST" });
+            // Restore state from localStorage
+            try {
+              const stateStr = localStorage.getItem("treeChatAppState");
+              if (stateStr) {
+                const state = JSON.parse(stateStr);
+                if (typeof state.filter === "string") setFilter(state.filter);
+                if (typeof state.search === "string") setSearch(state.search);
+                if (Array.isArray(state.selectedObjects)) setSelectedObjects(state.selectedObjects);
+                if (typeof state.chatMessages === "object" && state.chatMessages !== null) setChatMessages(state.chatMessages);
+                if (typeof state.expandAllSignal === "number") setExpandAllSignal(state.expandAllSignal);
+                if (typeof state.collapseAllSignal === "number") setCollapseAllSignal(state.collapseAllSignal);
+                if (state.tab === "Conversion" || state.tab === "No Image" || state.tab === "General") setTab(state.tab);
+                if (Array.isArray(state.expandedPaths)) setExpandedPaths(state.expandedPaths);
+                if (typeof state.conversionInput === "string") setConversionInput(state.conversionInput);
+                if (typeof state.noImageInput === "string") setNoImageInput(state.noImageInput);
+                if (typeof state.generalInput === "string") setGeneralInput(state.generalInput);
+                // Keep the state in localStorage in case of page reload
+              }
+            } catch (e) {
+              // ignore
+            }
             setSearch(s => s); // force update
           }}
           elementSelectorMode={elementSelectorMode}

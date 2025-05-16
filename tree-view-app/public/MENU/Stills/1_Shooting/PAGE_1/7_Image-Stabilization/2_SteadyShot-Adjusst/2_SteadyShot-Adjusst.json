@@ -1,0 +1,22 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "SteadyShot Adjust.",
+  "navigation": "MENU → (Shooting) → [Image Stabilization] → [SteadyShot Adjust.]",
+  "description": "You can shoot with an appropriate SteadyShot setting for the attached lens.",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "Auto",
+      "value": "Auto",
+      "description": "Performs the SteadyShot function automatically according to the information obtained from the attached lens."
+    },
+    {
+      "label": "Manual",
+      "value": "Manual",
+      "description": "Performs the SteadyShot function according to the focal-length set using [ Focal Length]. (8mm-1000mm)"
+    }
+  ],
+  "hint": "",
+  "note": "The SteadyShot function may not work optimally when the power has just been turned on, right after you point the camera towards a subject, or when the shutter button has been pressed all the way down without stopping halfway. When the camera cannot obtain focal length information from the lens, the SteadyShot function does not work correctly. Set [SteadyShot Adjust.] to [Manual] and set [ Focal Length] to match the lens you are using. The currently set SteadyShot focal length will be displayed along with the (SteadyShot) icon. When using an SEL16F28 lens (sold separately) with a teleconverter, etc., set [SteadyShot Adjust.] to [Manual] and set the focal length. If a lens equipped with a SteadyShot switch is attached, the settings can only be changed using that switch on the lens. You cannot switch the settings using the camera."
+}

@@ -1,0 +1,42 @@
+/api: /api/ask-chatgpt_streamed
+{
+  "menu": "Focal Length",
+  "navigation": "MENU → (Shooting) → [Image Stabilization] → [Focal Length]",
+  "description": "Sets the focal length information to be used for the built-in SteadyShot function when [SteadyShot Adjust.] is set to [Manual].",
+  "modes": [],
+  "condition": {},
+  "items": [
+    {
+      "label": "8mm",
+      "value": "selected",
+      "description": "The SteadyShot function uses the focal length that you set."
+    },
+    {
+      "label": "9mm",
+      "value": "",
+      "description": "The SteadyShot function uses the focal length that you set."
+    },
+    {
+      "label": "10mm",
+      "value": "",
+      "description": "The SteadyShot function uses the focal length that you set."
+    },
+    {
+      "label": "11mm",
+      "value": "",
+      "description": "The SteadyShot function uses the focal length that you set."
+    },
+    {
+      "label": "12mm",
+      "value": "",
+      "description": "The SteadyShot function uses the focal length that you set."
+    },
+    {
+      "label": "13mm",
+      "value": "",
+      "description": "The SteadyShot function uses the focal length that you set."
+    }
+  ],
+  "hint": "Check the focal-length index on the lens and set the focal-length.",
+  "note": "8mm - 1000mm: The SteadyShot function uses the focal length that you set."
+}

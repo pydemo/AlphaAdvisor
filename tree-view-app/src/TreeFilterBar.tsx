@@ -84,7 +84,22 @@ const TreeFilterBar: React.FC<TreeFilterBarProps> = ({
         Reset
       </button>
       <button
-        onClick={onRefresh}
+        onClick={(e) => {
+          // Prevent any default form submission behavior
+          e.preventDefault();
+          // Call the refresh handler
+          onRefresh();
+          // Save the current state to localStorage
+          if (window.localStorage) {
+            try {
+              // Create a custom event to trigger state saving
+              const saveEvent = new CustomEvent('saveAppState');
+              window.dispatchEvent(saveEvent);
+            } catch (err) {
+              // Ignore errors
+            }
+          }
+        }}
         style={{
           fontSize: 15,
           padding: "4px 10px",

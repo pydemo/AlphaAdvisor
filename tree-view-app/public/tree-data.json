@@ -970,6 +970,57 @@
                               "type": "directory",
                               "children": [
                                 {
+                                  "name": "1_SteadyShot",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/1_SteadyShot",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "1_SteadyShot.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/1_SteadyShot/1_SteadyShot.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "1_SteadyShot.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/1_SteadyShot/1_SteadyShot.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "2_SteadyShot-Adjusst",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/2_SteadyShot-Adjusst",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "2_SteadyShot-Adjusst.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/2_SteadyShot-Adjusst/2_SteadyShot-Adjusst.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "2_SteadyShot-Adjusst.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/2_SteadyShot-Adjusst/2_SteadyShot-Adjusst.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "3_Focal-Length",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/3_Focal-Length",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "3_Focal-Length.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/3_Focal-Length/3_Focal-Length.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "3_Focal-Length.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/3_Focal-Length/3_Focal-Length.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
                                   "name": "7_image_stabilization.json",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/7_image_stabilization.json",
                                   "type": "file"
