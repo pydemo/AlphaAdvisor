@@ -216,9 +216,9 @@ const TreeView: React.FC<TreeViewProps> = ({
                     ? "orange"
                     : undefined
               }}>
-                {/* Remove leading numbers and underscores from directory names for display */}
+                {/* Remove leading numbers and underscores, and replace dashes with spaces in directory names for display */}
                 {isDir && /\/public\/MENU\//.test(node.path) 
-                  ? node.name.replace(/^\d+_/, '') 
+                  ? node.name.replace(/^\d+_/, '').replace(/-/g, ' ') 
                   : node.name}
               </span>
               
@@ -836,7 +836,7 @@ const TreeView: React.FC<TreeViewProps> = ({
           >
             <div style={{ fontWeight: "bold", marginBottom: 8 }}>
               Paste image for <span style={{ color: "#0074d9" }}>
-                {infoPopup.node?.name.replace(/^\d+_/, '')}
+                {infoPopup.node?.name.replace(/^\d+_/, '').replace(/-/g, ' ')}
               </span>
             </div>
             <input
@@ -972,7 +972,7 @@ const TreeView: React.FC<TreeViewProps> = ({
           >
             <div style={{ fontWeight: "bold", marginBottom: 8 }}>
               Edit JSON for <span style={{ color: "#388e3c" }}>
-                {jsonPopup.node?.name.replace(/^\d+_/, '')}
+                {jsonPopup.node?.name.replace(/^\d+_/, '').replace(/-/g, ' ')}
               </span>
             </div>
             <input
