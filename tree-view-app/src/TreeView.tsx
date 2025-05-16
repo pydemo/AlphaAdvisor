@@ -243,9 +243,11 @@ const TreeView: React.FC<TreeViewProps> = ({
                     : undefined
               }}>
                 {/* Format directory names for display */}
-                {isDir && /\/public\/α7RV\//.test(node.path)
-                  ? formatDirNameForDisplay(node.name) 
-                  : node.name}
+                {node.name === "public" 
+                  ? "Camera" 
+                  : isDir && /\/public\/α7RV\//.test(node.path)
+                    ? formatDirNameForDisplay(node.name) 
+                    : node.name}
               </span>
               
               {/* Info and JSON buttons for specific α7RV leaf directories */}
