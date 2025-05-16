@@ -21,6 +21,27 @@ type TreeViewProps = {
   onContextMenu?: (e: React.MouseEvent) => void;
 };
 
+// Helper function to format directory names for display
+const formatDirNameForDisplay = (name: string): string => {
+  // First, remove leading numbers and underscores
+  let formatted = name.replace(/^\d+_/, '');
+  
+  // Special case: preserve dash in "APS-C"
+  if (formatted.includes('APS-C')) {
+    // Temporarily replace "APS-C" with a placeholder
+    formatted = formatted.replace(/APS-C/g, 'APS_TEMP_C');
+    // Replace all other dashes with spaces
+    formatted = formatted.replace(/-/g, ' ');
+    // Restore "APS-C" from the placeholder
+    formatted = formatted.replace(/APS_TEMP_C/g, 'APS-C');
+  } else {
+    // No special case, replace all dashes with spaces
+    formatted = formatted.replace(/-/g, ' ');
+  }
+  
+  return formatted;
+};
+
 const TreeView: React.FC<TreeViewProps> = ({
   dataUrl,
   filter,
@@ -216,9 +237,9 @@ const TreeView: React.FC<TreeViewProps> = ({
                     ? "orange"
                     : undefined
               }}>
-                {/* Remove leading numbers and underscores, and replace dashes with spaces in directory names for display */}
+                {/* Format directory names for display */}
                 {isDir && /\/public\/MENU\//.test(node.path) 
-                  ? node.name.replace(/^\d+_/, '').replace(/-/g, ' ') 
+                  ? formatDirNameForDisplay(node.name) 
                   : node.name}
               </span>
               
@@ -660,7 +681,16 @@ const TreeView: React.FC<TreeViewProps> = ({
             }}
             onClick={e => e.stopPropagation()}
           >
-            <div style={{ fontWeight: "bold", marginBottom: 8 }}>Create new directory under <span style={{ color: "#0074d9" }}>{createMenuDir.parentPath.replace(/^.*\/public\/MENU\//, "MENU/").replace(/\/\d+_/g, "/")}</span></div>
+            <div style={{ fontWeight: "bold", marginBottom: 8 }}>
+              Create new directory under 
+              <span style={{ color: "#0074d9" }}>
+                {createMenuDir.parentPath
+                  .replace(/^.*\/public\/MENU\//, "MENU/")
+                  .split('/')
+                  .map(segment => segment.match(/^\d+_/) ? formatDirNameForDisplay(segment) : segment)
+                  .join('/')}
+              </span>
+            </div>
             <input
               type="text"
               value={newDirName}
@@ -836,7 +866,7 @@ const TreeView: React.FC<TreeViewProps> = ({
           >
             <div style={{ fontWeight: "bold", marginBottom: 8 }}>
               Paste image for <span style={{ color: "#0074d9" }}>
-                {infoPopup.node?.name.replace(/^\d+_/, '').replace(/-/g, ' ')}
+                {infoPopup.node ? formatDirNameForDisplay(infoPopup.node.name) : ''}
               </span>
             </div>
             <input
@@ -972,7 +1002,7 @@ const TreeView: React.FC<TreeViewProps> = ({
           >
             <div style={{ fontWeight: "bold", marginBottom: 8 }}>
               Edit JSON for <span style={{ color: "#388e3c" }}>
-                {jsonPopup.node?.name.replace(/^\d+_/, '').replace(/-/g, ' ')}
+                {jsonPopup.node ? formatDirNameForDisplay(jsonPopup.node.name) : ''}
               </span>
             </div>
             <input
