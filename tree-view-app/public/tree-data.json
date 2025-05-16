@@ -1052,6 +1052,24 @@
                               "type": "directory",
                               "children": [
                                 {
+                                  "name": "1_Grid_Line_Display",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/1_Grid_Line_Display",
+                                  "type": "directory",
+                                  "children": []
+                                },
+                                {
+                                  "name": "2_Grind-Line-Type",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/2_Grind-Line-Type",
+                                  "type": "directory",
+                                  "children": []
+                                },
+                                {
+                                  "name": "3_Live-View-Display-Set",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/3_Live-View-Display-Set",
+                                  "type": "directory",
+                                  "children": []
+                                },
+                                {
                                   "name": "9_shooting_display.json",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/MENU/Stills/1_Shooting/PAGE_2/9_Shooting-Display/9_shooting_display.json",
                                   "type": "file"

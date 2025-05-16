@@ -216,7 +216,10 @@ const TreeView: React.FC<TreeViewProps> = ({
                     ? "orange"
                     : undefined
               }}>
-                {node.name}
+                {/* Remove leading numbers and underscores from directory names for display */}
+                {isDir && /\/public\/MENU\//.test(node.path) 
+                  ? node.name.replace(/^\d+_/, '') 
+                  : node.name}
               </span>
               
               {/* Info and JSON buttons for specific MENU leaf directories */}
@@ -657,7 +660,7 @@ const TreeView: React.FC<TreeViewProps> = ({
             }}
             onClick={e => e.stopPropagation()}
           >
-            <div style={{ fontWeight: "bold", marginBottom: 8 }}>Create new directory under <span style={{ color: "#0074d9" }}>{createMenuDir.parentPath.replace(/^.*\/public\/MENU\//, "MENU/")}</span></div>
+            <div style={{ fontWeight: "bold", marginBottom: 8 }}>Create new directory under <span style={{ color: "#0074d9" }}>{createMenuDir.parentPath.replace(/^.*\/public\/MENU\//, "MENU/").replace(/\/\d+_/g, "/")}</span></div>
             <input
               type="text"
               value={newDirName}
@@ -832,7 +835,9 @@ const TreeView: React.FC<TreeViewProps> = ({
             onClick={e => e.stopPropagation()}
           >
             <div style={{ fontWeight: "bold", marginBottom: 8 }}>
-              Paste image for <span style={{ color: "#0074d9" }}>{infoPopup.node?.name}</span>
+              Paste image for <span style={{ color: "#0074d9" }}>
+                {infoPopup.node?.name.replace(/^\d+_/, '')}
+              </span>
             </div>
             <input
               type="text"
@@ -966,7 +971,9 @@ const TreeView: React.FC<TreeViewProps> = ({
             onClick={e => e.stopPropagation()}
           >
             <div style={{ fontWeight: "bold", marginBottom: 8 }}>
-              Edit JSON for <span style={{ color: "#388e3c" }}>{jsonPopup.node?.name}</span>
+              Edit JSON for <span style={{ color: "#388e3c" }}>
+                {jsonPopup.node?.name.replace(/^\d+_/, '')}
+              </span>
             </div>
             <input
               type="text"
