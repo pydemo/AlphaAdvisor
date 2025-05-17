@@ -1036,6 +1036,12 @@
                           "children": []
                         },
                         {
+                          "name": "2_Zoom-Range",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/2_Zoom-Range",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
                           "name": "8_zoom.json",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/8_zoom.json",
                           "type": "file"

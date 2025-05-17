@@ -119,8 +119,21 @@ const TreeView: React.FC<TreeViewProps> = ({
       .then((res) => res.json())
       .then((data) => {
         setTree(data);
+        
+        // After tree is loaded, check if we need to restore a saved filter
+        try {
+          const savedFilter = localStorage.getItem('treeViewCurrentFilter');
+          if (savedFilter && onRequestFilter) {
+            // Restore the filter
+            onRequestFilter(savedFilter);
+            // Clear the saved filter so it doesn't persist across page refreshes
+            localStorage.removeItem('treeViewCurrentFilter');
+          }
+        } catch (error) {
+          console.error('Error restoring filter from localStorage:', error);
+        }
       });
-  }, [dataUrl]);
+  }, [dataUrl, onRequestFilter]);
 
   // Expand all directories
   useEffect(() => {
@@ -742,23 +755,34 @@ const TreeView: React.FC<TreeViewProps> = ({
                         : createMenuDir.parentPath + "/" + newDirName.trim();
                       prevExpanded.add(createMenuDir.parentPath);
                       prevExpanded.add(newDirPath);
-                      fetch(dataUrl)
-                        .then(res => res.json())
-                        .then(treeData => {
-                          // Batch tree and expanded state updates together
-                          if (typeof window !== "undefined" && "startTransition" in React) {
-                            React.startTransition(() => {
-                              setTree(treeData);
-                              setExpanded(new Set(prevExpanded));
-                            });
-                          } else {
-                            setTree(treeData);
-                            setExpanded(new Set(prevExpanded));
-                          }
+                  fetch(dataUrl)
+                    .then(res => res.json())
+                    .then(treeData => {
+                      // Batch tree and expanded state updates together
+                      if (typeof window !== "undefined" && "startTransition" in React) {
+                        React.startTransition(() => {
+                          setTree(treeData);
+                          setExpanded(new Set(prevExpanded));
                         });
-                      if (onRequestFilter) {
-                        onRequestFilter(newDirName.trim());
+                      } else {
+                        setTree(treeData);
+                        setExpanded(new Set(prevExpanded));
                       }
+                    });
+                  
+                  // Save current filter to localStorage before applying new filter
+                  try {
+                    if (filter) {
+                      localStorage.setItem('treeViewCurrentFilter', filter);
+                    }
+                  } catch (error) {
+                    console.error('Error saving filter to localStorage:', error);
+                  }
+                  
+                  // Apply filter to show the newly created directory
+                  if (onRequestFilter) {
+                    onRequestFilter(newDirName.trim());
+                  }
                       setCreateMenuDir({ parentPath: "", open: false });
                       setNewDirName("");
                       setExpandedBeforeCreate(null); // Clear the saved expanded state
@@ -813,6 +837,16 @@ const TreeView: React.FC<TreeViewProps> = ({
                             setTree(treeData);
                             setExpanded(new Set(prevExpanded));
                           });
+                        
+                        // Save current filter to localStorage before applying new filter
+                        try {
+                          if (filter) {
+                            localStorage.setItem('treeViewCurrentFilter', filter);
+                          }
+                        } catch (error) {
+                          console.error('Error saving filter to localStorage:', error);
+                        }
+                        
                         if (onRequestFilter) {
                           onRequestFilter(newDirName.trim());
                         }
