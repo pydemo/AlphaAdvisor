@@ -238,24 +238,27 @@ const TreeView: React.FC<TreeViewProps> = ({
               <span style={{ marginRight: 4 }}>
                 {isOpen ? "▼" : "▶"}
               </span>
-              <span style={{
-                fontWeight:
-                  selectedPaths.includes(node.path)
-                    ? "bold"
-                    : (isDir && /\/public\/α7RV\//.test(node.path))
+              <span 
+                style={{
+                  fontWeight:
+                    selectedPaths.includes(node.path)
                       ? "bold"
-                      : "normal",
-                color:
-                  isDir && /\/public\/α7RV\/.*\/\/.*\/PAGE_\d+\/[^/]+\//.test(node.path)
-                    ? "#5b88c4"
-                    : isDir && /\/public\/α7RV\/.*\/PAGE_\d+\/.*\/PAGE_\d+\//.test(node.path)
-                    ? "#4a6996"
-                    : isDir && /\/public\/α7RV\/.*\/PAGE_\d+\//.test(node.path)
-                    ? "#6c9c6a"
-                    : isDir && /\/public\/α7RV\/.*\//.test(node.path)
-                    ? "orange"
-                    : undefined
-              }}>
+                      : (isDir && /\/public\/α7RV\//.test(node.path))
+                        ? "bold"
+                        : "normal",
+                  color:
+                    isDir && /\/public\/α7RV\/.*\/\/.*\/PAGE_\d+\/[^/]+\//.test(node.path)
+                      ? "#5b88c4"
+                      : isDir && /\/public\/α7RV\/.*\/PAGE_\d+\/.*\/PAGE_\d+\//.test(node.path)
+                      ? "#4a6996"
+                      : isDir && /\/public\/α7RV\/.*\/PAGE_\d+\//.test(node.path)
+                      ? "#6c9c6a"
+                      : isDir && /\/public\/α7RV\/.*\//.test(node.path)
+                      ? "orange"
+                      : undefined
+                }}
+                title={isDir && /\/public\/α7RV\//.test(node.path) && node.name !== "public" ? node.name : undefined}
+              >
                 {/* Format directory names for display */}
                 {node.name === "public" 
                   ? "Camera" 
