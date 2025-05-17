@@ -1617,18 +1617,6 @@
               "type": "directory",
               "children": [
                 {
-                  "name": "4_Focus Assistant",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant",
-                  "type": "directory",
-                  "children": []
-                },
-                {
-                  "name": "5_Peaking Display",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display",
-                  "type": "directory",
-                  "children": []
-                },
-                {
                   "name": "1_AF_MF",
                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF",
                   "type": "directory",
@@ -1840,6 +1828,68 @@
                     {
                       "name": "7 Regist. Face Priority",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/7 Regist. Face Priority",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "4_Focus Assistant",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1 Auto Magnifier in MF",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/1 Auto Magnifier in MF",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2 Focus Magnifier",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/2 Focus Magnifier",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Focus Magnif. Time",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/3 Focus Magnif. Time",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "Initial Focus Mag.",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/Initial Focus Mag.",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "5 AF in Focus Mag.",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/5 AF in Focus Mag.",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "5_Peaking Display",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1 Peaking Display",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/1 Peaking Display",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2 Peaking Level",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/2 Peaking Level",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Peaking Color",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/3 Peaking Color",
                       "type": "directory",
                       "children": []
                     }
