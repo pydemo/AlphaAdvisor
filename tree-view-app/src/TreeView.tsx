@@ -577,7 +577,26 @@ const TreeView: React.FC<TreeViewProps> = ({
         </div>
         {isDir && isOpen && node.children && (
           <div>
-            {node.children.map((child) => renderTree(child))}
+            {/* Sort children by leading number if they have one, otherwise alphabetically */}
+            {[...node.children]
+              .sort((a, b) => {
+                // Extract leading numbers if present
+                const aMatch = a.name.match(/^(\d+)_/);
+                const bMatch = b.name.match(/^(\d+)_/);
+                
+                // If both have leading numbers, sort numerically
+                if (aMatch && bMatch) {
+                  return parseInt(aMatch[1], 10) - parseInt(bMatch[1], 10);
+                }
+                
+                // If only one has a leading number, prioritize it
+                if (aMatch) return -1;
+                if (bMatch) return 1;
+                
+                // Otherwise sort alphabetically
+                return a.name.localeCompare(b.name);
+              })
+              .map((child) => renderTree(child))}
           </div>
         )}
       </div>
