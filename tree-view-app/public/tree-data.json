@@ -1617,12 +1617,6 @@
               "type": "directory",
               "children": [
                 {
-                  "name": "3_Subject Recognition",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition",
-                  "type": "directory",
-                  "children": []
-                },
-                {
                   "name": "4_Focus Assistant",
                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant",
                   "type": "directory",
@@ -1785,8 +1779,69 @@
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/10 Phase Detect. Area",
                           "type": "directory",
                           "children": []
+                        },
+                        {
+                          "name": "11 Circ. of Focus Point",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/11 Circ. of Focus Point",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "12 AF Frame Move Amt",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/12 AF Frame Move Amt",
+                          "type": "directory",
+                          "children": []
                         }
                       ]
+                    }
+                  ]
+                },
+                {
+                  "name": "3_Subject Recognition",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1 Subject Recog in AF",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/1 Subject Recog in AF",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2 Recognition Target",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/2 Recognition Target",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Recog Trgt Select Set",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/3 Recog Trgt Select Set",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "4 Right_Left Eye Select",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/4 Right_Left Eye Select",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "5 Sbj Recog Frm Disp.",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/5 Sbj Recog Frm Disp.",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "6 Face Memory",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/6 Face Memory",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "7 Regist. Face Priority",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/7 Regist. Face Priority",
+                      "type": "directory",
+                      "children": []
                     }
                   ]
                 }
