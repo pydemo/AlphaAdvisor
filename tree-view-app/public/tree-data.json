@@ -24,16 +24,72 @@
               "type": "directory",
               "children": [
                 {
-                  "name": "PAGE_1",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_1",
-                  "type": "directory",
-                  "children": []
-                },
-                {
                   "name": "PAGE_2",
                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_2",
                   "type": "directory",
-                  "children": []
+                  "children": [
+                    {
+                      "name": "8 USB-LAN_Tethering",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_2/8 USB-LAN_Tethering",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "9 Network Option",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_2/9 Network Option",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "PAGE_1",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_1",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1 Cnct._Remote Sht.",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_1/1 Cnct._Remote Sht.",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2 FTP Transfer",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_1/2 FTP Transfer",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Streaming",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_1/3 Streaming",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Creators' Cloud",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_1/3 Creators' Cloud",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "5 Wi-Fi",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_1/5 Wi-Fi",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "6 Bluetooth",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_1/6 Bluetooth",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "7 Wired LAN",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_1/7 Wired LAN",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
                 }
               ]
             },
