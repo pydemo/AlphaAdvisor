@@ -19,32 +19,19 @@
           "type": "directory",
           "children": [
             {
-              "name": "5_Playback",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Playback",
+              "name": "5_Network",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network",
               "type": "directory",
               "children": [
                 {
                   "name": "PAGE_1",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Playback/PAGE_1",
-                  "type": "directory",
-                  "children": []
-                }
-              ]
-            },
-            {
-              "name": "4_Network",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Network",
-              "type": "directory",
-              "children": [
-                {
-                  "name": "PAGE_1",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Network/PAGE_1",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_1",
                   "type": "directory",
                   "children": []
                 },
                 {
                   "name": "PAGE_2",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Network/PAGE_2",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/5_Network/PAGE_2",
                   "type": "directory",
                   "children": []
                 }
@@ -1890,6 +1877,224 @@
                     {
                       "name": "3 Peaking Color",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/3 Peaking Color",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "4_Playback",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "1_Playback Target",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/1_Playback Target",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1 Select Playback Media",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/1_Playback Target/1 Select Playback Media",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2 View Mode",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/1_Playback Target/2 View Mode",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "2_Magnification",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/2_Magnification",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1 Enlarge Image",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/2_Magnification/1 Enlarge Image",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2 Enlarge Initial Mag.",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/2_Magnification/2 Enlarge Initial Mag.",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Enlarge Initial Position",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/2_Magnification/3 Enlarge Initial Position",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "3_Selection_Memo",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/3_Selection_Memo",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1 Protect",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/3_Selection_Memo/1 Protect",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2 Rating",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/3_Selection_Memo/2 Rating",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Rating Set(Custom Key)",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/3_Selection_Memo/3 Rating Set(Custom Key)",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "4_Delete",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/4_Delete",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1 Delete",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/4_Delete/1 Delete",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2 Delete Pressing Twice",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/4_Delete/2 Delete Pressing Twice",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Delete confirm.",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/4_Delete/3 Delete confirm.",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "5_Edit",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/5_Edit",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1 Crop",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/5_Edit/1 Crop",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2 Rotate",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/5_Edit/2 Rotate",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Copy",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/5_Edit/3 Copy",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "4 Photo Capture",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/5_Edit/4 Photo Capture",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "5 Create Still Image",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/5_Edit/5 Create Still Image",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "6 SM after still img crt",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/5_Edit/6 SM after still img crt",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "7 JPEG_HEIF Switch",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/5_Edit/7 JPEG_HEIF Switch",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "6_Viewing",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/6_Viewing",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1 Cont. Play for Interval",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/6_Viewing/1 Cont. Play for Interval",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2 Play Speed for Interval",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/6_Viewing/2 Play Speed for Interval",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Slide Show",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/6_Viewing/3 Slide Show",
+                      "type": "directory",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "7_Playback Option",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/7_Playback Option",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1 Image Index",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/7_Playback Option/1 Image Index",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "2 Display as Group",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/7_Playback Option/2 Display as Group",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Display Rotation",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/7_Playback Option/3 Display Rotation",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "4 Focus Frame Display",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/7_Playback Option/4 Focus Frame Display",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "5 Disp Specified Time Img.",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/7_Playback Option/5 Disp Specified Time Img.",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "7 Image Jump Setting",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/7_Playback Option/7 Image Jump Setting",
                       "type": "directory",
                       "children": []
                     }
