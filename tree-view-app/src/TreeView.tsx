@@ -197,9 +197,10 @@ const TreeView: React.FC<TreeViewProps> = ({
   const renderTree = (node: TreeNode) => {
     const isDir = node.type === "directory";
     const isOpen = expanded.has(node.path) || (filter && filter.length > 0); // auto-expand on filter
+    const isRootNode = node.name === "public"; // Check if this is the root node (Camera)
 
     return (
-      <div key={node.path} style={{ marginLeft: 16 }}>
+      <div key={node.path} style={{ marginLeft: isRootNode ? 0 : 16 }}>
         <div
           style={{
             cursor: "pointer",

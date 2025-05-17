@@ -24,14 +24,58 @@ app.post('/api/create-dir', (req, res) => {
   console.log(req.body); 
   console.log(`[${req.method}] ${req.url}`);
   const { parent_path, dir_name } = req.body;
-  // Only allow creation under tree-view-app/public/MENU
+  
+  // Allow creation under both tree-view-app/public/MENU and tree-view-app/public/α7RV
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
-  // Remove everything up to and including /MENU/ from parent_path
+  const a7rvRoot = path.join(__dirname, 'tree-view-app', 'public', 'α7RV');
+  
   if (!parent_path || !dir_name) {
     return res.status(400).json({ error: "Missing parent_path or dir_name" });
   }
-  // Compute relative path from menuRoot to parent_path
+  
+  // Determine which root to use based on the parent_path
+  let rootPath = menuRoot;
   let relParent = "";
+  
+  if (parent_path.includes('α7RV')) {
+    rootPath = a7rvRoot;
+    // Extract the relative path from α7RV
+    const a7rvIndex = parent_path.indexOf('α7RV');
+    const pathAfterA7RV = parent_path.substring(a7rvIndex + 'α7RV'.length);
+    relParent = pathAfterA7RV.startsWith('/') ? pathAfterA7RV.substring(1) : pathAfterA7RV;
+    
+    // Create the safe path
+    const safePath = path.join(a7rvRoot, relParent, dir_name);
+    
+    // Prevent path traversal
+    if (!safePath.startsWith(a7rvRoot)) {
+      return res.status(400).json({ error: "Invalid path" });
+    }
+    
+    try {
+      fs.mkdirSync(safePath, { recursive: true });
+      // Refresh tree-data.json
+      const { exec } = require('child_process');
+      exec('python3 tree-view-app/gen_tree_json.py', (error, stdout, stderr) => {
+        if (error) {
+          console.error('Error regenerating tree-data.json:', error);
+        }
+        if (stderr) {
+          console.error('stderr:', stderr);
+        }
+        if (stdout) {
+          console.log('stdout:', stdout);
+        }
+      });
+      res.status(200).json({ success: true, path: safePath });
+    } catch (err) {
+      console.error("DIR CREATE ERROR", err);
+      res.status(500).json({ error: err.message });
+    }
+    return;
+  }
+  
+  // Original MENU path handling
   if (path.resolve(parent_path) !== path.resolve(menuRoot)) {
     relParent = path.relative(menuRoot, parent_path);
   }
@@ -67,12 +111,23 @@ app.post('/api/create-dir', (req, res) => {
 app.post('/api/delete-dir', (req, res) => {
   const { target_path } = req.body;
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+  const a7rvRoot = path.join(__dirname, 'tree-view-app', 'public', 'α7RV');
+  
   if (!target_path) {
     return res.status(400).json({ error: "Missing target_path" });
   }
-  // Ensure target_path is under menuRoot and not menuRoot itself
+  
+  // Ensure target_path is under one of the allowed roots and not the root itself
   const resolvedTarget = path.resolve(target_path);
-  if (!resolvedTarget.startsWith(menuRoot) || resolvedTarget === menuRoot) {
+  
+  // Check if path is under α7RV
+  if (resolvedTarget.includes('α7RV')) {
+    if (!resolvedTarget.startsWith(a7rvRoot) || resolvedTarget === a7rvRoot) {
+      return res.status(400).json({ error: "Invalid or protected path" });
+    }
+  } 
+  // Check if path is under MENU
+  else if (!resolvedTarget.startsWith(menuRoot) || resolvedTarget === menuRoot) {
     return res.status(400).json({ error: "Invalid or protected path" });
   }
   try {
@@ -100,11 +155,22 @@ app.post('/api/delete-dir', (req, res) => {
 app.post('/api/delete-file', (req, res) => {
   const { target_path } = req.body;
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+  const a7rvRoot = path.join(__dirname, 'tree-view-app', 'public', 'α7RV');
+  
   if (!target_path) {
     return res.status(400).json({ error: "Missing target_path" });
   }
+  
   const resolvedTarget = path.resolve(target_path);
-  if (!resolvedTarget.startsWith(menuRoot)) {
+  
+  // Check if path is under α7RV
+  if (resolvedTarget.includes('α7RV')) {
+    if (!resolvedTarget.startsWith(a7rvRoot)) {
+      return res.status(400).json({ error: "Invalid path" });
+    }
+  } 
+  // Check if path is under MENU
+  else if (!resolvedTarget.startsWith(menuRoot)) {
     return res.status(400).json({ error: "Invalid path" });
   }
   try {
@@ -171,10 +237,20 @@ app.post('/api/save-image-file', (req, res) => {
   if (!dir_path || !file_name || !image_data) {
     return res.status(400).json({ success: false, error: "Missing dir_path, file_name, or image_data" });
   }
-  // Only allow saving under MENU
+  
+  // Allow saving under both MENU and α7RV
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+  const a7rvRoot = path.join(__dirname, 'tree-view-app', 'public', 'α7RV');
   const resolvedDir = path.resolve(dir_path);
-  if (!resolvedDir.startsWith(menuRoot)) {
+  
+  // Check if path is under α7RV
+  if (resolvedDir.includes('α7RV')) {
+    if (!resolvedDir.startsWith(a7rvRoot)) {
+      return res.status(400).json({ success: false, error: "Invalid directory path" });
+    }
+  } 
+  // Check if path is under MENU
+  else if (!resolvedDir.startsWith(menuRoot)) {
     return res.status(400).json({ success: false, error: "Invalid directory path" });
   }
   // Prevent path traversal in file_name
@@ -255,9 +331,20 @@ app.post('/api/save-json-file', (req, res) => {
   if (!dir_path || !file_name || typeof json_text !== "string") {
     return res.status(400).json({ error: "Missing dir_path, file_name, or json_text" });
   }
+  
+  // Allow saving under both MENU and α7RV
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+  const a7rvRoot = path.join(__dirname, 'tree-view-app', 'public', 'α7RV');
   const resolvedDir = path.resolve(dir_path);
-  if (!resolvedDir.startsWith(menuRoot)) {
+  
+  // Check if path is under α7RV
+  if (resolvedDir.includes('α7RV')) {
+    if (!resolvedDir.startsWith(a7rvRoot)) {
+      return res.status(400).json({ error: "Invalid directory path" });
+    }
+  } 
+  // Check if path is under MENU
+  else if (!resolvedDir.startsWith(menuRoot)) {
     return res.status(400).json({ error: "Invalid directory path" });
   }
   // Prevent path traversal in file_name
@@ -282,11 +369,22 @@ app.post('/api/ask-chatgpt', async (req, res) => {
 
   const { target_path } = req.body;
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+  const a7rvRoot = path.join(__dirname, 'tree-view-app', 'public', 'α7RV');
+  
   if (!target_path) {
     return res.status(400).json({ error: "Missing target_path" });
   }
+  
   const resolvedTarget = path.resolve(target_path);
-  if (!resolvedTarget.startsWith(menuRoot)) {
+  
+  // Check if path is under α7RV
+  if (resolvedTarget.includes('α7RV')) {
+    if (!resolvedTarget.startsWith(a7rvRoot)) {
+      return res.status(400).json({ error: "Invalid path" });
+    }
+  } 
+  // Check if path is under MENU
+  else if (!resolvedTarget.startsWith(menuRoot)) {
     return res.status(400).json({ error: "Invalid path" });
   }
   try {
@@ -362,13 +460,22 @@ app.post('/api/ask-chatgpt_streamed', async (req, res) => {
   const { target_path, user_message } = req.body;
   console.log(`[USER MESSAGE] ${user_message} `);
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
+  const a7rvRoot = path.join(__dirname, 'tree-view-app', 'public', 'α7RV');
 
   if (!target_path) {
     return res.status(400).json({ error: "Missing target_path" });
   }
 
   const resolvedTarget = path.resolve(target_path);
-  if (!resolvedTarget.startsWith(menuRoot)) {
+  
+  // Check if path is under α7RV
+  if (resolvedTarget.includes('α7RV')) {
+    if (!resolvedTarget.startsWith(a7rvRoot)) {
+      return res.status(400).json({ error: "Invalid path" });
+    }
+  } 
+  // Check if path is under MENU
+  else if (!resolvedTarget.startsWith(menuRoot)) {
     return res.status(400).json({ error: "Invalid path" });
   }
 
