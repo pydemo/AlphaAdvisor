@@ -86,8 +86,19 @@ def build_tree(path, rel_path="", in_included_subtree=False):
             # For other MENU subdirectories, sort by directory name (alphabetically)
             sorted_entries = sorted(entries)
         else:
-            # Regular alphabetical sort for non-MENU directories
-            sorted_entries = sorted(entries)
+            # Sort all other directories and files by modification time (oldest first)
+            # This matches the behavior of 'ls -ltr'
+            entries_with_mtime = []
+            for entry in entries:
+                full_entry_path = os.path.join(path, entry)
+                try:
+                    mtime = os.path.getmtime(full_entry_path)
+                except (FileNotFoundError, PermissionError):
+                    mtime = 0
+                entries_with_mtime.append((entry, mtime))
+            
+            # Sort by modification time (oldest first)
+            sorted_entries = [entry for entry, _ in sorted(entries_with_mtime, key=lambda x: x[1])]
         
         for entry in sorted_entries:
             full_path = os.path.join(path, entry)

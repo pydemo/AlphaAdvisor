@@ -28,18 +28,19 @@ const formatDirNameForDisplay = (name: string): string => {
   
   // Replace underscores with forward slashes
   formatted = formatted.replace(/_/g, '/');
-  
-  // Special case: preserve dash in "APS-C"
-  if (formatted.includes('APS-C')) {
-    // Temporarily replace "APS-C" with a placeholder
-    formatted = formatted.replace(/APS-C/g, 'APS_TEMP_C');
-    // Replace all other dashes with spaces
-    formatted = formatted.replace(/-/g, ' ');
-    // Restore "APS-C" from the placeholder
-    formatted = formatted.replace(/APS_TEMP_C/g, 'APS-C');
-  } else {
-    // No special case, replace all dashes with spaces
-    formatted = formatted.replace(/-/g, ' ');
+  if (false) {
+    // Special case: preserve dash in "APS-C"
+    if (formatted.includes('APS-C')) {
+      // Temporarily replace "APS-C" with a placeholder
+      formatted = formatted.replace(/APS-C/g, 'APS_TEMP_C');
+      // Replace all other dashes with spaces
+      formatted = formatted.replace(/-/g, ' ');
+      // Restore "APS-C" from the placeholder
+      formatted = formatted.replace(/APS_TEMP_C/g, 'APS-C');
+    } else {
+      // No special case, replace all dashes with spaces
+      formatted = formatted.replace(/-/g, ' ');
+    }
   }
   
   return formatted;
@@ -583,9 +584,9 @@ const TreeView: React.FC<TreeViewProps> = ({
             {/* Sort children by leading number if they have one, otherwise alphabetically */}
             {[...node.children]
               .sort((a, b) => {
-                // Extract leading numbers if present
-                const aMatch = a.name.match(/^(\d+)_/);
-                const bMatch = b.name.match(/^(\d+)_/);
+                // Extract leading numbers if present (either followed by underscore or space)
+                const aMatch = a.name.match(/^(\d+)[ _]/);
+                const bMatch = b.name.match(/^(\d+)[ _]/);
                 
                 // If both have leading numbers, sort numerically
                 if (aMatch && bMatch) {
