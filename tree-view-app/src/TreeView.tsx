@@ -23,8 +23,8 @@ type TreeViewProps = {
 
 // Helper function to format directory names for display
 const formatDirNameForDisplay = (name: string): string => {
-  // First, remove leading numbers and underscores
-  let formatted = name.replace(/^\d+_/, '');
+  // First, remove leading numbers and spaces
+  let formatted = name.replace(/^\d+ /, '');
   
   // Replace underscores with forward slashes
   formatted = formatted.replace(/_/g, '/');
