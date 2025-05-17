@@ -1033,13 +1033,99 @@
                           "name": "1_Zoom",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/1_Zoom",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "1_Zoom.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/1_Zoom/1_Zoom.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "2_Zoom-Range",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/2_Zoom-Range",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "2_Zoom-Range.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/2_Zoom-Range/2_Zoom-Range.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "3_Custom-Key-Z.-Speed",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/3_Custom-Key-Z.-Speed",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_Fixed-Speed-STBY",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/3_Custom-Key-Z.-Speed/1_Fixed-Speed-STBY",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "1_Fixed-Speed-STBY.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/3_Custom-Key-Z.-Speed/1_Fixed-Speed-STBY/1_Fixed-Speed-STBY.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "2_Fixed Speed-REC",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/3_Custom-Key-Z.-Speed/2_Fixed Speed-REC",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "2_Fixed Speed-REC.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/3_Custom-Key-Z.-Speed/2_Fixed Speed-REC/2_Fixed Speed-REC.png",
+                                  "type": "file"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "4_Remote-Zoom-Speed",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/4_Remote-Zoom-Speed",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_Speed-Type",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/4_Remote-Zoom-Speed/1_Speed-Type",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "1_Speed-Type.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/4_Remote-Zoom-Speed/1_Speed-Type/1_Speed-Type.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "2_Fixed-Speed-STBY",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/4_Remote-Zoom-Speed/2_Fixed-Speed-STBY",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "2_Fixed-Speed-STBY.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/4_Remote-Zoom-Speed/2_Fixed-Speed-STBY/2_Fixed-Speed-STBY.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "3_Fixed-Speed-REC",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/4_Remote-Zoom-Speed/3_Fixed-Speed-REC",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "3_Fixed-Speed-REC.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/8_Zoom/4_Remote-Zoom-Speed/3_Fixed-Speed-REC/3_Fixed-Speed-REC.png",
+                                  "type": "file"
+                                }
+                              ]
+                            }
+                          ]
                         },
                         {
                           "name": "8_zoom.json",
@@ -1069,7 +1155,26 @@
                           "name": "3_Live-View-Display-Set",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/9_Shooting-Display/3_Live-View-Display-Set",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "1_Live-View-Display",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/9_Shooting-Display/3_Live-View-Display-Set/1_Live-View-Display",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "2_Exposure-Effect",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/9_Shooting-Display/3_Live-View-Display-Set/2_Exposure-Effect",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "3_Grame-Rate-Low-Limit",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_2/9_Shooting-Display/3_Live-View-Display-Set/3_Grame-Rate-Low-Limit",
+                              "type": "directory",
+                              "children": []
+                            }
+                          ]
                         },
                         {
                           "name": "9_shooting_display.json",
