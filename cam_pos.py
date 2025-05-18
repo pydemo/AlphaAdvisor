@@ -119,7 +119,7 @@ if window_position:
     left = window_position.get('left', 0)
     top = window_position.get('top', 0)
     width = window_position.get('width', 0)
-    height = window_position.get('height', 0)
+    height = window_position.get('height', 0) 
     
     print(f"Camera window is at position ({left}, {top}) with size {width} x {height}")
     print(f"The center of the window is at ({left + width//2}, {top + height//2})")
