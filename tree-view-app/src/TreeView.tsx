@@ -965,19 +965,45 @@ const TreeView: React.FC<TreeViewProps> = ({
                 {infoPopup.node ? formatDirNameForDisplay(infoPopup.node.name) : ''}
               </span>
             </div>
-            <input
-              type="text"
-              value={infoFileName}
-              onChange={e => setInfoFileName(e.target.value)}
-              placeholder="File name"
-              style={{
-                fontSize: 15,
-                padding: "6px 10px",
-                borderRadius: 4,
-                border: "1.5px solid #0074d9",
-                marginBottom: 6
-              }}
-            />
+            <div style={{ display: "flex", alignItems: "center", marginBottom: 6 }}>
+              <input
+                type="text"
+                value={infoFileName}
+                onChange={e => setInfoFileName(e.target.value)}
+                placeholder="File name"
+                style={{
+                  fontSize: 15,
+                  padding: "6px 10px",
+                  borderRadius: 4,
+                  border: "1.5px solid #0074d9",
+                  width: "70%"
+                }}
+              />
+              <button
+                style={{
+                  marginLeft: 8,
+                  fontSize: 14,
+                  padding: "6px 12px",
+                  borderRadius: 4,
+                  border: "1px solid #9c6a9c",
+                  background: "#f9f0f9",
+                  color: "#8e388e",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                title="Take a snapshot"
+                onClick={e => {
+                  e.stopPropagation();
+                  // Here you would add the functionality to take a snapshot
+                  // For now, just show a message
+                  alert("Snap functionality will be implemented in the next step");
+                }}
+              >
+                Snap 📷
+              </button>
+            </div>
             <div
               tabIndex={0}
               style={{
