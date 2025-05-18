@@ -715,4 +715,121 @@ ${user_message}
     res.status(500).json({ error: err.message });
   }
 });
+// Camera window detection endpoint
+app.get('/api/get_camera_info', (req, res) => {
+  try {
+    // Check if we're on Windows
+    const isWindows = process.platform === 'win32';
+    if (!isWindows) {
+      return res.status(200).json({
+        success: false,
+        message: "Camera window detection is only available on Windows platforms",
+        cameraWindows: []
+      });
+    }
+
+    // Try to load the required FFI modules
+    let ffi, ref, Struct;
+    try {
+      ffi = require("ffi-napi");
+      ref = require("ref-napi");
+      Struct = require("ref-struct-napi");
+    } catch (moduleErr) {
+      console.error("FFI modules not available:", moduleErr.message);
+      return res.status(200).json({
+        success: false,
+        message: "Camera detection requires ffi-napi, ref-napi, and ref-struct-napi packages. Please install them with: npm install ffi-napi ref-napi ref-struct-napi",
+        error: moduleErr.message,
+        cameraWindows: []
+      });
+    }
+
+    // RECT structure
+    const Rect = Struct({
+      left: "long",
+      top: "long",
+      right: "long",
+      bottom: "long",
+    });
+
+    const rectPtr = ref.refType(Rect);
+    const HWND = ref.refType("void");
+
+    // Max title length
+    const MAX_TITLE_LENGTH = 255;
+
+    // Load user32.dll
+    const user32 = ffi.Library("user32", {
+      EnumWindows: ["bool", ["pointer", "int32"]],
+      GetWindowTextA: ["int", ["long", "char *", "int"]],
+      IsWindowVisible: ["bool", ["long"]],
+      GetWindowRect: ["bool", ["long", rectPtr]],
+    });
+
+    // Results array to store camera window information
+    const cameraWindows = [];
+
+    // Callback function for EnumWindows
+    const windowEnumProc = ffi.Callback("bool", ["long", "int32"], (hwnd, lParam) => {
+      if (!user32.IsWindowVisible(hwnd)) return true;
+
+      const buffer = Buffer.alloc(MAX_TITLE_LENGTH + 1);
+      const length = user32.GetWindowTextA(hwnd, buffer, MAX_TITLE_LENGTH);
+
+      if (length > 0) {
+        const title = buffer.toString("utf8").replace(/\0/g, "");
+
+        if (title.toLowerCase().includes("camera")) {
+          const rect = new Rect();
+          if (user32.GetWindowRect(hwnd, rect.ref())) {
+            const width = rect.right - rect.left;
+            const height = rect.bottom - rect.top;
+
+            // Add camera window info to results array
+            cameraWindows.push({
+              hwnd: hwnd.toString(),
+              title: title,
+              position: {
+                left: rect.left,
+                top: rect.top
+              },
+              size: {
+                width: width,
+                height: height
+              }
+            });
+          }
+        }
+      }
+
+      return true; // Continue enumerating to find all camera windows
+    });
+
+    // Run the enumeration
+    console.log("🔍 Searching for Camera windows...");
+    user32.EnumWindows(windowEnumProc, 0);
+
+    // Return the results
+    if (cameraWindows.length > 0) {
+      res.status(200).json({ 
+        success: true, 
+        message: "Camera windows found",
+        cameraWindows: cameraWindows 
+      });
+    } else {
+      res.status(200).json({ 
+        success: false, 
+        message: "No camera windows found",
+        cameraWindows: [] 
+      });
+    }
+  } catch (err) {
+    console.error("CAMERA DETECTION ERROR", err);
+    res.status(500).json({ 
+      success: false, 
+      error: err.message 
+    });
+  }
+});
+
 app.listen(3002, () => console.log('Server running on http://localhost:3002'));

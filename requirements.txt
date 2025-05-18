@@ -1,0 +1,4 @@
+flask==3.1.0
+flask-cors==5.0.1
+pygetwindow==0.0.9
+pywin32==306; sys_platform == 'win32'

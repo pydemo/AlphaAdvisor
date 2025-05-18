@@ -2,8 +2,12 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "ffi-napi": "^4.0.3",
     "node-fetch": "^3.3.2",
     "openai": "^4.98.0",
-    "sharp": "^0.34.1"
+    "ref-napi": "^3.0.3",
+    "ref-struct-napi": "^1.1.1",
+    "sharp": "^0.34.1",
+    "win32-api": "^26.1.2"
   }
 }

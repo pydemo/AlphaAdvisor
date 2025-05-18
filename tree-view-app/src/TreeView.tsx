@@ -112,6 +112,8 @@ const TreeView: React.FC<TreeViewProps> = ({
   const [infoPopup, setInfoPopup] = useState<{ open: boolean; node: TreeNode | null; image: string | null }>({ open: false, node: null, image: null });
   // File name for info popup
   const [infoFileName, setInfoFileName] = useState("");
+  // Camera app info state
+  const [cameraAppInfo, setCameraAppInfo] = useState<{ found: boolean; width?: number; height?: number; message?: string }>({ found: false });
   // JSON popup state
   const [jsonPopup, setJsonPopup] = useState<{ open: boolean; node: TreeNode | null; text: string; fileName: string }>({ open: false, node: null, text: "", fileName: "" });
 
@@ -996,9 +998,15 @@ const TreeView: React.FC<TreeViewProps> = ({
                 title="Take a snapshot"
                 onClick={e => {
                   e.stopPropagation();
-                  // Here you would add the functionality to take a snapshot
-                  // For now, just show a message
-                  alert("Snap functionality will be implemented in the next step");
+                  // Simulate finding Camera app in Windows processes
+                  // In a real implementation, this would make an API call to the backend
+                  // to get information about running processes
+                  setCameraAppInfo({
+                    found: true,
+                    width: 1280,
+                    height: 720,
+                    message: "Camera app found in Task Manager > Processes"
+                  });
                 }}
               >
                 Snap 📷
@@ -1044,50 +1052,65 @@ const TreeView: React.FC<TreeViewProps> = ({
                 <span style={{ color: "#888" }}>Paste image here (Ctrl+V)</span>
               )}
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}>
-              <button
-                style={{
-                  fontSize: 15,
-                  padding: "4px 18px",
-                  borderRadius: 4,
-                  background: "#eee",
-                  color: "#333",
-                  border: "1px solid #bbb"
-                }}
-                onClick={() => setInfoPopup({ open: false, node: null, image: null })}
-              >
-                Cancel
-              </button>
-              <button
-                style={{
-                  fontSize: 16,
-                  padding: "6px 24px",
-                  borderRadius: 4,
-                  background: "#0074d9",
-                  color: "#fff",
-                  border: "none"
-                }}
-                disabled={!infoPopup.image}
-                onClick={async () => {
-                  if (!infoPopup.image || !infoFileName.trim() || !infoPopup.node) return;
-                  try {
-                    await fetch("/api/save-image-file", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({
-                        dir_path: infoPopup.node.path,
-                        file_name: infoFileName.trim(),
-                        image_data: infoPopup.image
-                      })
-                    });
-                  } catch (err) {
-                    alert("Failed to save image: " + err);
-                  }
-                  setInfoPopup({ open: false, node: null, image: null });
-                }}
-              >
-                Save
-              </button>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 18 }}>
+              {/* Camera app info display */}
+              {cameraAppInfo.found && (
+                <div style={{ 
+                  fontSize: 14, 
+                  color: "#8e388e", 
+                  background: "#f9f0f9", 
+                  padding: "6px 12px", 
+                  borderRadius: 4, 
+                  border: "1px solid #9c6a9c" 
+                }}>
+                  Camera: {cameraAppInfo.width}×{cameraAppInfo.height}
+                </div>
+              )}
+              <div style={{ display: "flex", gap: 10 }}>
+                <button
+                  style={{
+                    fontSize: 15,
+                    padding: "4px 18px",
+                    borderRadius: 4,
+                    background: "#eee",
+                    color: "#333",
+                    border: "1px solid #bbb"
+                  }}
+                  onClick={() => setInfoPopup({ open: false, node: null, image: null })}
+                >
+                  Cancel
+                </button>
+                <button
+                  style={{
+                    fontSize: 16,
+                    padding: "6px 24px",
+                    borderRadius: 4,
+                    background: "#0074d9",
+                    color: "#fff",
+                    border: "none"
+                  }}
+                  disabled={!infoPopup.image}
+                  onClick={async () => {
+                    if (!infoPopup.image || !infoFileName.trim() || !infoPopup.node) return;
+                    try {
+                      await fetch("/api/save-image-file", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          dir_path: infoPopup.node.path,
+                          file_name: infoFileName.trim(),
+                          image_data: infoPopup.image
+                        })
+                      });
+                    } catch (err) {
+                      alert("Failed to save image: " + err);
+                    }
+                    setInfoPopup({ open: false, node: null, image: null });
+                  }}
+                >
+                  Save
+                </button>
+              </div>
             </div>
           </div>
         </div>

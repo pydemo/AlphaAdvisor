@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+        .camera-window {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Camera API Test</h1>
+    <p>This page tests the Camera API endpoint by making a request to <code>/api/get_camera_info</code>.</p>
+    
+    <button id="testButton">Test Camera API</button>
+    
+    <h2>Results:</h2>
+    <div id="results">
+        <p>Click the button above to test the API.</p>
+    </div>
+    
+    <h2>Raw Response:</h2>
+    <pre id="rawResponse"></pre>
+    
+    <script>
+        document.getElementById('testButton').addEventListener('click', async () => {
+            const resultsDiv = document.getElementById('results');
+            const rawResponsePre = document.getElementById('rawResponse');
+            
+            resultsDiv.innerHTML = '<p>Testing API...</p>';
+            rawResponsePre.textContent = '';
+            
+            try {
+                const response = await fetch('http://localhost:3003/api/get_camera_info');
+                const data = await response.json();
+                
+                // Display raw response
+                rawResponsePre.textContent = JSON.stringify(data, null, 2);
+                
+                // Display formatted results
+                if (data.success) {
+                    let html = `<p class="success">${data.message}</p>`;
+                    
+                    if (data.cameraWindows && data.cameraWindows.length > 0) {
+                        html += '<h3>Camera Windows:</h3>';
+                        
+                        data.cameraWindows.forEach(window => {
+                            html += `
+                                <div class="camera-window">
+                                    <p><strong>Title:</strong> ${window.title}</p>
+                                    <p><strong>Window Handle (HWND):</strong> ${window.hwnd}</p>
+                                    <p><strong>Position:</strong> (${window.position.left}, ${window.position.top})</p>
+                                    <p><strong>Size:</strong> ${window.size.width} x ${window.size.height}</p>
+                                </div>
+                            `;
+                        });
+                    } else {
+                        html += '<p>No camera windows found.</p>';
+                    }
+                    
+                    resultsDiv.innerHTML = html;
+                } else {
+                    let html = `<p class="error">${data.message || 'API request failed'}</p>`;
+                    
+                    if (data.error) {
+                        html += `<p class="error">Error: ${data.error}</p>`;
+                    }
+                    
+                    // Provide additional guidance if running on Linux
+                    if (data.message && data.message.includes("Your system is detected as: linux")) {
+                        html += `
+                            <div style="margin-top: 20px; padding: 10px; background-color: #fff3cd; border: 1px solid #ffeeba; border-radius: 4px;">
+                                <h3 style="color: #856404;">Important Note</h3>
+                                <p>You are running this server in a Linux environment.</p>
+                                <p>The camera window detection functionality requires a native Windows environment (not WSL or a Linux container).</p>
+                                <p>Please see <code>README_camera_api.md</code> for instructions on running this on Windows.</p>
+                            </div>
+                        `;
+                    }
+                    
+                    resultsDiv.innerHTML = html;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <p class="error">Failed to connect to the API server.</p>
+                    <p class="error">Error: ${error.message}</p>
+                    <p>Make sure the server is running at http://localhost:3003</p>
+                `;
+                rawResponsePre.textContent = error.toString();
+            }
+        });
+    </script>
+</body>
+</html>
