@@ -268,37 +268,6 @@ const TreeView: React.FC<TreeViewProps> = ({
                     : node.name}
               </span>
               
-              {/* Camera button for directories (excluding root and α7RV) */}
-              {isDir && node.name !== "public" && !node.path.match(/\/public\/α7RV\/?$/) && (
-                <button
-                  style={{
-                    marginLeft: 6,
-                    fontSize: 13,
-                    padding: "0 6px",
-                    borderRadius: "50%",
-                    border: "1px solid #9c6a9c",
-                    background: "#f9f0f9",
-                    color: "#8e388e",
-                    cursor: "pointer",
-                    height: 22,
-                    width: 22,
-                    lineHeight: "18px",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center"
-                  }}
-                  title="Snap photo"
-                  onClick={e => {
-                    e.stopPropagation();
-                    // Open a popup similar to the 'i' button
-                    setInfoPopup({ open: true, node, image: null });
-                    setInfoFileName(`${node.name}_snap.png`);
-                  }}
-                >
-                  📷
-                </button>
-              )}
-              
               {/* Info and JSON buttons for specific α7RV leaf directories */}
               { (/\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/(?!PAGE_\d+$)[^/]+$/.test(node.path) ||
                 /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||
@@ -607,6 +576,37 @@ const TreeView: React.FC<TreeViewProps> = ({
                   }
                 }}
               >-</button>
+              
+              {/* Camera button for directories (excluding root and α7RV) */}
+              {node.name !== "public" && !node.path.match(/\/public\/α7RV\/?$/) && (
+                <button
+                  style={{
+                    marginLeft: 6,
+                    fontSize: 13,
+                    padding: "0 6px",
+                    borderRadius: "50%",
+                    border: "1px solid #9c6a9c",
+                    background: "#f9f0f9",
+                    color: "#8e388e",
+                    cursor: "pointer",
+                    height: 22,
+                    width: 22,
+                    lineHeight: "18px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}
+                  title="Snap photo"
+                  onClick={e => {
+                    e.stopPropagation();
+                    // Open a popup similar to the 'i' button
+                    setInfoPopup({ open: true, node, image: null });
+                    setInfoFileName(`${node.name}_snap.png`);
+                  }}
+                >
+                  📷
+                </button>
+              )}
             </>
           )}
         </div>
