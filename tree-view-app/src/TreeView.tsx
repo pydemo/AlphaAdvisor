@@ -1044,53 +1044,51 @@ const TreeView: React.FC<TreeViewProps> = ({
                 <span style={{ color: "#888" }}>Paste image here (Ctrl+V)</span>
               )}
             </div>
-            <button
-              style={{
-                marginTop: 18,
-                fontSize: 16,
-                padding: "6px 24px",
-                borderRadius: 4,
-                background: "#0074d9",
-                color: "#fff",
-                border: "none",
-                alignSelf: "flex-end"
-              }}
-              disabled={!infoPopup.image}
-              onClick={async () => {
-                if (!infoPopup.image || !infoFileName.trim() || !infoPopup.node) return;
-                try {
-                  await fetch("/api/save-image-file", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                      dir_path: infoPopup.node.path,
-                      file_name: infoFileName.trim(),
-                      image_data: infoPopup.image
-                    })
-                  });
-                } catch (err) {
-                  alert("Failed to save image: " + err);
-                }
-                setInfoPopup({ open: false, node: null, image: null });
-              }}
-            >
-              Save
-            </button>
-            <button
-              style={{
-                marginTop: 8,
-                fontSize: 15,
-                padding: "4px 18px",
-                borderRadius: 4,
-                background: "#eee",
-                color: "#333",
-                border: "1px solid #bbb",
-                alignSelf: "flex-end"
-              }}
-              onClick={() => setInfoPopup({ open: false, node: null, image: null })}
-            >
-              Cancel
-            </button>
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: 18 }}>
+              <button
+                style={{
+                  fontSize: 15,
+                  padding: "4px 18px",
+                  borderRadius: 4,
+                  background: "#eee",
+                  color: "#333",
+                  border: "1px solid #bbb"
+                }}
+                onClick={() => setInfoPopup({ open: false, node: null, image: null })}
+              >
+                Cancel
+              </button>
+              <button
+                style={{
+                  fontSize: 16,
+                  padding: "6px 24px",
+                  borderRadius: 4,
+                  background: "#0074d9",
+                  color: "#fff",
+                  border: "none"
+                }}
+                disabled={!infoPopup.image}
+                onClick={async () => {
+                  if (!infoPopup.image || !infoFileName.trim() || !infoPopup.node) return;
+                  try {
+                    await fetch("/api/save-image-file", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        dir_path: infoPopup.node.path,
+                        file_name: infoFileName.trim(),
+                        image_data: infoPopup.image
+                      })
+                    });
+                  } catch (err) {
+                    alert("Failed to save image: " + err);
+                  }
+                  setInfoPopup({ open: false, node: null, image: null });
+                }}
+              >
+                Save
+              </button>
+            </div>
           </div>
         </div>
       )}
