@@ -113,7 +113,16 @@ const TreeView: React.FC<TreeViewProps> = ({
   // File name for info popup
   const [infoFileName, setInfoFileName] = useState("");
   // Camera app info state
-  const [cameraAppInfo, setCameraAppInfo] = useState<{ found: boolean; width?: number; height?: number; message?: string }>({ found: false });
+  const [cameraAppInfo, setCameraAppInfo] = useState<{ 
+    found: boolean; 
+    width?: number; 
+    height?: number; 
+    left?: number;
+    top?: number;
+    center_x?: number;
+    center_y?: number;
+    message?: string 
+  }>({ found: false });
   // JSON popup state
   const [jsonPopup, setJsonPopup] = useState<{ open: boolean; node: TreeNode | null; text: string; fileName: string }>({ open: false, node: null, text: "", fileName: "" });
 
@@ -998,15 +1007,29 @@ const TreeView: React.FC<TreeViewProps> = ({
                 title="Take a snapshot"
                 onClick={e => {
                   e.stopPropagation();
-                  // Simulate finding Camera app in Windows processes
-                  // In a real implementation, this would make an API call to the backend
-                  // to get information about running processes
-                  setCameraAppInfo({
-                    found: true,
-                    width: 1280,
-                    height: 720,
-                    message: "Camera app found in Task Manager > Processes"
-                  });
+                  // Fetch camera info from the API
+                  fetch('/api/get_camera_info')
+                    .then(response => response.json())
+                    .then(data => {
+                      // Update camera app info with all properties from the response
+                      setCameraAppInfo({
+                        found: true,
+                        width: data.width,
+                        height: data.height,
+                        left: data.left,
+                        top: data.top,
+                        center_x: data.center_x,
+                        center_y: data.center_y,
+                        message: `Camera window found: ${data.window_title}`
+                      });
+                    })
+                    .catch(error => {
+                      console.error('Error fetching camera info:', error);
+                      setCameraAppInfo({
+                        found: false,
+                        message: 'Error finding camera app'
+                      });
+                    });
                 }}
               >
                 Snap 📷
@@ -1061,8 +1084,14 @@ const TreeView: React.FC<TreeViewProps> = ({
                   background: "#f9f0f9", 
                   padding: "6px 12px", 
                   borderRadius: 4, 
-                  border: "1px solid #9c6a9c" 
-                }}>
+                  border: "1px solid #9c6a9c",
+                  maxWidth: "200px",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap"
+                }}
+                title={`Camera: ${cameraAppInfo.width}×${cameraAppInfo.height}, Position: (${cameraAppInfo.left}, ${cameraAppInfo.top}), Center: (${cameraAppInfo.center_x}, ${cameraAppInfo.center_y})`}
+                >
                   Camera: {cameraAppInfo.width}×{cameraAppInfo.height}
                 </div>
               )}
