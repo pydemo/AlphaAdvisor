@@ -333,105 +333,6 @@
               ]
             },
             {
-              "name": "6_Setup",
-              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup",
-              "type": "directory",
-              "children": [
-                {
-                  "name": "PAGE_1",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "1_Area_Date",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/1_Area_Date",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "2_Reset_Save-Settings",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/2_Reset_Save-Settings",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "3_Operation-Customize",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation-Customize",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "4_Dial-Customize",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/4_Dial-Customize",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "5_Touch-Operation",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/5_Touch-Operation",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "6_Accessibility",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/6_Accessibility",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "7_Finder_Monitor",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/7_Finder_Monitor",
-                      "type": "directory",
-                      "children": []
-                    }
-                  ]
-                },
-                {
-                  "name": "PAGE_2",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "8_Display-Option",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/8_Display-Option",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "9_Power-Setting-Option",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/9_Power-Setting-Option",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "10_Sound-Option",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/10_Sound-Option",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "11_USB",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/11_USB",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "12_External-Output",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/12_External-Output",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "12_Setup-Option",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/12_Setup-Option",
-                      "type": "directory",
-                      "children": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "name": "1_Shooting",
               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting",
               "type": "directory",
@@ -2392,6 +2293,505 @@
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/4_Playback/7_Playback Option/7 Image Jump Setting",
                       "type": "directory",
                       "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "6_Setup",
+              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "PAGE_1",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1_Area_Date",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/1_Area_Date",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 Language",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/1_Area_Date/1 Language",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "2 Area_Date_Time Setting",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/1_Area_Date/2 Area_Date_Time Setting",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3 NTSC_PAL Selector",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/1_Area_Date/3 NTSC_PAL Selector",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "2_Reset_Save Settings",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/2_Reset_Save Settings",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 Setting Reset",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/2_Reset_Save Settings/1 Setting Reset",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "2 Save_Load Settings",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/2_Reset_Save Settings/2 Save_Load Settings",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "3_Operation Customize",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "PAGE_2",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize/PAGE_2",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "8 SM with Shutter Button",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize/PAGE_2/8 SM with Shutter Button",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "9 Zoom Ring Rotate",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize/PAGE_2/9 Zoom Ring Rotate",
+                              "type": "directory",
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "name": "PAGE_1",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize/PAGE_1",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1 Custom Key_Dial Set.",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize/PAGE_1/1 Custom Key_Dial Set.",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "2 Custom Key_Dial Set.",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize/PAGE_1/2 Custom Key_Dial Set.",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "3 Custom Key Setting",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize/PAGE_1/3 Custom Key Setting",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "4 Fn Menu Settings",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize/PAGE_1/4 Fn Menu Settings",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "5 Different Set for Still_Mv",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize/PAGE_1/5 Different Set for Still_Mv",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "6 DISP (Screen Disp) Set",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize/PAGE_1/6 DISP (Screen Disp) Set",
+                              "type": "directory",
+                              "children": []
+                            },
+                            {
+                              "name": "7 REC w_ Shutter",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/3_Operation Customize/PAGE_1/7 REC w_ Shutter",
+                              "type": "directory",
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "4_Dial Customize",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/4_Dial Customize",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 Custom Key_Dial Set.",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/4_Dial Customize/1 Custom Key_Dial Set.",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "2 Custom Key_Dial Set.",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/4_Dial Customize/2 Custom Key_Dial Set.",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3 My Dial Settings",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/4_Dial Customize/3 My Dial Settings",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "4 Av_Tv Rotate",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/4_Dial Customize/4 Av_Tv Rotate",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "5 Function Ring(Lens)",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/4_Dial Customize/5 Function Ring(Lens)",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "6 Lock Operation Parts",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/4_Dial Customize/6 Lock Operation Parts",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "5_Touch Operation",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/5_Touch Operation",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 Touch Operation",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/5_Touch Operation/1 Touch Operation",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "2 Touch Sensitivity",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/5_Touch Operation/2 Touch Sensitivity",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3 Touch Panel",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/5_Touch Operation/3 Touch Panel",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "Pad",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/5_Touch Operation/3 Touch Panel/Pad",
+                              "type": "directory",
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "name": "4 Touch Panel Settings",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/5_Touch Operation/4 Touch Panel Settings",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "5 Touch Pad Settings",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/5_Touch Operation/5 Touch Pad Settings",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "6 Touch Func. in Shooting",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/5_Touch Operation/6 Touch Func. in Shooting",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "6_Accessibility",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/6_Accessibility",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 Screen Reader",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/6_Accessibility/1 Screen Reader",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "7_Finder_Monitor",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/7_Finder_Monitor",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "2 Monitor Brightness",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/7_Finder_Monitor/2 Monitor Brightness",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "1 Select Finder_Monitor",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/7_Finder_Monitor/1 Select Finder_Monitor",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3 Viewfinder Bright.",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/7_Finder_Monitor/3 Viewfinder Bright.",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "4 Finder Color Temp.",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/7_Finder_Monitor/4 Finder Color Temp.",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "5 Viewfinder Magnifi.",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/7_Finder_Monitor/5 Viewfinder Magnifi.",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "6 Display Quality",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/7_Finder_Monitor/6 Display Quality",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "7 Finder Frame Rate",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/7_Finder_Monitor/7 Finder Frame Rate",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "8 Monitor Flip Direction",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_1/7_Finder_Monitor/8 Monitor Flip Direction",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "PAGE_2",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "13_Setup Option",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/13_Setup Option",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 Video Light Mode",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/13_Setup Option/1 Video Light Mode",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "2 Anti-dust Function",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/13_Setup Option/2 Anti-dust Function",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3 Auto Pixel Mapping",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/13_Setup Option/3 Auto Pixel Mapping",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "4 Pixel Mapping",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/13_Setup Option/4 Pixel Mapping",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "5 Version",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/13_Setup Option/5 Version",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "5 Display Serial Number",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/13_Setup Option/5 Display Serial Number",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "7 Privacy Notice",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/13_Setup Option/7 Privacy Notice",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "12_External Output",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/12_External Output",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 HDMI Resolution",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/12_External Output/1 HDMI Resolution",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "2 HDMI Output Settings",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/12_External Output/2 HDMI Output Settings",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3 HDMI Info. Display",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/12_External Output/3 HDMI Info. Display",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "4 CTRL FOR HDMI",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/12_External Output/4 CTRL FOR HDMI",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "11_USB",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/11_USB",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 \tUSB Connection Mode",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/11_USB/1 \tUSB Connection Mode",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "2 USB LUN Setting",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/11_USB/2 USB LUN Setting",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3 USB Power Supply",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/11_USB/3 USB Power Supply",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "10_Sound Option",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/10_Sound Option",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 Volume Settings",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/10_Sound Option/1 Volume Settings",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "2 4ch Audio Monitoring",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/10_Sound Option/2 4ch Audio Monitoring",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3 Audio signals",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/10_Sound Option/3 Audio signals",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "9_Power Setting Option",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/9_Power Setting Option",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 Auto Monitor OFF",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/9_Power Setting Option/1 Auto Monitor OFF",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "2 Power Save Start Time",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/9_Power Setting Option/2 Power Save Start Time",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3 Power Save by Monitor",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/9_Power Setting Option/3 Power Save by Monitor",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "4 Auto Power OFF Temp.",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/9_Power Setting Option/4 Auto Power OFF Temp.",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "8_Display Option",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/8_Display Option",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "2 Gamma Display Assist",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/8_Display Option/2 Gamma Display Assist",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3 Gamma Disp. Assist Typ.",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/8_Display Option/3 Gamma Disp. Assist Typ.",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "4 Remain Shoot Display",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/8_Display Option/4 Remain Shoot Display",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "5 Auto Review",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/8_Display Option/5 Auto Review",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "1 TC_UB Disp. Setting",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/6_Setup/PAGE_2/8_Display Option/1 TC_UB Disp. Setting",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
                     }
                   ]
                 }

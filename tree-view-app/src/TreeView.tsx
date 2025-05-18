@@ -248,11 +248,11 @@ const TreeView: React.FC<TreeViewProps> = ({
                         ? "bold"
                         : "normal",
                   color:
-                    isDir && /\/public\/α7RV\/.*\/\/.*\/PAGE_\d+\/[^/]+\//.test(node.path)
+                    isDir && /\/public\/α7RV\/.*\/\/.*\/[^/]+\/[^/]+\//.test(node.path)
                       ? "#5b88c4"
-                      : isDir && /\/public\/α7RV\/.*\/PAGE_\d+\/.*\/PAGE_\d+\//.test(node.path)
+                      : isDir && /\/public\/α7RV\/.*\/[^/]+\/.*\/[^/]+\//.test(node.path)
                       ? "#4a6996"
-                      : isDir && /\/public\/α7RV\/.*\/PAGE_\d+\//.test(node.path)
+                      : isDir && /\/public\/α7RV\/.*\/[^/]+\//.test(node.path)
                       ? "#6c9c6a"
                       : isDir && /\/public\/α7RV\/.*\//.test(node.path)
                       ? "orange"
