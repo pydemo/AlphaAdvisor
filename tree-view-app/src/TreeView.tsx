@@ -248,13 +248,13 @@ const TreeView: React.FC<TreeViewProps> = ({
                         ? "bold"
                         : "normal",
                   color:
-                    isDir && /\/public\/α7RV\/.*\/\/.*\/[^/]+\/[^/]+\//.test(node.path)
-                      ? "#5b88c4"
-                      : isDir && /\/public\/α7RV\/.*\/[^/]+\/.*\/[^/]+\//.test(node.path)
+                    isDir     && /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\//.test(node.path)
+                      ? "orange"
+                      : isDir && /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\//.test(node.path)
                       ? "#4a6996"
-                      : isDir && /\/public\/α7RV\/.*\/[^/]+\//.test(node.path)
+                      : isDir && /\/public\/α7RV\/[^/]+\/[^/]+\//.test(node.path)
                       ? "#6c9c6a"
-                      : isDir && /\/public\/α7RV\/.*\//.test(node.path)
+                      : isDir && /\/public\/α7RV\/[^/]+\//.test(node.path)
                       ? "orange"
                       : undefined
                 }}
@@ -267,6 +267,37 @@ const TreeView: React.FC<TreeViewProps> = ({
                     ? formatDirNameForDisplay(node.name) 
                     : node.name}
               </span>
+              
+              {/* Camera button for all directories */}
+              {isDir && (
+                <button
+                  style={{
+                    marginLeft: 6,
+                    fontSize: 13,
+                    padding: "0 6px",
+                    borderRadius: "50%",
+                    border: "1px solid #9c6a9c",
+                    background: "#f9f0f9",
+                    color: "#8e388e",
+                    cursor: "pointer",
+                    height: 22,
+                    width: 22,
+                    lineHeight: "18px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}
+                  title="Snap photo"
+                  onClick={e => {
+                    e.stopPropagation();
+                    // Open a popup similar to the 'i' button
+                    setInfoPopup({ open: true, node, image: null });
+                    setInfoFileName(`${node.name}_snap.png`);
+                  }}
+                >
+                  📷
+                </button>
+              )}
               
               {/* Info and JSON buttons for specific α7RV leaf directories */}
               { (/\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/(?!PAGE_\d+$)[^/]+$/.test(node.path) ||
