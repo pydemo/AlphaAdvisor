@@ -268,8 +268,8 @@ const TreeView: React.FC<TreeViewProps> = ({
                     : node.name}
               </span>
               
-              {/* Camera button for all directories */}
-              {isDir && (
+              {/* Camera button for directories (excluding root and α7RV) */}
+              {isDir && node.name !== "public" && !node.path.match(/\/public\/α7RV\/?$/) && (
                 <button
                   style={{
                     marginLeft: 6,
