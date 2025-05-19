@@ -88,13 +88,21 @@ $result
  * @param {string} options.outputPath - Path to save the screenshot
  * @param {boolean} options.bringToFront - Whether to bring the window to front
  * @param {boolean} options.verbose - Whether to log verbose information
+ * @param {number} options.adjustLeft - Amount to adjust left position (positive = right)
+ * @param {number} options.adjustTop - Amount to adjust top position (positive = down)
+ * @param {number} options.customWidth - Custom width for the capture (0 = use original)
+ * @param {number} options.customHeight - Custom height for the capture (0 = use original)
  * @returns {Promise<boolean>} Success status
  */
 async function captureSnapshot(options = {}) {
   const {
     outputPath = './camera_snapshot.png',
     bringToFront = true,
-    verbose = false
+    verbose = false,
+    adjustLeft = 0,
+    adjustTop = 0,
+    customWidth = 0,
+    customHeight = 0
   } = options;
   
   try {
@@ -128,6 +136,34 @@ async function captureSnapshot(options = {}) {
       }
     }
     
+    // Apply adjustments to the window position and size
+    const adjustedLeft = windowPosition.left + adjustLeft;
+    const adjustedTop = windowPosition.top + adjustTop;
+    
+    // Use custom width/height if provided, otherwise use the original window dimensions
+    const captureWidth = customWidth > 0 ? customWidth : windowPosition.width;
+    const captureHeight = customHeight > 0 ? customHeight : windowPosition.height;
+    
+    if (verbose) {
+      console.log('Original window position:', {
+        left: windowPosition.left,
+        top: windowPosition.top,
+        width: windowPosition.width,
+        height: windowPosition.height
+      });
+      
+      console.log('Adjusted window position:', {
+        left: adjustedLeft,
+        top: adjustedTop,
+        width: captureWidth,
+        height: captureHeight,
+        adjustLeft,
+        adjustTop,
+        customWidth,
+        customHeight
+      });
+    }
+    
     // Ensure output path is Windows-compatible
     let winOutputPath = outputPath;
     if (outputPath.startsWith('/mnt/')) {
@@ -148,53 +184,30 @@ function Capture-Window {
         [int]$Height,
         [string]$OutputPath
     )
-
-    # Get DPI scaling factor
-    $g = [System.Drawing.Graphics]::FromHwnd([IntPtr]::Zero)
-    $dpiX = $g.DpiX
-    $dpiY = $g.DpiY
-    $g.Dispose()
-
-    $scaleX = $dpiX / 96.0
-    $scaleY = $dpiY / 96.0
-
-    Write-Host "DPI X: $dpiX, DPI Y: $dpiY"
-    Write-Host "Scale X: $scaleX, Scale Y: $scaleY"
-    Write-Host "Original Left/Top: $Left, $Top"
-    Write-Host "Original Width/Height: $Width x $Height"
-
-    $scaledLeft = [Math]::Round($Left * $scaleX)
-    $scaledTop = [Math]::Round($Top * $scaleY)
-    $scaledWidth = [Math]::Round($Width * $scaleX)
-    $scaledHeight = [Math]::Round($Height * $scaleY)
-
-    Write-Host "Scaled Left/Top: $scaledLeft, $scaledTop"
-    Write-Host "Scaled Width/Height: $scaledWidth x $scaledHeight"
-
-    if ($scaledWidth -le 0 -or $scaledHeight -le 0) {
-        Write-Error "❌ Invalid scaled dimensions: $scaledWidth x $scaledHeight"
-        return $false
-    }
-
-    try {
-        $bitmap = New-Object System.Drawing.Bitmap $scaledWidth, $scaledHeight
-        $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
-        $graphics.CopyFromScreen($scaledLeft, $scaledTop, 0, 0, $bitmap.Size)
-        $bitmap.Save($OutputPath, [System.Drawing.Imaging.ImageFormat]::Png)
-        $graphics.Dispose()
-        $bitmap.Dispose()
-        return $true
-    }
-    catch {
-        Write-Error "❌ Exception creating bitmap: $_"
-        return $false
-    }
+    
+    # Create bitmap with the size of the window
+    $bitmap = New-Object System.Drawing.Bitmap $Width, $Height
+    
+    # Create graphics object from bitmap
+    $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
+    
+    # Capture screen at the specified coordinates
+    $graphics.CopyFromScreen($Left, $Top, 0, 0, $bitmap.Size)
+    
+    # Save the bitmap
+    $bitmap.Save($OutputPath, [System.Drawing.Imaging.ImageFormat]::Png)
+    
+    # Clean up
+    $graphics.Dispose()
+    $bitmap.Dispose()
+    
+    return $true
 }
 
-$result = Capture-Window -Left ${windowPosition.left} -Top ${windowPosition.top} -Width ${windowPosition.width} -Height ${windowPosition.height} -OutputPath "${winOutputPath}"
+# Capture the window with adjusted positions
+$result = Capture-Window -Left ${adjustedLeft} -Top ${adjustedTop} -Width ${captureWidth} -Height ${captureHeight} -OutputPath "${winOutputPath}"
 $result
 `;
-
 
     if (verbose) console.log(`Capturing screenshot to ${outputPath}...`);
     const output = await runPowerShellScript(psScript);
@@ -220,6 +233,10 @@ async function main() {
   // Get command-line arguments
   const args = process.argv.slice(2);
   const outputPath = args[0] || './camera_snapshot.png';
+  const adjustLeft = parseInt(args[1] || '0', 10);
+  const adjustTop = parseInt(args[2] || '0', 10);
+  const customWidth = parseInt(args[3] || '0', 10);
+  const customHeight = parseInt(args[4] || '0', 10);
   
   console.log('Camera Snapshot Utility');
   console.log('----------------------');
@@ -228,10 +245,27 @@ async function main() {
   await cameraPosition.printCameraPositionInfo();
   
   console.log('\nTaking screenshot...');
+  
+  // Show adjustment info if any parameters are non-zero
+  const hasAdjustments = adjustLeft !== 0 || adjustTop !== 0 || customWidth > 0 || customHeight > 0;
+  if (hasAdjustments) {
+    console.log('Using custom capture settings:');
+    if (adjustLeft !== 0 || adjustTop !== 0) {
+      console.log(`  Position: Left offset=${adjustLeft}, Top offset=${adjustTop}`);
+    }
+    if (customWidth > 0 || customHeight > 0) {
+      console.log(`  Size: Width=${customWidth || 'original'}, Height=${customHeight || 'original'}`);
+    }
+  }
+  
   const success = await captureSnapshot({
     outputPath,
     bringToFront: true,
-    verbose: true
+    verbose: true,
+    adjustLeft,
+    adjustTop,
+    customWidth,
+    customHeight
   });
   
   if (success) {

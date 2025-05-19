@@ -148,53 +148,30 @@ function Capture-Window {
         [int]$Height,
         [string]$OutputPath
     )
-
-    # Get DPI scaling factor
-    $g = [System.Drawing.Graphics]::FromHwnd([IntPtr]::Zero)
-    $dpiX = $g.DpiX
-    $dpiY = $g.DpiY
-    $g.Dispose()
-
-    $scaleX = $dpiX / 96.0
-    $scaleY = $dpiY / 96.0
-
-    Write-Host "DPI X: $dpiX, DPI Y: $dpiY"
-    Write-Host "Scale X: $scaleX, Scale Y: $scaleY"
-    Write-Host "Original Left/Top: $Left, $Top"
-    Write-Host "Original Width/Height: $Width x $Height"
-
-    $scaledLeft = [Math]::Round($Left * $scaleX)
-    $scaledTop = [Math]::Round($Top * $scaleY)
-    $scaledWidth = [Math]::Round($Width * $scaleX)
-    $scaledHeight = [Math]::Round($Height * $scaleY)
-
-    Write-Host "Scaled Left/Top: $scaledLeft, $scaledTop"
-    Write-Host "Scaled Width/Height: $scaledWidth x $scaledHeight"
-
-    if ($scaledWidth -le 0 -or $scaledHeight -le 0) {
-        Write-Error "❌ Invalid scaled dimensions: $scaledWidth x $scaledHeight"
-        return $false
-    }
-
-    try {
-        $bitmap = New-Object System.Drawing.Bitmap $scaledWidth, $scaledHeight
-        $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
-        $graphics.CopyFromScreen($scaledLeft, $scaledTop, 0, 0, $bitmap.Size)
-        $bitmap.Save($OutputPath, [System.Drawing.Imaging.ImageFormat]::Png)
-        $graphics.Dispose()
-        $bitmap.Dispose()
-        return $true
-    }
-    catch {
-        Write-Error "❌ Exception creating bitmap: $_"
-        return $false
-    }
+    
+    # Create bitmap with the size of the window
+    $bitmap = New-Object System.Drawing.Bitmap $Width, $Height
+    
+    # Create graphics object from bitmap
+    $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
+    
+    # Capture screen at the specified coordinates
+    $graphics.CopyFromScreen($Left, $Top, 0, 0, $bitmap.Size)
+    
+    # Save the bitmap
+    $bitmap.Save($OutputPath, [System.Drawing.Imaging.ImageFormat]::Png)
+    
+    # Clean up
+    $graphics.Dispose()
+    $bitmap.Dispose()
+    
+    return $true
 }
 
+# Capture the window
 $result = Capture-Window -Left ${windowPosition.left} -Top ${windowPosition.top} -Width ${windowPosition.width} -Height ${windowPosition.height} -OutputPath "${winOutputPath}"
 $result
 `;
-
 
     if (verbose) console.log(`Capturing screenshot to ${outputPath}...`);
     const output = await runPowerShellScript(psScript);
