@@ -650,7 +650,7 @@ const TreeView: React.FC<TreeViewProps> = ({
                     e.stopPropagation();
                     // Open a popup similar to the 'i' button
                     setInfoPopup({ open: true, node, image: null });
-                    setInfoFileName(`${node.name}_snap.png`);
+                    setInfoFileName(`${node.name}.png`);
                   }}
                 >
                   📷
