@@ -715,9 +715,10 @@ ${user_message}
     res.status(500).json({ error: err.message });
   }
 });
-// Import the camera position module and screen capture module
+// Import the camera position module, screen capture module, and window manager
 const cameraPosition = require('./camera-position');
 const screenCapture = require('./screen-capture');
+const windowManager = require('./window-manager');
 
 // Camera window detection endpoint
 app.get('/api/get_camera_info', async (req, res) => {
@@ -784,8 +785,38 @@ app.get('/api/get_camera_snap', async (req, res) => {
     
     console.log(`[DEBUG] Capture request - Coordinates: left=${left}, top=${top}, width=${width}, height=${height}`);
     console.log(`[DEBUG] Output file: ${outputPath}`);
-    
-    // Use the screen-capture.js module to take a screenshot
+    if (false) {
+      // Use the screen-capture.js module to take a screenshot
+      // First, try to get the camera window position to ensure it exists
+      console.log('[DEBUG] Getting camera window position...');
+      const cameraWindows = await cameraPosition.getCameraWindowPosition({ verbose: true });
+      
+      if (cameraWindows && cameraWindows.length > 0) {
+        console.log('[DEBUG] Found camera window:', cameraWindows[0].window_title);
+        
+        // Try to bring the window to foreground explicitly
+        console.log('[DEBUG] Attempting to bring Camera window to foreground...');
+        const focusSuccess = await windowManager.bringWindowToForeground(cameraWindows[0].window_title || 'Camera');
+        
+        if (focusSuccess) {
+          console.log('[DEBUG] Successfully brought Camera window to foreground');
+        } else {
+          console.warn('[DEBUG] Failed to bring Camera window to foreground');
+        }
+        
+        // Add a longer delay to give the window time to be properly focused
+        console.log('[DEBUG] Waiting for window to be properly focused...');
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Try to focus the window again after the delay
+        console.log('[DEBUG] Attempting to bring Camera window to foreground again...');
+        await windowManager.bringWindowToForeground(cameraWindows[0].window_title || 'Camera');
+      } else {
+        console.warn('[DEBUG] No camera window found, will attempt screenshot anyway');
+      }
+    }
+    // Then take the screenshot
+    console.log('[DEBUG] Taking screenshot...');
     const success = await screenCapture.captureScreenshotWithCoordinates(
       'Camera', // Window title
       outputPath,

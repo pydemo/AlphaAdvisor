@@ -56,17 +56,17 @@ async function captureScreenshotWithCoordinates(
   width,
   height
 ) {
-  
-  // Bring window to foreground
-  const focusSuccess = await windowManager.bringWindowToForeground(windowTitle);
-  
-  if (focusSuccess) {
-    // Give the window a moment to be properly rendered
-    await new Promise(resolve => setTimeout(resolve, 500));
-  } else {
-    console.warn('Failed to focus window, screenshot may not be accurate');
+  if (false) {
+    // Bring window to foreground
+    const focusSuccess = await windowManager.bringWindowToForeground(windowTitle);
+    
+    if (focusSuccess) {
+      // Give the window a moment to be properly rendered
+      await new Promise(resolve => setTimeout(resolve, 500));
+    } else {
+      console.warn('Failed to focus window, screenshot may not be accurate');
+    }
   }
-  
   // Ensure output path is Windows-compatible
   let winOutputPath = outputPath;
   if (outputPath.startsWith('/mnt/')) {

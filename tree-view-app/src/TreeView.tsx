@@ -133,8 +133,36 @@ const TreeView: React.FC<TreeViewProps> = ({
   }>({ found: false });
   // Loading state for camera snapshot
   const [isSnapping, setIsSnapping] = useState(false);
+  // Snap configuration state
+  const [snapConfig, setSnapConfig] = useState<{
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+    directory: string;
+  }>({
+    left: 200,
+    top: 150,
+    width: 300,
+    height: 768,
+    directory: 'camera_snaps'
+  });
   // JSON popup state
   const [jsonPopup, setJsonPopup] = useState<{ open: boolean; node: TreeNode | null; text: string; fileName: string }>({ open: false, node: null, text: "", fileName: "" });
+
+  // Load snap configuration from JSON file
+  useEffect(() => {
+    fetch('/snap_config.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.camera_snap) {
+          setSnapConfig(data.camera_snap);
+        }
+      })
+      .catch(error => {
+        console.error('Error loading snap configuration:', error);
+      });
+  }, []);
 
   useEffect(() => {
     fetch(dataUrl)
@@ -1040,14 +1068,14 @@ const TreeView: React.FC<TreeViewProps> = ({
                   
                   // Get current timestamp for unique filename
                   const timestamp = Date.now();
-                  const directory = 'camera_snaps';
+                  const directory = snapConfig.directory;
                   const filename = `snap_${timestamp}.png`;
                   
-                  // Define capture area (using default values or previous camera info)
-                  const left = cameraAppInfo.left || 200;
-                  const top = cameraAppInfo.top || 150;
-                  const width = cameraAppInfo.width || 300;
-                  const height = cameraAppInfo.height || 768;
+                  // Define capture area (using values from config or previous camera info)
+                  const left = cameraAppInfo.left || snapConfig.left;
+                  const top = cameraAppInfo.top || snapConfig.top;
+                  const width = cameraAppInfo.width || snapConfig.width;
+                  const height = cameraAppInfo.height || snapConfig.height;
                   
                   // Call the camera snap API
                   fetch(`/api/get_camera_snap?left=${left}&top=${top}&width=${width}&height=${height}&directory=${directory}&filename=${filename}`)
