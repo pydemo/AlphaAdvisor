@@ -11,17 +11,22 @@ async function testCameraSnapAPI() {
   // Define the coordinates and size for the screenshot
   const left = 200;    // X position (from left edge of screen)
   const top = 150;     // Y position (from top edge of screen)
-  const width = 1024;  // Width of the capture area
+  const width = 300;  // Width of the capture area
   const height = 768;  // Height of the capture area
   
-  // Output path for the received image
+  // Define directory and filename parameters (optional)
+  const directory = 'camera_snaps';  // Directory to save the image (relative to server.js)
+  const filename = `test_snap_${Date.now()}.png`;  // Filename for the image
+  
+  // Output path for the received image (for local saving)
   const outputPath = path.join(__dirname, 'camera_snap_api_test.png');
   
   console.log('Testing /api/get_camera_snap API endpoint...');
   console.log(`Requesting capture with: left=${left}, top=${top}, width=${width}, height=${height}`);
+  console.log(`Saving to server directory: ${directory}/${filename}`);
   
   // Construct the URL with query parameters
-  const url = `http://localhost:3002/api/get_camera_snap?left=${left}&top=${top}&width=${width}&height=${height}`;
+  const url = `http://localhost:3002/api/get_camera_snap?left=${left}&top=${top}&width=${width}&height=${height}&directory=${directory}&filename=${filename}`;
   
   // Make the HTTP request
   http.get(url, (response) => {

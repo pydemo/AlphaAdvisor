@@ -85,6 +85,16 @@
         <input type="number" id="height" value="768">
     </div>
     
+    <div class="form-group">
+        <label for="directory">Directory (optional):</label>
+        <input type="text" id="directory" value="camera_snaps" placeholder="Leave empty to not save on server">
+    </div>
+    
+    <div class="form-group">
+        <label for="filename">Filename (optional):</label>
+        <input type="text" id="filename" value="" placeholder="Leave empty for auto-generated name">
+    </div>
+    
     <button id="captureBtn">Capture Screenshot</button>
     
     <div id="loading" class="loading">Taking screenshot, please wait...</div>
@@ -104,6 +114,16 @@
             const top = document.getElementById('top').value;
             const width = document.getElementById('width').value;
             const height = document.getElementById('height').value;
+            const directory = document.getElementById('directory').value;
+            let filename = document.getElementById('filename').value;
+            
+            // If filename is empty, generate a default one
+            if (!filename) {
+                filename = `web_snap_${new Date().getTime()}.png`;
+            } else if (!filename.toLowerCase().endsWith('.png')) {
+                // Ensure filename ends with .png
+                filename = `${filename}.png`;
+            }
             
             // Show loading message
             document.getElementById('loading').style.display = 'block';
@@ -111,7 +131,14 @@
             document.getElementById('resultImage').style.display = 'none';
             
             // Construct URL with query parameters
-            const url = `/api/get_camera_snap?left=${left}&top=${top}&width=${width}&height=${height}`;
+            let url = `/api/get_camera_snap?left=${left}&top=${top}&width=${width}&height=${height}`;
+            
+            // Add directory and filename parameters if provided
+            if (directory) {
+                url += `&directory=${encodeURIComponent(directory)}`;
+            }
+            
+            url += `&filename=${encodeURIComponent(filename)}`;
             
             // Add timestamp to prevent caching
             const timestamp = new Date().getTime();

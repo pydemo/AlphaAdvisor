@@ -18,11 +18,15 @@ This endpoint captures a screenshot of the camera window at the specified coordi
 | top       | integer | Y position from the top edge of the screen    | 0       |
 | width     | integer | Width of the capture area in pixels           | 1024    |
 | height    | integer | Height of the capture area in pixels          | 768     |
+| directory | string  | Directory to save the image on the server (relative to server.js). If provided, the image will be saved on the server in addition to being returned in the response. | None (image not saved) |
+| filename  | string  | Filename to use when saving the image on the server. Must end with .png extension. | camera_snap_[timestamp].png |
 
 ### Response
 
 - **Content-Type**: `image/png`
 - **Body**: The captured image as binary data
+
+If the `directory` parameter is provided, the image will also be saved on the server in the specified directory with the specified filename (or an auto-generated filename if not provided).
 
 ### Error Response
 
@@ -49,8 +53,12 @@ const top = 150;
 const width = 1024;
 const height = 768;
 
+// Optional: specify directory and filename to save on server
+const directory = 'camera_snaps';
+const filename = 'my_screenshot.png';
+
 // Construct the URL with query parameters
-const url = `http://localhost:3002/api/get_camera_snap?left=${left}&top=${top}&width=${width}&height=${height}`;
+const url = `http://localhost:3002/api/get_camera_snap?left=${left}&top=${top}&width=${width}&height=${height}&directory=${directory}&filename=${filename}`;
 
 // Make the HTTP request
 http.get(url, (response) => {
@@ -86,9 +94,13 @@ http.get(url, (response) => {
     const width = 1024;
     const height = 768;
     
+    // Optional: specify directory and filename to save on server
+    const directory = 'camera_snaps';
+    const filename = `web_snap_${new Date().getTime()}.png`;
+    
     // Construct the URL with query parameters and add timestamp to prevent caching
     const timestamp = new Date().getTime();
-    const url = `/api/get_camera_snap?left=${left}&top=${top}&width=${width}&height=${height}&_t=${timestamp}`;
+    const url = `/api/get_camera_snap?left=${left}&top=${top}&width=${width}&height=${height}&directory=${directory}&filename=${filename}&_t=${timestamp}`;
     
     // Set the image source to the API URL
     const img = document.getElementById('resultImage');
@@ -122,8 +134,19 @@ The API uses the `screen-capture.js` module to take screenshots. This module:
 
 1. Brings the camera window to the foreground using the window-manager.js module
 2. Uses PowerShell to capture the screenshot at the specified coordinates
-3. Saves the screenshot to a temporary file
+3. Saves the screenshot to a file
 4. Reads the file and returns it to the client
-5. Deletes the temporary file
+5. If no directory parameter was provided, deletes the temporary file
+6. If a directory parameter was provided, keeps the file in the specified directory
+
+### Saving Images on the Server
+
+When you provide the `directory` parameter, the API will:
+
+1. Create the directory if it doesn't exist (relative to the server.js file)
+2. Save the captured image in that directory with the specified filename
+3. Still return the image in the response
+
+This is useful when you want to keep a record of the captured images on the server.
 
 The implementation is designed to work on Windows systems with PowerShell available.

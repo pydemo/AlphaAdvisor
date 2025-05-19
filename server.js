@@ -749,10 +749,41 @@ app.get('/api/get_camera_snap', async (req, res) => {
     const width = parseInt(req.query.width) || 1024;
     const height = parseInt(req.query.height) || 768;
     
-    // Generate a unique filename for this snapshot
-    const outputPath = path.join(__dirname, `camera_snap_${Date.now()}.png`);
+    // Get directory and filename parameters (optional)
+    const directory = req.query.directory || '';
+    const filename = req.query.filename || `camera_snap_${Date.now()}.png`;
+    
+    // Validate filename
+    if (!filename.toLowerCase().endsWith('.png')) {
+      return res.status(400).json({ 
+        success: false, 
+        error: "Filename must end with .png extension" 
+      });
+    }
+    
+    // Create directory if it doesn't exist
+    let outputDir = __dirname;
+    if (directory) {
+      // Prevent directory traversal
+      if (directory.includes('..') || directory.startsWith('/')) {
+        return res.status(400).json({ 
+          success: false, 
+          error: "Invalid directory path" 
+        });
+      }
+      
+      outputDir = path.join(__dirname, directory);
+      if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
+        console.log(`[DEBUG] Created directory: ${outputDir}`);
+      }
+    }
+    
+    // Generate the full output path
+    const outputPath = path.join(outputDir, filename);
     
     console.log(`[DEBUG] Capture request - Coordinates: left=${left}, top=${top}, width=${width}, height=${height}`);
+    console.log(`[DEBUG] Output file: ${outputPath}`);
     
     // Use the screen-capture.js module to take a screenshot
     const success = await screenCapture.captureScreenshotWithCoordinates(
@@ -785,8 +816,14 @@ app.get('/api/get_camera_snap', async (req, res) => {
       console.log(`[DEBUG] Could not get image dimensions: ${err.message}`);
     }
     
-    // Clean up the temporary file
-    fs.unlinkSync(outputPath);
+    // If the directory parameter was provided, keep the file
+    // Otherwise, clean up the temporary file
+    if (!directory) {
+      fs.unlinkSync(outputPath);
+      console.log(`[DEBUG] Temporary file deleted: ${outputPath}`);
+    } else {
+      console.log(`[DEBUG] Image saved to: ${outputPath}`);
+    }
     
     // Set the content type and send the image
     res.set('Content-Type', 'image/png');
