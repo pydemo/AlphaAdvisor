@@ -4,22 +4,30 @@
  * Uses camera-position.js to get the camera coordinates
  * 
  * Usage:
- *   node test_snap.js [output_path]
+ *   node test_snap.js [output_path] [options]
+ * 
+ * Options:
+ *   --left=N     Adjust left coordinate by N pixels (default: 0)
+ *   --top=N      Adjust top coordinate by N pixels (default: 40)
+ *   --width=N    Adjust width by N pixels (default: 0)
+ *   --height=N   Adjust height by N pixels (default: -40)
+ *   --quiet      Suppress verbose output
+ *   --help       Show this help message
  * 
  * Examples:
  *   node test_snap.js
  *   node test_snap.js my_camera_snapshot.png
- *   node test_snap.js ./snapshots/camera.png
+ *   node test_snap.js --top=50 --height=-50
+ *   node test_snap.js snapshot.png --left=10 --top=30 --width=-20 --height=-30
  * 
  * This script:
  * 1. Gets the position and dimensions of the Windows Camera app using camera-position.js
- * 2. Takes a screenshot of that specific region of the screen
- * 3. Saves the screenshot to the specified output path (default: ./camera_snapshot.png)
+ * 2. Applies adjustments to focus on the main content area (skipping title bar)
+ * 3. Takes a screenshot of that specific region of the screen
+ * 4. Saves the screenshot to the specified output path (default: ./camera_snapshot.png)
  * 
  * The script uses multiple methods to capture screenshots, with fallbacks if one method fails:
- * - Windows Snipping Tool
  * - PowerShell's System.Drawing capabilities
- * - Windows Game Bar
  * - PrintScreen key + clipboard processing
  */
 
@@ -98,7 +106,10 @@ async function takeScreenshot(options) {
   }
   
   const psScript = `
-# Function to capture a screenshot using Windows.Media.Capture API
+# Load required assemblies
+Add-Type -AssemblyName System.Drawing
+Add-Type -AssemblyName System.Windows.Forms
+
 function Capture-Screenshot {
     param(
         [int]$Left,
@@ -108,7 +119,7 @@ function Capture-Screenshot {
         [string]$OutputPath,
         [switch]$Verbose
     )
-
+    
     # Validate input parameters
     if ($Left -lt 0) { $Left = 0 }
     if ($Top -lt 0) { $Top = 0 }
@@ -128,71 +139,46 @@ function Capture-Screenshot {
         New-Item -ItemType Directory -Path $directory -Force | Out-Null
     }
     
-    # Method 1: Use Windows built-in screenshot utility (Win+Shift+S)
     try {
+        # Get screen dimensions
+        $screenWidth = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Width
+        $screenHeight = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Height
+        
         if ($Verbose) {
-            Write-Host "Using Windows Screenshot utility method..."
+            Write-Host "Screen dimensions: $screenWidth x $screenHeight"
         }
         
-        # Create a temporary file for the full screenshot
-        $tempFile = [System.IO.Path]::GetTempFileName() -replace '\\.tmp$', '.png'
-        
-        # Load the required assemblies
-        Add-Type -AssemblyName System.Windows.Forms
-        
-        # Take a full screenshot
-        $screen = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
-        
-        # Use the SnippingTool to capture the screen
-        $snippingToolPath = "C:\\Windows\\System32\\SnippingTool.exe"
-        if (Test-Path $snippingToolPath) {
-            if ($Verbose) {
-                Write-Host "Using SnippingTool for capture..."
-            }
-            
-            # Start the SnippingTool in silent mode and capture the screen
-            Start-Process -FilePath $snippingToolPath -ArgumentList "/clip" -NoNewWindow -Wait
-            Start-Sleep -Seconds 1
-            
-            # Save the clipboard content to the output file
-            Add-Type -AssemblyName System.Windows.Forms
-            if ([System.Windows.Forms.Clipboard]::ContainsImage()) {
-                $image = [System.Windows.Forms.Clipboard]::GetImage()
-                
-                # Save the image to the output path
-                $image.Save($OutputPath)
-                
-                if ($Verbose) {
-                    Write-Host "Screenshot saved successfully to: $OutputPath"
-                }
-                
-                return $true
-            }
+        # Adjust coordinates if they exceed screen bounds
+        if ($Left + $Width -gt $screenWidth) {
+            $Width = $screenWidth - $Left
+            if ($Verbose) { Write-Host "Adjusted width to: $Width" }
         }
         
-        # Method 2: Use PowerShell's built-in screenshot capability
-        if ($Verbose) {
-            Write-Host "Using PowerShell screenshot method..."
+        if ($Top + $Height -gt $screenHeight) {
+            $Height = $screenHeight - $Top
+            if ($Verbose) { Write-Host "Adjusted height to: $Height" }
         }
         
-        Add-Type -AssemblyName System.Drawing
-        Add-Type -AssemblyName System.Windows.Forms
+        # Create bitmap for the full screen
+        $bitmap = New-Object System.Drawing.Bitmap $screenWidth, $screenHeight
         
-        # Create a bitmap of the appropriate size
-        $bitmap = New-Object System.Drawing.Bitmap $Width, $Height
-        
-        # Create a graphics object from the bitmap
+        # Create graphics object
         $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
         
-        # Capture the screen
-        $graphics.CopyFromScreen($Left, $Top, 0, 0, $bitmap.Size)
+        # Capture the entire screen
+        $graphics.CopyFromScreen(0, 0, 0, 0, $bitmap.Size)
         
-        # Save the bitmap to the output path
-        $bitmap.Save($OutputPath, [System.Drawing.Imaging.ImageFormat]::Png)
+        # Crop to the desired region
+        $rect = New-Object System.Drawing.Rectangle $Left, $Top, $Width, $Height
+        $croppedBitmap = $bitmap.Clone($rect, $bitmap.PixelFormat)
+        
+        # Save the cropped bitmap
+        $croppedBitmap.Save($OutputPath, [System.Drawing.Imaging.ImageFormat]::Png)
         
         # Clean up
         $graphics.Dispose()
         $bitmap.Dispose()
+        $croppedBitmap.Dispose()
         
         if ($Verbose) {
             Write-Host "Screenshot saved successfully to: $OutputPath"
@@ -203,38 +189,10 @@ function Capture-Screenshot {
     catch {
         Write-Error "Error capturing screenshot: $_"
         
-        # Method 3: Use the Windows Game Bar (Win+G) screenshot feature
+        # Fallback method using PrintScreen
         try {
             if ($Verbose) {
-                Write-Host "Trying Windows Game Bar screenshot method..."
-            }
-            
-            # Simulate Win+Alt+PrtScn key combination
-            Add-Type -AssemblyName System.Windows.Forms
-            [System.Windows.Forms.SendKeys]::SendWait('^%{PRTSC}')
-            Start-Sleep -Seconds 2
-            
-            # Check if the screenshot was saved to the default location
-            $picturesFolder = [Environment]::GetFolderPath('MyPictures')
-            $capturesFolder = Join-Path $picturesFolder 'Captures'
-            
-            if (Test-Path $capturesFolder) {
-                $latestScreenshot = Get-ChildItem $capturesFolder | Sort-Object LastWriteTime -Descending | Select-Object -First 1
-                
-                if ($latestScreenshot -ne $null) {
-                    Copy-Item $latestScreenshot.FullName -Destination $OutputPath -Force
-                    
-                    if ($Verbose) {
-                        Write-Host "Screenshot saved using Game Bar to: $OutputPath"
-                    }
-                    
-                    return $true
-                }
-            }
-            
-            # Method 4: Last resort - use PrintScreen and save from clipboard
-            if ($Verbose) {
-                Write-Host "Trying PrintScreen method..."
+                Write-Host "Trying PrintScreen fallback method..."
             }
             
             # Clear clipboard
@@ -272,9 +230,10 @@ function Capture-Screenshot {
                 
                 return $true
             }
-            
-            Write-Error "Failed to capture screenshot using all available methods"
-            return $false
+            else {
+                Write-Error "Failed to get image from clipboard"
+                return $false
+            }
         }
         catch {
             Write-Error "All screenshot methods failed: $_"
@@ -310,12 +269,14 @@ $result
  * @param {Object} options - Configuration options
  * @param {string} options.outputPath - Path to save the screenshot
  * @param {boolean} options.verbose - Whether to log verbose information
+ * @param {Object} options.adjustments - Coordinate adjustments (optional)
  * @returns {Promise<boolean>} Success status
  */
 async function takeSnapshotWithCameraCoordinates(options = {}) {
   const {
     outputPath = './camera_snapshot.png',
-    verbose = false
+    verbose = false,
+    adjustments = { leftOffset: 0, topOffset: 0, widthOffset: 0, heightOffset: 0 }
   } = options;
   
   try {
@@ -328,18 +289,30 @@ async function takeSnapshotWithCameraCoordinates(options = {}) {
       return false;
     }
     
+    // Apply adjustments to focus on the main content area
+    // Default adjustments for Windows Camera app (title bar is about 32px)
+    const { leftOffset = 0, topOffset = 32, widthOffset = 0, heightOffset = -32 } = adjustments;
+    
+    // Calculate adjusted coordinates
+    const adjustedLeft = windowPosition.left + leftOffset;
+    const adjustedTop = windowPosition.top + topOffset;
+    const adjustedWidth = windowPosition.width + widthOffset;
+    const adjustedHeight = windowPosition.height + heightOffset;
+    
     if (verbose) {
       console.log('Camera Window Position:');
-      console.log(`Left: ${windowPosition.left}, Top: ${windowPosition.top}`);
-      console.log(`Width: ${windowPosition.width}, Height: ${windowPosition.height}`);
+      console.log(`Original Left: ${windowPosition.left}, Top: ${windowPosition.top}`);
+      console.log(`Original Width: ${windowPosition.width}, Height: ${windowPosition.height}`);
+      console.log(`Adjusted Left: ${adjustedLeft}, Top: ${adjustedTop}`);
+      console.log(`Adjusted Width: ${adjustedWidth}, Height: ${adjustedHeight}`);
     }
     
-    // Take screenshot using the window position
+    // Take screenshot using the adjusted window position
     return await takeScreenshot({
-      left: windowPosition.left,
-      top: windowPosition.top,
-      width: windowPosition.width,
-      height: windowPosition.height,
+      left: adjustedLeft,
+      top: adjustedTop,
+      width: adjustedWidth,
+      height: adjustedHeight,
       outputPath,
       verbose
     });
@@ -350,19 +323,100 @@ async function takeSnapshotWithCameraCoordinates(options = {}) {
 }
 
 /**
+ * Parse command-line arguments
+ * @returns {Object} Parsed arguments
+ */
+function parseArgs() {
+  const args = process.argv.slice(2);
+  const result = {
+    outputPath: './camera_snapshot.png',
+    adjustments: {
+      leftOffset: 0,
+      topOffset: 40,
+      widthOffset: 0,
+      heightOffset: -40
+    },
+    verbose: true
+  };
+  
+  // Parse arguments
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+    
+    if (arg.startsWith('--')) {
+      // Handle options
+      const option = arg.substring(2);
+      
+      if (option === 'help') {
+        printHelp();
+        process.exit(0);
+      } else if (option.startsWith('left=')) {
+        result.adjustments.leftOffset = parseInt(option.split('=')[1], 10) || 0;
+      } else if (option.startsWith('top=')) {
+        result.adjustments.topOffset = parseInt(option.split('=')[1], 10) || 40;
+      } else if (option.startsWith('width=')) {
+        result.adjustments.widthOffset = parseInt(option.split('=')[1], 10) || 0;
+      } else if (option.startsWith('height=')) {
+        result.adjustments.heightOffset = parseInt(option.split('=')[1], 10) || -40;
+      } else if (option === 'quiet') {
+        result.verbose = false;
+      }
+    } else {
+      // First non-option argument is the output path
+      result.outputPath = arg;
+    }
+  }
+  
+  return result;
+}
+
+/**
+ * Print help information
+ */
+function printHelp() {
+  console.log(`
+Camera Snapshot Utility
+----------------------
+Usage: node test_snap.js [output_path] [options]
+
+Options:
+  --left=N     Adjust left coordinate by N pixels (default: 0)
+  --top=N      Adjust top coordinate by N pixels (default: 40)
+  --width=N    Adjust width by N pixels (default: 0)
+  --height=N   Adjust height by N pixels (default: -40)
+  --quiet      Suppress verbose output
+  --help       Show this help message
+
+Examples:
+  node test_snap.js
+  node test_snap.js my_snapshot.png
+  node test_snap.js --top=50 --height=-50
+  node test_snap.js snapshot.png --left=10 --top=30 --width=-20 --height=-30
+`);
+}
+
+/**
  * Main function to demonstrate taking a snapshot
  */
 async function main() {
-  // Get command-line arguments
-  const args = process.argv.slice(2);
-  const outputPath = args[0] || './camera_snapshot.png';
+  // Parse command-line arguments
+  const { outputPath, adjustments, verbose } = parseArgs();
   
   console.log('Camera Snapshot Utility');
   console.log('----------------------');
   
+  if (verbose) {
+    console.log('Using adjustments:');
+    console.log(`  Left offset: ${adjustments.leftOffset}`);
+    console.log(`  Top offset: ${adjustments.topOffset}`);
+    console.log(`  Width offset: ${adjustments.widthOffset}`);
+    console.log(`  Height offset: ${adjustments.heightOffset}`);
+  }
+  
   const success = await takeSnapshotWithCameraCoordinates({
     outputPath,
-    verbose: true
+    verbose,
+    adjustments
   });
   
   if (success) {
