@@ -172,107 +172,6 @@ $result
 }
 
 /**
- * Takes a screenshot of a specific window
- * @param {string} windowTitle - The title of the window to capture
- * @param {string} outputPath - The path to save the screenshot
- * @param {boolean} bringToFront - Whether to bring the window to the foreground
- * @returns {Promise<boolean>} Success status
- */
-async function captureWindowScreenshot(windowTitle = 'Camera', outputPath = 'window_screenshot.png', bringToFront = true) {
-  // First get the window position
-  const windowPosition = await getWindowPosition(windowTitle);
-  
-  if (!windowPosition) {
-    console.error(`Window with title "${windowTitle}" not found`);
-    return false;
-  }
-  
-  // If requested, bring window to foreground
-  if (bringToFront) {
-    console.log(`Bringing "${windowTitle}" window to the foreground...`);
-    const focusSuccess = await focusWindow(windowPosition.handle);
-    
-    if (focusSuccess) {
-      console.log('Window focused successfully');
-      
-      // Give the window a moment to be properly rendered
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      // Get updated position after focus
-      const updatedPosition = await getWindowPosition(windowTitle);
-      if (updatedPosition) {
-        Object.assign(windowPosition, updatedPosition);
-      }
-    } else {
-      console.warn('Failed to focus window, screenshot may not be accurate');
-    }
-  } else if (windowPosition.is_minimized) {
-    console.warn('Window is minimized, screenshot may not be accurate');
-  }
-  
-  // Ensure output path is Windows-compatible
-  let winOutputPath = outputPath;
-  if (outputPath.startsWith('/mnt/')) {
-    // Convert WSL path to Windows path
-    const driveLetter = outputPath.charAt(5).toUpperCase();
-    winOutputPath = `${driveLetter}:${outputPath.substring(7).replace(/\//g, '\\')}`;
-  }
-  
-  const psScript = `
-Add-Type -AssemblyName System.Windows.Forms
-Add-Type -AssemblyName System.Drawing
-
-function Capture-Window {
-    param(
-        [int]$Left,
-        [int]$Top,
-        [int]$Width,
-        [int]$Height,
-        [string]$OutputPath
-    )
-    
-    # Create bitmap with the size of the window
-    $bitmap = New-Object System.Drawing.Bitmap $Width, $Height
-    
-    # Create graphics object from bitmap
-    $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
-    
-    # Capture screen at the specified coordinates
-    $graphics.CopyFromScreen($Left, $Top, 0, 0, $bitmap.Size)
-    
-    # Save the bitmap
-    $bitmap.Save($OutputPath, [System.Drawing.Imaging.ImageFormat]::Png)
-    
-    # Clean up
-    $graphics.Dispose()
-    $bitmap.Dispose()
-    
-    return $true
-}
-
-# Capture the window
-$result = Capture-Window -Left ${windowPosition.left} -Top ${windowPosition.top} -Width ${windowPosition.width} -Height ${windowPosition.height} -OutputPath "${winOutputPath}"
-$result
-`;
-
-  try {
-    const output = await runPowerShellScript(psScript);
-    const success = output.trim().toLowerCase() === 'true';
-    
-    if (success) {
-      console.log(`Screenshot saved to: ${outputPath}`);
-      return true;
-    } else {
-      console.error('Failed to capture screenshot');
-      return false;
-    }
-  } catch (error) {
-    console.error('Error capturing screenshot:', error);
-    return false;
-  }
-}
-
-/**
  * Minimizes a window
  * @param {number} handle - The window handle
  * @returns {Promise<boolean>} Success status
@@ -340,68 +239,38 @@ $result
   }
 }
 
-// Main function
-async function main() {
-  // Get the command line arguments
-  const args = process.argv.slice(2);
-  const command = args[0] || 'capture';
-  const windowTitle = args[1] || 'Camera';
+/**
+ * Brings a window with the specified title to the foreground
+ * @param {string} windowTitle - The title of the window to focus
+ * @returns {Promise<boolean>} Success status
+ */
+async function bringWindowToForeground(windowTitle = 'Camera') {
+  console.log(`Bringing "${windowTitle}" window to the foreground...`);
   
-  switch (command) {
-    case 'focus':
-      console.log(`Focusing window "${windowTitle}"...`);
-      const windowInfo = await getWindowPosition(windowTitle);
-      if (windowInfo) {
-        const success = await focusWindow(windowInfo.handle);
-        console.log(success ? 'Window focused successfully' : 'Failed to focus window');
-      }
-      break;
-    case 'minimize':
-      console.log(`Minimizing window "${windowTitle}"...`);
-      const windowToMinimize = await getWindowPosition(windowTitle);
-      if (windowToMinimize) {
-        const success = await minimizeWindow(windowToMinimize.handle);
-        console.log(success ? 'Window minimized successfully' : 'Failed to minimize window');
-      }
-      break;
-    case 'restore':
-      console.log(`Restoring window "${windowTitle}"...`);
-      const windowToRestore = await getWindowPosition(windowTitle);
-      if (windowToRestore) {
-        const success = await restoreWindow(windowToRestore.handle);
-        console.log(success ? 'Window restored successfully' : 'Failed to restore window');
-      }
-      break;
-    case 'capture':
-      // Default output file path in current directory
-      const outputPath = args[2] || `./${windowTitle.replace(/[^a-z0-9]/gi, '_')}_screenshot.png`;
-      const bringToFront = args[3] !== 'false'; // Default is true
-      await captureWindowScreenshot(windowTitle, outputPath, bringToFront);
-      break;
-    case 'info':
-      const windowPosition = await getWindowPosition(windowTitle);
-      if (windowPosition) {
-        console.log(`Window "${windowTitle}" information:`);
-        for (const [key, value] of Object.entries(windowPosition)) {
-          console.log(`${key}: ${value}`);
-        }
-        console.log(`\nWindow is ${windowPosition.is_minimized ? 'minimized' : 'not minimized'}`);
-      } else {
-        console.log(`Window "${windowTitle}" not found`);
-      }
-      break;
-    default:
-      console.log(`Unknown command: ${command}`);
-      console.log('Available commands:');
-      console.log('  focus [window_title] - Bring a window to the foreground');
-      console.log('  minimize [window_title] - Minimize a window');
-      console.log('  restore [window_title] - Restore a minimized window');
-      console.log('  capture [window_title] [output_path] [bring_to_front] - Capture a screenshot of a window');
-      console.log('  info [window_title] - Get information about a window');
+  // First get the window position to obtain the handle
+  const windowPosition = await getWindowPosition(windowTitle);
+  
+  if (!windowPosition) {
+    console.error(`Window with title "${windowTitle}" not found`);
+    return false;
+  }
+  
+  // Focus the window
+  const focusSuccess = await focusWindow(windowPosition.handle);
+  
+  if (focusSuccess) {
+    console.log('Window focused successfully');
+    return true;
+  } else {
+    console.warn('Failed to focus window');
+    return false;
   }
 }
 
-// Run the main function
-main().catch(error => {
-  console.error('An error occurred:', error);
-});
+module.exports = {
+  getWindowPosition,
+  focusWindow,
+  minimizeWindow,
+  restoreWindow,
+  bringWindowToForeground
+};

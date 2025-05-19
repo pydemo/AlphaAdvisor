@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Snap API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+        .loading {
+            display: none;
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Camera Snap API Test</h1>
+    <p>Use this form to test the /api/get_camera_snap endpoint. Adjust the coordinates and size to capture different areas of the camera window.</p>
+    
+    <div class="form-group">
+        <label for="left">Left (X position):</label>
+        <input type="number" id="left" value="200">
+    </div>
+    
+    <div class="form-group">
+        <label for="top">Top (Y position):</label>
+        <input type="number" id="top" value="150">
+    </div>
+    
+    <div class="form-group">
+        <label for="width">Width:</label>
+        <input type="number" id="width" value="1024">
+    </div>
+    
+    <div class="form-group">
+        <label for="height">Height:</label>
+        <input type="number" id="height" value="768">
+    </div>
+    
+    <button id="captureBtn">Capture Screenshot</button>
+    
+    <div id="loading" class="loading">Taking screenshot, please wait...</div>
+    <div id="error" class="error"></div>
+    
+    <div class="result">
+        <h2>Result:</h2>
+        <img id="resultImage" src="" alt="Screenshot will appear here" style="display: none;">
+    </div>
+    
+    <script>
+        document.getElementById('captureBtn').addEventListener('click', captureScreenshot);
+        
+        function captureScreenshot() {
+            // Get values from form
+            const left = document.getElementById('left').value;
+            const top = document.getElementById('top').value;
+            const width = document.getElementById('width').value;
+            const height = document.getElementById('height').value;
+            
+            // Show loading message
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('resultImage').style.display = 'none';
+            
+            // Construct URL with query parameters
+            const url = `/api/get_camera_snap?left=${left}&top=${top}&width=${width}&height=${height}`;
+            
+            // Add timestamp to prevent caching
+            const timestamp = new Date().getTime();
+            const urlWithTimestamp = `${url}&_t=${timestamp}`;
+            
+            // Create a new image element
+            const img = new Image();
+            
+            // Set up event handlers
+            img.onload = function() {
+                // Hide loading message
+                document.getElementById('loading').style.display = 'none';
+                
+                // Update the image source and show it
+                document.getElementById('resultImage').src = urlWithTimestamp;
+                document.getElementById('resultImage').style.display = 'block';
+            };
+            
+            img.onerror = function() {
+                // Hide loading message
+                document.getElementById('loading').style.display = 'none';
+                
+                // Show error message
+                document.getElementById('error').textContent = 'Error capturing screenshot. Check the server console for details.';
+                document.getElementById('error').style.display = 'block';
+            };
+            
+            // Start loading the image
+            img.src = urlWithTimestamp;
+        }
+    </script>
+</body>
+</html>

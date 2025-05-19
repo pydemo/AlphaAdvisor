@@ -715,8 +715,9 @@ ${user_message}
     res.status(500).json({ error: err.message });
   }
 });
-// Import the camera position module
+// Import the camera position module and screen capture module
 const cameraPosition = require('./camera-position');
+const screenCapture = require('./screen-capture');
 
 // Camera window detection endpoint
 app.get('/api/get_camera_info', async (req, res) => {
@@ -730,6 +731,68 @@ app.get('/api/get_camera_info', async (req, res) => {
     res.status(200).json(position);
   } catch (err) {
     console.error("CAMERA DETECTION ERROR", err);
+    res.status(500).json({ 
+      success: false, 
+      error: err.message 
+    });
+  }
+});
+
+// Camera screen capture endpoint
+app.get('/api/get_camera_snap', async (req, res) => {
+  try {
+    console.log("📸 Taking camera snapshot...");
+    
+    // Get coordinates and size from query parameters
+    const left = parseInt(req.query.left) || 0;
+    const top = parseInt(req.query.top) || 0;
+    const width = parseInt(req.query.width) || 1024;
+    const height = parseInt(req.query.height) || 768;
+    
+    // Generate a unique filename for this snapshot
+    const outputPath = path.join(__dirname, `camera_snap_${Date.now()}.png`);
+    
+    console.log(`[DEBUG] Capture request - Coordinates: left=${left}, top=${top}, width=${width}, height=${height}`);
+    
+    // Use the screen-capture.js module to take a screenshot
+    const success = await screenCapture.captureScreenshotWithCoordinates(
+      'Camera', // Window title
+      outputPath,
+      left,
+      top,
+      width,
+      height
+    );
+    
+    if (!success) {
+      throw new Error('Failed to capture screenshot');
+    }
+    
+    // Read the captured image file
+    const imageBuffer = fs.readFileSync(outputPath);
+    
+    // Get image file size
+    const fileSizeInBytes = imageBuffer.length;
+    const fileSizeInKB = (fileSizeInBytes / 1024).toFixed(2);
+    
+    console.log(`[DEBUG] Image captured - Size: ${fileSizeInBytes} bytes (${fileSizeInKB} KB)`);
+    
+    // Use sharp to get image dimensions
+    try {
+      const imageInfo = await sharp(imageBuffer).metadata();
+      console.log(`[DEBUG] Image dimensions: ${imageInfo.width}x${imageInfo.height} pixels, format: ${imageInfo.format}`);
+    } catch (err) {
+      console.log(`[DEBUG] Could not get image dimensions: ${err.message}`);
+    }
+    
+    // Clean up the temporary file
+    fs.unlinkSync(outputPath);
+    
+    // Set the content type and send the image
+    res.set('Content-Type', 'image/png');
+    res.send(imageBuffer);
+  } catch (err) {
+    console.error("CAMERA SNAPSHOT ERROR", err);
     res.status(500).json({ 
       success: false, 
       error: err.message 
