@@ -46,6 +46,14 @@ const formatDirNameForDisplay = (name: string): string => {
   return formatted;
 };
 
+// Define keyframes for spinner animation
+const spinnerKeyframes = `
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
+
 const TreeView: React.FC<TreeViewProps> = ({
   dataUrl,
   filter,
@@ -123,6 +131,8 @@ const TreeView: React.FC<TreeViewProps> = ({
     center_y?: number;
     message?: string 
   }>({ found: false });
+  // Loading state for camera snapshot
+  const [isSnapping, setIsSnapping] = useState(false);
   // JSON popup state
   const [jsonPopup, setJsonPopup] = useState<{ open: boolean; node: TreeNode | null; text: string; fileName: string }>({ open: false, node: null, text: "", fileName: "" });
 
@@ -649,6 +659,21 @@ const TreeView: React.FC<TreeViewProps> = ({
     );
   };
 
+  // Add a style element for the spinner animation
+  useEffect(() => {
+    // Create a style element
+    const styleElement = document.createElement('style');
+    styleElement.textContent = spinnerKeyframes;
+    
+    // Add the style element to the document head
+    document.head.appendChild(styleElement);
+    
+    // Clean up when component unmounts
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, []);
+
   if (!tree) return <div>Loading...</div>;
 
   // Apply filter if present
@@ -999,40 +1024,93 @@ const TreeView: React.FC<TreeViewProps> = ({
                   border: "1px solid #9c6a9c",
                   background: "#f9f0f9",
                   color: "#8e388e",
-                  cursor: "pointer",
+                  cursor: isSnapping ? "wait" : "pointer",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center"
+                  justifyContent: "center",
+                  opacity: isSnapping ? 0.7 : 1,
+                  position: "relative"
                 }}
                 title="Take a snapshot"
+                disabled={isSnapping}
                 onClick={e => {
                   e.stopPropagation();
-                  // Fetch camera info from the API
-                  fetch('/api/get_camera_info')
-                    .then(response => response.json())
-                    .then(data => {
-                      // Update camera app info with all properties from the response
-                      setCameraAppInfo({
-                        found: true,
-                        width: data.width,
-                        height: data.height,
-                        left: data.left,
-                        top: data.top,
-                        center_x: data.center_x,
-                        center_y: data.center_y,
-                        message: `Camera window found: ${data.window_title}`
-                      });
+                  // Set loading state
+                  setIsSnapping(true);
+                  
+                  // Get current timestamp for unique filename
+                  const timestamp = Date.now();
+                  const directory = 'camera_snaps';
+                  const filename = `snap_${timestamp}.png`;
+                  
+                  // Define capture area (using default values or previous camera info)
+                  const left = cameraAppInfo.left || 200;
+                  const top = cameraAppInfo.top || 150;
+                  const width = cameraAppInfo.width || 300;
+                  const height = cameraAppInfo.height || 768;
+                  
+                  // Call the camera snap API
+                  fetch(`/api/get_camera_snap?left=${left}&top=${top}&width=${width}&height=${height}&directory=${directory}&filename=${filename}`)
+                    .then(response => {
+                      if (!response.ok) {
+                        throw new Error(`Server responded with ${response.status}`);
+                      }
+                      return response.blob();
+                    })
+                    .then(blob => {
+                      // Convert blob to data URL
+                      const reader = new FileReader();
+                      reader.onload = () => {
+                        // Set the image in the popup
+                        setInfoPopup(prev => ({
+                          ...prev,
+                          image: reader.result as string
+                        }));
+                        
+                        // Update camera app info
+                        setCameraAppInfo({
+                          found: true,
+                          width: width,
+                          height: height,
+                          left: left,
+                          top: top,
+                          message: `Camera snapshot taken: ${width}×${height}`
+                        });
+                        
+                        // Reset loading state
+                        setIsSnapping(false);
+                      };
+                      reader.readAsDataURL(blob);
                     })
                     .catch(error => {
-                      console.error('Error fetching camera info:', error);
+                      console.error('Error taking camera snapshot:', error);
                       setCameraAppInfo({
                         found: false,
-                        message: 'Error finding camera app'
+                        message: 'Error taking camera snapshot'
                       });
+                      
+                      // Reset loading state on error
+                      setIsSnapping(false);
                     });
                 }}
               >
-                Snap 📷
+                {isSnapping ? (
+                  <span style={{ display: "inline-flex", alignItems: "center" }}>
+                    <span style={{ 
+                      display: "inline-block", 
+                      width: "12px", 
+                      height: "12px", 
+                      borderRadius: "50%", 
+                      border: "2px solid #8e388e", 
+                      borderTopColor: "transparent", 
+                      marginRight: "6px",
+                      animation: "spin 1s linear infinite"
+                    }} />
+                    Snapping...
+                  </span>
+                ) : (
+                  "Snap 📷"
+                )}
               </button>
             </div>
             <div
@@ -1070,7 +1148,7 @@ const TreeView: React.FC<TreeViewProps> = ({
               }}
             >
               {infoPopup.image ? (
-                <img src={infoPopup.image} alt="Clipboard" style={{ maxWidth: 200, maxHeight: 120, borderRadius: 4 }} />
+                <img src={infoPopup.image} alt="Clipboard" style={{ width: "100%", height: "auto", borderRadius: 4 }} />
               ) : (
                 <span style={{ color: "#888" }}>Paste image here (Ctrl+V)</span>
               )}
