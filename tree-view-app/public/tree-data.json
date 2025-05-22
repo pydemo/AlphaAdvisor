@@ -2015,115 +2015,6 @@
                       ]
                     },
                     {
-                      "name": "3_File",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File",
-                      "type": "directory",
-                      "children": [
-                        {
-                          "name": "1_File_Folder-Settings",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings",
-                          "type": "directory",
-                          "children": [
-                            {
-                              "name": "1_File_Folder-Settings.png",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings/1_File_Folder-Settings.png",
-                              "type": "file"
-                            },
-                            {
-                              "name": "1_File_Folder-Settings.json",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1_File_Folder-Settings/1_File_Folder-Settings.json",
-                              "type": "file"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "2_Select-REC-Folder",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/2_Select-REC-Folder",
-                          "type": "directory",
-                          "children": [
-                            {
-                              "name": "2_Select-REC-Folder.png",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/2_Select-REC-Folder/2_Select-REC-Folder.png",
-                              "type": "file"
-                            },
-                            {
-                              "name": "2_Select-REC-Folder.json",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/2_Select-REC-Folder/2_Select-REC-Folder.json",
-                              "type": "file"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "3_Create-New-Folder",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/3_Create-New-Folder",
-                          "type": "directory",
-                          "children": [
-                            {
-                              "name": "3_Create-New-Folder.png",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/3_Create-New-Folder/3_Create-New-Folder.png",
-                              "type": "file"
-                            },
-                            {
-                              "name": "3_Create-New-Folder.json",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/3_Create-New-Folder/3_Create-New-Folder.json",
-                              "type": "file"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "4_IPTC-Information",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4_IPTC-Information",
-                          "type": "directory",
-                          "children": [
-                            {
-                              "name": "4_IPTC-Information.png",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4_IPTC-Information/4_IPTC-Information.png",
-                              "type": "file"
-                            },
-                            {
-                              "name": "4_IPTC-Information.json",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4_IPTC-Information/4_IPTC-Information.json",
-                              "type": "file"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "5_Copyright-Info",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5_Copyright-Info",
-                          "type": "directory",
-                          "children": [
-                            {
-                              "name": "5_Copyright-Info.png",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5_Copyright-Info/5_Copyright-Info.png",
-                              "type": "file"
-                            },
-                            {
-                              "name": "5_Copyright-Info.json",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5_Copyright-Info/5_Copyright-Info.json",
-                              "type": "file"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "6_Write-Serial-Number",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/6_Write-Serial-Number",
-                          "type": "directory",
-                          "children": [
-                            {
-                              "name": "6_Write-Serial-Number.png",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/6_Write-Serial-Number/6_Write-Serial-Number.png",
-                              "type": "file"
-                            },
-                            {
-                              "name": "6_Write-Serial-Number.json",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/6_Write-Serial-Number/6_Write-Serial-Number.json",
-                              "type": "file"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
                       "name": "4_Shooting-Mode",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode",
                       "type": "directory",
@@ -2706,6 +2597,250 @@
                             {
                               "name": "4 Display Media Info.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/2_Media/4 Display Media Info/4 Display Media Info.png",
+                              "type": "file"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "3_File",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 File_Folder Settings",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_File_Folder-Settings.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/1_File_Folder-Settings.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1_File_Folder-Settings.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/1_File_Folder-Settings.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1 File Number",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/1 File Number",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "1 File Number.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/1 File Number/1 File Number.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "2 Forced File Number Reset",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/2 Forced File Number Reset",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "2 Forced File Number Reset.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/2 Forced File Number Reset/2 Forced File Number Reset.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "3 Set File Name",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/3 Set File Name",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "3 Set File Name.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/3 Set File Name/3 Set File Name.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "4 Folder Name",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/4 Folder Name",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "4 Folder Name.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/4 Folder Name/4 Folder Name.png",
+                                  "type": "file"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "2 Select REC Folder",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/2 Select REC Folder",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "2_Select-REC-Folder.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/2 Select REC Folder/2_Select-REC-Folder.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "2_Select-REC-Folder.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/2 Select REC Folder/2_Select-REC-Folder.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "2 Select REC Folder.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/2 Select REC Folder/2 Select REC Folder.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "3 Create New Folder",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/3 Create New Folder",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "3_Create-New-Folder.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/3 Create New Folder/3_Create-New-Folder.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "3_Create-New-Folder.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/3 Create New Folder/3_Create-New-Folder.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "3 Create New Folder.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/3 Create New Folder/3 Create New Folder.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "4 IPTC Information",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4 IPTC Information",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "4_IPTC-Information.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4 IPTC Information/4_IPTC-Information.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "4_IPTC-Information.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4 IPTC Information/4_IPTC-Information.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1 Write IPTC Info",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4 IPTC Information/1 Write IPTC Info",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "1 Write IPTC Info.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4 IPTC Information/1 Write IPTC Info/1 Write IPTC Info.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "2 Register IPTC Info",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4 IPTC Information/2 Register IPTC Info",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "2 Register IPTC Info.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4 IPTC Information/2 Register IPTC Info/2 Register IPTC Info.png",
+                                  "type": "file"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "5 Copyright Info",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "5_Copyright-Info.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/5_Copyright-Info.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "5_Copyright-Info.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/5_Copyright-Info.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1 Write Copyright Info",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/1 Write Copyright Info",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "1 Write Copyright Info.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/1 Write Copyright Info/1 Write Copyright Info.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "2 Set Photographer",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/2 Set Photographer",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "2 Set Photographer.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/2 Set Photographer/2 Set Photographer.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "3 Set Copyright",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/3 Set Copyright",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "3 Set Copyright.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/3 Set Copyright/3 Set Copyright.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "4 Disp. Copyright Info",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/4 Disp. Copyright Info",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "4 Disp. Copyright Info.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/4 Disp. Copyright Info/4 Disp. Copyright Info.png",
+                                  "type": "file"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "6 Write Serial Number",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/6 Write Serial Number",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "6_Write-Serial-Number.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/6 Write Serial Number/6_Write-Serial-Number.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "6_Write-Serial-Number.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/6 Write Serial Number/6_Write-Serial-Number.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "6 Write Serial Number.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/6 Write Serial Number/6 Write Serial Number.png",
                               "type": "file"
                             }
                           ]
