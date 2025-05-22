@@ -338,112 +338,6 @@
               "type": "directory",
               "children": [
                 {
-                  "name": "1_Exposure",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "1_BULB Timer Settings",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1_BULB Timer Settings",
-                      "type": "directory",
-                      "children": [
-                        {
-                          "name": "1_BULB Timer",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1_BULB Timer Settings/1_BULB Timer",
-                          "type": "directory",
-                          "children": [
-                            {
-                              "name": "1_BULB Timer.png",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1_BULB Timer Settings/1_BULB Timer/1_BULB Timer.png",
-                              "type": "file"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "2_Exposure Time",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1_BULB Timer Settings/2_Exposure Time",
-                          "type": "directory",
-                          "children": []
-                        }
-                      ]
-                    },
-                    {
-                      "name": "2_ISO",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/2_ISO",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "3_ISO Range Limit",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/3_ISO Range Limit",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "4_ISO AUTO Min. SS",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/4_ISO AUTO Min. SS",
-                      "type": "directory",
-                      "children": []
-                    }
-                  ]
-                },
-                {
-                  "name": "2_Exposure Comp.",
-                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp.",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "name": "1_Exposure  Comp.",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./1_Exposure  Comp.",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "2_Exposure step",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./2_Exposure step",
-                      "type": "directory",
-                      "children": []
-                    },
-                    {
-                      "name": "3_Exposure Std. Adjust",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3_Exposure Std. Adjust",
-                      "type": "directory",
-                      "children": [
-                        {
-                          "name": "1_Multi",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3_Exposure Std. Adjust/1_Multi",
-                          "type": "directory",
-                          "children": []
-                        },
-                        {
-                          "name": "2_Center",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3_Exposure Std. Adjust/2_Center",
-                          "type": "directory",
-                          "children": []
-                        },
-                        {
-                          "name": "3_Spot",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3_Exposure Std. Adjust/3_Spot",
-                          "type": "directory",
-                          "children": []
-                        },
-                        {
-                          "name": "4_Entire Screen Average",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3_Exposure Std. Adjust/4_Entire Screen Average",
-                          "type": "directory",
-                          "children": []
-                        },
-                        {
-                          "name": "5_Highlight",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3_Exposure Std. Adjust/5_Highlight",
-                          "type": "directory",
-                          "children": []
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
                   "name": "3_Metering",
                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering",
                   "type": "directory",
@@ -595,6 +489,162 @@
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/7_Zebra Display/2 Zebra Level",
                       "type": "directory",
                       "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "1_Exposure",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "1_Exposure.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1_Exposure.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "enter_1_Exposure.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/enter_1_Exposure.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "1 BULB Timer Settings",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1 BULB Timer Settings",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 BULB Timer Settings.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1 BULB Timer Settings/1 BULB Timer Settings.png",
+                          "type": "file"
+                        },
+                        {
+                          "name": "1 BULB Timer",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1 BULB Timer Settings/1 BULB Timer",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_BULB Timer.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1 BULB Timer Settings/1 BULB Timer/1_BULB Timer.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1 BULB Timer.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1 BULB Timer Settings/1 BULB Timer/1 BULB Timer.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "2 Exposure Time",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1 BULB Timer Settings/2 Exposure Time",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "2 Exposure Time.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/1 BULB Timer Settings/2 Exposure Time/2 Exposure Time.png",
+                              "type": "file"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "2 ISO",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/2 ISO",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "2 ISO.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/2 ISO/2 ISO.png",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "3 ISO Range Limit",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/3 ISO Range Limit",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "3 ISO Range Limit.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/3 ISO Range Limit/3 ISO Range Limit.png",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "4 ISO AUTO Min. SS",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/4 ISO AUTO Min. SS",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "4 ISO AUTO Min. SS.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/1_Exposure/4 ISO AUTO Min. SS/4 ISO AUTO Min. SS.png",
+                          "type": "file"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "2_Exposure Comp.",
+                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp.",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "2 Exposure step",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./2 Exposure step",
+                      "type": "directory",
+                      "children": []
+                    },
+                    {
+                      "name": "3 Exposure Std. Adjust",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3 Exposure Std. Adjust",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 Multi",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3 Exposure Std. Adjust/1 Multi",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "2 Center",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3 Exposure Std. Adjust/2 Center",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "3 Spot",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3 Exposure Std. Adjust/3 Spot",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "4 Entire Screen Average",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3 Exposure Std. Adjust/4 Entire Screen Average",
+                          "type": "directory",
+                          "children": []
+                        },
+                        {
+                          "name": "5 Highlight",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./3 Exposure Std. Adjust/5 Highlight",
+                          "type": "directory",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "1 Exposure  Comp.",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./1 Exposure  Comp.",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 Exposure  Comp..png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/2_Exposure Comp./1 Exposure  Comp./1 Exposure  Comp..png",
+                          "type": "file"
+                        }
+                      ]
                     }
                   ]
                 }

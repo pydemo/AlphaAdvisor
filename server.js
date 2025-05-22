@@ -44,8 +44,29 @@ app.post('/api/create-dir', (req, res) => {
     const pathAfterA7RV = parent_path.substring(a7rvIndex + 'α7RV'.length);
     relParent = pathAfterA7RV.startsWith('/') ? pathAfterA7RV.substring(1) : pathAfterA7RV;
     
-    // Create the safe path
-    const safePath = path.join(a7rvRoot, relParent, dir_name);
+    // Check if any directory in the path ends with a dot
+    const pathParts = parent_path.split('/');
+    let hasDotEnding = false;
+    let problemPath = '';
+    
+    for (let i = 0; i < pathParts.length; i++) {
+      if (pathParts[i].endsWith('.')) {
+        hasDotEnding = true;
+        problemPath = pathParts[i];
+        break;
+      }
+    }
+    
+    // Handle directory paths that contain components ending with a dot
+    let safePath;
+    if (hasDotEnding || parent_path.endsWith('.')) {
+      console.log(`[CREATE DIR α7RV] Parent path contains component ending with a dot: ${problemPath || parent_path}`);
+      // Construct the path manually to avoid issues with trailing dots
+      safePath = `${parent_path}/${dir_name}`;
+      console.log(`[CREATE DIR α7RV] Using manual path construction: ${safePath}`);
+    } else {
+      safePath = path.join(a7rvRoot, relParent, dir_name);
+    }
     
     // Prevent path traversal
     if (!safePath.startsWith(a7rvRoot)) {
@@ -79,7 +100,30 @@ app.post('/api/create-dir', (req, res) => {
   if (path.resolve(parent_path) !== path.resolve(menuRoot)) {
     relParent = path.relative(menuRoot, parent_path);
   }
-  const safePath = path.join(menuRoot, relParent, dir_name);
+  
+  // Check if any directory in the path ends with a dot
+  const pathParts = parent_path.split('/');
+  let hasDotEnding = false;
+  let problemPath = '';
+  
+  for (let i = 0; i < pathParts.length; i++) {
+    if (pathParts[i].endsWith('.')) {
+      hasDotEnding = true;
+      problemPath = pathParts[i];
+      break;
+    }
+  }
+  
+  // Handle directory paths that contain components ending with a dot
+  let safePath;
+  if (hasDotEnding || parent_path.endsWith('.')) {
+    console.log(`[CREATE DIR] Parent path contains component ending with a dot: ${problemPath || parent_path}`);
+    // Construct the path manually to avoid issues with trailing dots
+    safePath = `${parent_path}/${dir_name}`;
+    console.log(`[CREATE DIR] Using manual path construction: ${safePath}`);
+  } else {
+    safePath = path.join(menuRoot, relParent, dir_name);
+  }
 
   // Prevent path traversal
   if (!safePath.startsWith(menuRoot)) {
@@ -235,57 +279,128 @@ app.post('/api/save-image-file', (req, res) => {
   console.log(req.body); 
   console.log(`[${dir_path}] ${file_name} `);
   if (!dir_path || !file_name || !image_data) {
+    console.debug("[DEBUG] Validation failed: missing dir_path, file_name, or image_data");
     return res.status(400).json({ success: false, error: "Missing dir_path, file_name, or image_data" });
+  } else {
+    console.debug("[DEBUG] Validation passed: dir_path, file_name, and image_data are present");
   }
-  
+
   // Allow saving under both MENU and α7RV
+  console.debug("[DEBUG] Resolving menuRoot and a7rvRoot");
   const menuRoot = path.join(__dirname, 'tree-view-app', 'public', 'MENU');
   const a7rvRoot = path.join(__dirname, 'tree-view-app', 'public', 'α7RV');
   const resolvedDir = path.resolve(dir_path);
-  
+  console.debug(`[DEBUG] resolvedDir: ${resolvedDir}`);
+
   // Check if path is under α7RV
   if (resolvedDir.includes('α7RV')) {
     if (!resolvedDir.startsWith(a7rvRoot)) {
+      console.debug("[DEBUG] Directory path is not under a7rvRoot");
       return res.status(400).json({ success: false, error: "Invalid directory path" });
+    } else {
+      console.debug("[DEBUG] Directory path is under a7rvRoot");
     }
   } 
   // Check if path is under MENU
   else if (!resolvedDir.startsWith(menuRoot)) {
+    console.debug("[DEBUG] Directory path is not under menuRoot");
     return res.status(400).json({ success: false, error: "Invalid directory path" });
+  } else {
+    console.debug("[DEBUG] Directory path is under menuRoot");
   }
+
   // Prevent path traversal in file_name
-  if (file_name.includes("..") || file_name.includes("/") || file_name.includes("\\") || !file_name.toLowerCase().endsWith(".png")) {
+  if (file_name.includes("/") || file_name.includes("\\") || !file_name.toLowerCase().endsWith(".png")) {
+    console.debug("[DEBUG] File name failed validation");
     return res.status(400).json({ success: false, error: "Invalid file name" });
+  } else {
+    console.debug("[DEBUG] File name passed validation");
   }
+
   // Decode base64 image data from data URL
   try {
     if (!image_data.startsWith("data:image")) {
+      console.debug("[DEBUG] image_data does not start with data:image");
       return res.status(400).json({ success: false, error: "Invalid image data" });
     }
+    console.debug("[DEBUG] Decoding base64 image data");
     const b64data = image_data.split(",", 2)[1];
     const imgBuffer = Buffer.from(b64data, "base64");
-    const targetFile = path.join(resolvedDir, file_name);
+    console.debug("[DEBUG] Image buffer created");
+
+    // Check if any directory in the path ends with a dot (trailing dot is special on Windows, but dots elsewhere are valid)
+    const pathParts = dir_path.split('/');
+    let hasDotEnding = false;
+    let problemPath = '';
+    let hasDotAnywhere = false;
+    let dotPath = '';
+    for (let i = 0; i < pathParts.length; i++) {
+      if (pathParts[i].endsWith('.')) {
+        hasDotEnding = true;
+        problemPath = pathParts[i];
+        break;
+      }
+      if (pathParts[i].includes('.') && !pathParts[i].endsWith('.')) {
+        hasDotAnywhere = true;
+        dotPath = pathParts[i];
+      }
+    }
+    if (hasDotAnywhere) {
+      console.log(`[INFO] Directory component contains a dot (not at end): ${dotPath}`);
+    } else {
+      console.debug("[DEBUG] No directory component contains a dot (not at end)");
+    }
+    // Only handle directory paths that contain components ending with a dot specially
+    let targetFile;
+    if (hasDotEnding || resolvedDir.endsWith('.')) {
+      console.log(`[SAVE IMAGE] Directory path contains component ending with a dot: ${problemPath || resolvedDir}`);
+      // Make sure the directory exists
+      console.debug("[DEBUG] Creating directory (recursive) for resolvedDir (dot-ending case)");
+      fs.mkdirSync(resolvedDir, { recursive: true });
+      // Construct the path manually to avoid issues with trailing dots
+      targetFile = `${resolvedDir}/${file_name}`;
+      console.log(`[SAVE IMAGE] Using manual path construction: ${targetFile}`);
+    } else {
+      console.debug("[DEBUG] Directory path does not contain component ending with a dot");
+      console.debug("[DEBUG] Creating directory (recursive) for resolvedDir (normal case)");
+      fs.mkdirSync(resolvedDir, { recursive: true });
+      targetFile = path.join(resolvedDir, file_name);
+    }
     console.log(`[SAVE IMAGE] targetFile: ${targetFile}`);
 
     // Log original image to log/original/
     const logOriginalDir = path.join(__dirname, 'log', 'original');
+    console.debug("[DEBUG] Creating log/original directory if needed");
     fs.mkdirSync(logOriginalDir, { recursive: true });
     const logOriginalFile = path.join(
       logOriginalDir,
       `${path.basename(file_name, path.extname(file_name))}_${Date.now()}${path.extname(file_name)}`
     );
+    console.debug(`[DEBUG] Writing original image to: ${logOriginalFile}`);
     fs.writeFileSync(logOriginalFile, imgBuffer);
     console.log(`[LOG ORIGINAL] ${logOriginalFile}`);
 
     // Optimize image using sharp (strip metadata, compress, keep PNG)
-    fs.mkdirSync(resolvedDir, { recursive: true });
+    console.debug("[DEBUG] About to call sharp(imgBuffer) for image optimization");
     sharp(imgBuffer)
       .png({ quality: 80, compressionLevel: 9, adaptiveFiltering: true })
       .withMetadata(false)
       .toBuffer()
       .then(optimizedBuffer => {
+        // Write the file using the targetFile path we constructed
+        console.debug(`[DEBUG] Writing optimized image to: ${targetFile}`);
         fs.writeFileSync(targetFile, optimizedBuffer);
+
+        // Validate that the file was created
+        if (!fs.existsSync(targetFile)) {
+          console.error(`[SAVE IMAGE] File was not created: ${targetFile}`);
+          return res.status(500).json({ success: false, error: "Failed to create image file" });
+        } else {
+          console.error(`[SAVE IMAGE] File exists after write: ${targetFile}`);
+        }
+
         // Refresh tree-data.json
+        console.debug("[DEBUG] Refreshing tree-data.json");
         const { exec } = require('child_process');
         exec('python3 tree-view-app/gen_tree_json.py', (error, stdout, stderr) => {
           if (error) {
@@ -298,9 +413,11 @@ app.post('/api/save-image-file', (req, res) => {
             console.log('stdout:', stdout);
           }
         });
+        console.debug("[DEBUG] Sending success response for save-image-file");
         res.status(200).json({ success: true, file: targetFile });
       })
       .catch(err => {
+        console.error("[SAVE IMAGE] sharp() .catch triggered");
         console.error("SHARP OPTIMIZE ERROR", err);
         res.status(500).json({ success: false, error: "Image optimization failed: " + err.message });
       });
@@ -351,7 +468,33 @@ app.post('/api/save-json-file', (req, res) => {
   if (file_name.includes("..") || file_name.includes("/") || file_name.includes("\\")) {
     return res.status(400).json({ error: "Invalid file name" });
   }
-  const targetFile = path.join(resolvedDir, file_name);
+  
+  // Check if any directory in the path ends with a dot
+  const pathParts = dir_path.split('/');
+  let hasDotEnding = false;
+  let problemPath = '';
+  
+  for (let i = 0; i < pathParts.length; i++) {
+    if (pathParts[i].endsWith('.')) {
+      hasDotEnding = true;
+      problemPath = pathParts[i];
+      break;
+    }
+  }
+  
+  // Handle directory paths that contain components ending with a dot
+  let targetFile;
+  if (hasDotEnding || resolvedDir.endsWith('.')) {
+    console.log(`[SAVE JSON] Directory path contains component ending with a dot: ${problemPath || resolvedDir}`);
+    // Make sure the directory exists
+    fs.mkdirSync(resolvedDir, { recursive: true });
+    // Construct the path manually to avoid issues with trailing dots
+    targetFile = `${resolvedDir}/${file_name}`;
+    console.log(`[SAVE JSON] Using manual path construction: ${targetFile}`);
+  } else {
+    targetFile = path.join(resolvedDir, file_name);
+  }
+  
   try {
     fs.writeFileSync(targetFile, json_text, "utf8");
     // Do not regenerate tree-data.json here
@@ -417,6 +560,7 @@ app.post('/api/ask-chatgpt', async (req, res) => {
         {
           role: "user",
           content: [
+   
             {
               type: "text",
               text: `Extract structured JSON from this Sony camera menu screenshot. Format:
