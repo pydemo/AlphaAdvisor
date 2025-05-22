@@ -2525,13 +2525,35 @@
                       "name": "1 Zebra Display",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/7_Zebra Display/1 Zebra Display",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "1 Zebra Display.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/7_Zebra Display/1 Zebra Display/1 Zebra Display.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "2 Zebra Level",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/7_Zebra Display/2 Zebra Level",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "2 Zebra Level.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/7_Zebra Display/2 Zebra Level/2 Zebra Level.png",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "7_Zebra Display.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/7_Zebra Display/7_Zebra Display.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "enter 7_Zebra Display.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/7_Zebra Display/enter 7_Zebra Display.png",
+                      "type": "file"
                     }
                   ]
                 }
