@@ -2214,28 +2214,62 @@
                   "type": "directory",
                   "children": [
                     {
-                      "name": "1_Metering Mode",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/1_Metering Mode",
+                      "name": "1 Metering Mode",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/1 Metering Mode",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "1 Metering Mode.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/1 Metering Mode/1 Metering Mode.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "2_Face Priority in Multi Metering",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/2_Face Priority in Multi Metering",
+                      "name": "2 Face Priority in Multi Metering",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/2 Face Priority in Multi Metering",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "2 Face Priority in Multi Metering.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/2 Face Priority in Multi Metering/2 Face Priority in Multi Metering.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "3_Spot Metering Point",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/3_Spot Metering Point",
+                      "name": "3 Spot Metering Point",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/3 Spot Metering Point",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "3 Spot Metering Point.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/3 Spot Metering Point/3 Spot Metering Point.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "4_AEL w_ Shutter",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/4_AEL w_ Shutter",
+                      "name": "4 AEL w_ Shutter",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/4 AEL w_ Shutter",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "4 AEL w_ Shutter.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/4 AEL w_ Shutter/4 AEL w_ Shutter.png",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "3_Metering.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/3_Metering.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "enter 3_Metering.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/3_Metering/enter 3_Metering.png",
+                      "type": "file"
                     }
                   ]
                 },
