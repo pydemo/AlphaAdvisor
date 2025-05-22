@@ -2578,43 +2578,90 @@
                           "name": "1 Focus Mode",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/1 Focus Mode",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "1 Focus Mode.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/1 Focus Mode/1 Focus Mode.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "2 Priority Set in AF-S",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/2 Priority Set in AF-S",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "2 Priority Set in AF-S.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/2 Priority Set in AF-S/2 Priority Set in AF-S.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "3 Priority Set in AF-C",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/3 Priority Set in AF-C",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "3 Priority Set in AF-C.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/3 Priority Set in AF-C/3 Priority Set in AF-C.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "4 AF Tracking Sensitivity",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/4 AF Tracking Sensitivity",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "4 AF Tracking Sensitivity.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/4 AF Tracking Sensitivity/4 AF Tracking Sensitivity.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "5 AF Illuminator",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/5 AF Illuminator",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "5 AF Illuminator.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/5 AF Illuminator/5 AF Illuminator.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "6 Aperture Drive in AF",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/6 Aperture Drive in AF",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "6 Aperture Drive in AF.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/6 Aperture Drive in AF/6 Aperture Drive in AF.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "7 AF w_Shutter",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/7 AF w_Shutter",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "7 AF w_Shutter.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/7 AF w_Shutter/7 AF w_Shutter.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "PAGE_1.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_1/PAGE_1.png",
+                          "type": "file"
                         }
                       ]
                     },
@@ -2627,15 +2674,42 @@
                           "name": "8 Full Time DMF",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_2/8 Full Time DMF",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "8 Full Time DMF.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_2/8 Full Time DMF/8 Full Time DMF.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "9 Pre-AF",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_2/9 Pre-AF",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "9 Pre-AF.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_2/9 Pre-AF/9 Pre-AF.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "PAGE_2.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/PAGE_2/PAGE_2.png",
+                          "type": "file"
                         }
                       ]
+                    },
+                    {
+                      "name": "1_AF_MF.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/1_AF_MF.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "enter 1_AF_MF.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/1_AF_MF/enter 1_AF_MF.png",
+                      "type": "file"
                     }
                   ]
                 },
