@@ -237,7 +237,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 
   // Recursively filter the tree to only include nodes matching the filter or with matching descendants
   function filterTree(node: TreeNode, filterStr: string): TreeNode | null {
-    if (!filterStr) return node;
+    if (!filterStr) return node; 
     // Support "OR" filtering: e.g., "jpg|png" matches if any term matches
     const terms = filterStr
       .split("|")
@@ -446,7 +446,8 @@ const TreeView: React.FC<TreeViewProps> = ({
     /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/α7RV/Stills/Shooting/PAGE_1
     /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/α7RV/Stills/Shooting/PAGE_1/1_image_quality_rec
     /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) ||// e.g., /public/α7RV/Stills/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/
-    /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/α7RV/Stills/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/Lens-Compensation
+    /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) || // e.g., /public/α7RV/Stills/Shooting/PAGE_1/1_image_quality_rec/PAGE_1/Lens-Compensation
+    /\/public\/α7RV\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+\/[^/]+$/.test(node.path) // e.g., /public/α7RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File Format
   )
           && (
             <>

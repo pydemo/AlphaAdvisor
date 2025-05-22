@@ -1757,81 +1757,6 @@
                               ]
                             },
                             {
-                              "name": "2_Image-Quality-Settings",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings",
-                              "type": "directory",
-                              "children": [
-                                {
-                                  "name": "3_JPEG-Quality",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "3_JPEG-Quality.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality/3_JPEG-Quality.json",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "3_JPEG-Quality.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality/3_JPEG-Quality.png",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "1_File_Format",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File_Format",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "1_File_Format.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File_Format/1_File_Format.png",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "1_File_Format.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File_Format/1_File_Format.json",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "2_RAW-File-Type",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "2_RAW-File-Type.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type/2_RAW-File-Type.png",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "2_RAW-File-Type.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type/2_RAW-File-Type.json",
-                                      "type": "file"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "name": "4_JPEG-Image-Size",
-                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size",
-                                  "type": "directory",
-                                  "children": [
-                                    {
-                                      "name": "4_JPEG-Image-Size.png",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size/4_JPEG-Image-Size.png",
-                                      "type": "file"
-                                    },
-                                    {
-                                      "name": "4_JPEG-Image-Size.json",
-                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size/4_JPEG-Image-Size.json",
-                                      "type": "file"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
                               "name": "5_Movie-Settings",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5_Movie-Settings",
                               "type": "directory",
@@ -1942,6 +1867,81 @@
                                   "name": "1_JPEG_HREF-Switch.png",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1_JPEG_HREF-Switch/1_JPEG_HREF-Switch.png",
                                   "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "2_Image-Quality-Settings",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "3_JPEG-Quality",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "3_JPEG-Quality.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality/3_JPEG-Quality.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "3_JPEG-Quality.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/3_JPEG-Quality/3_JPEG-Quality.png",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "2_RAW-File-Type",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "2_RAW-File-Type.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type/2_RAW-File-Type.png",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "2_RAW-File-Type.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/2_RAW-File-Type/2_RAW-File-Type.json",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "4_JPEG-Image-Size",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "4_JPEG-Image-Size.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size/4_JPEG-Image-Size.png",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "4_JPEG-Image-Size.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/4_JPEG-Image-Size/4_JPEG-Image-Size.json",
+                                      "type": "file"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "1_File Format",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File Format",
+                                  "type": "directory",
+                                  "children": [
+                                    {
+                                      "name": "1_File_Format.json",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File Format/1_File_Format.json",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "1_File Format.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2_Image-Quality-Settings/1_File Format/1_File Format.png",
+                                      "type": "file"
+                                    }
+                                  ]
                                 }
                               ]
                             }
