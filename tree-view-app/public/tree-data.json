@@ -2015,81 +2015,6 @@
                       ]
                     },
                     {
-                      "name": "4_Shooting-Mode",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode",
-                      "type": "directory",
-                      "children": [
-                        {
-                          "name": "1_Recall-Camera-Setting",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1_Recall-Camera-Setting",
-                          "type": "directory",
-                          "children": [
-                            {
-                              "name": "1_Recall-Camera-Setting.png",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1_Recall-Camera-Setting/1_Recall-Camera-Setting.png",
-                              "type": "file"
-                            },
-                            {
-                              "name": "1_Recall-Camera-Setting.json",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1_Recall-Camera-Setting/1_Recall-Camera-Setting.json",
-                              "type": "file"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "2_Camera-Set.-Memory",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2_Camera-Set.-Memory",
-                          "type": "directory",
-                          "children": [
-                            {
-                              "name": "2_Camera-Set.-Memory.png",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2_Camera-Set.-Memory/2_Camera-Set.-Memory.png",
-                              "type": "file"
-                            },
-                            {
-                              "name": "2_Camera-Set.-Memory.json",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2_Camera-Set.-Memory/2_Camera-Set.-Memory.json",
-                              "type": "file"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "3_Memory_Recall-Media",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3_Memory_Recall-Media",
-                          "type": "directory",
-                          "children": [
-                            {
-                              "name": "3_Memory_Recall-Media.png",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3_Memory_Recall-Media/3_Memory_Recall-Media.png",
-                              "type": "file"
-                            },
-                            {
-                              "name": "3_Memory_Recall-Media.json",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3_Memory_Recall-Media/3_Memory_Recall-Media.json",
-                              "type": "file"
-                            }
-                          ]
-                        },
-                        {
-                          "name": "4_Reg.-Custom-Shoot-Set",
-                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4_Reg.-Custom-Shoot-Set",
-                          "type": "directory",
-                          "children": [
-                            {
-                              "name": "4_Reg.-Custom-Shoot-Set.png",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4_Reg.-Custom-Shoot-Set/4_Reg.-Custom-Shoot-Set.png",
-                              "type": "file"
-                            },
-                            {
-                              "name": "4_Reg.-Custom-Shoot-Set.json",
-                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4_Reg.-Custom-Shoot-Set/4_Reg.-Custom-Shoot-Set.json",
-                              "type": "file"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
                       "name": "5_Drive-Mode",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/5_Drive-Mode",
                       "type": "directory",
@@ -2842,6 +2767,132 @@
                               "name": "6 Write Serial Number.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/6 Write Serial Number/6 Write Serial Number.png",
                               "type": "file"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "4_Shooting-Mode",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "1 Recall Camera Setting",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1 Recall Camera Setting",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1_Recall-Camera-Setting.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1 Recall Camera Setting/1_Recall-Camera-Setting.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1_Recall-Camera-Setting.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1 Recall Camera Setting/1_Recall-Camera-Setting.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1 Recall Camera Setting.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1 Recall Camera Setting/1 Recall Camera Setting.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "2 Camera Set. Memory",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2 Camera Set. Memory",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "2_Camera-Set.-Memory.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2 Camera Set. Memory/2_Camera-Set.-Memory.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "2_Camera-Set.-Memory.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2 Camera Set. Memory/2_Camera-Set.-Memory.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "2 Camera Set. Memory.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2 Camera Set. Memory/2 Camera Set. Memory.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "3 Memory Recall Media",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3 Memory Recall Media",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "3_Memory_Recall-Media.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3 Memory Recall Media/3_Memory_Recall-Media.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "3_Memory_Recall-Media.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3 Memory Recall Media/3_Memory_Recall-Media.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "3 Memory Recall Media.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3 Memory Recall Media/3 Memory Recall Media.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "4 Reg. Custom Shoot Set",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4 Reg. Custom Shoot Set",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "4_Reg.-Custom-Shoot-Set.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4 Reg. Custom Shoot Set/4_Reg.-Custom-Shoot-Set.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "4_Reg.-Custom-Shoot-Set.json",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4 Reg. Custom Shoot Set/4_Reg.-Custom-Shoot-Set.json",
+                              "type": "file"
+                            },
+                            {
+                              "name": "1 Recall Custom hold 1",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4 Reg. Custom Shoot Set/1 Recall Custom hold 1",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "1 Recall Custom hold 1.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4 Reg. Custom Shoot Set/1 Recall Custom hold 1/1 Recall Custom hold 1.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "2 Recall Custom hold 2",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4 Reg. Custom Shoot Set/2 Recall Custom hold 2",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "2 Recall Custom hold 2.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4 Reg. Custom Shoot Set/2 Recall Custom hold 2/2 Recall Custom hold 2.png",
+                                  "type": "file"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "3 Recall Custom hold 3",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4 Reg. Custom Shoot Set/3 Recall Custom hold 3",
+                              "type": "directory",
+                              "children": [
+                                {
+                                  "name": "3 Recall Custom hold 3.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4 Reg. Custom Shoot Set/3 Recall Custom hold 3/3 Recall Custom hold 3.png",
+                                  "type": "file"
+                                }
+                              ]
                             }
                           ]
                         }
