@@ -662,9 +662,16 @@ const TreeView: React.FC<TreeViewProps> = ({
         </div>
         {isDir && isOpen && node.children && (
           <div>
-            {/* Sort children by leading number if they have one, otherwise alphabetically */}
+            {/* First display all directories, then all files, each group sorted by leading number or alphabetically */}
             {[...node.children]
               .sort((a, b) => {
+                // First separate directories and files
+                if (a.type !== b.type) {
+                  // Directories come first
+                  return a.type === "directory" ? -1 : 1;
+                }
+                
+                // Within the same type (directory or file), sort by leading number or alphabetically
                 // Extract leading numbers if present (either followed by underscore or space)
                 const aMatch = a.name.match(/^(\d+)[ _]/);
                 const bMatch = b.name.match(/^(\d+)[ _]/);

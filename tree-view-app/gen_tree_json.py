@@ -100,21 +100,38 @@ def build_tree(path, rel_path="", in_included_subtree=False):
             # Sort by modification time (oldest first)
             sorted_entries = [entry for entry, _ in sorted(entries_with_mtime, key=lambda x: x[1])]
         
+        # --- NEW LOGIC: Always order dirs first, then files, both sorted by name ---
+        dir_entries = []
+        file_entries = []
         for entry in sorted_entries:
+            full_path = os.path.join(path, entry)
+            if os.path.isdir(full_path):
+                dir_entries.append(entry)
+            else:
+                file_entries.append(entry)
+
+        # Sort both lists alphabetically (unless special case for top-level MENU)
+        if is_top_menu_dir:
+            # Keep sorted_dirs order for dirs, files sorted alphabetically
+            sorted_dirs = [entry for entry in dir_entries]  # already sorted above
+            sorted_files = sorted(file_entries)
+        else:
+            sorted_dirs = sorted(dir_entries)
+            sorted_files = sorted(file_entries)
+
+        # Process directories first
+        for entry in sorted_dirs:
             full_path = os.path.join(path, entry)
             entry_rel_path = os.path.join(rel_path, entry) if rel_path else entry
 
-            # If EXCLUDE matches this entry and no INCLUDE pattern matches a descendant, skip it
             if should_exclude_path(entry):
                 if os.path.isdir(full_path) and INCLUDE and has_includable_descendant(full_path, entry_rel_path):
-                    pass  # Traverse into it
+                    pass
                 else:
                     continue
 
-            # If we're in an included subtree, skip INCLUDE checks for descendants
             in_this_included_subtree = in_included_subtree or (INCLUDE and should_include_path(entry_rel_path))
 
-            # If not in an included subtree, apply INCLUDE logic
             if not in_this_included_subtree and INCLUDE and not should_include_path(entry_rel_path):
                 if os.path.isdir(full_path):
                     if not has_includable_descendant(full_path, entry_rel_path):
@@ -122,17 +139,29 @@ def build_tree(path, rel_path="", in_included_subtree=False):
                 else:
                     continue
 
-            if os.path.isdir(full_path):
-                subtree = build_tree(full_path, entry_rel_path, in_this_included_subtree)
-                if subtree is not None:
-                    tree["children"].append(subtree)
-            else:
-                if not INCLUDE or in_this_included_subtree or should_include_path(entry_rel_path):
-                    tree["children"].append({
-                        "name": entry,
-                        "path": full_path,
-                        "type": "file"
-                    })
+            subtree = build_tree(full_path, entry_rel_path, in_this_included_subtree)
+            if subtree is not None:
+                tree["children"].append(subtree)
+
+        # Then process files
+        for entry in sorted_files:
+            full_path = os.path.join(path, entry)
+            entry_rel_path = os.path.join(rel_path, entry) if rel_path else entry
+
+            if should_exclude_path(entry):
+                continue
+
+            in_this_included_subtree = in_included_subtree or (INCLUDE and should_include_path(entry_rel_path))
+
+            if not in_this_included_subtree and INCLUDE and not should_include_path(entry_rel_path):
+                continue
+
+            if not INCLUDE or in_this_included_subtree or should_include_path(entry_rel_path):
+                tree["children"].append({
+                    "name": entry,
+                    "path": full_path,
+                    "type": "file"
+                })
     except PermissionError:
         pass
     # Always return the tree, even if it has no children (to show empty dirs)
