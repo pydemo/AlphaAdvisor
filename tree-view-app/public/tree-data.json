@@ -2279,46 +2279,122 @@
                   "type": "directory",
                   "children": [
                     {
-                      "name": "1_Flash Mode",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/1_Flash Mode",
+                      "name": "1 Flash Mode",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/1 Flash Mode",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "1 Flash Mode.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/1 Flash Mode/1 Flash Mode.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "2_Flash Comp.",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/2_Flash Comp.",
+                      "name": "2 Flash Comp.",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/2 Flash Comp.",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "2 Flash Comp..png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/2 Flash Comp./2 Flash Comp..png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "3_Exp.comp.set",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/3_Exp.comp.set",
+                      "name": "3 Exp.comp.set",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/3 Exp.comp.set",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "3 Exp.comp.set.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/3 Exp.comp.set/3 Exp.comp.set.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "4_Wireless Flash",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/4_Wireless Flash",
+                      "name": "4 Wireless Flash",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/4 Wireless Flash",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "4 Wireless Flash.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/4 Wireless Flash/4 Wireless Flash.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "5_Red Eye Reduction",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/5_Red Eye Reduction",
+                      "name": "5 Red Eye Reduction",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/5 Red Eye Reduction",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "5 Red Eye Reduction.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/5 Red Eye Reduction/5 Red Eye Reduction.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "6_External Flash Set.",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/6_External Flash Set.",
+                      "name": "6 External Flash Set.",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/6 External Flash Set.",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "1 Ext. Flash Firing Set.",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/6 External Flash Set./1 Ext. Flash Firing Set.",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "1 Ext. Flash Firing Set..png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/6 External Flash Set./1 Ext. Flash Firing Set./1 Ext. Flash Firing Set..png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "2 Ext. Flash Cust. Set.",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/6 External Flash Set./2 Ext. Flash Cust. Set.",
+                          "type": "directory",
+                          "children": [
+                            {
+                              "name": "2 Ext. Flash Cust. Set..png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/6 External Flash Set./2 Ext. Flash Cust. Set./2 Ext. Flash Cust. Set..png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "6 External Flash Set..png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/6 External Flash Set./6 External Flash Set..png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "7_Reg. Flash Shooting Set",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/7_Reg. Flash Shooting Set",
+                      "name": "7 Reg. Flash Shooting Set",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/7 Reg. Flash Shooting Set",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "7 Reg. Flash Shooting Set.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/7 Reg. Flash Shooting Set/7 Reg. Flash Shooting Set.png",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "4_Flash.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/4_Flash.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "enter 4_Flash.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/4_Flash/enter 4_Flash.png",
+                      "type": "file"
                     }
                   ]
                 },
