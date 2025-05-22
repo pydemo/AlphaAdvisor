@@ -2727,43 +2727,90 @@
                           "name": "1 Focus Area",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/1 Focus Area",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "1 Focus Area.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/1 Focus Area/1 Focus Area.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "2 Focus Area Limit",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/2 Focus Area Limit",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "2 Focus Area Limit.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/2 Focus Area Limit/2 Focus Area Limit.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "3 Switch V_H AF Area",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/3 Switch V_H AF Area",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "3 Switch V_H AF Area.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/3 Switch V_H AF Area/3 Switch V_H AF Area.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "4 Focus Area Color",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/4 Focus Area Color",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "4 Focus Area Color.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/4 Focus Area Color/4 Focus Area Color.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "5 AF Area Registration",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/5 AF Area Registration",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "5 AF Area Registration.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/5 AF Area Registration/5 AF Area Registration.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "6 Del. Regist. AF Area",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/6 Del. Regist. AF Area",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "6 Del. Regist. AF Area.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/6 Del. Regist. AF Area/6 Del. Regist. AF Area.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "7 AF Area Auto Clear",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/7 AF Area Auto Clear",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "7 AF Area Auto Clear.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/7 AF Area Auto Clear/7 AF Area Auto Clear.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "PAGE_1.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_1/PAGE_1.png",
+                          "type": "file"
                         }
                       ]
                     },
@@ -2776,33 +2823,78 @@
                           "name": "10 Phase Detect. Area",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/10 Phase Detect. Area",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "10 Phase Detect. Area.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/10 Phase Detect. Area/10 Phase Detect. Area.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "11 Circ. of Focus Point",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/11 Circ. of Focus Point",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "11 Circ. of Focus Point.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/11 Circ. of Focus Point/11 Circ. of Focus Point.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "12 AF Frame Move Amt",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/12 AF Frame Move Amt",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "12 AF Frame Move Amt.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/12 AF Frame Move Amt/12 AF Frame Move Amt.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "8 Area Disp. dur Tracking",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/8 Area Disp. dur Tracking",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "8 Area Disp. dur Tracking.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/8 Area Disp. dur Tracking/8 Area Disp. dur Tracking.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "9 AF-C Area Display",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/9 AF-C Area Display",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "9 AF-C Area Display.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/9 AF-C Area Display/9 AF-C Area Display.png",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "PAGE_2.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/PAGE_2/PAGE_2.png",
+                          "type": "file"
                         }
                       ]
+                    },
+                    {
+                      "name": "2_Focus Area.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/2_Focus Area.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "enter 2_Focus Area.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/2_Focus Area/enter 2_Focus Area.png",
+                      "type": "file"
                     }
                   ]
                 },
