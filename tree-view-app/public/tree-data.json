@@ -2404,22 +2404,50 @@
                   "type": "directory",
                   "children": [
                     {
-                      "name": "1_White Balance",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/5_White Balance/1_White Balance",
+                      "name": "1 White Balance",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/5_White Balance/1 White Balance",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "1 White Balance.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/5_White Balance/1 White Balance/1 White Balance.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "2_Priority Set in AWB",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/5_White Balance/2_Priority Set in AWB",
+                      "name": "2 Priority Set in AWB",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/5_White Balance/2 Priority Set in AWB",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "2 Priority Set in AWB.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/5_White Balance/2 Priority Set in AWB/2 Priority Set in AWB.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "3_Shutter AWB Lock",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/5_White Balance/3_Shutter AWB Lock",
+                      "name": "3 Shutter AWB Lock",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/5_White Balance/3 Shutter AWB Lock",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "3 Shutter AWB Lock.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/5_White Balance/3 Shutter AWB Lock/3 Shutter AWB Lock.png",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "5_White Balance.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/5_White Balance/5_White Balance.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "enter 5_White Balance.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/5_White Balance/enter 5_White Balance.png",
+                      "type": "file"
                     }
                   ]
                 },
