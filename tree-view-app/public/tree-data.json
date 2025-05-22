@@ -2460,25 +2460,59 @@
                       "name": "1_D-Range Optimizer",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/6_Color_Tone/1_D-Range Optimizer",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "1_D-Range Optimizer.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/6_Color_Tone/1_D-Range Optimizer/1_D-Range Optimizer.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "2 Creative Look",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/6_Color_Tone/2 Creative Look",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "2 Creative Look.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/6_Color_Tone/2 Creative Look/2 Creative Look.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "3 Picture Profile",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/6_Color_Tone/3 Picture Profile",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "3 Picture Profile.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/6_Color_Tone/3 Picture Profile/3 Picture Profile.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "4 Soft Skin Effect",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/6_Color_Tone/4 Soft Skin Effect",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "4 Soft Skin Effect.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/6_Color_Tone/4 Soft Skin Effect/4 Soft Skin Effect.png",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "6_Color_Tone.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/6_Color_Tone/6_Color_Tone.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "enter 6_Color_Tone.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/2_Exposure_Color/6_Color_Tone/enter 6_Color_Tone.png",
+                      "type": "file"
                     }
                   ]
                 },
