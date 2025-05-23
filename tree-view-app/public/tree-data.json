@@ -3085,19 +3085,47 @@
                       "name": "1 Peaking Display",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/1 Peaking Display",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "1 Peaking Display.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/1 Peaking Display/1 Peaking Display.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "2 Peaking Level",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/2 Peaking Level",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "2 Peaking Level.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/2 Peaking Level/2 Peaking Level.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "3 Peaking Color",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/3 Peaking Color",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "3 Peaking Color.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/3 Peaking Color/3 Peaking Color.png",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "5_Peaking Display.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/5_Peaking Display.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "enter 5_Peaking Display.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/5_Peaking Display/enter 5_Peaking Display.png",
+                      "type": "file"
                     }
                   ]
                 }
