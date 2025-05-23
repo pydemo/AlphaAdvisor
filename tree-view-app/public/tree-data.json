@@ -2907,43 +2907,95 @@
                       "name": "1 Subject Recog in AF",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/1 Subject Recog in AF",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "1 Subject Recog in AF.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/1 Subject Recog in AF/1 Subject Recog in AF.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "2 Recognition Target",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/2 Recognition Target",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "2 Recognition Target.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/2 Recognition Target/2 Recognition Target.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "3 Recog Trgt Select Set",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/3 Recog Trgt Select Set",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "3 Recog Trgt Select Set.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/3 Recog Trgt Select Set/3 Recog Trgt Select Set.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "4 Right_Left Eye Select",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/4 Right_Left Eye Select",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "4 Right_Left Eye Select.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/4 Right_Left Eye Select/4 Right_Left Eye Select.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "5 Sbj Recog Frm Disp.",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/5 Sbj Recog Frm Disp.",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "5 Sbj Recog Frm Disp..png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/5 Sbj Recog Frm Disp./5 Sbj Recog Frm Disp..png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "6 Face Memory",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/6 Face Memory",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "6 Face Memory.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/6 Face Memory/6 Face Memory.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "7 Regist. Face Priority",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/7 Regist. Face Priority",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "7 Regist. Face Priority.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/7 Regist. Face Priority/7 Regist. Face Priority.png",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "3_Subject Recognition.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/3_Subject Recognition.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "enter 3_Subject Recognition.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/3_Subject Recognition/enter 3_Subject Recognition.png",
+                      "type": "file"
                     }
                   ]
                 },
