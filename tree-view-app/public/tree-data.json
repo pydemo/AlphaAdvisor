@@ -3008,31 +3008,71 @@
                       "name": "1 Auto Magnifier in MF",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/1 Auto Magnifier in MF",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "1 Auto Magnifier in MF.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/1 Auto Magnifier in MF/1 Auto Magnifier in MF.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "2 Focus Magnifier",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/2 Focus Magnifier",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "2 Focus Magnifier.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/2 Focus Magnifier/2 Focus Magnifier.png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "3 Focus Magnif. Time",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/3 Focus Magnif. Time",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "3 Focus Magnif. Time.png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/3 Focus Magnif. Time/3 Focus Magnif. Time.png",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "4_Initial Focus Mag.",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/4_Initial Focus Mag.",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "name": "Initial Focus Mag..png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/4_Initial Focus Mag./Initial Focus Mag..png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
                       "name": "5 AF in Focus Mag.",
                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/5 AF in Focus Mag.",
                       "type": "directory",
-                      "children": []
+                      "children": [
+                        {
+                          "name": "5 AF in Focus Mag..png",
+                          "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/5 AF in Focus Mag./5 AF in Focus Mag..png",
+                          "type": "file"
+                        }
+                      ]
                     },
                     {
-                      "name": "Initial Focus Mag.",
-                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/Initial Focus Mag.",
-                      "type": "directory",
-                      "children": []
+                      "name": "4_Focus Assistant.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/4_Focus Assistant.png",
+                      "type": "file"
+                    },
+                    {
+                      "name": "enter 4_Focus Assistant.png",
+                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/3_Focus/4_Focus Assistant/enter 4_Focus Assistant.png",
+                      "type": "file"
                     }
                   ]
                 },
