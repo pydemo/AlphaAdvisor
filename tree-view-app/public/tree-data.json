@@ -95,6 +95,11 @@
                                   "name": "1_JPEG_HREF-Switch.png",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1 JPEG_HREF Switch/1_JPEG_HREF-Switch.png",
                                   "type": "file"
+                                },
+                                {
+                                  "name": "Guide.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/1 JPEG_HREF Switch/Guide.png",
+                                  "type": "file"
                                 }
                               ]
                             },
@@ -175,6 +180,11 @@
                                       "type": "file"
                                     }
                                   ]
+                                },
+                                {
+                                  "name": "Guide.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/2 Image Quality Settings/Guide.png",
+                                  "type": "file"
                                 }
                               ]
                             },
@@ -197,6 +207,11 @@
                                   "name": "3_Aspect-Ratio.png",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/3 Aspect Ratio/3_Aspect-Ratio.png",
                                   "type": "file"
+                                },
+                                {
+                                  "name": "Guide.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/3 Aspect Ratio/Guide.png",
+                                  "type": "file"
                                 }
                               ]
                             },
@@ -218,6 +233,11 @@
                                 {
                                   "name": "4_File_Format.png",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/4 File Format/4_File_Format.png",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "Guide.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/4 File Format/Guide.png",
                                   "type": "file"
                                 }
                               ]
@@ -270,6 +290,11 @@
                                       "type": "file"
                                     }
                                   ]
+                                },
+                                {
+                                  "name": "Guide.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/5 Movie Settings/Guide.png",
+                                  "type": "file"
                                 }
                               ]
                             },
@@ -292,6 +317,11 @@
                                   "name": "6_APS-C-S35-Shooting.png",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/6 APS-C S35 Shooting/6_APS-C-S35-Shooting.png",
                                   "type": "file"
+                                },
+                                {
+                                  "name": "Guide.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/6 APS-C S35 Shooting/Guide.png",
+                                  "type": "file"
                                 }
                               ]
                             },
@@ -313,6 +343,11 @@
                                 {
                                   "name": "7_Long-Exposure-NR.png",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/7 Long Exposure NR/7_Long-Exposure-NR.png",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "Guide.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_1/7 Long Exposure NR/Guide.png",
                                   "type": "file"
                                 }
                               ]
@@ -348,6 +383,11 @@
                                   "name": "10_Color-Space.png",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/10 Color Space/10_Color-Space.png",
                                   "type": "file"
+                                },
+                                {
+                                  "name": "Guide.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/10 Color Space/Guide.png",
+                                  "type": "file"
                                 }
                               ]
                             },
@@ -375,6 +415,11 @@
                                       "name": "1_Shading-Comp.png",
                                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11 Lens Compensation/1 Shading Comp/1_Shading-Comp.png",
                                       "type": "file"
+                                    },
+                                    {
+                                      "name": "Guide.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11 Lens Compensation/1 Shading Comp/Guide.png",
+                                      "type": "file"
                                     }
                                   ]
                                 },
@@ -396,6 +441,11 @@
                                     {
                                       "name": "2_Chromatic-Aberration-Comp.png",
                                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11 Lens Compensation/2 Chromatic Aberration Comp/2_Chromatic-Aberration-Comp.png",
+                                      "type": "file"
+                                    },
+                                    {
+                                      "name": "Guide.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11 Lens Compensation/2 Chromatic Aberration Comp/Guide.png",
                                       "type": "file"
                                     }
                                   ]
@@ -419,8 +469,18 @@
                                       "name": "3_Distortion-Comp.png",
                                       "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11 Lens Compensation/3 Distortion Comp/3_Distortion-Comp.png",
                                       "type": "file"
+                                    },
+                                    {
+                                      "name": "Guide.png",
+                                      "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11 Lens Compensation/3 Distortion Comp/Guide.png",
+                                      "type": "file"
                                     }
                                   ]
+                                },
+                                {
+                                  "name": "Guide.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/11 Lens Compensation/Guide.png",
+                                  "type": "file"
                                 }
                               ]
                             },
@@ -443,6 +503,11 @@
                                   "name": "8_High-ISO-NR.png",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/8 High ISO NR/8_High-ISO-NR.png",
                                   "type": "file"
+                                },
+                                {
+                                  "name": "Guide.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/8 High ISO NR/Guide.png",
+                                  "type": "file"
                                 }
                               ]
                             },
@@ -464,6 +529,11 @@
                                 {
                                   "name": "9_HLG-Still-Image.png",
                                   "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/9 HLG Still Image/9_HLG-Still-Image.png",
+                                  "type": "file"
+                                },
+                                {
+                                  "name": "Guide.png",
+                                  "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/1_Image-Quality_Rec/PAGE_2/9 HLG Still Image/Guide.png",
                                   "type": "file"
                                 }
                               ]
@@ -500,6 +570,11 @@
                             {
                               "name": "1_Format.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/2_Media/1 Format/1_Format.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/2_Media/1 Format/Guide.png",
                               "type": "file"
                             }
                           ]
@@ -574,6 +649,11 @@
                                   "type": "file"
                                 }
                               ]
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/2_Media/2 Rec Media Settings/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -596,6 +676,11 @@
                               "name": "3_Recover-Image-DB.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/2_Media/3 Recover Image DB/3_Recover-Image-DB.png",
                               "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/2_Media/3 Recover Image DB/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -617,6 +702,11 @@
                             {
                               "name": "4_Display-Media-Info.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/2_Media/4 Display Media Info/4_Display-Media-Info.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/2_Media/4 Display Media Info/Guide.png",
                               "type": "file"
                             }
                           ]
@@ -695,6 +785,11 @@
                               "name": "1_File_Folder-Settings.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/1_File_Folder-Settings.png",
                               "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/1 File_Folder Settings/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -717,6 +812,11 @@
                               "name": "2_Select-REC-Folder.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/2 Select REC Folder/2_Select-REC-Folder.png",
                               "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/2 Select REC Folder/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -738,6 +838,11 @@
                             {
                               "name": "3_Create-New-Folder.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/3 Create New Folder/3_Create-New-Folder.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/3 Create New Folder/Guide.png",
                               "type": "file"
                             }
                           ]
@@ -779,6 +884,11 @@
                             {
                               "name": "4_IPTC-Information.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4 IPTC Information/4_IPTC-Information.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/4 IPTC Information/Guide.png",
                               "type": "file"
                             }
                           ]
@@ -845,6 +955,11 @@
                               "name": "5_Copyright-Info.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/5_Copyright-Info.png",
                               "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/5 Copyright Info/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -866,6 +981,11 @@
                             {
                               "name": "6_Write-Serial-Number.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/6 Write Serial Number/6_Write-Serial-Number.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/3_File/6 Write Serial Number/Guide.png",
                               "type": "file"
                             }
                           ]
@@ -901,6 +1021,11 @@
                               "name": "1_Recall-Camera-Setting.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1 Recall Camera Setting/1_Recall-Camera-Setting.png",
                               "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/1 Recall Camera Setting/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -923,6 +1048,11 @@
                               "name": "2_Camera-Set.-Memory.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2 Camera Set. Memory/2_Camera-Set.-Memory.png",
                               "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/2 Camera Set. Memory/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -944,6 +1074,11 @@
                             {
                               "name": "3_Memory_Recall-Media.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3 Memory Recall Media/3_Memory_Recall-Media.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/3 Memory Recall Media/Guide.png",
                               "type": "file"
                             }
                           ]
@@ -997,6 +1132,11 @@
                             {
                               "name": "4_Reg.-Custom-Shoot-Set.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4 Reg. Custom Shoot Set/4_Reg.-Custom-Shoot-Set.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/4_Shooting-Mode/4 Reg. Custom Shoot Set/Guide.png",
                               "type": "file"
                             }
                           ]
@@ -1123,6 +1263,11 @@
                               "name": "1_Drive-mode.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/5_Drive-Mode/1 Drive mode/1_Drive-mode.png",
                               "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/5_Drive-Mode/1 Drive mode/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -1223,6 +1368,11 @@
                             {
                               "name": "2_Bracket-Settings.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/5_Drive-Mode/2 Bracket Settings/2_Bracket-Settings.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/5_Drive-Mode/2 Bracket Settings/Guide.png",
                               "type": "file"
                             }
                           ]
@@ -1414,6 +1564,11 @@
                                   "type": "file"
                                 }
                               ]
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/5_Drive-Mode/3 Interval Shoot Func/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -1435,6 +1590,11 @@
                             {
                               "name": "4_Pixel-Shift-Multi-Shoot.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/5_Drive-Mode/4 Pixel Shift Multi Shoot/4_Pixel-Shift-Multi-Shoot.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/5_Drive-Mode/4 Pixel Shift Multi Shoot/Guide.png",
                               "type": "file"
                             }
                           ]
@@ -1560,6 +1720,11 @@
                               "name": "1 Silent Mode Settings.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/1 Silent Mode Settings/1 Silent Mode Settings.png",
                               "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/1 Silent Mode Settings/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -1572,6 +1737,11 @@
                               "name": "2 Shutter Type.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2 Shutter Type/2 Shutter Type.png",
                               "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/2 Shutter Type/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -1579,7 +1749,13 @@
                           "name": "3 e-Front Curtain Shut.",
                           "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/3 e-Front Curtain Shut.",
                           "type": "directory",
-                          "children": []
+                          "children": [
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/3 e-Front Curtain Shut./Guide.png",
+                              "type": "file"
+                            }
+                          ]
                         },
                         {
                           "name": "4 Release w_o Lens",
@@ -1589,6 +1765,11 @@
                             {
                               "name": "4 Release w_o Lens.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/4 Release w_o Lens/4 Release w_o Lens.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/4 Release w_o Lens/Guide.png",
                               "type": "file"
                             }
                           ]
@@ -1601,6 +1782,11 @@
                             {
                               "name": "5 Release w_o Card.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/5 Release w_o Card/5 Release w_o Card.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/5 Release w_o Card/Guide.png",
                               "type": "file"
                             }
                           ]
@@ -1633,6 +1819,11 @@
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/7 Anti-flicker Set./3 Var. Shutter Set.",
                               "type": "directory",
                               "children": []
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/6_Shutter_Silent/7 Anti-flicker Set./Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -1672,6 +1863,11 @@
                               "name": "1_SteadyShot.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/1 SteadyShot/1_SteadyShot.png",
                               "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/1 SteadyShot/Guide.png",
+                              "type": "file"
                             }
                           ]
                         },
@@ -1688,6 +1884,11 @@
                             {
                               "name": "2_SteadyShot-Adjusst.png",
                               "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/2 SteadyShot Adjust./2_SteadyShot-Adjusst.png",
+                              "type": "file"
+                            },
+                            {
+                              "name": "Guide.png",
+                              "path": "/home/alexb/myg/cla_2/tree-view-app/public/\u03b17RV/Stills/1_Shooting/PAGE_1/7_Image-Stabilization/2 SteadyShot Adjust./Guide.png",
                               "type": "file"
                             }
                           ]
