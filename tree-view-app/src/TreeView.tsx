@@ -1129,7 +1129,7 @@ const TreeView: React.FC<TreeViewProps> = ({
                       fontSize: "15px"
                     }}
                     onClick={() => {
-                      setInfoFileName("Gude.png");
+                      setInfoFileName("Guide.png");
                       // Hide dropdown
                       const dropdown = document.querySelector(".filename-dropdown") as HTMLDivElement;
                       if (dropdown) dropdown.style.display = "none";
@@ -1137,7 +1137,7 @@ const TreeView: React.FC<TreeViewProps> = ({
                     onMouseOver={e => (e.currentTarget.style.background = "#f5f5f5")}
                     onMouseOut={e => (e.currentTarget.style.background = "white")}
                   >
-                    Gude.png
+                    Guide.png
                   </button>
                 </div>
               </div>
