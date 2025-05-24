@@ -1038,19 +1038,109 @@ const TreeView: React.FC<TreeViewProps> = ({
               </span>
             </div>
             <div style={{ display: "flex", alignItems: "center", marginBottom: 6 }}>
-              <input
-                type="text"
-                value={infoFileName}
-                onChange={e => setInfoFileName(e.target.value)}
-                placeholder="File name"
-                style={{
-                  fontSize: 15,
-                  padding: "6px 10px",
-                  borderRadius: 4,
-                  border: "1.5px solid #0074d9",
-                  width: "70%"
-                }}
-              />
+              <div style={{ position: "relative", width: "70%" }}>
+                <input
+                  type="text"
+                  value={infoFileName}
+                  onChange={e => setInfoFileName(e.target.value)}
+                  placeholder="File name"
+                  style={{
+                    fontSize: 15,
+                    padding: "6px 10px",
+                    borderRadius: 4,
+                    border: "1.5px solid #0074d9",
+                    width: "100%",
+                    paddingRight: "30px" // Make room for the dropdown arrow
+                  }}
+                  onClick={e => {
+                    // Toggle dropdown on input click
+                    const target = e.currentTarget;
+                    // Find the dropdown by class name instead of using nextElementSibling
+                    const dropdown = target.parentElement?.querySelector(".filename-dropdown") as HTMLDivElement;
+                    if (dropdown) {
+                      dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+                    }
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    right: "10px",
+                    transform: "translateY(-50%)",
+                    cursor: "pointer",
+                    pointerEvents: "none" // Let clicks pass through to the input
+                  }}
+                >
+                  ▼
+                </div>
+                <div
+                  className="filename-dropdown"
+                  style={{
+                    display: "none",
+                    position: "absolute",
+                    top: "100%",
+                    left: 0,
+                    width: "100%",
+                    background: "white",
+                    border: "1px solid #0074d9",
+                    borderRadius: "0 0 4px 4px",
+                    zIndex: 10,
+                    boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+                    overflow: "hidden" // Ensure content stays within rounded corners
+                  }}
+                >
+                  {/* Current filename option */}
+                  <button
+                    type="button"
+                    style={{
+                      width: "100%",
+                      padding: "8px 10px",
+                      cursor: "pointer",
+                      borderBottom: "1px solid #eee",
+                      background: "white",
+                      border: "none",
+                      textAlign: "left",
+                      fontSize: "15px"
+                    }}
+                    onClick={() => {
+                      // Keep current filename but explicitly set it to ensure UI updates
+                      setInfoFileName(infoFileName);
+                      // Hide dropdown
+                      const dropdown = document.querySelector(".filename-dropdown") as HTMLDivElement;
+                      if (dropdown) dropdown.style.display = "none";
+                    }}
+                    onMouseOver={e => (e.currentTarget.style.background = "#f5f5f5")}
+                    onMouseOut={e => (e.currentTarget.style.background = "white")}
+                  >
+                    {infoFileName}
+                  </button>
+                  
+                  {/* Gude.png option */}
+                  <button
+                    type="button"
+                    style={{
+                      width: "100%",
+                      padding: "8px 10px",
+                      cursor: "pointer",
+                      background: "white",
+                      border: "none",
+                      textAlign: "left",
+                      fontSize: "15px"
+                    }}
+                    onClick={() => {
+                      setInfoFileName("Gude.png");
+                      // Hide dropdown
+                      const dropdown = document.querySelector(".filename-dropdown") as HTMLDivElement;
+                      if (dropdown) dropdown.style.display = "none";
+                    }}
+                    onMouseOver={e => (e.currentTarget.style.background = "#f5f5f5")}
+                    onMouseOut={e => (e.currentTarget.style.background = "white")}
+                  >
+                    Gude.png
+                  </button>
+                </div>
+              </div>
               <button
                 style={{
                   marginLeft: 8,
